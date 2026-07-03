@@ -1,0 +1,2797 @@
+{
+ "BLOODLETTING": {
+  "en": "Bloodletting",
+  "title": "사혈",
+  "description": "체력을 {HpLoss:diff()} 잃습니다.\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "STONE_ARMOR": {
+  "en": "Stone Armor",
+  "title": "돌 갑옷",
+  "description": "[gold]판금[/gold]을 {PlatingPower:diff()} 얻습니다."
+ },
+ "HEADBUTT": {
+  "en": "Headbutt",
+  "title": "박치기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]버린 카드 더미[/gold]의 카드\n1장을 [gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+ },
+ "BATTLE_TRANCE": {
+  "en": "Battle Trance",
+  "title": "전투 최면",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n이번 턴 동안 더 이상\n카드를 뽑을 수 없습니다."
+ },
+ "FEED": {
+  "en": "Feed",
+  "title": "포식",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]치명타[/gold]라면, 최대 체력이\n{MaxHp:diff()} 증가합니다."
+ },
+ "OFFERING": {
+  "en": "Offering",
+  "title": "제물",
+  "description": "체력을 {HpLoss:diff()} 잃습니다.\n{Energy:energyIcons()}를 얻습니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "INFLAME": {
+  "en": "Inflame",
+  "title": "발화",
+  "description": "[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다."
+ },
+ "COLOSSUS": {
+  "en": "Colossus",
+  "title": "거상",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 턴에 [gold]취약[/gold] 상태의\n적에게서 받는 피해량이\n50% 감소합니다."
+ },
+ "UNMOVABLE": {
+  "en": "Unmovable",
+  "title": "요지부동",
+  "description": "매 턴마다 처음으로\n카드를 통해 얻는 [gold]방어도[/gold]가\n2배가 됩니다."
+ },
+ "EXPECT_A_FIGHT": {
+  "en": "Expect A Fight",
+  "title": "싸움 준비",
+  "description": "[gold]손[/gold]에 있는 공격 카드 1장당\n{energyPrefix:energyIcons(1)}를 얻습니다.\n이번 턴에 추가로\n{energyPrefix:energyIcons(1)}를 얻을 수 없습니다.{InCombat:\n({CalculatedEnergy:energyIcons()}를 얻습니다.)|}"
+ },
+ "BARRICADE": {
+  "en": "Barricade",
+  "title": "바리케이드",
+  "description": "내 턴 시작 시 [gold]방어도[/gold]가\n사라지지 않습니다."
+ },
+ "RUPTURE": {
+  "en": "Rupture",
+  "title": "파열",
+  "description": "내 턴 동안 체력을 잃을\n때마다, [gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다."
+ },
+ "BRAND": {
+  "en": "Brand",
+  "title": "낙인",
+  "description": "체력을 {HpLoss:diff()} 잃습니다.\n카드를 1장 [gold]소멸[/gold]시킵니다.\n[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다."
+ },
+ "DARK_EMBRACE": {
+  "en": "Dark Embrace",
+  "title": "어둠의 포옹",
+  "description": "카드가 [gold]소멸[/gold]될 때마다,\n카드를 1장 뽑습니다."
+ },
+ "FEEL_NO_PAIN": {
+  "en": "Feel No Pain",
+  "title": "무감각",
+  "description": "카드가 [gold]소멸[/gold]될 때마다,\n[gold]방어도[/gold]를 {Power:diff()} 얻습니다."
+ },
+ "BURNING_PACT": {
+  "en": "Burning Pact",
+  "title": "불타는 조약",
+  "description": "카드를 1장 [gold]소멸[/gold]시킵니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "IMPERVIOUS": {
+  "en": "Impervious",
+  "title": "무적",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "PILLAGE": {
+  "en": "Pillage",
+  "title": "갈취",
+  "description": "피해를 {Damage:diff()} 줍니다.\n공격이 아닌 카드를 뽑을\n때까지 카드를 뽑습니다."
+ },
+ "PYRE": {
+  "en": "Pyre",
+  "title": "불의 심장",
+  "description": "매 턴 시작 시,\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "TAUNT": {
+  "en": "Taunt",
+  "title": "도발",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "SECOND_WIND": {
+  "en": "Second Wind",
+  "title": "기사회생",
+  "description": "[gold]손[/gold]에 있는 공격이 아닌\n모든 카드를 [gold]소멸[/gold]시킵니다.\n[gold]소멸[/gold]시킨 카드 1장당\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "SPITE": {
+  "en": "Spite",
+  "title": "악의",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 턴 동안 체력을\n잃었다면, {Repeat:diff()}번 적중합니다."
+ },
+ "EVIL_EYE": {
+  "en": "Evil Eye",
+  "title": "악마의 눈",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 턴 동안 [gold]소멸[/gold]시킨\n카드가 있다면 [gold]방어도[/gold]를\n추가로 {Block:diff()} 얻습니다."
+ },
+ "CRIMSON_MANTLE": {
+  "en": "Crimson Mantle",
+  "title": "핏빛 망토",
+  "description": "내 턴 시작 시,\n체력을 1 잃고\n[gold]방어도[/gold]를 {CrimsonMantlePower:diff()} 얻습니다."
+ },
+ "FLAME_BARRIER": {
+  "en": "Flame Barrier",
+  "title": "화염 장벽",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 턴에 공격을 받을\n때마다, 공격한 적에게\n피해를 {DamageBack:diff()} 줍니다."
+ },
+ "VICIOUS": {
+  "en": "Vicious",
+  "title": "포악함",
+  "description": "[gold]취약[/gold]을 부여할 때마다,\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "AGGRESSION": {
+  "en": "Aggression",
+  "title": "공격성",
+  "description": "내 턴 시작 시,\n[gold]버린 카드 더미[/gold]에서 무작위\n공격 카드를 1장 [gold]손[/gold]으로\n가져오고 [gold]강화[/gold]합니다."
+ },
+ "PRIMAL_FORCE": {
+  "en": "Primal Force",
+  "title": "원시의 힘",
+  "description": "[gold]손[/gold]에 있는 모든 공격\n카드를 [gold]{IfUpgraded:show:거대한 바위+|거대한 바위}[/gold]로\n변화시킵니다."
+ },
+ "THRASH": {
+  "en": "Thrash",
+  "title": "난타",
+  "description": "피해를 {Damage:diff()}만큼 2번 줍니다.\n[gold]손[/gold]에 있는 무작위 공격\n카드를 1장 [gold]소멸[/gold]시키고,\n그 카드의 피해량을\n이 카드에 추가합니다."
+ },
+ "STOKE": {
+  "en": "Stoke",
+  "title": "화력 증폭",
+  "description": "[gold]손[/gold]에 있는 모든 카드를\n[gold]소멸[/gold]시킵니다.\n[gold]소멸[/gold]시킨 카드의 수만큼\n무작위 {IfUpgraded:show:[gold]강화[/gold]된 |}카드를\n1장 [gold]손[/gold]으로 가져옵니다."
+ },
+ "HEMOKINESIS": {
+  "en": "Hemokinesis",
+  "title": "혈류",
+  "description": "체력을 {HpLoss:diff()} 잃습니다.\n피해를 {Damage:diff()} 줍니다."
+ },
+ "ASHEN_STRIKE": {
+  "en": "Ashen Strike",
+  "title": "잿빛 타격",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n[gold]소멸된 카드 더미[/gold]에 있는\n카드 1장당 피해량이\n{ExtraDamage:diff()} 증가합니다."
+ },
+ "WHIRLWIND": {
+  "en": "Whirlwind",
+  "title": "소용돌이",
+  "description": "모든 적에게 피해를\n{Damage:diff()}만큼 X번 줍니다."
+ },
+ "BODY_SLAM": {
+  "en": "Body Slam",
+  "title": "몸통 박치기",
+  "description": "[gold]방어도[/gold]만큼의\n피해를 줍니다.{InCombat:\n(피해를 {CalculatedDamage:diff()} 줍니다)|}"
+ },
+ "BLOOD_WALL": {
+  "en": "Blood Wall",
+  "title": "피의 벽",
+  "description": "체력을 {HpLoss:diff()} 잃습니다.\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "JUGGERNAUT": {
+  "en": "Juggernaut",
+  "title": "절대적인 힘",
+  "description": "[gold]방어도[/gold]를 얻을 때마다,\n무작위 적에게\n피해를 {JuggernautPower:diff()} 줍니다."
+ },
+ "TRUE_GRIT": {
+  "en": "True Grit",
+  "title": "진정한 끈기",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n{IfUpgraded:show:카드를 1장 [gold]소멸[/gold]시킵니다.|무작위 카드를\n1장 [gold]소멸[/gold]시킵니다.}"
+ },
+ "IRON_WAVE": {
+  "en": "Iron Wave",
+  "title": "철의 파동",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n피해를 {Damage:diff()} 줍니다."
+ },
+ "STOMP": {
+  "en": "Stomp",
+  "title": "짓밟기",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n이번 턴 동안 사용한\n공격 카드 1장당\n{energyPrefix:energyIcons(1)} 비용이 1 감소합니다."
+ },
+ "BLUDGEON": {
+  "en": "Bludgeon",
+  "title": "몽둥이질",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "BREAKTHROUGH": {
+  "en": "Breakthrough",
+  "title": "정면 돌파",
+  "description": "체력을 {HpLoss:diff()} 잃습니다.\n모든 적에게\n피해를 {Damage:diff()} 줍니다."
+ },
+ "INFERNAL_BLADE": {
+  "en": "Infernal Blade",
+  "title": "지옥검",
+  "description": "무작위 공격 카드를 1장\n[gold]손[/gold]으로 가져옵니다.\n이번 턴 동안 그 카드를\n비용 없이 사용할 수 있습니다."
+ },
+ "JUGGLING": {
+  "en": "Juggling",
+  "title": "저글링",
+  "description": "매 턴마다 세 번째로\n사용하는 [gold]공격[/gold] 카드의\n복사본을 1장 [gold]손[/gold]으로\n가져옵니다."
+ },
+ "SHRUG_IT_OFF": {
+  "en": "Shrug It Off",
+  "title": "흘려보내기",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "DISMANTLE": {
+  "en": "Dismantle",
+  "title": "해체",
+  "description": "피해를 {Damage:diff()} 줍니다.\n대상 적이 [gold]취약[/gold] 상태라면,\n2번 적중합니다."
+ },
+ "POMMEL_STRIKE": {
+  "en": "Pommel Strike",
+  "title": "폼멜 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "MOLTEN_FIST": {
+  "en": "Molten Fist",
+  "title": "녹아내리는 주먹",
+  "description": "피해를 {Damage:diff()} 줍니다.\n적이 보유한 [gold]취약[/gold]이\n2배로 증가합니다."
+ },
+ "PERFECTED_STRIKE": {
+  "en": "Perfected Strike",
+  "title": "완벽한 타격",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n보유한 카드 중 이름에\n“타격”이 포함된 카드 1장당\n피해량이 {ExtraDamage:diff()} 증가합니다."
+ },
+ "CORRUPTION": {
+  "en": "Corruption",
+  "title": "타락",
+  "description": "스킬 카드의 비용이\n0 {energyPrefix:energyIcons(1)}이 됩니다.\n스킬 카드를 사용할 때마다 그 카드를 [gold]소멸[/gold]시킵니다."
+ },
+ "DEMON_FORM": {
+  "en": "Demon Form",
+  "title": "악마의 형상",
+  "description": "내 턴 시작 시,\n[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다."
+ },
+ "BASH": {
+  "en": "Bash",
+  "title": "강타",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "ANGER": {
+  "en": "Anger",
+  "title": "분노",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이 카드의 복사본을 1장\n[gold]버린 카드 더미[/gold]에\n추가합니다."
+ },
+ "THUNDERCLAP": {
+  "en": "Thunderclap",
+  "title": "천둥",
+  "description": "모든 적에게 피해를 {Damage:diff()} 주고 [gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "UPPERCUT": {
+  "en": "Uppercut",
+  "title": "어퍼컷",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]약화[/gold]을 {Power:diff()} 부여합니다.\n[gold]취약[/gold]을 {Power:diff()} 부여합니다."
+ },
+ "ARMAMENTS": {
+  "en": "Armaments",
+  "title": "전투장비",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]손[/gold]에 있는 {IfUpgraded:show:모든 카드를|카드를 1장}\n[gold]강화[/gold]합니다."
+ },
+ "RAMPAGE": {
+  "en": "Rampage",
+  "title": "광란",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 전투 동안 이 카드의 피해량이 {Increase:diff()} 증가합니다."
+ },
+ "CLASH": {
+  "en": "Clash",
+  "title": "격돌",
+  "description": "[gold]손[/gold]에 있는 모든 카드가\n공격 카드일 때만\n사용할 수 있습니다.\n피해를 {Damage:diff()} 줍니다."
+ },
+ "MANGLE": {
+  "en": "Mangle",
+  "title": "난도질",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 턴 동안 적이\n[gold]힘[/gold]을 {StrengthLoss:diff()} 잃습니다."
+ },
+ "CASCADE": {
+  "en": "Cascade",
+  "title": "연쇄",
+  "description": "[gold]뽑을 카드 더미[/gold] 맨 위의\n무작위 카드를 X{IfUpgraded:show:+1}장\n사용합니다."
+ },
+ "STRIKE": {
+  "en": "Strike",
+  "title": "타격",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "DEFEND": {
+  "en": "Defend",
+  "title": "수비",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "SWORD_BOOMERANG": {
+  "en": "Sword Boomerang",
+  "title": "부메랑 칼날",
+  "description": "무작위 적에게\n피해를 {Damage:diff()}만큼 {Repeat:diff()}번 줍니다."
+ },
+ "TWIN_STRIKE": {
+  "en": "Twin Strike",
+  "title": "이중 타격",
+  "description": "피해를 {Damage:diff()}만큼 2번 줍니다."
+ },
+ "ENTRENCH": {
+  "en": "Entrench",
+  "title": "참호",
+  "description": "[gold]방어도[/gold]가 2배가 됩니다."
+ },
+ "FIEND_FIRE": {
+  "en": "Fiend Fire",
+  "title": "지옥불",
+  "description": "[gold]손[/gold]에 있는 모든 카드를\n[gold]소멸[/gold]시킵니다.\n[gold]소멸[/gold]시킨 카드 1장당\n피해를 {Damage:diff()} 줍니다."
+ },
+ "SHOCKWAVE": {
+  "en": "Shockwave",
+  "title": "충격파",
+  "description": "모든 적에게 [gold]약화[/gold]와 [gold]취약[/gold]을\n{Power:diff()} 부여합니다."
+ },
+ "RAGE": {
+  "en": "Rage",
+  "title": "격노",
+  "description": "이번 턴에 공격 카드를\n사용할 때마다,\n[gold]방어도[/gold]를 {Power:diff()} 얻습니다."
+ },
+ "FIGHT_ME": {
+  "en": "Fight Me!",
+  "title": "덤벼라!",
+  "description": "피해를 {Damage:diff()}만큼 2번 줍니다.\n[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다.\n대상 적이 [gold]힘[/gold]을 {EnemyStrength:diff()} 얻습니다."
+ },
+ "CONFLAGRATION": {
+  "en": "Conflagration",
+  "title": "대화재",
+  "description": "모든 적에게\n피해를 {Damage:diff()}만큼 {Repeat:diff()}번 줍니다."
+ },
+ "CRUELTY": {
+  "en": "Cruelty",
+  "title": "악랄함",
+  "description": "[gold]취약[/gold] 상태의 적이 받는\n피해가 {CrueltyPower:diff()}% 증가합니다."
+ },
+ "CINDER": {
+  "en": "Cinder",
+  "title": "잿불",
+  "description": "피해를 {Damage:diff()} 줍니다.\n무작위 카드를\n1장 [gold]소멸[/gold] 시킵니다."
+ },
+ "HAVOC": {
+  "en": "Havoc",
+  "title": "파괴",
+  "description": "[gold]뽑을 카드 더미[/gold] 맨 위의\n카드를 사용한 뒤\n[gold]소멸[/gold]시킵니다."
+ },
+ "SETUP_STRIKE": {
+  "en": "Setup Strike",
+  "title": "사전 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 턴 동안\n[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다."
+ },
+ "TREMBLE": {
+  "en": "Tremble",
+  "title": "떨림",
+  "description": "[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "BULLY": {
+  "en": "Bully",
+  "title": "협박",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n대상 적이 보유한 [gold]취약[/gold]마다 피해량이 {ExtraDamage:diff()} 증가합니다."
+ },
+ "DEMONIC_SHIELD": {
+  "en": "Demonic Shield",
+  "title": "악마의 방패",
+  "description": "체력을 {HpLoss:diff()} 잃습니다.\n다른 플레이어에게 자신의\n[gold]방어도[/gold]와 동일한 만큼의\n[gold]방어도[/gold]를 줍니다.{InCombat:\n([gold]방어도[/gold]를 {CalculatedBlock:diff()} 줍니다)|}"
+ },
+ "DOMINATE": {
+  "en": "Dominate",
+  "title": "제압",
+  "description": "[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다.\n대상 적이 보유한 [gold]취약[/gold]마다\n[gold]힘[/gold]을 {StrengthPerVulnerable:diff()} 얻습니다."
+ },
+ "DRUM_OF_BATTLE": {
+  "en": "Drum of Battle",
+  "title": "전투의 북소리",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n이 카드가 [gold]소멸[/gold]될 시,\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "FORGOTTEN_RITUAL": {
+  "en": "Forgotten Ritual",
+  "title": "잊힌 의식",
+  "description": "이번 턴에 카드를\n[gold]소멸[/gold]시켰다면,\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "HOWL_FROM_BEYOND": {
+  "en": "Howl from Beyond",
+  "title": "저편의 울음소리",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n내 턴 종료 시, 이 카드가\n[gold]소멸된 카드 더미[/gold]에 있다면,\n사용합니다."
+ },
+ "INFERNO": {
+  "en": "Inferno",
+  "title": "불바다",
+  "description": "내 턴 시작 시,\n체력을 1 잃습니다.\n내 턴 동안 체력을\n잃을 때마다, 모든 적에게\n피해를 {InfernoPower:diff()} 줍니다."
+ },
+ "STAMPEDE": {
+  "en": "Stampede",
+  "title": "쇄도",
+  "description": "내 턴 종료 시, [gold]손[/gold]에 있는\n무작위 공격 카드 {Power:diff()}장이\n무작위 적에게 사용됩니다."
+ },
+ "UNRELENTING": {
+  "en": "Unrelenting",
+  "title": "무자비",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음에 사용하는\n공격 카드의 비용이\n0 {energyPrefix:energyIcons(1)}이 됩니다."
+ },
+ "HELLRAISER": {
+  "en": "Hellraiser",
+  "title": "지옥검무",
+  "description": "이름에 “타격”이 포함된\n카드를 뽑을 때마다,\n무작위 적에게 사용합니다."
+ },
+ "ONE_TWO_PUNCH": {
+  "en": "One-Two Punch",
+  "title": "원투 펀치",
+  "description": "이번 턴에, 다음에\n사용하는 {Attacks:cond:>1?공격 카드 {Attacks:diff()}장이|공격 카드가}\n1번 추가로 사용됩니다."
+ },
+ "PACTS_END": {
+  "en": "Pact's End",
+  "title": "조약의 끝",
+  "description": "[gold]소멸된 카드 더미[/gold]에\n카드가 {Cards:diff()}장 이상 있다면,\n모든 적에게\n피해를 {Damage:diff()} 줍니다."
+ },
+ "TEAR_ASUNDER": {
+  "en": "Tear Asunder",
+  "title": "갈가리 찢기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 전투 동안 체력을\n잃은 횟수만큼 반복합니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "NOT_YET": {
+  "en": "Not Yet",
+  "title": "불굴",
+  "description": "체력을 {Heal:diff()} 회복합니다."
+ },
+ "ADRENALINE": {
+  "en": "Adrenaline",
+  "title": "아드레날린",
+  "description": "{Energy:energyIcons()}를 얻습니다.\n카드를 2장 뽑습니다."
+ },
+ "WELL_LAID_PLANS": {
+  "en": "Well-Laid Plans",
+  "title": "괜찮은 전략",
+  "description": "내 턴 종료 시, 카드를\n최대 {RetainAmount:diff()}장까지 [gold]보존[/gold]합니다."
+ },
+ "CALCULATED_GAMBLE": {
+  "en": "Calculated Gamble",
+  "title": "계산된 도박",
+  "description": "[gold]손[/gold]에 있는 모든 카드를\n버린 뒤, 버린 카드의\n수만큼 카드를 뽑습니다."
+ },
+ "NOXIOUS_FUMES": {
+  "en": "Noxious Fumes",
+  "title": "유독 가스",
+  "description": "내 턴 시작 시, 모든 적에게 [gold]중독[/gold]을 {PoisonPerTurn:diff()} 부여합니다."
+ },
+ "ACCURACY": {
+  "en": "Accuracy",
+  "title": "정밀",
+  "description": "[gold]단도[/gold]의 피해량이\n{AccuracyPower:diff()} 증가합니다."
+ },
+ "BURST": {
+  "en": "Burst",
+  "title": "폭주",
+  "description": "이번 턴에 다음에 사용하는 {Skills:choose(1):스킬 카드가|스킬 카드 {:diff()}장이}\n1번 추가로 사용됩니다."
+ },
+ "INFINITE_BLADES": {
+  "en": "Infinite Blades",
+  "title": "무한의 검날",
+  "description": "내 턴 시작 시, [gold]단도[/gold]를 1장 [gold]손[/gold]으로 가져옵니다."
+ },
+ "REFLEX": {
+  "en": "Reflex",
+  "title": "반사신경",
+  "description": "카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "TACTICIAN": {
+  "en": "Tactician",
+  "title": "전략가",
+  "description": "{Energy:energyIcons()}를 얻습니다."
+ },
+ "BLADE_DANCE": {
+  "en": "Blade Dance",
+  "title": "검무",
+  "description": "[gold]단도[/gold]를 {Cards:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "CLOAK_AND_DAGGER": {
+  "en": "Cloak And Dagger",
+  "title": "망토와 단검",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]단도[/gold]를 {Cards:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "KNIFE_TRAP": {
+  "en": "Knife Trap",
+  "title": "칼날 함정",
+  "description": "[gold]소멸된 카드 더미[/gold]에 있는\n모든 [gold]단도[/gold]를 대상 적에게\n{IfUpgraded:show: [gold]강화[/gold]한 뒤|} 사용합니다.{InCombat:\n([gold]단도[/gold]를 {CalculatedShivs:diff()}장 사용합니다)|}"
+ },
+ "DEADLY_POISON": {
+  "en": "Deadly Poison",
+  "title": "맹독",
+  "description": "[gold]중독[/gold]을 {PoisonPower:diff()} 부여합니다."
+ },
+ "POISONED_STAB": {
+  "en": "Poisoned Stab",
+  "title": "독 찌르기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]중독[/gold]을 {PoisonPower:diff()} 부여합니다."
+ },
+ "BOUNCING_FLASK": {
+  "en": "Bouncing Flask",
+  "title": "탄성 플라스크",
+  "description": "무작위 적에게 [gold]중독[/gold]을\n{PoisonPower:diff()}만큼 {Repeat:diff()}번 부여합니다."
+ },
+ "HAZE": {
+  "en": "Haze",
+  "title": "아지랑이",
+  "description": "모든 적에게\n[gold]중독[/gold]을 {PoisonPower:diff()} 부여합니다."
+ },
+ "ACCELERANT": {
+  "en": "Accelerant",
+  "title": "촉진제",
+  "description": "[gold]중독[/gold]이 {Accelerant:diff()}번\n추가로 발동합니다."
+ },
+ "ACROBATICS": {
+  "en": "Acrobatics",
+  "title": "곡예",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n카드를 1장 버립니다."
+ },
+ "PREPARED": {
+  "en": "Prepared",
+  "title": "예비",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n카드를 {Cards:diff()}장 버립니다."
+ },
+ "ENVENOM": {
+  "en": "Envenom",
+  "title": "독 바르기",
+  "description": "공격 카드가 막히지 않은\n피해를 줄 때마다,\n[gold]중독[/gold]을 {EnvenomPower:diff()} 부여합니다."
+ },
+ "FINISHER": {
+  "en": "Finisher",
+  "title": "마무리",
+  "description": "이번 턴에 사용한\n공격 카드 1장당\n피해를 {Damage:diff()} 줍니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "MIRAGE": {
+  "en": "Mirage",
+  "title": "신기루",
+  "description": "모든 적에게 부여된\n[gold]중독[/gold]과 동일한 만큼의\n[gold]방어도[/gold]를 얻습니다.{InCombat:\n([gold]방어도[/gold]를 {CalculatedBlock:diff()} 얻습니다)|}"
+ },
+ "BLUR": {
+  "en": "Blur",
+  "title": "흐릿함",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n다음 턴 시작 시 [gold]방어도[/gold]가 사라지지 않습니다."
+ },
+ "DAGGER_THROW": {
+  "en": "Dagger Throw",
+  "title": "단검 투척",
+  "description": "피해를 {Damage:diff()} 줍니다.\n카드를 1장 뽑습니다.\n카드를 1장 버립니다."
+ },
+ "DASH": {
+  "en": "Dash",
+  "title": "돌진",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n피해를 {Damage:diff()} 줍니다."
+ },
+ "SURVIVOR": {
+  "en": "Survivor",
+  "title": "생존자",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n카드를 1장 버립니다."
+ },
+ "EXPERTISE": {
+  "en": "Expertise",
+  "title": "전문성",
+  "description": "[gold]손[/gold]에 있는 카드가 {Cards:diff()}장이\n될 때까지 카드를 뽑습니다."
+ },
+ "BUBBLE_BUBBLE": {
+  "en": "Bubble Bubble",
+  "title": "차오르는 독",
+  "description": "대상 적이 [gold]중독[/gold]을\n보유하고 있다면,\n[gold]중독[/gold]을 {PoisonPower:diff()} 부여합니다."
+ },
+ "BACKSTAB": {
+  "en": "Backstab",
+  "title": "배신",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "FAN_OF_KNIVES": {
+  "en": "Fan Of Knives",
+  "title": "칼날 부채",
+  "description": "[gold]단도[/gold]가 이제 모든 적을\n대상으로 합니다.\n[gold]단도[/gold]를 {Shivs:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "SNAKEBITE": {
+  "en": "Snakebite",
+  "title": "뱀 물기",
+  "description": "[gold]중독[/gold]을 {PoisonPower:diff()} 부여합니다."
+ },
+ "FOOTWORK": {
+  "en": "Footwork",
+  "title": "발놀림",
+  "description": "[gold]민첩[/gold]을 {DexterityPower:diff()} 얻습니다."
+ },
+ "OUTMANEUVER": {
+  "en": "Outmaneuver",
+  "title": "압도",
+  "description": "다음 턴에,\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "SKEWER": {
+  "en": "Skewer",
+  "title": "꼬챙이",
+  "description": "피해를 {Damage:diff()}만큼 X번 줍니다."
+ },
+ "LEG_SWEEP": {
+  "en": "Leg Sweep",
+  "title": "다리 걸기",
+  "description": "[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다.\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "SHADOWMELD": {
+  "en": "Shadowmeld",
+  "title": "그림자 은신",
+  "description": "이번 턴 동안 얻는\n[gold]방어도[/gold]가 2배가 됩니다."
+ },
+ "PREDATOR": {
+  "en": "Predator",
+  "title": "천적",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음 턴에,\n카드를 2장 뽑습니다."
+ },
+ "RICOCHET": {
+  "en": "Ricochet",
+  "title": "도탄",
+  "description": "무작위 적에게\n피해를 {Damage:diff()}만큼 {Repeat:diff()}번 줍니다."
+ },
+ "FLICK_FLACK": {
+  "en": "Flick Flack",
+  "title": "재주넘기",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다."
+ },
+ "UNTOUCHABLE": {
+  "en": "Untouchable",
+  "title": "범접 불가",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "ASSASSINATE": {
+  "en": "Assassinate",
+  "title": "암살",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "DISTRACTION": {
+  "en": "Distraction",
+  "title": "방해",
+  "description": "무작위 스킬 카드를 1장\n[gold]손[/gold]으로 가져옵니다.\n이번 턴 동안 그 카드를\n비용 없이 사용할 수 있습니다."
+ },
+ "NIGHTMARE": {
+  "en": "Nightmare",
+  "title": "악몽",
+  "description": "카드를 1장 선택합니다.\n다음 턴에, 그 카드의\n복사본을 3장 [gold]손[/gold]으로\n가져옵니다."
+ },
+ "MASTER_PLANNER": {
+  "en": "Master Planner",
+  "title": "설계의 대가",
+  "description": "스킬 카드를 사용 시,\n그 카드가 [gold]교활[/gold]을 얻습니다."
+ },
+ "GRAND_FINALE": {
+  "en": "Grand Finale",
+  "title": "대단원의 막",
+  "description": "[gold]뽑을 카드 더미[/gold]에\n카드가 없을 때만\n사용할 수 있습니다.\n모든 적에게\n피해를 {Damage:diff()} 줍니다."
+ },
+ "TOOLS_OF_THE_TRADE": {
+  "en": "Tools Of The Trade",
+  "title": "작업 도구",
+  "description": "내 턴 시작 시,\n카드를 1장 뽑고\n카드를 1장 버립니다."
+ },
+ "HAND_TRICK": {
+  "en": "Hand Trick",
+  "title": "손기술",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 턴 동안 [gold]손[/gold]에 있는\n스킬 카드 1장에\n[gold]교활[/gold]을 추가합니다."
+ },
+ "CALTROPS": {
+  "en": "Caltrops",
+  "title": "마름쇠",
+  "description": "공격을 받을 때마다,\n공격한 적에게\n피해를 {ThornsPower:diff()} 줍니다."
+ },
+ "STORM_OF_STEEL": {
+  "en": "Storm Of Steel",
+  "title": "강철의 폭풍",
+  "description": "[gold]손[/gold]에 있는 모든 카드를\n버립니다.\n버린 카드의 수만큼\n[gold]{IfUpgraded:show:단도+|단도}[/gold]를 [gold]손[/gold]으로 가져옵니다."
+ },
+ "PIERCING_WAIL": {
+  "en": "Piercing Wail",
+  "title": "귀를 찢는 비명",
+  "description": "이번 턴 동안 모든 적이\n[gold]힘[/gold]을 {StrengthLoss:diff()} 잃습니다."
+ },
+ "ANTICIPATE": {
+  "en": "Anticipate",
+  "title": "예측",
+  "description": "이번 턴 동안\n[gold]민첩[/gold]을 {DexterityPower:diff()} 얻습니다."
+ },
+ "BACKFLIP": {
+  "en": "Backflip",
+  "title": "공중제비",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n카드를 2장 뽑습니다."
+ },
+ "DAGGER_SPRAY": {
+  "en": "Dagger Spray",
+  "title": "단검 분사",
+  "description": "모든 적에게\n피해를 {Damage:diff()}만큼 2번 줍니다."
+ },
+ "DEFLECT": {
+  "en": "Deflect",
+  "title": "튕겨내기",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "DODGE_AND_ROLL": {
+  "en": "Dodge And Roll",
+  "title": "구르기",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n다음 턴에,\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "LEADING_STRIKE": {
+  "en": "Leading Strike",
+  "title": "선제 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]단도[/gold]를 {Shivs:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "SLICE": {
+  "en": "Slice",
+  "title": "칼질",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "SUCKER_PUNCH": {
+  "en": "Sucker Punch",
+  "title": "불의의 일격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다."
+ },
+ "ESCAPE_PLAN": {
+  "en": "Escape Plan",
+  "title": "탈출구",
+  "description": "카드를 1장 뽑습니다.\n스킬 카드를 뽑았다면,\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "EXPOSE": {
+  "en": "Expose",
+  "title": "들춰내기",
+  "description": "대상 적의 모든 [gold]인공물[/gold]과\n[gold]방어도[/gold]를 제거합니다.\n[gold]취약[/gold]을 {Power:diff()} 부여합니다."
+ },
+ "FLANKING": {
+  "en": "Flanking",
+  "title": "측면 공격",
+  "description": "이번 턴에 대상 적이\n다른 플레이어에게 받는\n공격 피해량이 2배가\n됩니다."
+ },
+ "FLECHETTES": {
+  "en": "Flechettes",
+  "title": "프레췌",
+  "description": "[gold]손[/gold]에 있는 스킬 카드 1장당 피해를 {Damage:diff()} 줍니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "ABRASIVE": {
+  "en": "Abrasive",
+  "title": "연마",
+  "description": "[gold]민첩[/gold]을 {DexterityPower:diff()} 얻습니다.\n[gold]가시[/gold]를 {ThornsPower:diff()} 얻습니다."
+ },
+ "BLADE_OF_INK": {
+  "en": "Blade Of Ink",
+  "title": "잉크 칼날",
+  "description": "[purple]잉크투성이[/purple] [gold]단도[/gold]를 {Cards:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "BULLET_TIME": {
+  "en": "Bullet Time",
+  "title": "불릿 타임",
+  "description": "이번 턴 동안 더 이상\n카드를 뽑을 수 없습니다.\n이번 턴 동안 [gold]손[/gold]에 있는\n모든 카드를 비용 없이\n사용할 수 있습니다."
+ },
+ "CORROSIVE_WAVE": {
+  "en": "Corrosive Wave",
+  "title": "부식성 파도",
+  "description": "이번 턴에 카드를 뽑을\n때마다, 모든 적에게\n[gold]중독[/gold]을 {CorrosiveWave:diff()} 부여합니다."
+ },
+ "ECHOING_SLASH": {
+  "en": "Echoing Slash",
+  "title": "메아리 참격",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n적을 처치할 때마다\n이 효과를 반복합니다."
+ },
+ "MALAISE": {
+  "en": "Malaise",
+  "title": "불쾌",
+  "description": "적이 [gold]힘[/gold]을 X{IfUpgraded:show:+1} 잃습니다.\n[gold]약화[/gold]를 X{IfUpgraded:show:+1} 부여합니다."
+ },
+ "MURDER": {
+  "en": "Murder",
+  "title": "살해",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n이번 전투 동안\n뽑은 카드 1장당\n피해량이 {ExtraDamage:diff()} 증가합니다."
+ },
+ "SERPENT_FORM": {
+  "en": "Serpent Form",
+  "title": "구렁이의 형상",
+  "description": "카드를 사용할 때마다,\n무작위 적에게\n피해를 {SerpentFormPower:diff()} 줍니다."
+ },
+ "SHADOW_STEP": {
+  "en": "Shadow Step",
+  "title": "그림자 걸음",
+  "description": "[gold]손[/gold]에 있는 모든 카드를\n버립니다.\n다음 턴에, 공격 카드의\n피해량이 2배가 됩니다."
+ },
+ "SNEAKY": {
+  "en": "Sneaky",
+  "title": "비열함",
+  "description": "다른 플레이어가\n적을 공격할 때마다,\n[gold]방어도[/gold]를 {SneakyPower:diff()} 얻습니다."
+ },
+ "TRACKING": {
+  "en": "Tracking",
+  "title": "추적",
+  "description": "[gold]약화[/gold] 상태의 적이\n공격 카드로 받는 피해가\n50% 증가합니다."
+ },
+ "SUPPRESS": {
+  "en": "Suppress",
+  "title": "진압",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다."
+ },
+ "WRAITH_FORM": {
+  "en": "Wraith Form",
+  "title": "유령의 형상",
+  "description": "[gold]불가침[/gold]을 {IntangiblePower:diff()} 얻습니다.\n내 턴 시작 시,\n[gold]민첩[/gold]을 {WraithFormPower:diff()} 잃습니다."
+ },
+ "NEUTRALIZE": {
+  "en": "Neutralize",
+  "title": "무력화",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다."
+ },
+ "HIDDEN_DAGGERS": {
+  "en": "Hidden Daggers",
+  "title": "숨겨진 단검",
+  "description": "카드를 {Cards:diff()}장 버립니다.\n[gold]{IfUpgraded:show:단도+|단도}[/gold]를 {Shivs:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "MEMENTO_MORI": {
+  "en": "Memento Mori",
+  "title": "메멘토 모리",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n이번 턴에 버린 카드 1장당 피해량이 {ExtraDamage:diff()} 증가합니다."
+ },
+ "OUTBREAK": {
+  "en": "Outbreak",
+  "title": "발병",
+  "description": "[gold]중독[/gold]을 부여할 때마다, 모든 적에게\n피해를 {OutbreakPower:diff()} 줍니다."
+ },
+ "PHANTOM_BLADES": {
+  "en": "Phantom Blades",
+  "title": "환영검",
+  "description": "[gold]단도[/gold]가 [gold]보존[/gold]을 얻습니다.\n매 턴마다 처음으로\n사용하는 [gold]단도[/gold]의\n피해량이 {PhantomBladesPower:diff()} 증가합니다."
+ },
+ "PINPOINT": {
+  "en": "Pinpoint",
+  "title": "정밀 사격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 턴에 스킬 카드를\n사용할 때마다 비용이\n1 {energyPrefix:energyIcons(1)} 감소합니다."
+ },
+ "POUNCE": {
+  "en": "Pounce",
+  "title": "덮치기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음에 사용하는\n스킬 카드의 비용이\n0 {energyPrefix:energyIcons(1)}이 됩니다."
+ },
+ "PRECISE_CUT": {
+  "en": "Precise Cut",
+  "title": "정밀한 베기",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n[gold]손[/gold]에 있는 다른 카드 1장당 피해량이 {ExtraDamage:inverseDiff()} 감소합니다."
+ },
+ "SPEEDSTER": {
+  "en": "Speedster",
+  "title": "스피드스터",
+  "description": "내 턴 동안 카드를 뽑을\n때마다, 모든 적에게\n피해를 {SpeedsterPower:diff()} 줍니다."
+ },
+ "STRANGLE": {
+  "en": "Strangle",
+  "title": "목 조르기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 턴에 카드를\n사용할 때마다, 대상 적이\n체력을 {StranglePower:diff()} 잃습니다."
+ },
+ "UP_MY_SLEEVE": {
+  "en": "Up My Sleeve",
+  "title": "비책",
+  "description": "[gold]단도[/gold]를 {Cards:diff()}장\n[gold]손[/gold]으로 가져옵니다.\n이 카드의 비용이\n1 감소합니다."
+ },
+ "THE_HUNT": {
+  "en": "The Hunt",
+  "title": "사냥",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]치명타[/gold]라면, 카드 보상을\n추가로 얻습니다."
+ },
+ "AFTERIMAGE": {
+  "en": "Afterimage",
+  "title": "잔상",
+  "description": "카드를 사용할 때마다,\n[gold]방어도[/gold]를 {AfterimagePower:diff()} 얻습니다."
+ },
+ "ECHO_FORM": {
+  "en": "Echo Form",
+  "title": "메아리의 형상",
+  "description": "매 턴마다 처음으로\n사용하는 카드가\n1번 추가로 사용됩니다."
+ },
+ "DEFRAGMENT": {
+  "en": "Defragment",
+  "title": "조각모음",
+  "description": "[gold]밀집[/gold]을 {FocusPower:diff()} 얻습니다."
+ },
+ "ALL_FOR_ONE": {
+  "en": "All for One",
+  "title": "하나를 위한 모두",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]버린 카드 더미[/gold]에서\n모든 0{energyPrefix:energyIcons(1)} 카드를\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "CLAW": {
+  "en": "Claw",
+  "title": "후벼 파기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 전투 동안 모든\n후벼 파기 카드의\n피해량이 {Increase:diff()} 증가합니다."
+ },
+ "BIASED_COGNITION": {
+  "en": "Biased Cognition",
+  "title": "인지 편향",
+  "description": "[gold]밀집[/gold]을 {FocusPower:diff()} 얻습니다.\n내 턴 시작 시,\n[gold]밀집[/gold]을 {BiasedCognitionPower:diff()} 잃습니다."
+ },
+ "UPROAR": {
+  "en": "Uproar",
+  "title": "난동",
+  "description": "피해를 {Damage:diff()}만큼 2번 줍니다.\n[gold]뽑을 카드 더미[/gold]에서\n무작위 공격 카드를\n1장 사용합니다."
+ },
+ "COOLHEADED": {
+  "en": "Coolheaded",
+  "title": "냉정함",
+  "description": "[gold]냉기[/gold]를 1번 [gold]영창[/gold]합니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "BARRAGE": {
+  "en": "Barrage",
+  "title": "일제 사격",
+  "description": "[gold]영창[/gold]된 구체 1개당\n피해를 {Damage:diff()} 줍니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "BALL_LIGHTNING": {
+  "en": "Ball Lightning",
+  "title": "번개 구체",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]전기[/gold]를 1번 [gold]영창[/gold]합니다."
+ },
+ "COLD_SNAP": {
+  "en": "Cold Snap",
+  "title": "꽃샘추위",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]냉기[/gold]를 1번 [gold]영창[/gold]합니다."
+ },
+ "GLACIER": {
+  "en": "Glacier",
+  "title": "빙하",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]냉기[/gold]를 2번 [gold]영창[/gold]합니다."
+ },
+ "DARKNESS": {
+  "en": "Darkness",
+  "title": "어둠",
+  "description": "[gold]암흑[/gold]을 1번 [gold]영창[/gold]합니다.\n모든 [gold]암흑[/gold] 구체의 지속\n능력을{IfUpgraded:show: 2번|} 발동시킵니다."
+ },
+ "CAPACITOR": {
+  "en": "Capacitor",
+  "title": "축전기",
+  "description": "구체 슬롯을 {Repeat:diff()}개 얻습니다."
+ },
+ "COMPILE_DRIVER": {
+  "en": "Compile Driver",
+  "title": "컴파일 드라이버",
+  "description": "피해를 {Damage:diff()} 줍니다.\n영창된 구체의 종류 하나당 카드를 1장 뽑습니다.{InCombat:\n(카드를 {CalculatedCards:diff()}장 뽑습니다)|}"
+ },
+ "SCRAPE": {
+  "en": "Scrape",
+  "title": "긁어내기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n카드를 {Cards:diff()}장 뽑습니다.\n뽑은 카드 중 비용이\n0 {energyPrefix:energyIcons(1)}이 아닌 모든\n카드를 버립니다."
+ },
+ "GO_FOR_THE_EYES": {
+  "en": "Go for the Eyes",
+  "title": "눈 할퀴기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n적이 공격할 의도가 있다면 [gold]약화[/gold]를 {WeakPower:diff()} 부여합니다."
+ },
+ "MULTI_CAST": {
+  "en": "Multi-Cast",
+  "title": "다중 시전",
+  "description": "가장 오른쪽의 구체를\n{IfUpgraded:show:X+1|X}번 [gold]발현[/gold]합니다."
+ },
+ "DUALCAST": {
+  "en": "Dualcast",
+  "title": "이중 시전",
+  "description": "가장 오른쪽의 구체를\n2번 [gold]발현[/gold]합니다."
+ },
+ "SUPERCRITICAL": {
+  "en": "Supercritical",
+  "title": "임계 초과",
+  "description": "{Energy:energyIcons()}를 얻습니다."
+ },
+ "BUFFER": {
+  "en": "Buffer",
+  "title": "버퍼",
+  "description": "다음에 체력을 잃는 것을\n{BufferPower:choose(1):|{BufferPower:diff()}번 }막아줍니다."
+ },
+ "REBOUND": {
+  "en": "Rebound",
+  "title": "되돌리기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 턴에 다음으로\n사용하는 카드를\n[gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+ },
+ "STORM": {
+  "en": "Storm",
+  "title": "폭풍",
+  "description": "파워 카드를\n사용할 때마다,\n[gold]전기[/gold]를 {StormPower:diff()}번 [gold]영창[/gold]합니다."
+ },
+ "SKIM": {
+  "en": "Skim",
+  "title": "걷어내기",
+  "description": "카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "TURBO": {
+  "en": "TURBO",
+  "title": "터보",
+  "description": "{Energy:energyIcons()}를 얻습니다.\n[gold]버린 카드 더미[/gold]에\n[gold]공허[/gold]를 1장 추가합니다."
+ },
+ "METEOR_STRIKE": {
+  "en": "Meteor Strike",
+  "title": "유성 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]플라즈마[/gold]를 3번 [gold]영창[/gold]합니다."
+ },
+ "ZAP": {
+  "en": "Zap",
+  "title": "파지직",
+  "description": "[gold]전기[/gold]를 1번 [gold]영창[/gold]합니다."
+ },
+ "STACK": {
+  "en": "Stack",
+  "title": "스택",
+  "description": "[gold]버린 카드 더미[/gold]에 있는\n카드의 수{IfUpgraded:show: +{CalculationBase}|}만큼\n[gold]방어도[/gold]를 얻습니다.{InCombat:\n([gold]방어도[/gold]를 {CalculatedBlock:diff()} 얻습니다)|}"
+ },
+ "GENETIC_ALGORITHM": {
+  "en": "Genetic Algorithm",
+  "title": "유전 알고리즘",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이 카드로 얻는 [gold]방어도[/gold]가\n영구적으로 {Increase:diff()} 증가합니다."
+ },
+ "LOOP": {
+  "en": "Loop",
+  "title": "반복",
+  "description": "내 턴 시작 시, 가장\n오른쪽의 구체의 지속\n능력을 {IfUpgraded:show:2번 }발동시킵니다."
+ },
+ "HYPERBEAM": {
+  "en": "Hyperbeam",
+  "title": "파괴광선",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n[gold]밀집[/gold]을 {FocusPower:diff()} 잃습니다."
+ },
+ "BOOT_SEQUENCE": {
+  "en": "Boot Sequence",
+  "title": "부팅 과정",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "FERAL": {
+  "en": "Feral",
+  "title": "야성",
+  "description": "매 턴마다 처음 비용이\n0{energyPrefix:energyIcons(1)}인 공격 카드를{FeralPower:choose(1):| {FeralPower:diff()}장}\n사용 시, 그 카드를 다시\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "HOLOGRAM": {
+  "en": "Hologram",
+  "title": "홀로그램",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]버린 카드 더미[/gold]에서 카드를 1장 [gold]손[/gold]으로 가져옵니다."
+ },
+ "MOMENTUM_STRIKE": {
+  "en": "Momentum Strike",
+  "title": "추진 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이 카드의 비용이\n0 {energyPrefix:energyIcons(1)}으로 감소합니다."
+ },
+ "BEAM_CELL": {
+  "en": "Beam Cell",
+  "title": "레이저 포인터",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "MACHINE_LEARNING": {
+  "en": "Machine Learning",
+  "title": "기계학습",
+  "description": "내 턴 시작 시, 카드를\n추가로 {Cards:diff()}장 뽑습니다."
+ },
+ "CHILL": {
+  "en": "Chill",
+  "title": "오한",
+  "description": "적 하나당\n[gold]냉기[/gold]를 1번 [gold]영창[/gold]합니다."
+ },
+ "WHITE_NOISE": {
+  "en": "White Noise",
+  "title": "백색 소음",
+  "description": "무작위 파워 카드를\n1장 [gold]손[/gold]으로 가져옵니다.\n이번 턴 동안 그 카드를\n비용 없이 사용할 수 있습니다."
+ },
+ "BOOST_AWAY": {
+  "en": "Boost Away",
+  "title": "가속 이탈",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]버린 카드 더미[/gold]에\n[gold]어지러움[/gold]을 1장\n추가합니다."
+ },
+ "CHARGE_BATTERY": {
+  "en": "Charge Battery",
+  "title": "배터리 충전",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n다음 턴에, {Energy:energyIcons()}를 얻습니다."
+ },
+ "FOCUSED_STRIKE": {
+  "en": "Focused Strike",
+  "title": "밀집 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 턴에\n[gold]밀집[/gold]을 {FocusPower:diff()} 얻습니다."
+ },
+ "GUNK_UP": {
+  "en": "Gunk Up",
+  "title": "틀어막기",
+  "description": "피해를 {Damage:diff()}만큼 {Repeat:diff()}번 줍니다.\n[gold]버린 카드 더미[/gold]에\n[gold]점액투성이[/gold]를\n1장 추가합니다."
+ },
+ "HOTFIX": {
+  "en": "Hotfix",
+  "title": "핫픽스",
+  "description": "이번 턴에\n[gold]밀집[/gold]을 {FocusPower:diff()} 얻습니다."
+ },
+ "LEAP": {
+  "en": "Leap",
+  "title": "도약",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "LIGHTNING_ROD": {
+  "en": "Lightning Rod",
+  "title": "피뢰침",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n다음 {LightningRodPower:choose(1):턴 시작 시|{:diff()}턴 동안 턴 시작 시}, [gold]전기[/gold]를 1번 [gold]영창[/gold]합니다."
+ },
+ "SWEEPING_BEAM": {
+  "en": "Sweeping Beam",
+  "title": "광선 휩쓸기",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "BULK_UP": {
+  "en": "Bulk Up",
+  "title": "증강",
+  "description": "구체 슬롯을 {OrbSlots:diff()}개 잃습니다.\n[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다.\n[gold]민첩[/gold]을 {DexterityPower:diff()} 얻습니다."
+ },
+ "CHAOS": {
+  "en": "Chaos",
+  "title": "혼돈",
+  "description": "무작위 구체를\n{Repeat:diff()}번 [gold]영창[/gold]합니다."
+ },
+ "COMPACT": {
+  "en": "Compact",
+  "title": "압축",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]손[/gold]에 있는\n모든 상태이상 카드를\n[gold]{IfUpgraded:show:연료+|연료}[/gold]로 [gold]변화[/gold]시킵니다."
+ },
+ "DOUBLE_ENERGY": {
+  "en": "Double Energy",
+  "title": "에너자이저",
+  "description": "에너지가 2배가 됩니다."
+ },
+ "ENERGY_SURGE": {
+  "en": "Energy Surge",
+  "title": "에너지 폭주",
+  "description": "모든 플레이어가\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "FIGHT_THROUGH": {
+  "en": "Fight Through",
+  "title": "강행 돌파",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]버린 카드 더미[/gold]에\n[gold]부상[/gold]을 2장 추가합니다."
+ },
+ "FUSION": {
+  "en": "Fusion",
+  "title": "융합",
+  "description": "[gold]플라즈마[/gold]를 1번 [gold]영창[/gold]합니다."
+ },
+ "GLASSWORK": {
+  "en": "Glasswork",
+  "title": "유리 공예",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]유리[/gold]를 1번 [gold]영창[/gold]합니다."
+ },
+ "HAILSTORM": {
+  "en": "Hailstorm",
+  "title": "우박 폭풍",
+  "description": "내 턴 종료 시 [gold]냉기[/gold]를\n보유하고 있다면, 모든\n적에게 피해를 {HailstormPower:diff()} 줍니다."
+ },
+ "ITERATION": {
+  "en": "Iteration",
+  "title": "순회",
+  "description": "매 턴마다 처음으로\n상태이상 카드를 뽑을 시,\n카드를 {IterationPower:diff()}장 뽑습니다."
+ },
+ "OVERCLOCK": {
+  "en": "Overclock",
+  "title": "오버클럭",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n[gold]버린 카드 더미[/gold]에\n[gold]화상[/gold]을 1장 추가합니다."
+ },
+ "REFRACT": {
+  "en": "Refract",
+  "title": "굴절",
+  "description": "피해를 {Damage:diff()}만큼 2번 줍니다.\n[gold]유리[/gold]를 {Repeat:diff()}번 [gold]영창[/gold]합니다."
+ },
+ "RIP_AND_TEAR": {
+  "en": "Rip and Tear",
+  "title": "날뛰기",
+  "description": "무작위 적에게\n피해를 {Damage:diff()}만큼 2번 줍니다."
+ },
+ "ROCKET_PUNCH": {
+  "en": "Rocket Punch",
+  "title": "로켓 펀치",
+  "description": "피해를 {Damage:diff()} 줍니다.\n카드를 {Cards:diff()}장 뽑습니다.\n상태이상 카드를 생성 시,\n이 카드의 비용이 사용하기\n전까지 0 {energyPrefix:energyIcons(1)}으로 감소합니다."
+ },
+ "SCAVENGE": {
+  "en": "Scavenge",
+  "title": "포집",
+  "description": "카드를 1장 [gold]소멸[/gold]시킵니다.\n다음 턴에,\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "SHADOW_SHIELD": {
+  "en": "Shadow Shield",
+  "title": "그림자 방패",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]암흑[/gold]을 1번 [gold]영창[/gold]합니다."
+ },
+ "SMOKESTACK": {
+  "en": "Smokestack",
+  "title": "배기 장치",
+  "description": "상태이상 카드를 생성할\n때마다, 모든 적에게\n피해를 {SmokestackPower:diff()} 줍니다."
+ },
+ "SUBROUTINE": {
+  "en": "Subroutine",
+  "title": "서브루틴",
+  "description": "파워 카드를 사용할\n때마다, {energyPrefix:energyIcons(1)}를 얻습니다."
+ },
+ "SUNDER": {
+  "en": "Sunder",
+  "title": "찢기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이 카드로 적을 처치 시, {Energy:energyIcons()}을 얻습니다."
+ },
+ "SYNCHRONIZE": {
+  "en": "Synchronize",
+  "title": "동기화",
+  "description": "영창된 구체의 종류\n하나당 이번 턴에\n[gold]밀집[/gold]을 {CalculationExtra:diff()} 얻습니다.{InCombat:\n([gold]밀집[/gold]을 {CalculatedFocus:diff()} 얻습니다)|}"
+ },
+ "SYNTHESIS": {
+  "en": "Synthesis",
+  "title": "합성",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음에 사용하는\n파워 카드의 비용이\n0 {energyPrefix:energyIcons(1)}이 됩니다."
+ },
+ "TEMPEST": {
+  "en": "Tempest",
+  "title": "뇌우",
+  "description": "[gold]전기[/gold]를 {IfUpgraded:show:X+1|X}번 [gold]영창[/gold]합니다."
+ },
+ "TESLA_COIL": {
+  "en": "Tesla Coil",
+  "title": "테슬라 코일",
+  "description": "피해를 {Damage:diff()} 줍니다.\n대상 적을 상대로 모든\n[gold]전기[/gold]를 {IfUpgraded:show:2번 |}발동시킵니다."
+ },
+ "THUNDER": {
+  "en": "Thunder",
+  "title": "벼락",
+  "description": "[gold]전기[/gold]를 [gold]발현[/gold]할 때마다,\n적중한 적에게\n피해를 {ThunderPower:diff()} 줍니다."
+ },
+ "ADAPTIVE_STRIKE": {
+  "en": "Adaptive Strike",
+  "title": "적응형 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]버린 카드 더미[/gold]에 이 카드의\n비용이 0{energyPrefix:energyIcons(1)}인 복사본을\n1장 추가합니다."
+ },
+ "CONSUMING_SHADOW": {
+  "en": "Consuming Shadow",
+  "title": "그림자 소모",
+  "description": "[gold]암흑[/gold]을 {Repeat:diff()}번 [gold]영창[/gold]합니다.\n내 턴 종료 시, 가장 왼쪽의 구체를 [gold]발현[/gold]합니다."
+ },
+ "COOLANT": {
+  "en": "Coolant",
+  "title": "냉각재",
+  "description": "내 턴 시작 시, 영창된\n구체의 종류 하나당\n[gold]방어도[/gold]를 {CoolantPower:diff()} 얻습니다."
+ },
+ "CREATIVE_AI": {
+  "en": "Creative AI",
+  "title": "창의적인 인공지능",
+  "description": "내 턴 시작 시,\n무작위 파워 카드를 1장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "FLAK_CANNON": {
+  "en": "Flak Cannon",
+  "title": "대공포",
+  "description": "모든 상태이상 카드를\n[gold]소멸[/gold]시킵니다.\n[gold]소멸[/gold]시킨 카드 1장당\n무작위 적에게\n피해를 {Damage:diff()} 줍니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "HELIX_DRILL": {
+  "en": "Helix Drill",
+  "title": "나선 관통",
+  "description": "이번 턴 동안 다른 카드로\n소모한 {energyPrefix:energyIcons(1)}당\n피해를 {Damage:diff()} 줍니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "ICE_LANCE": {
+  "en": "Ice Lance",
+  "title": "얼음 창",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]냉기[/gold]를 {Repeat:diff()}번 [gold]영창[/gold]합니다."
+ },
+ "IGNITION": {
+  "en": "Ignition",
+  "title": "점화",
+  "description": "다른 플레이어가\n[gold]플라즈마[/gold]를 [gold]영창[/gold]합니다."
+ },
+ "MODDED": {
+  "en": "Modded",
+  "title": "모드 적용",
+  "description": "구체 슬롯을 {Repeat:diff()}개 얻습니다.\n카드를 {Cards:diff()}장 뽑습니다.\n이 카드의 비용이\n1 증가합니다."
+ },
+ "RAINBOW": {
+  "en": "Rainbow",
+  "title": "무지개",
+  "description": "[gold]전기[/gold]를 1번 [gold]영창[/gold]합니다.\n[gold]냉기[/gold]를 1번 [gold]영창[/gold]합니다.\n[gold]암흑[/gold]을 1번 [gold]영창[/gold]합니다."
+ },
+ "REBOOT": {
+  "en": "Reboot",
+  "title": "다시 시작",
+  "description": "모든 카드를 [gold]뽑을 카드[/gold]\n[gold]더미[/gold]에 섞어 넣습니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "SHATTER": {
+  "en": "Shatter",
+  "title": "산산조각",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n모든 구체를 2번\n[gold]발현[/gold]합니다."
+ },
+ "SIGNAL_BOOST": {
+  "en": "Signal Boost",
+  "title": "신호 증폭",
+  "description": "다음에 사용하는\n파워 카드가 1번\n추가로 사용됩니다."
+ },
+ "SPINNER": {
+  "en": "Spinner",
+  "title": "스피너",
+  "description": "{IfUpgraded:show:[gold]유리[/gold]를 1번 [gold]영창[/gold]합니다.\n|}내 턴 시작 시,\n[gold]유리[/gold]를 1번 [gold]영창[/gold]합니다."
+ },
+ "TRASH_TO_TREASURE": {
+  "en": "Trash to Treasure",
+  "title": "고철을 보물로",
+  "description": "상태이상 카드를\n생성할 때마다, 무작위\n구체를 1번 [gold]영창[/gold]합니다."
+ },
+ "VOLTAIC": {
+  "en": "Voltaic",
+  "title": "동전기",
+  "description": "이번 전투 동안 [gold]영창[/gold]한\n[gold]전기[/gold]의 수만큼 [gold]전기[/gold]를\n[gold]영창[/gold]합니다.{InCombat:\n([gold]전기[/gold]를 {CalculatedChannels:diff()}번 [gold]영창[/gold]합니다)|}"
+ },
+ "QUADCAST": {
+  "en": "Quadcast",
+  "title": "사중 시전",
+  "description": "가장 오른쪽의 구체를\n{Repeat:diff()}번 [gold]발현[/gold]합니다."
+ },
+ "GLOW": {
+  "en": "Glow",
+  "title": "광채",
+  "description": "{Stars:starIcons()}을 얻습니다.\n카드를 {Cards:diff()}장 뽑습니다.\n다음 턴에,\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "BIG_BANG": {
+  "en": "Big Bang",
+  "title": "빅뱅",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n{Energy:energyIcons()}를 얻습니다.\n{Stars:starIcons()}을 얻습니다.\n[gold]단조[/gold] {Forge:diff()}."
+ },
+ "CONVERGENCE": {
+  "en": "Convergence",
+  "title": "수렴",
+  "description": "다음 턴에, {Energy:energyIcons()}와\n{Stars:starIcons()}을 얻습니다.\n이번 턴에 [gold]손[/gold]에 있는\n카드를 [gold]보존[/gold]합니다."
+ },
+ "VOID_FORM": {
+  "en": "Void Form",
+  "title": "공허의 형상",
+  "description": "내 턴을 종료합니다.\n매 턴마다 처음으로\n사용하는 {VoidFormPower:choose(1):카드를|카드 {VoidFormPower:diff()}장을}\n비용 없이 사용합니다."
+ },
+ "REFLECT": {
+  "en": "Reflect",
+  "title": "반사",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 턴에 막은 공격 피해는\n공격한 적에게 반사됩니다."
+ },
+ "PARTICLE_WALL": {
+  "en": "Particle Wall",
+  "title": "입자 벽",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이 카드를 다시\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "BOMBARDMENT": {
+  "en": "Bombardment",
+  "title": "포격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n내 턴 시작 시, 이 카드가\n[gold]소멸된 카드 더미[/gold]에 있다면,\n사용합니다."
+ },
+ "GUARDS": {
+  "en": "GUARDS!!!",
+  "title": "막아라!!!",
+  "description": "[gold]손[/gold]에 있는 카드를\n원하는 만큼\n[gold]{IfUpgraded:show:하수인 희생+|하수인 희생}[/gold]으로\n[gold]변화[/gold]시킵니다."
+ },
+ "COMET": {
+  "en": "Comet",
+  "title": "혜성",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "CHILD_OF_THE_STARS": {
+  "en": "Child of the Stars",
+  "title": "별의 아이",
+  "description": "{singleStarIcon}을 소모할 때마다,\n소모한 {singleStarIcon}당\n[gold]방어도[/gold]를 {BlockForStars:diff()} 얻습니다."
+ },
+ "RADIATE": {
+  "en": "Radiate",
+  "title": "방출",
+  "description": "이번 턴에 얻은 {Stars:starIcons()}의\n수만큼 모든 적에게\n피해를 {Damage:diff()} 줍니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "ROYAL_GAMBLE": {
+  "en": "Royal Gamble",
+  "title": "성대한 도박",
+  "description": "{singleStarIcon}을 {Stars:diff()} 얻습니다."
+ },
+ "GENESIS": {
+  "en": "Genesis",
+  "title": "창세",
+  "description": "내 턴 시작 시,\n{StarsPerTurn:starIcons()}을 얻습니다."
+ },
+ "SHINING_STRIKE": {
+  "en": "Shining Strike",
+  "title": "빛나는 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n{Stars:starIcons()}을 얻습니다.\n이 카드를 [gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+ },
+ "HIDDEN_CACHE": {
+  "en": "Hidden Cache",
+  "title": "비밀 상자",
+  "description": "{Stars:starIcons()}을 얻습니다.\n다음 턴에,\n{StarNextTurnPower:starIcons()}을 얻습니다."
+ },
+ "FOREGONE_CONCLUSION": {
+  "en": "Foregone Conclusion",
+  "title": "필연적인 결과",
+  "description": "다음 턴에,\n[gold]뽑을 카드 더미[/gold]에서\n카드를 {Cards:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "GAMMA_BLAST": {
+  "en": "Gamma Blast",
+  "title": "감마 세례",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "PHOTON_CUT": {
+  "en": "Photon Cut",
+  "title": "광자 베기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n카드를 {Cards:diff()}장 뽑습니다.\n[gold]손[/gold]에 있는 카드 1장을\n[gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+ },
+ "ALIGNMENT": {
+  "en": "Alignment",
+  "title": "정렬",
+  "description": "{Energy:energyIcons()}를 얻습니다."
+ },
+ "KNOCKOUT_BLOW": {
+  "en": "Knockout Blow",
+  "title": "필사의 일격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이 카드가 적을 처치 시, {Stars:starIcons()}을 얻습니다."
+ },
+ "GLIMMER": {
+  "en": "Glimmer",
+  "title": "희미한 빛",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n[gold]손[/gold]에 있는 카드 {PutBack:diff()}장을\n[gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+ },
+ "SEVEN_STARS": {
+  "en": "Seven Stars",
+  "title": "일곱 개의 별",
+  "description": "모든 적에게\n피해를 {Damage:diff()}만큼 {Repeat:diff()}번 줍니다."
+ },
+ "DECISIONS_DECISIONS": {
+  "en": "Decisions, Decisions",
+  "title": "어려운 결정",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n[gold]손[/gold]에 있는 스킬 카드를\n1장 선택해 {Repeat:diff()}번\n사용합니다."
+ },
+ "GATHER_LIGHT": {
+  "en": "Gather Light",
+  "title": "빛 거두기",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n{Stars:starIcons()}을 얻습니다."
+ },
+ "SOLAR_STRIKE": {
+  "en": "Solar Strike",
+  "title": "태양의 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n{Stars:starIcons()}을 얻습니다."
+ },
+ "ASTRAL_PULSE": {
+  "en": "Astral Pulse",
+  "title": "별의 파동",
+  "description": "모든 적에게\n피해를 {Damage:diff()}만큼 2번 줍니다."
+ },
+ "GUIDING_STAR": {
+  "en": "Guiding Star",
+  "title": "길잡이별",
+  "description": "피해를 {Damage:diff()} 줍니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "COSMIC_INDIFFERENCE": {
+  "en": "Cosmic Indifference",
+  "title": "우주적 무관심",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]버린 카드 더미[/gold]의 카드\n1장을 [gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+ },
+ "HEGEMONY": {
+  "en": "Hegemony",
+  "title": "패권",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음 턴에,\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "DYING_STAR": {
+  "en": "Dying Star",
+  "title": "죽어가는 별",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n이번 턴 동안 모든 적이\n[gold]힘[/gold]을 {StrengthLoss:diff()} 잃습니다."
+ },
+ "TYRANNY": {
+  "en": "Tyranny",
+  "title": "독재",
+  "description": "내 턴 시작 시,\n카드를 1장 뽑고\n[gold]손[/gold]에 있는 카드를\n1장 [gold]소멸[/gold]시킵니다."
+ },
+ "BULWARK": {
+  "en": "Bulwark",
+  "title": "보루",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]단조[/gold] {Forge:diff()}."
+ },
+ "SEEKING_EDGE": {
+  "en": "Seeking Edge",
+  "title": "날 세우기",
+  "description": "[gold]단조[/gold] {Forge:diff()}.\n[gold]군주의 칼날[/gold]이 이제\n모든 적을 대상으로 합니다."
+ },
+ "PATTER": {
+  "en": "Patter",
+  "title": "별무리",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]활력[/gold]을 {VigorPower:diff()} 얻습니다."
+ },
+ "CELESTIAL_MIGHT": {
+  "en": "Celestial Might",
+  "title": "천상의 권능",
+  "description": "피해를 {Damage:diff()}만큼 {Repeat:diff()}번 줍니다."
+ },
+ "BLACK_HOLE": {
+  "en": "Black Hole",
+  "title": "블랙홀",
+  "description": "{singleStarIcon}을 소모하거나 얻을\n때마다, 모든 적에게\n피해를 {BlackHolePower:diff()} 줍니다."
+ },
+ "CRESCENT_SPEAR": {
+  "en": "Crescent Spear",
+  "title": "초승달 창",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n보유한 카드 중 {singleStarIcon} 비용을\n지닌 카드 1장당\n피해량이 {ExtraDamage:diff()} 증가합니다."
+ },
+ "STARDUST": {
+  "en": "Stardust",
+  "title": "우주 먼지",
+  "description": "무작위 적에게\n피해를 {Damage:diff()}만큼 X번 줍니다."
+ },
+ "LUNAR_BLAST": {
+  "en": "Lunar Blast",
+  "title": "달의 세례",
+  "description": "이번 턴에 사용한\n스킬 카드 1장당\n피해를 {Damage:diff()} 줍니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "MONOLOGUE": {
+  "en": "Monologue",
+  "title": "독백",
+  "description": "이번 턴에 카드를 사용할\n때마다, 이번 턴 동안\n[gold]힘[/gold]을 {Power:diff()} 얻습니다."
+ },
+ "CONQUEROR": {
+  "en": "Conqueror",
+  "title": "정복자",
+  "description": "[gold]단조[/gold] {Forge:diff()}.\n이번 턴 동안 대상 적이\n[gold]군주의 칼날[/gold]로 받는\n피해량이 2배가 됩니다."
+ },
+ "RESONANCE": {
+  "en": "Resonance",
+  "title": "공진",
+  "description": "[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다.\n모든 적이\n[gold]힘[/gold]을 1 잃습니다."
+ },
+ "CRASH_LANDING": {
+  "en": "Crash Landing",
+  "title": "불시착",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n[gold]손[/gold]을 [gold]잔해[/gold]로 가득 채웁니다."
+ },
+ "BUNDLE_OF_JOY": {
+  "en": "Bundle of Joy",
+  "title": "기쁨의 선물",
+  "description": "무작위 무색 카드를 {Cards:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "KINGLY_KICK": {
+  "en": "Kingly Kick",
+  "title": "왕의 발차기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이 카드를 뽑을 때마다,\n이 카드의 비용이\n1 감소합니다."
+ },
+ "KINGLY_PUNCH": {
+  "en": "Kingly Punch",
+  "title": "왕의 주먹",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이 카드를 뽑을 때마다,\n이번 전투 동안 이 카드의\n피해량이 {Increase:diff()} 증가합니다."
+ },
+ "PROPHESIZE": {
+  "en": "Prophesize",
+  "title": "예언",
+  "description": "카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "SPOILS_OF_BATTLE": {
+  "en": "Spoils of Battle",
+  "title": "전투의 성과",
+  "description": "[gold]단조[/gold] {Forge:diff()}.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "PARRY": {
+  "en": "Parry",
+  "title": "쳐내기",
+  "description": "[gold]군주의 칼날[/gold]을 사용 시\n이제 [gold]방어도[/gold]를 {ParryPower:diff()}\n얻습니다."
+ },
+ "WROUGHT_IN_WAR": {
+  "en": "Wrought in War",
+  "title": "전장의 생존자",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]단조[/gold] {Forge:diff()}."
+ },
+ "SUMMON_FORTH": {
+  "en": "Summon Forth",
+  "title": "대령하라",
+  "description": "[gold]군주의 칼날[/gold]이 어디에 있든 [gold]손[/gold]으로 가져옵니다.\n[gold]단조[/gold] {Forge:diff()}."
+ },
+ "BEAT_INTO_SHAPE": {
+  "en": "Beat into Shape",
+  "title": "재성형",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]단조[/gold] {CalculatedForge:diff()}.\n이번 턴에 대상 적을\n공격한 다른 횟수마다\n추가로 [gold]단조[/gold] {CalculationExtra:diff()}."
+ },
+ "FURNACE": {
+  "en": "Furnace",
+  "title": "용광로",
+  "description": "내 턴 시작 시, [gold]단조[/gold] {Forge:diff()}."
+ },
+ "FALLING_STAR": {
+  "en": "Falling Star",
+  "title": "별똥별",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "CLOAK_OF_STARS": {
+  "en": "Cloak of Stars",
+  "title": "별의 망토",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "VENERATE": {
+  "en": "Venerate",
+  "title": "추앙",
+  "description": "{Stars:starIcons()}을 얻습니다."
+ },
+ "REFINE_BLADE": {
+  "en": "Refine Blade",
+  "title": "검날 개선",
+  "description": "[gold]단조[/gold] {Forge:diff()}.\n다음 턴에, {Energy:energyIcons()}를 얻습니다."
+ },
+ "BEGONE": {
+  "en": "BEGONE!",
+  "title": "물렀거라!",
+  "description": "[gold]손[/gold]에 있는 카드를 1장\n선택해 [gold]{IfUpgraded:show:하수인 타격+|하수인 타격}[/gold]으로\n[gold]변화[/gold]시킵니다."
+ },
+ "COLLISION_COURSE": {
+  "en": "Collision Course",
+  "title": "불가피한 충돌",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]잔해[/gold]를 1장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "CRUSH_UNDER": {
+  "en": "Crush Under",
+  "title": "지면 파쇄",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n모든 적이 이번 턴 동안\n[gold]힘[/gold]을 {StrengthLoss:diff()} 잃습니다."
+ },
+ "GLITTERSTREAM": {
+  "en": "Glitterstream",
+  "title": "빛의 흐름",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n다음 턴에,\n[gold]방어도[/gold]를 {BlockNextTurn:diff()} 얻습니다."
+ },
+ "KNOW_THY_PLACE": {
+  "en": "Know Thy Place",
+  "title": "네 주제를 알라",
+  "description": "[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "CHARGE": {
+  "en": "CHARGE!!",
+  "title": "돌격!!",
+  "description": "[gold]뽑을 카드 더미[/gold]에서\n카드를 {Cards:diff()}장 선택해\n[gold]{IfUpgraded:show:하수인 투하+|하수인 투하}[/gold]로\n[gold]변화[/gold]시킵니다."
+ },
+ "DEVASTATE": {
+  "en": "Devastate",
+  "title": "초토화",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "LARGESSE": {
+  "en": "Largesse",
+  "title": "하사",
+  "description": "다른 플레이어가 무작위\n{IfUpgraded:show:[gold]강화[/gold]된 }무색 카드를 1장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "MANIFEST_AUTHORITY": {
+  "en": "Manifest Authority",
+  "title": "권위 행사",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n무작위{IfUpgraded:show: [gold]강화[/gold]된} 무색 카드를\n1장 [gold]손[/gold]으로 가져옵니다."
+ },
+ "ORBIT": {
+  "en": "Orbit",
+  "title": "궤도",
+  "description": "{energyPrefix:energyIcons(4)}를 소모할 때마다,\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "PALE_BLUE_DOT": {
+  "en": "Pale Blue Dot",
+  "title": "창백한 푸른 점",
+  "description": "한 턴에 카드를 {CardPlay}장 이상\n사용했다면, 다음 턴\n시작 시 카드를 추가로\n{Cards:diff()}장 뽑습니다."
+ },
+ "PILLAR_OF_CREATION": {
+  "en": "Pillar of Creation",
+  "title": "창조의 기둥",
+  "description": "카드를 생성할 때마다,\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "QUASAR": {
+  "en": "Quasar",
+  "title": "준항성",
+  "description": "무작위{IfUpgraded:show: [gold]강화[/gold]된|} 무색 카드\n3장 중 1장을 선택해\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "SPECTRUM_SHIFT": {
+  "en": "Spectrum Shift",
+  "title": "스펙트럼 이동",
+  "description": "내 턴 시작 시, 무작위\n무색 카드를 {Cards:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "SUPERMASSIVE": {
+  "en": "Supermassive",
+  "title": "초질량",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n이번 전투 동안 생성한\n카드 1장당 피해량이\n{ExtraDamage:diff()} 증가합니다."
+ },
+ "TERRAFORMING": {
+  "en": "Terraforming",
+  "title": "테라포밍",
+  "description": "[gold]활력[/gold]을 {VigorPower:diff()} 얻습니다."
+ },
+ "ARSENAL": {
+  "en": "Arsenal",
+  "title": "무기고",
+  "description": "카드를 생성할 때마다,\n[gold]힘[/gold]을 {ArsenalPower:diff()} 얻습니다."
+ },
+ "HAMMER_TIME": {
+  "en": "Hammer Time",
+  "title": "망치질 시간",
+  "description": "[gold]단조[/gold]할 때마다,\n모든 아군이 [gold]단조[/gold]합니다."
+ },
+ "HEAVENLY_DRILL": {
+  "en": "Heavenly Drill",
+  "title": "천원돌파",
+  "description": "피해를 {Damage:diff()}만큼 X번 줍니다.\nX가 {Energy:diff()} 이상이라면\nX가 2배가 됩니다."
+ },
+ "HEIRLOOM_HAMMER": {
+  "en": "Heirloom Hammer",
+  "title": "선조의 망치",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]손[/gold]에 있는 무색 카드를\n1장 선택합니다.\n그 카드의 복사본을 1장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "I_AM_INVINCIBLE": {
+  "en": "I Am Invincible",
+  "title": "나는 무적이다",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n내 턴 종료 시 이 카드가\n[gold]뽑을 카드 더미[/gold] 맨 위에\n있다면, 사용합니다."
+ },
+ "MAKE_IT_SO": {
+  "en": "Make It So",
+  "title": "그렇게 하라",
+  "description": "피해를 {Damage:diff()} 줍니다.\n한 턴에 스킬 카드를 {Cards:diff()}장\n사용할 때마다, 이 카드를\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "MONARCHS_GAZE": {
+  "en": "Monarch's Gaze",
+  "title": "군주의 시선",
+  "description": "적을 공격할 때마다,\n대상 적이 이번 턴 동안\n[gold]힘[/gold]을 {StrengthLoss:diff()} 잃습니다."
+ },
+ "NEUTRON_AEGIS": {
+  "en": "Neutron Aegis",
+  "title": "중성자 방패",
+  "description": "[gold]판금[/gold]을 {PlatingPower:diff()} 얻습니다."
+ },
+ "ROYALTIES": {
+  "en": "Royalties",
+  "title": "로열티",
+  "description": "전투 종료 시,\n[gold]골드[/gold]를 {Gold:diff()} 얻습니다."
+ },
+ "SWORD_SAGE": {
+  "en": "Sword Sage",
+  "title": "검성",
+  "description": "[gold]군주의 칼날[/gold]이\n[gold]재사용[/gold]을 {SwordSagePower:diff()} 얻습니다."
+ },
+ "THE_SMITH": {
+  "en": "The Smith",
+  "title": "위대한 재련",
+  "description": "[gold]단조[/gold] {Forge:diff()}."
+ },
+ "METEOR_SHOWER": {
+  "en": "Meteor Shower",
+  "title": "유성우",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n모든 적에게 [gold]약화[/gold]와 [gold]취약[/gold]을\n{WeakPower:diff()} 부여합니다."
+ },
+ "THE_SEALED_THRONE": {
+  "en": "The Sealed Throne",
+  "title": "봉인된 왕좌",
+  "description": "카드를 사용할 때마다, {singleStarIcon}을 얻습니다."
+ },
+ "DEMESNE": {
+  "en": "Demesne",
+  "title": "권역",
+  "description": "내 턴 시작 시,\n{Energy:energyIcons()}를 얻고 카드를\n추가로 {Cards:diff()}장 뽑습니다."
+ },
+ "BORROWED_TIME": {
+  "en": "Borrowed Time",
+  "title": "연명",
+  "description": "{Energy:energyIcons()}를 얻습니다.\n이번 턴 동안 카드의 비용이\n{ExtraCost:energyIcons()} 증가합니다."
+ },
+ "HAUNT": {
+  "en": "Haunt",
+  "title": "출몰",
+  "description": "[gold]영혼[/gold]을 사용할 때마다,\n무작위 적이\n체력을 {HpLoss:diff()} 잃습니다."
+ },
+ "SOUL_STORM": {
+  "en": "Soul Storm",
+  "title": "영혼 폭풍",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n[gold]소멸된 카드 더미[/gold]에 있는\n[gold]영혼[/gold] 1장당 피해량이\n{ExtraDamage:diff()} 증가합니다."
+ },
+ "END_OF_DAYS": {
+  "en": "End of Days",
+  "title": "종말의 날",
+  "description": "모든 적에게\n[gold]종말[/gold]을 {DoomPower:diff()} 부여합니다.\n체력이 [gold]종말[/gold] 이하인\n적을 처치합니다."
+ },
+ "NEUROSURGE": {
+  "en": "Neurosurge",
+  "title": "정신 폭주",
+  "description": "{Energy:energyIcons()}를 얻습니다.\n카드를 {Cards:diff()}장 뽑습니다.\n내 턴 시작 시, 자신에게\n[gold]종말[/gold]을 {NeurosurgePower:diff()} 부여합니다."
+ },
+ "CAPTURE_SPIRIT": {
+  "en": "Capture Spirit",
+  "title": "혼령 포획",
+  "description": "적이 체력을 {Damage:diff()} 잃습니다.\n[gold]뽑을 카드 더미[/gold]에 [gold]영혼[/gold]을\n{Cards:diff()}장 추가합니다."
+ },
+ "DEVOUR_LIFE": {
+  "en": "Devour Life",
+  "title": "생명 삼키기",
+  "description": "[gold]영혼[/gold]을 사용할 때마다,\n[gold]소환[/gold] {DevourLifePower:diff()}."
+ },
+ "DREDGE": {
+  "en": "Dredge",
+  "title": "추출",
+  "description": "[gold]버린 카드 더미[/gold]에서 카드를\n{Cards:diff()}장 [gold]손[/gold]으로 가져옵니다."
+ },
+ "LETHALITY": {
+  "en": "Lethality",
+  "title": "치사성",
+  "description": "매 턴마다 처음으로\n사용하는 공격 카드의\n피해량이 {LethalityPower:diff()}% 증가합니다."
+ },
+ "DEATHS_DOOR": {
+  "en": "Death's Door",
+  "title": "죽음의 문턱",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 턴에 [gold]종말[/gold]을\n부여했다면, [gold]방어도[/gold]를\n{Repeat:diff()}번 추가로 얻습니다."
+ },
+ "RATTLE": {
+  "en": "Rattle",
+  "title": "덜그럭대기",
+  "description": "[gold]골골이[/gold]가 피해를 {OstyDamage:diff()} 줍니다.\n이번 턴 동안 골골이가\n공격한 횟수만큼\n반복합니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "COUNTDOWN": {
+  "en": "Countdown",
+  "title": "카운트다운",
+  "description": "내 턴 시작 시,\n무작위 적에게\n[gold]종말[/gold]을 {CountdownPower:diff()} 부여합니다."
+ },
+ "ERADICATE": {
+  "en": "Eradicate",
+  "title": "척결",
+  "description": "피해를 {Damage:diff()}만큼 X번 줍니다."
+ },
+ "FETCH": {
+  "en": "Fetch",
+  "title": "회수",
+  "description": "[gold]골골이[/gold]가 피해를 {OstyDamage:diff()} 줍니다.\n이번 턴에 이 카드를\n처음 사용했다면,\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "BONE_SHARDS": {
+  "en": "Bone Shards",
+  "title": "뼛조각",
+  "description": "[gold]골골이[/gold]가 살아있다면,\n[gold]골골이[/gold]가 모든 적에게\n피해를 {OstyDamage:diff()} 주고\n내가 방어도를 {Block:diff()} 얻습니다.\n[gold]골골이[/gold]가 죽습니다."
+ },
+ "SACRIFICE": {
+  "en": "Sacrifice",
+  "title": "희생",
+  "description": "[gold]골골이[/gold]가 살아있다면,\n골골이가 죽고 골골이의\n최대 체력의 2배만큼의\n[gold]방어도[/gold]를 얻습니다.{InCombat:\n\n([gold]방어도[/gold]를 {IsOstyAlive:{CalculatedBlock:diff()}|0} 얻습니다.)|}"
+ },
+ "GRAVEBLAST": {
+  "en": "Graveblast",
+  "title": "무덤 폭발",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]버린 카드 더미[/gold]에서 카드를 1장 [gold]손[/gold]으로 가져옵니다."
+ },
+ "DEBILITATE": {
+  "en": "Debilitate",
+  "title": "쇠락",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음 {DebilitatePower:diff()}턴 동안\n이 적을 대상으로 하는\n[gold]취약[/gold]과 [gold]약화[/gold]의 효과가\n2배가 됩니다."
+ },
+ "SCOURGE": {
+  "en": "Scourge",
+  "title": "징벌",
+  "description": "[gold]종말[/gold]을 {DoomPower:diff()} 부여합니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "DEATHBRINGER": {
+  "en": "Deathbringer",
+  "title": "죽음 인도자",
+  "description": "모든 적에게 [gold]종말[/gold]을 {DoomPower:diff()},\n[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다."
+ },
+ "PARSE": {
+  "en": "Parse",
+  "title": "분석",
+  "description": "카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "BANSHEES_CRY": {
+  "en": "Banshee's Cry",
+  "title": "밴시의 외침",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다.\n이번 전투 동안 사용한\n[gold]휘발성[/gold] 카드 1장당\n비용이 {Energy:energyIcons()} 감소합니다."
+ },
+ "NO_ESCAPE": {
+  "en": "No Escape",
+  "title": "도망칠 수 없다",
+  "description": "[gold]종말[/gold]을 {CalculationBase:diff()} 부여하고,\n이 적에게 이미\n부여되어 있던 [gold]종말[/gold] {DoomThreshold:diff()}당,\n[gold]종말[/gold]을 추가로\n{CalculationExtra:diff()} 부여합니다.{IsTargeting:\n([gold]종말[/gold]을 {CalculatedDoom:diff()} 부여합니다)|}"
+ },
+ "THE_SCYTHE": {
+  "en": "The Scythe",
+  "title": "사신의 낫",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이 카드의 피해량이\n영구적으로 {Increase:diff()} 증가합니다."
+ },
+ "NEGATIVE_PULSE": {
+  "en": "Negative Pulse",
+  "title": "비관적인 맥박",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n모든 적에게\n[gold]종말[/gold]을 {DoomPower:diff()} 부여합니다."
+ },
+ "GRAVE_WARDEN": {
+  "en": "Grave Warden",
+  "title": "무덤지기",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]뽑을 카드 더미[/gold]에\n[gold]영혼[/gold]을 1장 추가합니다."
+ },
+ "HIGH_FIVE": {
+  "en": "High Five",
+  "title": "하이파이브",
+  "description": "[gold]골골이[/gold]가 모든 적에게\n피해를 {OstyDamage:diff()} 주고\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "SIC_EM": {
+  "en": "Sic 'Em",
+  "title": "덮쳐!",
+  "description": "[gold]골골이[/gold]가 피해를 {OstyDamage:diff()} 줍니다.\n이번 턴에 [gold]골골이[/gold]가\n이 적을 공격할 때마다,\n[gold]소환[/gold] {SicEmPower:diff()}."
+ },
+ "TRANSFIGURE": {
+  "en": "Transfigure",
+  "title": "변형",
+  "description": "[gold]손[/gold]에 있는 카드 1장에\n[gold]재사용[/gold]을 1 추가합니다.\n그 카드의 비용이\n{Energy:energyIcons()} 증가합니다."
+ },
+ "DEATH_MARCH": {
+  "en": "Death March",
+  "title": "죽음의 행진",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n내 턴 동안 뽑은 카드\n1장당 피해량이\n{ExtraDamage:diff()} 증가합니다."
+ },
+ "DELAY": {
+  "en": "Delay",
+  "title": "지연",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n다음 턴에,\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "ENFEEBLING_TOUCH": {
+  "en": "Enfeebling Touch",
+  "title": "쇠약의 손길",
+  "description": "이번 턴 동안 적이\n[gold]힘[/gold]을 {StrengthLoss:diff()} 잃습니다."
+ },
+ "DANSE_MACABRE": {
+  "en": "Danse Macabre",
+  "title": "죽음의 무도",
+  "description": "비용이 {Energy:energyIcons()} 이상인\n카드를 사용할 때마다,\n[gold]방어도[/gold]를 {DanseMacabrePower:diff()} 얻습니다."
+ },
+ "DIRGE": {
+  "en": "Dirge",
+  "title": "장송가",
+  "description": "X번 [gold]소환[/gold] {Summon:diff()}.\n[gold]뽑을 카드 더미[/gold]에 [gold]{IfUpgraded:show:영혼+|영혼}[/gold]을\nX장 추가합니다."
+ },
+ "BLIGHT_STRIKE": {
+  "en": "Blight Strike",
+  "title": "역병 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n가한 피해량만큼\n[gold]종말[/gold]을 부여합니다."
+ },
+ "TIMES_UP": {
+  "en": "Time's Up",
+  "title": "때가 되었다",
+  "description": "대상 적이 보유한 [gold]종말[/gold]만큼 피해를 줍니다.{IsTargeting:\n(피해를 {CalculatedDamage:diff()} 줍니다)|}"
+ },
+ "FEAR": {
+  "en": "Fear",
+  "title": "두려움",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "BURY": {
+  "en": "Bury",
+  "title": "매장",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "AFTERLIFE": {
+  "en": "Afterlife",
+  "title": "내세",
+  "description": "[gold]소환[/gold] {Summon:diff()}."
+ },
+ "REAPER_FORM": {
+  "en": "Reaper Form",
+  "title": "사신의 형상",
+  "description": "공격 카드로\n피해를 줄 때마다,\n그와 동일한 만큼의\n[gold]종말[/gold]을 부여합니다."
+ },
+ "SHARED_FATE": {
+  "en": "Shared Fate",
+  "title": "운명 공유",
+  "description": "[gold]힘[/gold]을 {PlayerStrengthLoss:diff()} 잃습니다.\n적이 [gold]힘[/gold]을 {EnemyStrengthLoss:diff()} 잃습니다."
+ },
+ "REANIMATE": {
+  "en": "Reanimate",
+  "title": "소생",
+  "description": "[gold]소환[/gold] {Summon:diff()}."
+ },
+ "BODYGUARD": {
+  "en": "Bodyguard",
+  "title": "호위",
+  "description": "[gold]소환[/gold] {Summon:diff()}."
+ },
+ "OBLIVION": {
+  "en": "Oblivion",
+  "title": "망각",
+  "description": "이번 턴에 카드를 사용할\n때마다, 대상 적에게\n[gold]종말[/gold]을 {DoomPower:diff()} 부여합니다."
+ },
+ "REAVE": {
+  "en": "Reave",
+  "title": "강탈",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]뽑을 카드 더미[/gold]에\n[gold]{IfUpgraded:show:영혼+|영혼}[/gold]을 1장 추가합니다."
+ },
+ "UNLEASH": {
+  "en": "Unleash",
+  "title": "풀어놓기",
+  "description": "[gold]골골이[/gold]가 피해를 {CalculatedDamage:diff()} 줍니다.\n[gold]골골이[/gold]의 현재 체력만큼\n피해량이 증가합니다."
+ },
+ "SQUEEZE": {
+  "en": "Squeeze",
+  "title": "쥐어짜기",
+  "description": "[gold]골골이[/gold]가 피해를 {CalculatedDamage:diff()} 줍니다.\n다른 모든 [gold]골골이[/gold]\n공격 카드 1장당\n피해량이 {ExtraDamage:diff()} 증가합니다."
+ },
+ "FLATTEN": {
+  "en": "Flatten",
+  "title": "땅고르기",
+  "description": "[gold]골골이[/gold]가 피해를 {OstyDamage:diff()} 줍니다.\n이번 턴에 [gold]골골이[/gold]가\n공격했다면, 이 카드의\n비용이 0 {energyPrefix:energyIcons(1)}이 됩니다."
+ },
+ "PULL_AGGRO": {
+  "en": "Pull Aggro",
+  "title": "시선 유도",
+  "description": "[gold]소환[/gold] {Summon:diff()}.\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "SNAP": {
+  "en": "Snap",
+  "title": "넘기기",
+  "description": "[gold]골골이[/gold]가 피해를 {OstyDamage:diff()} 줍니다.\n[gold]손[/gold]에 있는 카드 1장에\n[gold]보존[/gold]을 추가합니다."
+ },
+ "DEFILE": {
+  "en": "Defile",
+  "title": "모독",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "DEFY": {
+  "en": "Defy",
+  "title": "반항",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]약화[/gold]를 {WeakPower:diff()} 부여합니다."
+ },
+ "DRAIN_POWER": {
+  "en": "Drain Power",
+  "title": "기력 흡수",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]버린 카드 더미[/gold]에 있는\n무작위 카드를 {Cards:diff()}장\n[gold]강화[/gold]합니다."
+ },
+ "INVOKE": {
+  "en": "Invoke",
+  "title": "부름",
+  "description": "다음 턴에, [gold]소환[/gold] {Summon:diff()} 후 {Energy:energyIcons()}를 얻습니다."
+ },
+ "POKE": {
+  "en": "Poke",
+  "title": "쑤시기",
+  "description": "[gold]골골이[/gold]가 피해를 {OstyDamage:diff()} 줍니다."
+ },
+ "REAP": {
+  "en": "Reap",
+  "title": "수확",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "SCULPTING_STRIKE": {
+  "en": "Sculpting Strike",
+  "title": "조각 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]손[/gold]에 있는 카드 1장에\n[gold]휘발성[/gold]을 추가합니다."
+ },
+ "SOW": {
+  "en": "Sow",
+  "title": "파종",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다."
+ },
+ "WISP": {
+  "en": "Wisp",
+  "title": "위습",
+  "description": "{Energy:energyIcons()}를 얻습니다."
+ },
+ "CALCIFY": {
+  "en": "Calcify",
+  "title": "석회화",
+  "description": "[gold]골골이[/gold]가 가하는 공격의\n피해량이 {CalcifyPower:diff()} 증가합니다."
+ },
+ "CLEANSE": {
+  "en": "Cleanse",
+  "title": "정화",
+  "description": "[gold]소환[/gold] {Summon:diff()}.\n[gold]뽑을 카드 더미[/gold]의 카드를\n1장 [gold]소멸[/gold]시킵니다."
+ },
+ "FRIENDSHIP": {
+  "en": "Friendship",
+  "title": "우정",
+  "description": "[gold]힘[/gold]을 {StrengthPower:inverseDiff()} 잃습니다.\n매 턴 시작 시\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "LEGION_OF_BONE": {
+  "en": "Legion of Bone",
+  "title": "해골 군단",
+  "description": "모든 플레이어가 [gold]소환[/gold] {Summon:diff()}."
+ },
+ "MELANCHOLY": {
+  "en": "Melancholy",
+  "title": "비애",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n누군가 죽을 때마다\n이 카드의 비용이\n{Energy:energyIcons()} 감소합니다."
+ },
+ "PAGESTORM": {
+  "en": "Pagestorm",
+  "title": "서류 폭풍",
+  "description": "[gold]휘발성[/gold] 카드를\n뽑을 때마다,\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "PULL_FROM_BELOW": {
+  "en": "Pull from Below",
+  "title": "끌어내리기",
+  "description": "이번 전투 동안 사용한\n[gold]휘발성[/gold] 카드 1장당\n피해를 {Damage:diff()} 줍니다.{InCombat:\n({CalculatedHits:diff()}번 적중합니다)|}"
+ },
+ "PUTREFY": {
+  "en": "Putrefy",
+  "title": "부식",
+  "description": "[gold]약화[/gold]을 {Power:diff()} 부여합니다.\n[gold]취약[/gold]을 {Power:diff()} 부여합니다."
+ },
+ "RIGHT_HAND_HAND": {
+  "en": "Right Hand Hand",
+  "title": "진정한 오른팔",
+  "description": "[gold]골골이[/gold]가 피해를 {OstyDamage:diff()} 줍니다.\n비용이 {Energy:energyIcons()} 이상인\n카드를 사용할 때마다,\n이 카드를 [gold]버린 카드 더미[/gold]에서\n다시 [gold]손[/gold]으로 가져옵니다."
+ },
+ "SEVERANCE": {
+  "en": "Severance",
+  "title": "분리",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]뽑을 카드 더미[/gold], [gold]손[/gold],\n[gold]버린 카드 더미[/gold]에 [gold]영혼[/gold]을\n1장 추가합니다."
+ },
+ "SHROUD": {
+  "en": "Shroud",
+  "title": "수의",
+  "description": "[gold]종말[/gold]을 부여할 때마다,\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "SLEIGHT_OF_FLESH": {
+  "en": "Sleight of Flesh",
+  "title": "살점 재주",
+  "description": "적에게 해로운 효과를\n부여할 때마다, 대상 적이\n피해를 {SleightOfFleshPower:diff()} 받습니다."
+ },
+ "SPUR": {
+  "en": "Spur",
+  "title": "격려",
+  "description": "[gold]소환[/gold] {Summon:diff()}.\n[gold]골골이[/gold]가\n체력을 {Heal:diff()} 회복합니다."
+ },
+ "VEILPIERCER": {
+  "en": "Veilpiercer",
+  "title": "장막 관통자",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음에 사용하는\n[gold]휘발성[/gold] 카드의 비용이\n0 {energyPrefix:energyIcons(1)}이 됩니다."
+ },
+ "EIDOLON": {
+  "en": "Eidolon",
+  "title": "허상",
+  "description": "[gold]손[/gold]에 있는 모든 카드를\n[gold]소멸[/gold]시킵니다.\n이를 통해 카드를 9장\n[gold]소멸[/gold]시켰다면,\n[gold]불가침[/gold]을 1 얻습니다."
+ },
+ "GLIMPSE_BEYOND": {
+  "en": "Glimpse Beyond",
+  "title": "경계 엿보기",
+  "description": "모든 플레이어의\n[gold]뽑을 카드 더미[/gold]에\n[gold]영혼[/gold]을 {Cards:diff()}장 추가합니다."
+ },
+ "HANG": {
+  "en": "Hang",
+  "title": "매달기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n모든 매달기 카드가\n이 적에게 가하는 피해량이\n2배로 증가합니다."
+ },
+ "MISERY": {
+  "en": "Misery",
+  "title": "비참함",
+  "description": "피해를 {Damage:diff()} 줍니다.\n대상 적에게 부여된 모든\n해로운 효과를 다른\n모든 적에게 부여합니다."
+ },
+ "SEANCE": {
+  "en": "Seance",
+  "title": "강령회",
+  "description": "[gold]뽑을 카드 더미[/gold]의\n카드를 1장 [gold]영혼[/gold]으로\n변화시킵니다."
+ },
+ "SENTRY_MODE": {
+  "en": "Sentry Mode",
+  "title": "경계 태세",
+  "description": "내 턴 시작 시,\n[gold]훑어보기[/gold]를 {SentryModePower:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "SPIRIT_OF_ASH": {
+  "en": "Spirit of Ash",
+  "title": "잿빛 혼령",
+  "description": "[gold]휘발성[/gold] 카드를\n사용할 때마다,\n[gold]방어도[/gold]를 {BlockOnExhaust:diff()} 얻습니다."
+ },
+ "UNDEATH": {
+  "en": "Undeath",
+  "title": "불사",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이 카드의 복사본을 1장\n[gold]버린 카드 더미[/gold]에\n추가합니다."
+ },
+ "FORBIDDEN_GRIMOIRE": {
+  "en": "Forbidden Grimoire",
+  "title": "금지된 마도서",
+  "description": "전투 종료 시, [gold]덱[/gold]에서\n카드를 1장 제거합니다."
+ },
+ "PROTECTOR": {
+  "en": "Protector",
+  "title": "파수꾼",
+  "description": "[gold]골골이[/gold]가 피해를 {CalculatedDamage:diff()} 줍니다.\n[gold]골골이[/gold]의 [gold]최대 체력[/gold]만큼\n피해량이 증가합니다."
+ },
+ "NECRO_MASTERY": {
+  "en": "Necro Mastery",
+  "title": "강령의 극의",
+  "description": "[gold]소환[/gold] {Summon:diff()}.\n[gold]골골이[/gold]가 체력을\n잃을 때마다, 모든 적이\n동일한 만큼의 체력을\n잃습니다."
+ },
+ "ENLIGHTENMENT": {
+  "en": "Enlightenment",
+  "title": "계몽",
+  "description": "이번 {IfUpgraded:show:전투|턴} 동안,\n[gold]손[/gold]에 있는 모든 카드의\n비용이 1로 감소합니다."
+ },
+ "FLASH_OF_STEEL": {
+  "en": "Flash of Steel",
+  "title": "강철의 섬광",
+  "description": "피해를 {Damage:diff()} 줍니다.\n카드를 1장 뽑습니다."
+ },
+ "JACK_OF_ALL_TRADES": {
+  "en": "Jack of All Trades",
+  "title": "팔방미인",
+  "description": "무작위 무색 카드를 {Cards:diff()}장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "APOTHEOSIS": {
+  "en": "Apotheosis",
+  "title": "신성",
+  "description": "모든 카드를 [gold]강화[/gold]합니다."
+ },
+ "PANACHE": {
+  "en": "Panache",
+  "title": "위풍당당",
+  "description": "한 턴에 카드를 5장\n사용할 때마다, 모든 적에게\n피해를 {PanacheDamage:diff()} 줍니다."
+ },
+ "DRAMATIC_ENTRANCE": {
+  "en": "Dramatic Entrance",
+  "title": "극적인 입장",
+  "description": "모든 적에게\n피해를 {Damage:diff()} 줍니다."
+ },
+ "SECRET_WEAPON": {
+  "en": "Secret Weapon",
+  "title": "비밀 병기",
+  "description": "[gold]뽑을 카드 더미[/gold]에서\n공격 카드를 1장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "MIND_BLAST": {
+  "en": "Mind Blast",
+  "title": "정신 공격",
+  "description": "[gold]뽑을 카드 더미[/gold]에 있는\n카드의 수만큼\n피해를 줍니다.{InCombat:\n(피해를 {CalculatedDamage:diff()} 줍니다)|}"
+ },
+ "THINKING_AHEAD": {
+  "en": "Thinking Ahead",
+  "title": "미래 예지",
+  "description": "카드를 {Cards:diff()}장 뽑습니다.\n[gold]손[/gold]에 있는 카드를 1장\n[gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+ },
+ "HAND_OF_GREED": {
+  "en": "Hand of Greed",
+  "title": "탐욕의 손",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]치명타[/gold]라면,\n[gold]골드[/gold]를 {Gold:diff()} 얻습니다."
+ },
+ "THE_BOMB": {
+  "en": "The Bomb",
+  "title": "폭탄",
+  "description": "{Turns:diff()}턴 후 턴 종료 시,\n모든 적에게\n피해를 {BombDamage:diff()} 줍니다."
+ },
+ "APPARITION": {
+  "en": "Apparition",
+  "title": "영체화",
+  "description": "[gold]불가침[/gold]을 {IntangiblePower:diff()} 얻습니다."
+ },
+ "AUTOMATION": {
+  "en": "Automation",
+  "title": "자동화",
+  "description": "카드를 10장 뽑을 때마다, {Energy:energyIcons()}를 얻습니다."
+ },
+ "BELIEVE_IN_YOU": {
+  "en": "Believe in You",
+  "title": "너만 믿는다",
+  "description": "다른 플레이어가 {Energy:energyIcons()}를 얻습니다."
+ },
+ "CATASTROPHE": {
+  "en": "Catastrophe",
+  "title": "재난",
+  "description": "[gold]뽑을 카드 더미[/gold]에서\n무작위 카드를\n{Cards:diff()}장 사용합니다."
+ },
+ "COORDINATE": {
+  "en": "Coordinate",
+  "title": "협력",
+  "description": "이번 턴 동안\n다른 플레이어에게\n[gold]힘[/gold]을 {StrengthPower:diff()} 줍니다."
+ },
+ "DARK_SHACKLES": {
+  "en": "Dark Shackles",
+  "title": "어둠의 족쇄",
+  "description": "이번 턴에 적이\n[gold]힘[/gold]을 {StrengthLoss:diff()} 잃습니다."
+ },
+ "DISCOVERY": {
+  "en": "Discovery",
+  "title": "발견",
+  "description": "무작위 카드 3장 중 1장을\n선택해 [gold]손[/gold]으로 가져옵니다.\n이번 턴 동안 그 카드를\n비용 없이 사용할 수 있습니다."
+ },
+ "EQUILIBRIUM": {
+  "en": "Equilibrium",
+  "title": "평형",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 턴에 [gold]손[/gold]에 있는\n카드를 [gold]보존[/gold]합니다."
+ },
+ "FASTEN": {
+  "en": "Fasten",
+  "title": "고정시키기",
+  "description": "수비 카드를 통해 얻는\n[gold]방어도[/gold]가 {ExtraBlock:diff()} 증가합니다."
+ },
+ "FINESSE": {
+  "en": "Finesse",
+  "title": "능숙",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n카드를 1장 뽑습니다."
+ },
+ "FISTICUFFS": {
+  "en": "Fisticuffs",
+  "title": "주먹다짐",
+  "description": "피해를 {Damage:diff()} 줍니다.\n가한 피해량만큼\n[gold]방어도[/gold]를 얻습니다."
+ },
+ "GANG_UP": {
+  "en": "Gang Up",
+  "title": "집단 공격",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n이번 턴에 다른 플레이어가\n대상 적을 공격한 횟수당\n피해량이 {ExtraDamage:diff()} 증가합니다."
+ },
+ "HUDDLE_UP": {
+  "en": "Huddle Up",
+  "title": "똘똘 뭉치기",
+  "description": "모든 플레이어가\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "IMPATIENCE": {
+  "en": "Impatience",
+  "title": "성급함",
+  "description": "[gold]손[/gold]에 공격 카드가 없다면, 카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "INTERCEPT": {
+  "en": "Intercept",
+  "title": "가로막기",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 턴 동안\n다른 플레이어가 받아야 하는\n모든 공격의 목표를\n자신으로 변경합니다."
+ },
+ "LIFT": {
+  "en": "Lift",
+  "title": "부양",
+  "description": "다른 플레이어에게\n[gold]방어도[/gold]를 {Block:diff()} 줍니다."
+ },
+ "OMNISLICE": {
+  "en": "Omnislice",
+  "title": "만물 절단",
+  "description": "피해를 {Damage:diff()} 줍니다.\n가한 피해량만큼 다른 모든 적에게 피해를 줍니다."
+ },
+ "PANIC_BUTTON": {
+  "en": "Panic Button",
+  "title": "비상 단추",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n{Turns:diff()}턴 동안 카드를 통해\n[gold]방어도[/gold]를 얻을 수 없습니다."
+ },
+ "PREP_TIME": {
+  "en": "Prep Time",
+  "title": "준비 시간",
+  "description": "내 턴 시작 시,\n[gold]활력[/gold]을 {PrepTimePower:diff()} 얻습니다."
+ },
+ "PRODUCTION": {
+  "en": "Production",
+  "title": "생산",
+  "description": "{Energy:energyIcons()}를 얻습니다."
+ },
+ "PROLONG": {
+  "en": "Prolong",
+  "title": "연장",
+  "description": "다음 턴에, 현재 [gold]방어도[/gold]와\n동일한 만큼의\n[gold]방어도[/gold]를 얻습니다."
+ },
+ "PROWESS": {
+  "en": "Prowess",
+  "title": "기량",
+  "description": "[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다.\n[gold]민첩[/gold]을 {DexterityPower:diff()} 얻습니다."
+ },
+ "PURITY": {
+  "en": "Purity",
+  "title": "순수",
+  "description": "[gold]손[/gold]에 있는 카드를\n최대 {Cards:diff()}장까지 소멸시킵니다."
+ },
+ "RESTLESSNESS": {
+  "en": "Restlessness",
+  "title": "초조함",
+  "description": "[gold]손[/gold]에 카드가 없다면,\n카드를 {Cards:diff()}장 뽑고\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "SEEKER_STRIKE": {
+  "en": "Seeker Strike",
+  "title": "탐색 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]뽑을 카드 더미[/gold]의\n카드 {Cards:diff()}장 중 1장을 선택해\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "SPLASH": {
+  "en": "Splash",
+  "title": "착수",
+  "description": "다른 캐릭터의 무작위\n{IfUpgraded:show:[gold]강화[/gold]된 }공격 카드 3장 중 1장을\n선택해 [gold]손[/gold]으로 가져옵니다.\n이번 턴 동안 그 카드를\n비용 없이 사용할 수 있습니다."
+ },
+ "STRATAGEM": {
+  "en": "Stratagem",
+  "title": "책략",
+  "description": "[gold]뽑을 카드 더미[/gold]를 섞을\n때마다, 카드를 1장 선택해\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "TAG_TEAM": {
+  "en": "Tag Team",
+  "title": "태그 팀",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다른 플레이어가 다음에\n대상 적에게 사용하는\n공격 카드가\n1번 추가로 사용됩니다."
+ },
+ "THRUMMING_HATCHET": {
+  "en": "Thrumming Hatchet",
+  "title": "고동치는 도끼",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음 턴 시작 시, 이 카드를\n다시 [gold]손[/gold]으로 가져옵니다."
+ },
+ "ULTIMATE_DEFEND": {
+  "en": "Ultimate Defend",
+  "title": "궁극의 수비",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "ULTIMATE_STRIKE": {
+  "en": "Ultimate Strike",
+  "title": "궁극의 타격",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "VOLLEY": {
+  "en": "Volley",
+  "title": "난사",
+  "description": "무작위 적에게 피해를\n{Damage:diff()}만큼 X번 줍니다."
+ },
+ "ALCHEMIZE": {
+  "en": "Alchemize",
+  "title": "연금",
+  "description": "무작위 포션을\n1개 생성합니다."
+ },
+ "ANOINTED": {
+  "en": "Anointed",
+  "title": "임명",
+  "description": "[gold]뽑을 카드 더미[/gold]에 있는\n모든 [gold]희귀[/gold] 카드를\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "BEACON_OF_HOPE": {
+  "en": "Beacon of Hope",
+  "title": "희망의 등불",
+  "description": "내 턴 동안 [gold]방어도[/gold]를 얻을\n때마다, 다른 플레이어가\n그 절반만큼\n[gold]방어도[/gold]를 얻습니다."
+ },
+ "BEAT_DOWN": {
+  "en": "Beat Down",
+  "title": "두들겨 패기",
+  "description": "[gold]버린 카드 더미[/gold]에서\n무작위 공격 카드를\n{Cards:diff()}장 사용합니다."
+ },
+ "BOLAS": {
+  "en": "Bolas",
+  "title": "사냥돌",
+  "description": "피해를 {Damage:diff()} 줍니다.\n다음 턴 시작 시, 이 카드를\n다시 [gold]손[/gold]으로 가져옵니다."
+ },
+ "CALAMITY": {
+  "en": "Calamity",
+  "title": "재앙",
+  "description": "공격 카드를 사용할 때마다,\n무작위 공격 카드를\n1장 [gold]손[/gold]으로 가져옵니다."
+ },
+ "ENTROPY": {
+  "en": "Entropy",
+  "title": "엔트로피",
+  "description": "내 턴 시작 시, [gold]손[/gold]에 있는\n카드를 {Cards:diff()}장 [gold]변화[/gold]시킵니다."
+ },
+ "ETERNAL_ARMOR": {
+  "en": "Eternal Armor",
+  "title": "영원의 갑옷",
+  "description": "[gold]판금[/gold]을 {PlatingPower:diff()} 얻습니다."
+ },
+ "GOLD_AXE": {
+  "en": "Gold Axe",
+  "title": "황금 도끼",
+  "description": "이번 전투 동안 사용한\n카드의 수와 동일한 만큼의\n피해를 줍니다.{InCombat:\n(피해를 {CalculatedDamage:diff()} 줍니다)|}"
+ },
+ "HIDDEN_GEM": {
+  "en": "Hidden Gem",
+  "title": "숨겨진 보석",
+  "description": "[gold]뽑을 카드 더미[/gold]에 있는\n[gold]재사용[/gold]이 없는\n무작위 카드 1장이\n[gold]재사용[/gold]을 {Replay:diff()} 얻습니다."
+ },
+ "JACKPOT": {
+  "en": "Jackpot",
+  "title": "잭팟",
+  "description": "피해를 {Damage:diff()} 줍니다.\n비용이 0{energyPrefix:energyIcons(1)}인\n무작위 {IfUpgraded:show:[gold]강화[/gold]된 }카드를\n{Cards:diff()}장 [gold]손[/gold]으로 가져옵니다."
+ },
+ "KNOCKDOWN": {
+  "en": "Knockdown",
+  "title": "때려눕히기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n대상 적이 이번 턴에\n다른 플레이어에게서 받는\n피해량이 {IfUpgraded:show:3배|2배}가 됩니다."
+ },
+ "MASTER_OF_STRATEGY": {
+  "en": "Master of Strategy",
+  "title": "전략의 천재",
+  "description": "카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "MAYHEM": {
+  "en": "Mayhem",
+  "title": "대혼란",
+  "description": "내 턴 시작 시,\n[gold]뽑을 카드 더미[/gold] 맨 위의\n카드를 사용합니다."
+ },
+ "MIMIC": {
+  "en": "Mimic",
+  "title": "흉내내기",
+  "description": "다른 플레이어의 [gold]방어도[/gold]와\n동일한 만큼의\n[gold]방어도[/gold]를 얻습니다."
+ },
+ "NOSTALGIA": {
+  "en": "Nostalgia",
+  "title": "향수",
+  "description": "매 턴마다 처음 사용하는\n공격이나 스킬 카드를\n[gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+ },
+ "RALLY": {
+  "en": "Rally",
+  "title": "단결",
+  "description": "모든 플레이어가\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "REND": {
+  "en": "Rend",
+  "title": "쥐어뜯기",
+  "description": "피해를 {CalculatedDamage:diff()} 줍니다.\n적이 보유한 해로운 효과의\n종류 하나당 피해량이\n{ExtraDamage:diff()} 증가합니다."
+ },
+ "ROLLING_BOULDER": {
+  "en": "Rolling Boulder",
+  "title": "굴러가는 바위",
+  "description": "내 턴 시작 시, 모든\n적에게 피해를 {RollingBoulderPower:diff()} 주고\n이 효과의 피해량이\n{IncrementAmount:diff()} 증가합니다."
+ },
+ "SALVO": {
+  "en": "Salvo",
+  "title": "집중 포화",
+  "description": "피해를 {Damage:diff()} 줍니다.\n이번 턴에 [gold]손[/gold]에 있는\n카드를 [gold]보존[/gold]합니다."
+ },
+ "SCRAWL": {
+  "en": "Scrawl",
+  "title": "휘갈김",
+  "description": "[gold]손[/gold]이 가득 찰 때까지\n카드를 뽑습니다."
+ },
+ "SECRET_TECHNIQUE": {
+  "en": "Secret Technique",
+  "title": "비밀 기술",
+  "description": "[gold]뽑을 카드 더미[/gold]에서\n스킬 카드를 1장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "THE_GAMBIT": {
+  "en": "The Gambit",
+  "title": "포석",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n이번 전투 동안\n막히지 않은 공격 피해를\n받는다면, 죽습니다."
+ },
+ "BRIGHTEST_FLAME": {
+  "en": "Brightest Flame",
+  "title": "찬란한 불꽃",
+  "description": "{Energy:energyIcons()}를 얻습니다.\n카드를 {Cards:diff()}장 뽑습니다.\n최대 체력을 {MaxHp:diff()} 잃습니다."
+ },
+ "MAUL": {
+  "en": "Maul",
+  "title": "할퀴기",
+  "description": "피해를 {Damage:diff()}만큼 2번 줍니다.\n이번 전투 동안\n모든 할퀴기 카드의\n피해량이 {Increase:diff()} 증가합니다."
+ },
+ "NEOWS_FURY": {
+  "en": "Neow's Fury",
+  "title": "니오우의 격분",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]버린 카드 더미[/gold]에서\n카드를 최대 {Cards:diff()}장까지\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "RELAX": {
+  "en": "Relax",
+  "title": "안식",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n다음 턴에,\n카드를 {Cards:diff()}장 뽑고\n{Energy:energyIcons()}를 얻습니다."
+ },
+ "WHISTLE": {
+  "en": "Whistle",
+  "title": "호각 불기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n적을 [gold]기절[/gold]시킵니다."
+ },
+ "WISH": {
+  "en": "Wish",
+  "title": "염원",
+  "description": "[gold]뽑을 카드 더미[/gold]에서\n카드를 1장\n[gold]손[/gold]으로 가져옵니다."
+ },
+ "BURN": {
+  "en": "Burn",
+  "title": "화상",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n피해를 {Damage:diff()} 받습니다."
+ },
+ "DAZED": {
+  "en": "Dazed",
+  "title": "어지러움",
+  "description": ""
+ },
+ "SLIMED": {
+  "en": "Slimed",
+  "title": "점액투성이",
+  "description": "카드를 1장 뽑습니다."
+ },
+ "WOUND": {
+  "en": "Wound",
+  "title": "부상",
+  "description": ""
+ },
+ "VOID": {
+  "en": "Void",
+  "title": "공허",
+  "description": "이 카드를 뽑을 때마다, {Energy:energyIcons()}를 잃습니다."
+ },
+ "BECKON": {
+  "en": "Beckon",
+  "title": "유인",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n체력을 {HpLoss} 잃습니다."
+ },
+ "DEBRIS": {
+  "en": "Debris",
+  "title": "잔해",
+  "description": ""
+ },
+ "DISINTEGRATION": {
+  "en": "Disintegration",
+  "title": "분해",
+  "description": "내 턴 종료 시,\n피해를 {DisintegrationPower:diff()} 받습니다."
+ },
+ "FRANTIC_ESCAPE": {
+  "en": "Frantic Escape",
+  "title": "필사적인 도주",
+  "description": "보스에게서 멀어집니다.\n[gold]모래 구덩이[/gold]가\n1 증가합니다.\n이 카드의 비용이\n1 증가합니다."
+ },
+ "INFECTION": {
+  "en": "Infection",
+  "title": "감염",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n피해를 {Damage:diff()} 받습니다."
+ },
+ "MIND_ROT": {
+  "en": "Mind Rot",
+  "title": "정신 오염",
+  "description": "매 턴마다 카드를\n{MindRotPower:diff()}장 적게 뽑습니다."
+ },
+ "SLOTH": {
+  "en": "Sloth",
+  "title": "나태",
+  "description": "매 턴마다 카드를\n최대 {SlothPower:diff()}장까지만\n사용할 수 있습니다."
+ },
+ "SOOT": {
+  "en": "Soot",
+  "title": "그을음",
+  "description": ""
+ },
+ "TOXIC": {
+  "en": "Toxic",
+  "title": "유독성",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n피해를 {Damage:diff()} 받습니다."
+ },
+ "WASTE_AWAY": {
+  "en": "Waste Away",
+  "title": "쇠퇴",
+  "description": "매 턴마다 얻는\n{energyPrefix:energyIcons(1)}가 {WasteAwayPower:diff()} 감소합니다."
+ },
+ "ASCENDERS_BANE": {
+  "en": "Ascender's Bane",
+  "title": "등반자의 골칫거리",
+  "description": ""
+ },
+ "BAD_LUCK": {
+  "en": "Bad Luck",
+  "title": "불운",
+  "description": "내 턴 종료 시\n이 카드가 손에 있다면,\n체력을 {HpLoss:diff()} 잃습니다."
+ },
+ "CLUMSY": {
+  "en": "Clumsy",
+  "title": "서투름",
+  "description": ""
+ },
+ "CURSE_OF_THE_BELL": {
+  "en": "Curse of the Bell",
+  "title": "방울의 저주",
+  "description": ""
+ },
+ "DEBT": {
+  "en": "Debt",
+  "title": "빚",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n[gold]골드[/gold]를 {Gold:diff()} 잃습니다."
+ },
+ "DECAY": {
+  "en": "Decay",
+  "title": "부패",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n피해를 {Damage:diff()} 받습니다."
+ },
+ "DOUBT": {
+  "en": "Doubt",
+  "title": "의심",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n[gold]약화[/gold]를 {WeakPower:diff()} 얻습니다."
+ },
+ "ENTHRALLED": {
+  "en": "Enthralled",
+  "title": "매료됨",
+  "description": "이 카드가 [gold]손[/gold]에 있다면,\n다른 카드보다 먼저\n사용해야 합니다."
+ },
+ "FOLLY": {
+  "en": "Folly",
+  "title": "어리석음",
+  "description": ""
+ },
+ "GREED": {
+  "en": "Greed",
+  "title": "탐욕",
+  "description": ""
+ },
+ "GUILTY": {
+  "en": "Guilty",
+  "title": "죄책감",
+  "description": "{Combats:diff()}번의 전투 후에\n[gold]덱[/gold]에서 제거됩니다."
+ },
+ "INJURY": {
+  "en": "Injury",
+  "title": "상처",
+  "description": ""
+ },
+ "NORMALITY": {
+  "en": "Normality",
+  "title": "규칙 준수",
+  "description": "한 턴에 카드를\n최대 3장까지만\n사용할 수 있습니다.{InCombat:\n({CalculatedCards:choose(1):{}장|{}장} 남았습니다)|}"
+ },
+ "POOR_SLEEP": {
+  "en": "Poor Sleep",
+  "title": "수면 부족",
+  "description": ""
+ },
+ "REGRET": {
+  "en": "Regret",
+  "title": "후회",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n[gold]손[/gold]에 있는 카드 1장당\n체력을 1 잃습니다."
+ },
+ "SHAME": {
+  "en": "Shame",
+  "title": "수치",
+  "description": "내 턴 종료 시\n이 카드가 [gold]손[/gold]에 있다면,\n[gold]손상[/gold]을 {Frail:diff()} 얻습니다."
+ },
+ "SPORE_MIND": {
+  "en": "Spore Mind",
+  "title": "포자 잠식",
+  "description": ""
+ },
+ "WRITHE": {
+  "en": "Writhe",
+  "title": "몸부림",
+  "description": ""
+ },
+ "BYRDONIS_EGG": {
+  "en": "Byrdonis Egg",
+  "title": "섀도니스 알",
+  "description": "[gold]휴식 장소[/gold]에서\n부화시킬 수 있습니다."
+ },
+ "LANTERN_KEY": {
+  "en": "Lantern Key",
+  "title": "랜턴 열쇠",
+  "description": "다음 막에서 특별한\n이벤트를 해금합니다."
+ },
+ "SPOILS_MAP": {
+  "en": "Spoils Map",
+  "title": "보물 지도",
+  "description": "{Gold:diff()} [gold]골드[/gold]를 추가로\n얻을 수 있는 장소를\n다음 막에 표시합니다."
+ },
+ "FUEL": {
+  "en": "Fuel",
+  "title": "연료",
+  "description": "{Energy:energyIcons()}를 얻습니다."
+ },
+ "GIANT_ROCK": {
+  "en": "Giant Rock",
+  "title": "거대한 바위",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "LUMINESCE": {
+  "en": "Luminesce",
+  "title": "발광",
+  "description": "{Energy:energyIcons()}를 얻습니다."
+ },
+ "MINION_DIVE_BOMB": {
+  "en": "Minion Dive Bomb",
+  "title": "하수인 투하",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "MINION_SACRIFICE": {
+  "en": "Minion Sacrifice",
+  "title": "하수인 희생",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ },
+ "MINION_STRIKE": {
+  "en": "Minion Strike",
+  "title": "하수인 타격",
+  "description": "피해를 {Damage:diff()} 줍니다.\n카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "SHIV": {
+  "en": "Shiv",
+  "title": "단도",
+  "description": "{TargetType:choose(AllEnemies):모든 적에게 |}피해를 {Damage:diff()} 줍니다."
+ },
+ "SOUL": {
+  "en": "Soul",
+  "title": "영혼",
+  "description": "카드를 {Cards:diff()}장 뽑습니다."
+ },
+ "SOVEREIGN_BLADE": {
+  "en": "Sovereign Blade",
+  "title": "군주의 칼날",
+  "description": "{TargetType:choose(AllEnemies):모든 적에게 |}피해를 {Damage:diff()}{Repeat:choose(1):|만큼 {}번} 줍니다.{GainsBlock:cond:\n[gold]방어도[/gold]를 {CalculatedBlock:diff()} 얻습니다.|}"
+ },
+ "SWEEPING_GAZE": {
+  "en": "Sweeping Gaze",
+  "title": "훑어보기",
+  "description": "[gold]골골이[/gold]가 무작위 적에게\n피해를 {OstyDamage:diff()} 줍니다."
+ },
+ "BYRD_SWOOP": {
+  "en": "Byrd Swoop",
+  "title": "섀 급습",
+  "description": "피해를 {Damage:diff()} 줍니다."
+ },
+ "EXTERMINATE": {
+  "en": "Exterminate",
+  "title": "박멸",
+  "description": "모든 적에게\n피해를 {Damage:diff()}만큼 {Repeat:diff()}번 줍니다."
+ },
+ "FEEDING_FRENZY": {
+  "en": "Feeding Frenzy",
+  "title": "광란의 포식",
+  "description": "이번 턴 동안\n[gold]힘[/gold]을 {StrengthPower:diff()} 얻습니다."
+ },
+ "METAMORPHOSIS": {
+  "en": "Metamorphosis",
+  "title": "탈바꿈",
+  "description": "[gold]뽑을 카드 더미[/gold]에\n무작위 공격 카드를\n{Cards:diff()}장 추가합니다.\n이번 전투 동안 그 카드들을\n비용 없이 사용할 수 있습니다."
+ },
+ "PECK": {
+  "en": "Peck",
+  "title": "쪼기",
+  "description": "피해를 {Damage:diff()}만큼 {Repeat:diff()}번 줍니다."
+ },
+ "SQUASH": {
+  "en": "Squash",
+  "title": "짓누르기",
+  "description": "피해를 {Damage:diff()} 줍니다.\n[gold]취약[/gold]을 {VulnerablePower:diff()} 부여합니다."
+ },
+ "TORIC_TOUGHNESS": {
+  "en": "Toric Toughness",
+  "title": "고리형 강인함",
+  "description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n다음 {Turns:diff()}턴 동안, 턴 시작 시\n[gold]방어도[/gold]를 {Block:diff()} 얻습니다."
+ }
+}
