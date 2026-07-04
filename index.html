@@ -5,20 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spire Codex 어드바이저 (한국어)</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
 <style>
 :root{
-  --bg:#0c0b09; --bg2:#131109; --bg3:#1b1810; --bg4:#241f12;
-  --border:#2e2515; --border2:#4a3a1c;
-  --gold:#c8952e; --gold2:#e8bc50; --gold3:#f5d87a;
-  --red:#b83025; --red2:#e04030; --green:#257a3e; --green2:#3ab55a;
-  --blue:#1e5f8c; --blue2:#3090cc;
-  --text:#e8d8b8; --text2:#b89868; --text3:#8a7050;
-  --s:#f5c030; --a:#e07825; --b:#35a860; --c:#2888cc; --d:#8844bb; --f:#667788;
-  --radius:6px;
+  /* 하이브리드: 뼈대는 중립 near-black, 포인트만 앰버 (게임 무드) */
+  --bg:#0a0a0b; --bg2:#101012; --bg3:#17171a; --bg4:#1e1e22;
+  --border:rgba(255,255,255,.09); --border2:rgba(255,255,255,.16);
+  --gold:#f0a83c; --gold2:#f5b855; --gold3:#f8cd7a;
+  --red:#c0392b; --red2:#e0503c; --green:#3a9e5a; --green2:#4bbf6e;
+  --blue:#3a7ca8; --blue2:#4b9fd0;
+  --text:#f0ede8; --text2:#8a8a8f; --text3:#5f5f66;
+  --s:#f0a83c; --a:#e08a3c; --b:#3a9e5a; --c:#3a8fd0; --d:#9a6ad8; --f:#667079;
+  --radius:8px;
+  /* 설계서 디자인 토큰 별칭 */
+  --bg-page:var(--bg); --bg-card:var(--bg2); --bg-hover:var(--bg3);
+  --border-strong:var(--border2); --text-1:var(--text); --text-2:var(--text2); --text-3:var(--text3);
+  --accent:var(--gold); --accent-soft:rgba(240,168,60,.12); --danger:var(--red); --danger-soft:rgba(192,57,43,.14);
+  --radius-card:12px; --radius-ctrl:8px; --pad-card:20px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:15px;min-height:100vh}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 0%,rgba(200,149,46,.05),transparent 55%),radial-gradient(ellipse at 85% 100%,rgba(184,48,37,.04),transparent 55%);pointer-events:none;z-index:0}
+body{background:var(--bg);color:var(--text);font-family:'Pretendard','Noto Sans KR',-apple-system,sans-serif;font-size:15px;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 0%,rgba(240,168,60,.05),transparent 55%),radial-gradient(ellipse at 85% 100%,rgba(192,57,43,.04),transparent 55%);pointer-events:none;z-index:0}
 .cinzel{font-family:'Cinzel',serif}
 
 /* 상단 */
@@ -40,7 +47,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .cols{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:13px;padding:13px 18px 44px;position:relative;z-index:1;align-items:start}
 @media(max-width:1080px){.cols{grid-template-columns:1fr}}
 .panel{background:var(--bg2);border:1px solid var(--border);border-radius:10px;display:flex;flex-direction:column}
-.panel-h{padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;background:rgba(200,149,46,.04);border-radius:10px 10px 0 0}
+.panel-h{padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;background:rgba(240,168,60,.04);border-radius:10px 10px 0 0}
 .panel-h h2{font-family:'Cinzel',serif;font-size:.9rem;color:var(--gold2);letter-spacing:.05em;flex:1}
 .panel-h .count{font-size:.74rem;color:var(--text3)}
 .panel-b{padding:12px 13px;display:flex;flex-direction:column;gap:10px}
@@ -49,14 +56,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .chips{display:flex;flex-wrap:wrap;gap:5px}
 .chip{display:flex;align-items:center;gap:5px;padding:4px 9px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);border-radius:20px;cursor:pointer;font-size:.78rem;transition:all .15s}
 .chip:hover{color:var(--text);border-color:var(--gold)}
-.chip.on{background:rgba(200,149,46,.16);border-color:var(--gold);color:var(--gold3);font-weight:700}
+.chip.on{background:rgba(240,168,60,.16);border-color:var(--gold);color:var(--gold3);font-weight:700}
 .chip .pct{font-size:.68rem;color:var(--text3);font-variant-numeric:tabular-nums}
 .chip.on .pct{color:var(--gold2)}
 
 /* 서브탭 */
 .subtabs{display:flex;gap:0;border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden}
 .subtab{flex:1;text-align:center;padding:7px 0;font-size:.84rem;cursor:pointer;color:var(--text2);background:var(--bg3);transition:all .15s}
-.subtab.on{background:rgba(200,149,46,.15);color:var(--gold3);font-weight:700}
+.subtab.on{background:rgba(240,168,60,.15);color:var(--gold3);font-weight:700}
 
 /* 입력/자동완성 */
 .search{position:relative}
@@ -67,14 +74,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .ac.open{display:block}
 .ac-item{padding:8px 11px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid rgba(46,37,21,.5)}
 .ac-item:last-child{border-bottom:none}
-.ac-item:hover,.ac-item.hi{background:rgba(200,149,46,.12)}
+.ac-item:hover,.ac-item.hi{background:rgba(240,168,60,.12)}
 .ac-name{font-size:.9rem;color:var(--text)} .ac-en{font-size:.68rem;color:var(--text3)}
 .ac-tier{font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;padding:1px 6px;border:1px solid;border-radius:3px}
 
 .row-btns{display:flex;gap:7px;flex-wrap:wrap}
 .btn{background:transparent;border:1px solid var(--border2);color:var(--text2);padding:6px 12px;font-family:inherit;font-size:.8rem;cursor:pointer;border-radius:var(--radius);transition:all .15s}
 .btn:hover{border-color:var(--gold);color:var(--gold2)}
-.btn.gold{border-color:var(--gold);color:var(--gold2);background:rgba(200,149,46,.08)}
+.btn.gold{border-color:var(--gold);color:var(--gold2);background:rgba(240,168,60,.08)}
 .btn.green{border-color:var(--green);color:var(--green2);background:rgba(53,168,96,.1)}
 
 /* 카드 타일(그림 자리=이미지 or 티어글자) */
@@ -92,9 +99,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .badge{font-family:'Cinzel',serif;font-size:.64rem;font-weight:700;padding:2px 6px;border-radius:3px;border:1px solid;white-space:nowrap}
 .b-pick{color:var(--green2);border-color:var(--green);background:rgba(53,168,96,.1)}
 .b-skip{color:var(--f);border-color:var(--f);background:rgba(102,119,136,.08)}
-.b-maybe{color:var(--gold2);border-color:var(--gold);background:rgba(200,149,46,.08)}
+.b-maybe{color:var(--gold2);border-color:var(--gold);background:rgba(240,168,60,.08)}
 .b-up{color:var(--gold3);border-color:var(--gold);background:rgba(245,216,122,.08)}
-.b-cut{color:var(--red2);border-color:var(--red);background:rgba(184,48,37,.1)}
+.b-cut{color:var(--red2);border-color:var(--red);background:rgba(192,57,43,.1)}
 .b-role{color:var(--blue2);border-color:var(--blue);background:rgba(48,144,204,.08)}
 .b-dup{color:var(--text2);border-color:var(--border2)}
 .empty{padding:24px 13px;text-align:center;color:var(--text3);font-size:.84rem;line-height:1.7}
@@ -148,7 +155,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .relic-line{display:flex;flex-direction:column;gap:5px;align-items:stretch}
 .rimg{width:28px;height:28px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0;border:1px solid var(--border2)}
 /* 유물 타일(아이콘 + 이름 + 등급 + 효과설명) */
-.rtile{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(200,149,46,.07);border:1px solid rgba(200,149,46,.22)}
+.rtile{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(240,168,60,.07);border:1px solid rgba(240,168,60,.22)}
 .rtile-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .rtile-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .rtile-nm{font-size:.84rem;color:var(--text);font-weight:500}
@@ -175,7 +182,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .grid-wrap.open{display:flex}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;max-height:300px;overflow-y:auto;padding-right:3px}
 .gcard{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:5px 7px;cursor:pointer;transition:all .12s}
-.gcard:hover{border-color:var(--gold);background:rgba(200,149,46,.08)}
+.gcard:hover{border-color:var(--gold);background:rgba(240,168,60,.08)}
 .gcard .gt{font-family:'Cinzel',serif;font-weight:700;font-size:.7rem;width:16px;text-align:center;flex-shrink:0}
 .gcard .gn{font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .note{font-size:.72rem;color:var(--text3);line-height:1.6;background:rgba(0,0,0,.18);border:1px dashed var(--border2);border-radius:var(--radius);padding:8px 10px}
@@ -198,7 +205,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .modal-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center}
 .modal-up{display:flex;border:1px solid var(--border2);border-radius:6px;overflow:hidden}
 .modal-up button{background:var(--bg3);border:none;color:var(--text2);padding:6px 16px;font-family:inherit;font-size:.82rem;cursor:pointer}
-.modal-up button.on{background:rgba(200,149,46,.18);color:var(--gold3);font-weight:700}
+.modal-up button.on{background:rgba(240,168,60,.18);color:var(--gold3);font-weight:700}
 .modal-desc{font-size:.92rem;color:var(--text);line-height:1.65;background:rgba(0,0,0,.24);border-radius:8px;padding:12px 14px;width:100%;text-align:center}
 </style>
 </head>
