@@ -63,16 +63,15 @@ const classes=fs.readdirSync(CARDS_DIR).filter(f=>/\.cs$/.test(f)&&!/\.cs\.uid/.
     const fk=flat(cls); if(dbFlat.has(fk)) continue;                 // 이미 DB에 있음
     const st=statsByFlat[fk]; if(!st || !/^(Common|Uncommon|Rare|Special)$/i.test(st.rarity||'')) continue;
     const sp=spriteByFlat[fk];
-    const ch=(sp&&CHARS.has(sp.char))?sp.char:classChar[fk];
-    if(!ch||!CHARS.has(ch)) continue;                                // 캐릭터 판별 실패 → 건너뜀
-    // id: 스프라이트 leaf 우선(정확), 없으면 클래스명 분해
-    const leaf=sp?sp.leaf:cls.replace(/([a-z0-9])([A-Z])/g,'$1_$2').toLowerCase();
-    const key=norm(leaf), id=titleCase(leaf);
-    if(sp){ const r=sp.region; if(!imgCache[sp.image]) imgCache[sp.image]=sharp(path.join(ATLAS_DIR,sp.image));
+    // ★ 그림(아트)이 없는 카드 = 실제 게임에 없는 베타/삭제 카드 → 추가하지 않음
+    if(!sp || !CHARS.has(sp.char)){ if(sp||classChar[fk]) noArt.push(cls); continue; }
+    const ch=sp.char;
+    const leaf=sp.leaf, key=norm(leaf), id=titleCase(leaf);
+    { const r=sp.region; if(!imgCache[sp.image]) imgCache[sp.image]=sharp(path.join(ATLAS_DIR,sp.image));
       await imgCache[sp.image].clone().extract({left:r.x,top:r.y,width:r.w,height:r.h})
         .resize({width:220,withoutEnlargement:true}).webp({quality:82}).toFile(path.join(OUTDIR,key+'.webp'));
       artMap[id]='cards/'+key+'.webp';
-    } else noArt.push(ch+'/'+id);
+    }
     const loc=locByFlat[fk]; if(loc) locMap[id]={t:loc.title||id, d:loc.description||''};
     const tier=/Rare/i.test(st.rarity)?'B':'C';
     (added[ch]=added[ch]||{})[id]={id,tier,char:ch,rarity:(st.rarity||'').toLowerCase(),syn:[],mech:[],builds:[],notes:'게임에서 자동 추출된 카드 (어드바이저 평가 미정).'};
@@ -105,8 +104,8 @@ const classes=fs.readdirSync(CARDS_DIR).filter(f=>/\.cs$/.test(f)&&!/\.cs\.uid/.
 })();
 `;
   fs.writeFileSync(path.join(PROJ,'data','extra_cards.js'), out);
-  console.log('추가:',names.length,'(이미지',Object.keys(artMap).length,'/ loc',Object.keys(locMap).length,'/ 그림없음',noArt.length,')');
-  console.log('그림없는(임시) 카드:', noArt.join(', '));
+  console.log('추가:',names.length,'(모두 그림 있음 · loc',Object.keys(locMap).length,')');
   console.log('추가 목록:', names.map(n=>n.c+'/'+n.n).join(', '));
+  console.log('제외(그림없음=게임에 없는 베타/삭제 카드로 판단)',noArt.length,':', noArt.join(', '));
   console.log('제거(stale) 총', Object.values(stale).reduce((s,a)=>s+a.length,0),':', JSON.stringify(stale));
 })();
