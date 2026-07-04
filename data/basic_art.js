@@ -1,0 +1,2 @@
+// 캐릭터별 기본 카드(타격/수비) 그림 매니페스트(개인용). crop_basic_cards.js 생성.
+window.BASIC_ART = {"ironclad":{"DEFEND":"cards/DEFEND_IRONCLAD.webp","STRIKE":"cards/STRIKE_IRONCLAD.webp"},"silent":{"DEFEND":"cards/DEFEND_SILENT.webp","STRIKE":"cards/STRIKE_SILENT.webp"},"defect":{"DEFEND":"cards/DEFEND_DEFECT.webp","STRIKE":"cards/STRIKE_DEFECT.webp"},"regent":{"DEFEND":"cards/DEFEND_REGENT.webp","STRIKE":"cards/STRIKE_REGENT.webp"},"necrobinder":{"DEFEND":"cards/DEFEND_NECROBINDER.webp","STRIKE":"cards/STRIKE_NECROBINDER.webp"}};

@@ -312,6 +312,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 <script src="data/relic_art.js"></script>
 <script src="data/card_stats.js"></script>
 <script src="data/relic_stats.js"></script>
+<script src="data/basic_art.js"></script>
 <script src="i18n.js"></script>
 <script src="logic.js"></script>
 <script>
@@ -339,7 +340,12 @@ const esc=s=>String(s).replace(/"/g,'&quot;');
 function tierColor(t){ return TIER_VAR[t]||'var(--text3)'; }
 
 // 카드 그림: data/card_art.js 의 CARD_ART[영어id] → assets/cards/xxx.webp
-function cardArt(name){ return (typeof CARD_ART!=='undefined' && CARD_ART[name]) ? ('assets/'+CARD_ART[name]) : null; }
+function cardArt(name){
+  // 기본 카드(타격/수비)는 캐릭터별 그림 사용
+  const k=(name||'').toUpperCase().replace(/[\s\-]/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_');
+  if((k==='STRIKE'||k==='DEFEND') && typeof BASIC_ART!=='undefined' && BASIC_ART[state.char] && BASIC_ART[state.char][k]) return 'assets/'+BASIC_ART[state.char][k];
+  return (typeof CARD_ART!=='undefined' && CARD_ART[name]) ? ('assets/'+CARD_ART[name]) : null;
+}
 function artStyle(name, tier){ const a=cardArt(name);
   if(a) return `background-image:url('${a}');background-size:cover;background-position:top center`;
   return `color:${tierColor(tier)};background:linear-gradient(160deg,${tierColor(tier)}22,transparent)`; }
