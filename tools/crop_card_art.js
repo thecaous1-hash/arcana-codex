@@ -26,25 +26,34 @@ async function process_atlas(tpsheetFile, dbMap, outSub, manifestVar, manifestFi
   if(!fs.existsSync(tpPath)){ console.log('건너뜀(없음):', tpsheetFile); return; }
   const tp=JSON.parse(fs.readFileSync(tpPath,'utf8'));
   const OUTDIR=path.join(PROJ,'assets',outSub); fs.mkdirSync(OUTDIR,{recursive:true});
-  const manifest={}; let hit=0,miss=0; const missNames=[]; const seen=new Set();
+  // 1) enId → 최적 스프라이트 선택. 같은 카드에 beta(개발용 옛 그림)와 정식이 둘 다 있으면 정식 우선.
+  const chosen={}; let miss=0, betaReplaced=0; const missNames=[];
   for(const tex of tp.textures){
-    const imgPath=path.join(ATLAS_DIR,tex.image);
-    if(!fs.existsSync(imgPath)){ console.log('  이미지 없음:', tex.image); continue; }
-    const img=sharp(imgPath);
     for(const sp of tex.sprites){
       const leaf=(sp.filename.split('/').pop()||'').replace(/\.png$/i,'');
       const key=norm(leaf);
       let enId=dbMap[key];
       if(!enId){ const base=key.replace(/_(IRONCLAD|SILENT|DEFECT|REGENT|NECROBINDER)$/,''); if(dbMap[base])enId=dbMap[base]; }
-      if(!enId){ miss++; if(missNames.length<20)missNames.push(leaf); continue; }
-      if(seen.has(enId))continue; seen.add(enId);
-      const r=sp.region, file=norm(enId)+'.webp';
-      await img.clone().extract({left:r.x,top:r.y,width:r.w,height:r.h})
-        .resize({width:220,withoutEnlargement:true}).webp({quality:82})
-        .toFile(path.join(OUTDIR,file));
-      manifest[enId]=outSub+'/'+file; hit++;
+      if(!enId){ miss++; if(missNames.length<20&&!missNames.includes(leaf))missNames.push(leaf); continue; }
+      const isBeta=/\/beta\//.test(sp.filename);
+      const prev=chosen[enId];
+      if(!prev){ chosen[enId]={image:tex.image, region:sp.region, beta:isBeta}; }
+      else if(prev.beta && !isBeta){ chosen[enId]={image:tex.image, region:sp.region, beta:isBeta}; betaReplaced++; } // 정식으로 교체
     }
   }
+  // 2) 선택된 스프라이트만 크롭
+  const manifest={}; let hit=0; const imgCache={};
+  for(const [enId, c] of Object.entries(chosen)){
+    const imgPath=path.join(ATLAS_DIR, c.image);
+    if(!fs.existsSync(imgPath)){ console.log('  이미지 없음:', c.image); continue; }
+    if(!imgCache[c.image]) imgCache[c.image]=sharp(imgPath);
+    const r=c.region, file=norm(enId)+'.webp';
+    await imgCache[c.image].clone().extract({left:r.x,top:r.y,width:r.w,height:r.h})
+      .resize({width:220,withoutEnlargement:true}).webp({quality:82})
+      .toFile(path.join(OUTDIR,file));
+    manifest[enId]=outSub+'/'+file; hit++;
+  }
+  console.log(`  (정식 우선으로 beta 대체: ${betaReplaced}개)`);
   const js=`// ${outSub} 그림 매니페스트(개인용). crop_card_art.js 생성.\nwindow.${manifestVar} = ${JSON.stringify(manifest)};\n`;
   fs.writeFileSync(path.join(PROJ,'data',manifestFile), js);
   const kb=fs.readdirSync(OUTDIR).reduce((s,f)=>s+fs.statSync(path.join(OUTDIR,f)).size,0)/1024;
