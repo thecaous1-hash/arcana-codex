@@ -30,21 +30,24 @@ function parseCard(src){
   if(vb) varsBlock=vb[1];
   // new XxxVar<Type>(Nm  또는  new XxxVar(Nm
   const vars={};
-  const vre=/new\s+(\w+)Var(?:<(\w+)>)?\s*\(\s*(-?\d+(?:\.\d+)?)m/g; let vm;
+  const vre=/new\s+(\w+)Var(?:<(\w+)>)?\s*\(\s*(-?\d+(?:\.\d+)?)m?\s*[,)]/g; let vm;
   while((vm=vre.exec(varsBlock))){
     const key = vm[2] ? vm[2] : vm[1];   // PowerVar<VulnerablePower>→VulnerablePower, DamageVar→Damage
     const base = parseFloat(vm[3]);
     if(!(key in vars)) vars[key]={b:base, u:base};
   }
+  // new DynamicVar("Key", Nm) — 문자열 키가 먼저 오는 형태 (Power, DamageBack, Increase 등)
+  const dvre=/new\s+DynamicVar\(\s*"(\w+)"\s*,\s*(-?\d+(?:\.\d+)?)m?/g; let dv;
+  while((dv=dvre.exec(varsBlock))){ const key=dv[1], base=parseFloat(dv[2]); if(!(key in vars)) vars[key]={b:base,u:base}; }
   // OnUpgrade 델타
   const um=src.match(/OnUpgrade\(\)\s*\{([\s\S]*?)\n\t\}/);
   if(um){
     const ub=um[1];
     // DynamicVars["Key"].UpgradeValueBy(Nm)
-    let dm; const dre=/DynamicVars\["(\w+)"\]\.UpgradeValueBy\(\s*(-?\d+(?:\.\d+)?)m/g;
+    let dm; const dre=/DynamicVars\["(\w+)"\]\.UpgradeValueBy\(\s*(-?\d+(?:\.\d+)?)m?/g;
     while((dm=dre.exec(ub))){ if(vars[dm[1]]) vars[dm[1]].u = vars[dm[1]].b + parseFloat(dm[2]); }
     // DynamicVars.Prop.UpgradeValueBy(Nm)
-    let pm; const pre=/DynamicVars\.(\w+)\.UpgradeValueBy\(\s*(-?\d+(?:\.\d+)?)m/g;
+    let pm; const pre=/DynamicVars\.(\w+)\.UpgradeValueBy\(\s*(-?\d+(?:\.\d+)?)m?/g;
     while((pm=pre.exec(ub))){
       const prop=pm[1], delta=parseFloat(pm[2]);
       // prop → var key 매칭 (동일 / prop+Power / startsWith)

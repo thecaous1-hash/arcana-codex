@@ -311,6 +311,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 <script src="data/card_art.js"></script>
 <script src="data/relic_art.js"></script>
 <script src="data/card_stats.js"></script>
+<script src="data/relic_stats.js"></script>
 <script src="i18n.js"></script>
 <script src="logic.js"></script>
 <script>
@@ -349,19 +350,69 @@ function gradeBadge(tier){ const c=tierColor(tier); return `<span class="gb" sty
 
 // ── 수치 데이터(card_stats.js) ──
 function statKey(s){ return (s||'').toUpperCase().replace(/[\s\-]/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_'); }
-function cardStats(name){ return (typeof CARD_STATS!=='undefined') ? CARD_STATS[statKey(name)] : null; }
+function cardStats(name){ const k=statKey(name);
+  if(typeof CARD_STATS!=='undefined' && CARD_STATS[k]) return CARD_STATS[k];
+  if(typeof RELIC_STATS!=='undefined' && RELIC_STATS[k]) return RELIC_STATS[k];
+  return null; }
 const TYPE_KO={Attack:'공격',Skill:'스킬',Power:'파워',Status:'상태이상',Curse:'저주'};
 const TYPE_CLS={Attack:'t-atk',Skill:'t-skl',Power:'t-pow',Status:'t-etc',Curse:'t-etc'};
 function typeBadge(name){ const s=cardStats(name); if(!s||!s.type)return ''; return `<span class="tb ${TYPE_CLS[s.type]||'t-etc'}">${TYPE_KO[s.type]||s.type}</span>`; }
 function costBadge(name){ const s=cardStats(name); if(!s||s.cost==null)return ''; const c=(typeof s.cost==='number')?s.cost:s.cost; return `<span class="cb">${c}</span>`; }
 const fmtN=n=>{ const x=Math.round(n*10)/10; return Number.isInteger(x)?String(x):String(x); };
+
+// ── 설명 SmartFormat 해석기 ──────────────────────────────────
+// 아이콘 토큰({energyPrefix} 등)과 조건부({IfUpgraded}/{InCombat})를 먼저 해석하고,
+// {CalculatedX}는 C#의 CalculationBase(기본 계산값)로 별칭 처리한다.
+const ICON_TOK={energyPrefix:'⚡',energySuffix:'⚡',singleStarIcon:'★',starIcon:'★'};
+function varLookup(vars,key){ if(vars[key])return vars[key]; if(/^Calculated/.test(key)&&vars.CalculationBase)return vars.CalculationBase; return null; }
+// 중괄호 중첩을 고려해 조건부/선택 템플릿을 분기 해석 (수치 {Var}만 남겨 뒤 단계에서 바인딩)
+//  {IfUpgraded:...:A|B} → 강화 여부  ·  {InCombat:...:A|B} → 전투 밖(B)
+//  {Name:choose(N):A|B} → 값==N? A:B (값 모르면 마지막 분기)  ·  분기 안 {}·{Name}는 값으로
+function resolveCond(s, upgraded, vars){
+  let out='', i=0;
+  while(i<s.length){
+    if(s[i]==='{'){
+      let depth=0, j=i; for(; j<s.length; j++){ if(s[j]==='{')depth++; else if(s[j]==='}'){depth--; if(depth===0)break;} }
+      if(j>=s.length){ out+=s.slice(i); break; }               // 짝 안 맞으면 그대로
+      const block=s.slice(i+1,j);
+      const name=(block.match(/^([A-Za-z0-9_]+)/)||[])[1]||'';
+      if(name && block.indexOf('|')>=0){
+        const rest=block.slice(name.length);
+        // 최상위 '|'들로 분기 분할, 그 앞 마지막 최상위 ':'가 분기 시작
+        let d=0, bars=[]; for(let k=0;k<rest.length;k++){const c=rest[k]; if(c==='{')d++; else if(c==='}')d--; else if(c==='|'&&d===0)bars.push(k);}
+        let colon=-1; d=0; for(let k=0;k<bars[0];k++){const c=rest[k]; if(c==='{')d++; else if(c==='}')d--; else if(c===':'&&d===0)colon=k;}
+        const mods=rest.slice(0,colon);
+        const cuts=[colon, ...bars, rest.length];
+        const opts=[]; for(let k=0;k<cuts.length-1;k++) opts.push(rest.slice(cuts[k]+1,cuts[k+1]));
+        const v=varLookup(vars||{},name); const val=v?(upgraded?v.u:v.b):null;
+        let chosen;
+        if(name==='IfUpgraded') chosen=upgraded?opts[0]:(opts[1]!=null?opts[1]:'');
+        else if(name==='InCombat') chosen=opts[1]!=null?opts[1]:'';        // 전투 밖
+        else if(name==='OutOfCombat') chosen=opts[0];
+        else { const cm=mods.match(/choose\(\s*(\d+)\s*\)/);                // choose(N)
+          if(cm && val!=null) chosen = (val===+cm[1]) ? opts[0] : opts[opts.length-1];
+          else chosen = opts[opts.length-1]; }
+        // 분기 안의 이름 없는 자리표시자({} · {:diff()} = 그 값 자체) → 값 또는 ◆
+        chosen=chosen.replace(/\{(?::[^{}]*)?\}/g, val!=null?fmtN(val):'◆');
+        out+=resolveCond(chosen,upgraded,vars);
+      } else { out+='{'+resolveCond(block,upgraded,vars)+'}'; }   // 단순 {Var}는 유지
+      i=j+1;
+    } else { out+=s[i]; i++; }
+  }
+  return out;
+}
+function preSmart(raw, upgraded, vars){
+  let s=String(raw).replace(/\{(energyPrefix|energySuffix|singleStarIcon|starIcon)(?::[^{}]*)?\}/g,(m,k)=>ICON_TOK[k]||'');
+  return resolveCond(s, upgraded, vars);
+}
+
 // 설명의 {Var:...} 를 실제 수치로 바인딩 (변화값은 강화전→후, 현재상태 강조)
 function descHTML(name, upgraded){
   const raw=(typeof KO_OFF!=='undefined'&&KO_OFF[name])?KO_OFF[name].d:''; if(!raw)return '';
   const st=cardStats(name); const vars=(st&&st.vars)||{};
-  let h=String(raw).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  let h=preSmart(raw,upgraded,vars).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   h=h.replace(/\{([A-Za-z0-9_]+)(?::[^}]*)?\}/g,(m,key)=>{
-    const v=vars[key];
+    const v=varLookup(vars,key);
     if(!v) return '<span class="gv">◆</span>';
     if(v.u===v.b) return `<span class="gv">${fmtN(v.b)}</span>`;
     const before=`<span class="${upgraded?'gv2':'gv'}">${fmtN(v.b)}</span>`;
@@ -377,7 +428,7 @@ function descHTML(name, upgraded){
 function descText(name, upgraded){
   const raw=(typeof KO_OFF!=='undefined'&&KO_OFF[name])?KO_OFF[name].d:''; if(!raw)return '';
   const st=cardStats(name); const vars=(st&&st.vars)||{};
-  return String(raw).replace(/\{([A-Za-z0-9_]+)(?::[^}]*)?\}/g,(m,k)=>{const v=vars[k];if(!v)return '?';return v.u===v.b?fmtN(v.b):fmtN(v.b)+'→'+fmtN(v.u);})
+  return preSmart(raw,upgraded,vars).replace(/\{([A-Za-z0-9_]+)(?::[^}]*)?\}/g,(m,k)=>{const v=varLookup(vars,k);if(!v)return '?';return v.u===v.b?fmtN(v.b):fmtN(v.b)+'→'+fmtN(v.u);})
     .replace(/\[\/?[a-zA-Z_]+\]/g,'').replace(/\n/g,' ');
 }
 
@@ -589,9 +640,9 @@ function isUpgradePriority(name,da){
 function modalDescHTML(name, upgraded){
   const raw=(typeof KO_OFF!=='undefined'&&KO_OFF[name])?KO_OFF[name].d:''; if(!raw)return '';
   const st=cardStats(name); const vars=(st&&st.vars)||{};
-  let h=String(raw).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  let h=preSmart(raw,upgraded,vars).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   h=h.replace(/\{([A-Za-z0-9_]+)(?::[^}]*)?\}/g,(m,key)=>{
-    const v=vars[key]; if(!v) return '<span class="gv">◆</span>';
+    const v=varLookup(vars,key); if(!v) return '<span class="gv">◆</span>';
     const val=upgraded?v.u:v.b;
     return `<span class="gv">${fmtN(val)}</span>`;
   });
