@@ -40,6 +40,7 @@ function parseCard(src){
   const dvre=/new\s+DynamicVar\(\s*"(\w+)"\s*,\s*(-?\d+(?:\.\d+)?)m?/g; let dv;
   while((dv=dvre.exec(varsBlock))){ const key=dv[1], base=parseFloat(dv[2]); if(!(key in vars)) vars[key]={b:base,u:base}; }
   // OnUpgrade 델타
+  let upCostDelta=null, upKw=[];
   const um=src.match(/OnUpgrade\(\)\s*\{([\s\S]*?)\n\t\}/);
   if(um){
     const ub=um[1];
@@ -55,8 +56,14 @@ function parseCard(src){
             || Object.keys(vars).find(k=>k.startsWith(prop));
       if(k) vars[k].u = vars[k].b + delta;
     }
+    // 강화 시 코스트 변경: EnergyCost.UpgradeBy(-N)
+    const em=ub.match(/EnergyCost\.UpgradeBy\(\s*(-?\d+)/);
+    if(em) upCostDelta=parseInt(em[1]);
+    // 강화 시 키워드 부여: AddKeyword(CardKeyword.X)
+    upKw=[...ub.matchAll(/AddKeyword\(CardKeyword\.(\w+)\)/g)].map(m=>m[1]);
   }
-  return { cls, key:pascalToKey(cls), cost, type, rarity, vars };
+  const upCost = (upCostDelta!=null && typeof cost==='number') ? cost+upCostDelta : null;
+  return { cls, key:pascalToKey(cls), cost, type, rarity, vars, upCost, upKw };
 }
 
 const files=fs.readdirSync(CARDS).filter(f=>f.endsWith('.cs'));
@@ -66,6 +73,8 @@ for(const f of files){
   const c=parseCard(fs.readFileSync(path.join(CARDS,f),'utf8'));
   if(!c) continue;
   const rec={cost:c.cost, type:c.type, rarity:c.rarity, vars:c.vars};
+  if(c.upCost!=null) rec.upCost=c.upCost;
+  if(c.upKw && c.upKw.length) rec.upKw=c.upKw;
   out[c.key]=rec;
   // 캐릭터별 기본카드(STRIKE_IRONCLAD 등) → 기본 키(STRIKE) 별칭도 추가
   const base=c.key.replace(/_(IRONCLAD|SILENT|DEFECT|REGENT|NECROBINDER)$/,'');

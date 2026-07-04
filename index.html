@@ -116,6 +116,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .t-etc{color:var(--text3);border-color:var(--border2)}
 /* 비용(에너지) */
 .cb{font-family:'Cinzel',serif;font-weight:700;font-size:.66rem;min-width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(circle at 40% 35%,#4a90e2,#1e3f7a);color:#fff;flex-shrink:0;box-shadow:0 0 4px rgba(74,144,226,.4)}
+/* 코스트 코너 배지(#17): 카드 그림 좌상단 고정, 원형+큰 숫자 */
+.cost-cnr{position:absolute;top:3px;left:3px;z-index:3;min-width:20px;height:20px;padding:0 4px;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:.82rem;color:#fff;border-radius:50%;background:radial-gradient(circle at 38% 32%,#5aa0e8,#173463);border:1px solid rgba(255,255,255,.35);box-shadow:0 1px 3px rgba(0,0,0,.6),0 0 5px rgba(74,144,226,.5)}
+.cost-cnr.reduced{background:radial-gradient(circle at 38% 32%,#5fd483,#166b38);box-shadow:0 1px 3px rgba(0,0,0,.6),0 0 6px rgba(74,220,120,.55)}
+/* 강화 부여 키워드 배지(#15) */
+.upkw{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center}
+.upkw b{font-size:.7rem;color:var(--gold3);border:1px solid var(--gold);background:var(--accent-soft);border-radius:4px;padding:1px 6px;font-weight:700}
 /* 강화 버튼 */
 .up-btn{background:transparent;border:1px solid var(--border2);color:var(--text3);font-size:.6rem;padding:1px 5px;border-radius:3px;cursor:pointer;font-family:'Cinzel',serif;flex-shrink:0}
 .up-btn:hover{border-color:var(--gold);color:var(--gold2)}
@@ -131,7 +137,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .rec.best .rec-head{background:linear-gradient(160deg,rgba(58,181,90,.12),transparent)}
 .rec-rank{font-family:'Cinzel',serif;font-weight:700;font-size:1.05rem;color:var(--text3);width:20px;text-align:center;flex-shrink:0}
 .rec.best .rec-rank{color:var(--green2)}
-.rec-art{width:74px;height:74px;border-radius:6px;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:1.6rem;flex-shrink:0;background-size:cover;background-position:top center}
+.rec-art{position:relative;width:74px;height:74px;border-radius:6px;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:1.6rem;flex-shrink:0;background-size:cover;background-position:top center}
 .rec-info{flex:1;min-width:0}
 .rec-name{font-size:1.12rem;color:var(--text);font-weight:700}
 .rec.best .rec-name{color:var(--green2)}
@@ -154,7 +160,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 
 /* 유물 */
 .sec-label{font-size:.72rem;color:var(--text2);font-family:'Cinzel',serif;letter-spacing:.05em;text-transform:uppercase}
-.relic-line{display:flex;flex-direction:column;gap:5px;align-items:stretch}
+.relic-line{display:grid;grid-template-columns:1fr 1fr;gap:5px;align-items:start}
 .rimg{width:28px;height:28px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0;border:1px solid var(--border2)}
 /* 유물 타일(아이콘 + 이름 + 등급 + 효과설명) */
 .rtile{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(240,168,60,.07);border:1px solid rgba(240,168,60,.22)}
@@ -175,7 +181,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .dtop{position:relative;width:100%;aspect-ratio:16/11;background:var(--bg4)}
 .dart{width:100%;height:100%;background-size:cover;background-position:top center;cursor:pointer;display:block}
 .dart-fb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem}
-.dtier{position:absolute;top:2px;left:2px;font-family:'Cinzel',serif;font-weight:700;font-size:.58rem;line-height:1;padding:2px 4px;border-radius:3px;border:1px solid;background:rgba(0,0,0,.6)}
+.dtier{position:absolute;bottom:2px;left:2px;font-family:'Cinzel',serif;font-weight:700;font-size:.58rem;line-height:1;padding:2px 4px;border-radius:3px;border:1px solid;background:rgba(0,0,0,.6)}
 .upplus{position:absolute;bottom:1px;right:3px;color:var(--gold3);font-weight:700;font-size:.85rem;text-shadow:0 0 3px #000,0 0 3px #000}
 .dcell .dn{font-size:.68rem;color:var(--text);text-align:center;padding:3px 3px 2px;line-height:1.15;min-height:2.1em;display:flex;align-items:center;justify-content:center;word-break:keep-all}
 .dctrl{display:flex;border-top:1px solid var(--border);margin-top:auto}
@@ -211,7 +217,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .modal-x{cursor:pointer;color:var(--text3);font-size:1.2rem;line-height:1;padding:0 4px;flex-shrink:0}
 .modal-x:hover{color:var(--red2)}
 .modal-b{padding:14px;display:flex;flex-direction:column;gap:12px;align-items:center}
-.modal-art{width:210px;max-width:100%;aspect-ratio:1/1;border-radius:8px;background-size:cover;background-position:top center;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700}
+.modal-art{position:relative;width:210px;max-width:100%;aspect-ratio:1/1;border-radius:8px;background-size:cover;background-position:top center;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700}
+.modal-art .cost-cnr{top:6px;left:6px;min-width:26px;height:26px;font-size:1rem}
 .modal-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center}
 .modal-up{display:flex;border:1px solid var(--border2);border-radius:6px;overflow:hidden}
 .modal-up button{background:var(--bg3);border:none;color:var(--text2);padding:6px 16px;font-family:inherit;font-size:.82rem;cursor:pointer}
@@ -379,6 +386,15 @@ const TYPE_KO={Attack:'공격',Skill:'스킬',Power:'파워',Status:'상태이�
 const TYPE_CLS={Attack:'t-atk',Skill:'t-skl',Power:'t-pow',Status:'t-etc',Curse:'t-etc'};
 function typeBadge(name){ const s=cardStats(name); if(!s||!s.type)return ''; return `<span class="tb ${TYPE_CLS[s.type]||'t-etc'}">${TYPE_KO[s.type]||s.type}</span>`; }
 function costBadge(name){ const s=cardStats(name); if(!s||s.cost==null)return ''; const c=(typeof s.cost==='number')?s.cost:s.cost; return `<span class="cb">${c}</span>`; }
+// ── 코스트(#17) + 강화 특수효과(#15) ──
+const KW_KO={Innate:'선천성',Exhaust:'소멸',Retain:'유지',Ethereal:'공허',Unplayable:'사용 불가',Purge:'제거'};
+function cardCost(name,up){ const s=cardStats(name); if(!s||s.cost==null)return null; return (up&&s.upCost!=null)?s.upCost:s.cost; }
+// 카드 그림 좌상단 코너용 코스트 배지 (강화로 줄면 초록 강조)
+function costCorner(name,up){ const s=cardStats(name); if(!s||s.cost==null||typeof s.cost!=='number')return '';
+  const c=cardCost(name,up), reduced=up&&s.upCost!=null&&s.upCost<s.cost;
+  return `<span class="cost-cnr${reduced?' reduced':''}" title="비용 ${c}${reduced?' (강화로 감소)':''}">${c}</span>`; }
+// 강화 시 부여되는 키워드(선천성/소멸 등) — 설명 텍스트에 안 나오는 것 표시용
+function upKeywordsKo(name){ const s=cardStats(name); return (s&&s.upKw)?s.upKw.map(k=>KW_KO[k]||k):[]; }
 const fmtN=n=>{ const x=Math.round(n*10)/10; return Number.isInteger(x)?String(x):String(x); };
 
 // ── 설명 SmartFormat 해석기 ──────────────────────────────────
@@ -613,9 +629,9 @@ function renderRec(){
     return `<div class="rec${best?' best':''}">
       <div class="rec-head">
         <div class="rec-rank">${idx+1}</div>
-        <div class="rec-art pop" data-card="${esc(s.name)}" title="클릭: 상세" style="border-color:${col};${cardArt(s.name)?artStyle(s.name):'color:'+col}">${cardArt(s.name)?'':s.finalGrade}</div>
+        <div class="rec-art pop" data-card="${esc(s.name)}" title="클릭: 상세" style="border-color:${col};${cardArt(s.name)?artStyle(s.name):'color:'+col}">${costCorner(s.name,false)}${cardArt(s.name)?'':s.finalGrade}</div>
         <div class="rec-info">
-          <div class="rec-name">${costBadge(s.name)}${gradeBadge(s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
+          <div class="rec-name">${gradeBadge(s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
           <div class="rec-badges">${recBadges(s,da)}${pickBadge(s.finalScore)}</div>
         </div>
         <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':'뽑기'}</button>
@@ -688,13 +704,24 @@ function closeCardModal(){ $('card-modal').classList.remove('open'); modalCard=n
 function renderModal(){
   const name=modalCard; if(!name)return;
   const d=getCard(state.char,name); const t=d?d.tier:'?'; const art=cardArt(name);
-  const st=cardStats(name); const canUp=!!(st&&Object.values(st.vars||{}).some(v=>v.u!==v.b));
+  const st=cardStats(name);
+  const varsChange=!!(st&&Object.values(st.vars||{}).some(v=>v.u!==v.b));
+  const costChange=!!(st&&st.upCost!=null&&st.upCost!==st.cost);
+  const kws=upKeywordsKo(name);
+  const canUp=varsChange||costChange||kws.length>0;   // 수치·코스트·키워드 중 하나라도 바뀌면 강화 토글 표시
   $('modal-nm').innerHTML=`${koName(name)}<span class="en">${name}</span>`;
   const ma=$('modal-art');
   ma.setAttribute('style', art?`background-image:url('${art}')`:`color:${tierColor(t)}`);
-  ma.textContent=art?'':t;
-  $('modal-meta').innerHTML=`${costBadge(name)}${gradeBadge(t)}${typeBadge(name)}${hasOfficial(name)?'<span class="off-official">공식</span>':''}`;
-  $('modal-desc').innerHTML=modalDescHTML(name,modalUp)||'<span style="color:var(--text3)">설명 정보 없음</span>';
+  ma.innerHTML=`${costCorner(name,modalUp)}${art?'':t}`;
+  $('modal-meta').innerHTML=`${gradeBadge(t)}${typeBadge(name)}${hasOfficial(name)?'<span class="off-official">공식</span>':''}`;
+  // 강화 효과 요약(코스트 변화·키워드 부여 — 설명 텍스트에 안 나오는 것)
+  let upLine='';
+  if(modalUp){ const parts=[];
+    if(costChange&&st.upCost<st.cost) parts.push(`비용 ${st.cost}→${st.upCost}`);
+    kws.forEach(k=>parts.push('+'+k));
+    if(parts.length) upLine=`<div class="upkw" style="margin-bottom:9px">강화 효과: ${parts.map(p=>'<b>'+p+'</b>').join('')}</div>`;
+  }
+  $('modal-desc').innerHTML=upLine+(modalDescHTML(name,modalUp)||'<span style="color:var(--text3)">설명 정보 없음</span>');
   $('modal-up-wrap').style.display=canUp?'flex':'none';
   $('modal-up-base').classList.toggle('on',!modalUp);
   $('modal-up-plus').classList.toggle('on',modalUp);
@@ -745,7 +772,7 @@ function renderDeck(){
       ? `<span class="dart pop" data-card="${esc(name)}" title="클릭: 상세" style="${artStyle(name,t)}"></span>`
       : `<span class="dart-fb pop" data-card="${esc(name)}" style="color:${col}">${t}</span>`;
     return `<div class="dcell${up?' upgraded':''}${cls}" title="${esc(tip)}">
-      <div class="dtop">${artInner}<span class="dtier" style="color:${col};border-color:${col}">${t}</span>${badge}${up?'<span class="upplus">+</span>':''}</div>
+      <div class="dtop">${artInner}${costCorner(name,up)}<span class="dtier" style="color:${col};border-color:${col}">${t}</span>${badge}${up?'<span class="upplus">+</span>':''}</div>
       <span class="dn">${koName(name)}</span>
       <div class="dctrl">
         <button class="up-btn${up?' on':''}" data-up="${i}" title="강화 전/후 전환">강화${up?'+':''}</button>
