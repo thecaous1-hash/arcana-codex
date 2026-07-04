@@ -265,11 +265,49 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .pimg-fb{display:flex;width:100%;height:58px;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem}
 .pcard .ptier{position:absolute;top:40px;left:2px;font-family:'Cinzel',serif;font-weight:700;font-size:.54rem;line-height:1;padding:1px 4px;border-radius:3px;border:1px solid;background:rgba(0,0,0,.6);z-index:2}
 .pcard .pn{display:block;font-size:.74rem;font-weight:500;color:var(--text);text-align:center;padding:3px 2px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* 상단 메뉴 탭 (어드바이저 / 런 복기) */
+.menu-tabs{display:flex;gap:4px;margin-right:6px}
+.menu-tab{padding:6px 13px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);border-radius:var(--radius);cursor:pointer;font-size:.86rem;font-weight:500;white-space:nowrap}
+.menu-tab:hover{color:var(--text)}
+.menu-tab.on{background:rgba(240,168,60,.16);border-color:var(--gold);color:var(--gold3);font-weight:700}
+
+/* 런 복기 (설계 §6) */
+.retro-wrap{display:grid;grid-template-columns:340px 1fr;gap:13px;padding:13px 18px 44px;align-items:start;position:relative;z-index:1}
+@media(max-width:900px){.retro-wrap{grid-template-columns:1fr}}
+.retro-side{max-height:82vh}
+.retro-main{min-height:60vh}
+.run-list{display:flex;flex-direction:column;gap:5px;max-height:62vh;overflow-y:auto;min-height:0;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;margin-top:4px}
+.run-item{display:flex;align-items:center;gap:8px;padding:7px 9px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all .12s}
+.run-item:hover{border-color:var(--gold)}
+.run-item.on{border-color:var(--gold);background:rgba(240,168,60,.08)}
+.run-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.run-item .rmeta{flex:1;min-width:0}
+.run-item .rtop{font-size:.82rem;color:var(--text);display:flex;gap:6px;align-items:center}
+.run-item .rsub{font-size:.68rem;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.run-res{font-size:.66rem;font-weight:700;padding:1px 6px;border-radius:3px;border:1px solid;flex-shrink:0}
+.res-win{color:var(--green2);border-color:var(--green);background:rgba(58,181,90,.1)}
+.res-loss{color:var(--red2);border-color:var(--red);background:rgba(192,57,43,.12)}
+.res-abandon{color:var(--text3);border-color:var(--border2)}
+/* 분석 카드 */
+.rcard{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:11px}
+.rcard h3{font-size:.92rem;color:var(--gold2);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.rcard .rfb{font-size:.86rem;color:var(--text);line-height:1.6;padding:4px 0;display:flex;gap:7px}
+.rcard .rfb .i{color:var(--gold2);flex-shrink:0}
+.rcard .rfb.warn .i{color:var(--red2)} .rcard .rfb.good .i{color:var(--green2)}
+.rcard .rmini{font-size:.76rem;color:var(--text3);margin-top:6px;line-height:1.5}
+.rhead{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.rhead .rh-title{font-size:1.05rem;color:var(--text);font-weight:700}
+.rbadge{font-size:.72rem;padding:2px 8px;border-radius:4px;border:1px solid var(--border2);color:var(--text2)}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">☠ Spire Codex 어드바이저<small>STS2 보조 도구 · 토대: Shunrai's STS2-Advisor (MIT)</small></div>
+  <div class="logo">☠ Spire Codex<small>STS2 보조 도구 · 토대: Shunrai's STS2-Advisor (MIT)</small></div>
+  <div class="menu-tabs">
+    <div class="menu-tab on" data-view="advisor">🃏 어드바이저</div>
+    <div class="menu-tab" data-view="retro">📉 런 복기</div>
+  </div>
   <div class="char-tabs" id="char-tabs"></div>
   <div class="ctx">
     <div class="fg"><label>층</label><input type="number" id="floor" value="1" min="1" max="57"></div>
@@ -280,7 +318,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
   </div>
 </header>
 
-<div class="cols">
+<div class="cols" id="advisor-view">
   <!-- 왼쪽: 카드 선택 -->
   <div class="panel">
     <div class="panel-h"><h2>🂠 카드 선택</h2><span class="count" id="offered-count"></span></div>
@@ -333,6 +371,32 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
       </div>
       <div class="deck-grid" id="deck-grid"></div>
       <div class="note"><span style="color:var(--green2)">⬆ <b>강화 추천</b>(초록)</span> = 먼저 강화할 카드 · ⬆ 강화 우선 후보 · 🗑 <b>제거 추천</b> = 상점에서 뺄 후보 · ◈ 유물은 추천에 반영. 보조 도구이며 완벽하지 않습니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 런 복기 / 실패 분석 (설계 §6) -->
+<div id="retro-view" style="display:none">
+  <div class="retro-wrap">
+    <div class="panel retro-side">
+      <div class="panel-h"><h2>📂 런 기록</h2><span class="count" id="run-count"></span></div>
+      <div class="panel-b">
+        <p class="slot-hint">게임 런 기록 폴더/파일(.run)을 불러오세요. 위치:<br><b>SlayTheSpire2\steam\…\profile1\saves\history</b></p>
+        <div class="row-btns">
+          <label class="btn gold" style="cursor:pointer">📁 폴더 불러오기<input type="file" id="run-folder" webkitdirectory directory multiple hidden></label>
+          <label class="btn" style="cursor:pointer">📄 파일 선택<input type="file" id="run-files" multiple accept=".run" hidden></label>
+        </div>
+        <div class="retro-filter" id="retro-filter" style="display:none">
+          <label style="font-size:.74rem;color:var(--text3);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="retro-loss-only"> 패배한 런만</label>
+        </div>
+        <div class="run-list" id="run-list"></div>
+      </div>
+    </div>
+    <div class="panel retro-main">
+      <div class="panel-h"><h2>🔎 런 분석</h2></div>
+      <div class="panel-b" id="retro-analysis">
+        <div class="empty">왼쪽에서 런 기록을 불러온 뒤,<br>분석할 런을 선택하세요.<br><br>규칙 기반 보조 조언입니다 — 인과를 단정하지 않습니다.</div>
+      </div>
     </div>
   </div>
 </div>
@@ -924,6 +988,128 @@ $('pick-tabs').querySelectorAll('.ptab').forEach(t=>t.addEventListener('click',(
   $('pick-tabs').querySelectorAll('.ptab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
   pickFilter=t.dataset.f; renderPickGrid(); $('pick-search').focus(); }));
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('pick-modal').classList.contains('open')) closePicker(); });
+
+// ══════ 런 복기 / 실패 분석 (설계 §6) ══════
+let RUNS=[], curRunIdx=-1;
+function charColor(ch){ const c=CHARS.find(x=>x.id===ch); return c?c.color:'var(--text3)'; }
+function charKoName(ch){ const c=CHARS.find(x=>x.id===ch); return c?c.ko:ch; }
+// 메뉴 전환
+document.querySelectorAll('.menu-tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.menu-tab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
+  const v=t.dataset.view, adv=(v==='advisor');
+  $('advisor-view').style.display=adv?'':'none';
+  $('retro-view').style.display=adv?'none':'';
+  document.getElementById('char-tabs').style.display=adv?'':'none';
+  document.querySelector('.ctx').style.display=adv?'':'none';
+}));
+// 파일 로딩(.run) — file:// 대응
+function loadRunFiles(fileList){
+  const files=[...fileList].filter(f=>/\.run$/i.test(f.name)&&!/\.backup$/i.test(f.name));
+  if(!files.length){ alert('.run 파일을 찾지 못했습니다.\nsaves\\history 폴더(또는 .run 파일)를 선택하세요.'); return; }
+  let pending=files.length; const loaded=[];
+  files.forEach(f=>{ const rd=new FileReader();
+    rd.onload=()=>{ try{ const r=JSON.parse(rd.result); r.__name=f.name; loaded.push(r); }catch(e){} if(--pending===0)onRunsLoaded(loaded); };
+    rd.onerror=()=>{ if(--pending===0)onRunsLoaded(loaded); };
+    rd.readAsText(f); });
+}
+function onRunsLoaded(loaded){ loaded.sort((a,b)=>(b.start_time||0)-(a.start_time||0)); RUNS=loaded; curRunIdx=-1;
+  $('retro-filter').style.display=RUNS.length?'block':'none'; renderRunList();
+  $('retro-analysis').innerHTML=`<div class="empty">${RUNS.length}개 런을 불러왔어요.<br>왼쪽에서 분석할 런을 선택하세요.</div>`;
+}
+$('run-folder').addEventListener('change',e=>loadRunFiles(e.target.files));
+$('run-files').addEventListener('change',e=>loadRunFiles(e.target.files));
+$('retro-loss-only').addEventListener('change',renderRunList);
+// 런 목록
+function runChar(r){ return ((r.players&&r.players[0]&&r.players[0].character)||'').replace('CHARACTER.','').toLowerCase(); }
+function runResult(r){ return r.win?'win':(r.was_abandoned?'abandon':'loss'); }
+function resLabel(res){ return res==='win'?'승리':res==='abandon'?'포기':'패배'; }
+function resCls(res){ return res==='win'?'res-win':res==='abandon'?'res-abandon':'res-loss'; }
+function fmtDate(ts){ if(!ts)return ''; try{ const d=new Date(ts*1000); return (d.getMonth()+1)+'/'+d.getDate(); }catch(e){return '';} }
+function renderRunList(){
+  const lossOnly=$('retro-loss-only').checked;
+  const list=RUNS.map((r,i)=>({r,i})).filter(x=>!lossOnly||runResult(x.r)==='loss');
+  $('run-count').textContent=RUNS.length?RUNS.length+'런':'';
+  if(!RUNS.length){ $('run-list').innerHTML=`<div class="empty">불러온 런이 없습니다.</div>`; return; }
+  $('run-list').innerHTML=list.map(({r,i})=>{ const ch=runChar(r),res=runResult(r);
+    const deckN=(r.players&&r.players[0]&&r.players[0].deck||[]).length;
+    return `<div class="run-item${i===curRunIdx?' on':''}" data-i="${i}">
+      <span class="run-dot" style="background:${charColor(ch)}"></span>
+      <div class="rmeta"><div class="rtop">${charKoName(ch)} <span class="run-res ${resCls(res)}">${resLabel(res)}</span></div>
+      <div class="rsub">${fmtDate(r.start_time)} · 덱 ${deckN}장 · ${(r.acts||[]).length}막</div></div></div>`;
+  }).join('')||`<div class="empty">해당하는 런이 없어요.</div>`;
+  $('run-list').querySelectorAll('.run-item').forEach(el=>el.addEventListener('click',()=>{ curRunIdx=+el.dataset.i; renderRunList(); renderAnalysis(); }));
+}
+// 매핑 헬퍼
+function ck(id){ return (id||'').replace(/^CARD\./,''); }
+function rk(id){ return (id||'').replace(/^RELIC\./,''); }
+function titleFromKey(k){ return (k||'').split('_').map(w=>w?w.charAt(0)+w.slice(1).toLowerCase():'').join(' '); }
+function cardByKey(key){ key=ck(key); for(const c in DB.cards){ if(DB.cards[c][key])return DB.cards[c][key]; }
+  const base=key.replace(/_(IRONCLAD|SILENT|DEFECT|REGENT|NECROBINDER)$/,''); for(const c in DB.cards){ if(DB.cards[c][base])return DB.cards[c][base]; } return null; }
+function cardKoR(key){ const c=cardByKey(key); return c?koName(c.id):titleFromKey(ck(key)); }
+function cardTypeR(key){ key=ck(key); const s=(typeof CARD_STATS!=='undefined')?CARD_STATS[key]:null; return s?s.type:null; }
+function relicByKey(key){ key=rk(key); return (DB.relics&&DB.relics[key])||null; }
+// map_point_history = [ [맵포인트,…] , … ] → 모든 맵포인트를 평탄화, 각 맵포인트의 player_stats[0]
+function mapPS(r){ return (r.map_point_history||[]).flat().filter(m=>m&&typeof m==='object').map(m=>m.player_stats&&m.player_stats[0]).filter(Boolean); }
+function cleanEnc(e){ return titleFromKey((e||'').replace(/^ENCOUNTER\./,'')); }
+function rCard(title,fbs,mini){ return `<div class="rcard"><h3>${title}</h3>`+fbs.map(([cls,txt])=>`<div class="rfb ${cls}"><span class="i">${cls==='warn'?'▲':cls==='good'?'✔':'·'}</span><span>${txt}</span></div>`).join('')+(mini?`<div class="rmini">${mini}</div>`:'')+`</div>`; }
+function deckArch(ch,deck){ try{ const dc=deck.map(k=>cardByKey(k)).filter(Boolean).map(c=>({name:c.id})); const da=analyzeDeck(ch,dc); return (da.detected&&da.detected[0])||null; }catch(e){ return null; } }
+// 분석 렌더
+function renderAnalysis(){
+  const r=RUNS[curRunIdx], box=$('retro-analysis'); if(!r){ box.innerHTML=`<div class="empty">런을 선택하세요.</div>`; return; }
+  const ch=runChar(r), p=(r.players&&r.players[0])||{}, res=runResult(r);
+  const deck=(p.deck||[]).map(c=>ck(c.id)), relics=(p.relics||[]).map(x=>rk(x.id));
+  let html=`<div class="rhead"><span class="rh-title">${charKoName(ch)}</span>
+    <span class="run-res ${resCls(res)}">${resLabel(res)}</span>
+    <span class="rbadge">덱 ${deck.length}장</span><span class="rbadge">유물 ${relics.length}</span><span class="rbadge">${(r.acts||[]).length}막</span>${r.build_id?`<span class="rbadge">${r.build_id}</span>`:''}</div>`;
+  html+=aDeck(ch,deck); html+=aDeath(r); html+=aChoices(r); html+=aRelics(ch,deck,relics);
+  html+=`<div class="rmini">⚠ 규칙 기반 보조 조언입니다. 실제 패배 원인은 플레이 상황에 따라 다를 수 있어요. 인과를 단정하지 않습니다.</div>`;
+  box.innerHTML=html;
+}
+function aDeck(ch,deck){
+  const t={atk:0,skl:0,pow:0,cur:0,st:0};
+  deck.forEach(k=>{ const ty=cardTypeR(k); if(ty==='Attack')t.atk++; else if(ty==='Skill')t.skl++; else if(ty==='Power')t.pow++; else if(ty==='Curse')t.cur++; else if(ty==='Status')t.st++; });
+  const n=deck.length, fb=[];
+  if(t.atk<=4) fb.push(['warn',`공격 카드가 <b>${t.atk}장</b>뿐 — 화력이 부족했을 수 있어요.`]);
+  else if(t.atk>=13) fb.push(['good',`공격 카드 ${t.atk}장 — 화력 위주 구성.`]);
+  if(n>=35) fb.push(['warn',`덱이 <b>${n}장</b>으로 커요 — 핵심 카드가 잘 안 나와요. 제거를 고려하세요.`]);
+  else if(n<=13&&n>0) fb.push(['good',`덱 ${n}장 — 잘 압축된 편이에요.`]);
+  if(t.cur+t.st>=3) fb.push(['warn',`저주·상태이상이 <b>${t.cur+t.st}장</b> — 덱 회전을 방해했을 수 있어요.`]);
+  if(t.pow===0&&n>10) fb.push(['','파워 카드가 없어요 — 후반 성장(스케일링) 수단이 부족했을 수 있어요.']);
+  const a=deckArch(ch,deck); let arch=a?`감지된 빌드: <b>${koArch(a.arch.name)}</b> (${a.pct}% 완성) — ${a.pct<50?'아키타입이 덜 완성됐어요.':'잘 잡혔어요.'}`:'뚜렷한 아키타입이 감지되지 않았어요.';
+  if(!fb.length) fb.push(['good','덱 밸런스는 무난해 보여요.']);
+  return rCard('🃏 덱 구성', fb, `공격 ${t.atk} · 스킬 ${t.skl} · 파워 ${t.pow}`+(t.cur+t.st?` · 저주/상태 ${t.cur+t.st}`:'')+'<br>'+arch);
+}
+function aDeath(r){
+  const res=runResult(r), fb=[];
+  if(res==='win'){ fb.push(['good','이 런은 <b>승리</b>했어요! 잘한 흐름을 기억해두세요.']); return rCard('🏁 결과', fb,''); }
+  if(res==='abandon'){ fb.push(['','<b>포기</b>한 런이에요.']); return rCard('🏁 결과', fb,''); }
+  const enc=cleanEnc(r.killed_by_encounter), acts=r.acts||[];
+  fb.push(['warn',`<b>${acts.length}막</b>에서 <b>${enc||'알 수 없는 적'}</b>에게 패배했어요.`]);
+  const hps=mapPS(r).map(ps=>ps.current_hp).filter(h=>h!=null);
+  if(hps.length>=2){ const a=hps[hps.length-2], b=hps[hps.length-1]; if(a-b>=25) fb.push(['warn',`마지막 전투에서 체력이 <b>${a}→${b}</b>로 급감 — 한 방에 무너진 패턴.`]); }
+  return rCard('💀 사망 지점', fb, `막 진행: ${acts.map(a=>titleFromKey(a.replace(/^ACT\./,''))).join(' → ')||'-'}`);
+}
+function aChoices(r){
+  let pick=0,skip=0; const good=[];
+  mapPS(r).forEach(ps=>{ (ps.card_choices||[]).forEach(cc=>{ if(cc.was_picked)pick++; else { skip++; const c=cardByKey(ck(cc.card&&cc.card.id)); if(c&&(c.tier==='S'||c.tier==='A'))good.push(koName(c.id)); } }); });
+  const fb=[];
+  if(pick+skip===0){ fb.push(['','이 런 기록엔 카드 선택 정보가 없어요.']); return rCard('🎴 카드 선택 복기', fb,''); }
+  fb.push(['',`총 <b>${pick+skip}</b>번의 선택 중 <b>${pick}</b>장 획득, <b>${skip}</b>장 스킵.`]);
+  const u=[...new Set(good)];
+  if(u.length) fb.push(['warn',`아쉽게 지나친 고평가(S·A) 카드: <b>${u.slice(0,6).join(', ')}</b>`]);
+  else fb.push(['good','고평가 카드를 크게 놓치지 않았어요.']);
+  return rCard('🎴 카드 선택 복기', fb, skip>pick*1.5?'스킵이 많았어요 — 덱을 얇게 가져간 편.':'');
+}
+function aRelics(ch,deck,relics){
+  const fb=[], names=relics.map(k=>{ const rl=relicByKey(k); return rl?koName(rl.id):titleFromKey(rk(k)); });
+  if(!relics.length){ fb.push(['','유물 정보가 없어요.']); return rCard('◈ 유물 활용도', fb,''); }
+  fb.push(['',`보유 유물 <b>${relics.length}개</b>: ${names.slice(0,10).join(', ')}${names.length>10?' 외':''}`]);
+  const a=deckArch(ch,deck), archId=a?a.arch.id:null; const misfit=[];
+  if(archId) relics.forEach(k=>{ const rl=relicByKey(k); if(!rl)return; const b=rl.builds||[]; if(b.length&&!b.includes('any')&&!b.includes(archId))misfit.push(koName(rl.id)); });
+  if(archId&&misfit.length) fb.push(['',`현재 빌드(<b>${koArch(a.arch.name)}</b>)와 방향이 다른 유물: ${misfit.slice(0,5).join(', ')} — 잘 살리기 어려웠을 수 있어요.`]);
+  else fb.push(['good','유물이 빌드 방향과 크게 어긋나지 않았어요.']);
+  return rCard('◈ 유물 활용도', fb,'');
+}
 
 // ── 초기화 ──
 if(!load()){ loadStarter(); }
