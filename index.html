@@ -181,6 +181,25 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .note{font-size:.72rem;color:var(--text3);line-height:1.6;background:rgba(0,0,0,.18);border:1px dashed var(--border2);border-radius:var(--radius);padding:8px 10px}
 ::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
 .footer{position:fixed;bottom:6px;right:12px;font-size:.6rem;color:var(--text3);opacity:.6;font-family:'Cinzel',serif;z-index:5}
+
+/* 카드 클릭 → 상세 팝업 */
+.pop{cursor:pointer}
+.pop:hover{outline:2px solid var(--gold2);outline-offset:1px}
+.modal-ov{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.72);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-ov.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;max-width:420px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.modal-h{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg2);border-radius:12px 12px 0 0}
+.modal-h .mnm{flex:1;font-size:1rem;color:var(--text);font-weight:500}
+.modal-h .mnm .en{font-size:.7rem;color:var(--text3);margin-left:6px}
+.modal-x{cursor:pointer;color:var(--text3);font-size:1.2rem;line-height:1;padding:0 4px;flex-shrink:0}
+.modal-x:hover{color:var(--red2)}
+.modal-b{padding:14px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.modal-art{width:210px;max-width:100%;aspect-ratio:1/1;border-radius:8px;background-size:cover;background-position:top center;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700}
+.modal-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center}
+.modal-up{display:flex;border:1px solid var(--border2);border-radius:6px;overflow:hidden}
+.modal-up button{background:var(--bg3);border:none;color:var(--text2);padding:6px 16px;font-family:inherit;font-size:.82rem;cursor:pointer}
+.modal-up button.on{background:rgba(200,149,46,.18);color:var(--gold3);font-weight:700}
+.modal-desc{font-size:.92rem;color:var(--text);line-height:1.65;background:rgba(0,0,0,.24);border-radius:8px;padding:12px 14px;width:100%;text-align:center}
 </style>
 </head>
 <body>
@@ -267,6 +286,25 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 </div>
 
 <div class="footer">MIT © 2026 Shunrai · 한국어판</div>
+
+<!-- 카드 상세 팝업 -->
+<div class="modal-ov" id="card-modal">
+  <div class="modal">
+    <div class="modal-h">
+      <span class="mnm" id="modal-nm"></span>
+      <span class="modal-x" id="modal-x" title="닫기">✕</span>
+    </div>
+    <div class="modal-b">
+      <div class="modal-art" id="modal-art"></div>
+      <div class="modal-meta" id="modal-meta"></div>
+      <div class="modal-up" id="modal-up-wrap">
+        <button id="modal-up-base" class="on">기본</button>
+        <button id="modal-up-plus">강화 후</button>
+      </div>
+      <div class="modal-desc" id="modal-desc"></div>
+    </div>
+  </div>
+</div>
 
 <script src="db.js"></script>
 <script src="data/loc_ko.js"></script>
@@ -472,7 +510,7 @@ function renderOffered(){
   wrap.innerHTML=state.offered.map((name,i)=>{
     const d=getCard(state.char,name), t=d?d.tier:'?';
     const s=scoreCard(name,state.char,da,state.floor,state.act,state.deck,state.encounter,state.relics);
-    return `<div class="tile"><div class="art" style="${artStyle(name,t)}">${artLetter(name,t)}</div>
+    return `<div class="tile"><div class="art pop" data-card="${esc(name)}" title="클릭: 상세" style="${artStyle(name,t)}">${artLetter(name,t)}</div>
       <div class="body"><div class="nm">${costBadge(name)}${gradeBadge(t)}${typeBadge(name)} ${koName(name)}<span class="en">${name}</span>${hasOfficial(name)?'<span class="off-official">공식</span>':''}</div>
       <div class="sub">${pickBadge(s.finalScore)}<span style="color:${tierColor(s.finalGrade)}">${s.finalGrade}등급</span></div>
       ${descHTML(name,false)?`<div class="desc">${descHTML(name,false)}</div>`:''}</div>
@@ -510,7 +548,7 @@ function renderRec(){
     return `<div class="rec${best?' best':''}">
       <div class="rec-head">
         <div class="rec-rank">${idx+1}</div>
-        <div class="rec-art" style="border-color:${col};${cardArt(s.name)?artStyle(s.name):'color:'+col}">${cardArt(s.name)?'':s.finalGrade}</div>
+        <div class="rec-art pop" data-card="${esc(s.name)}" title="클릭: 상세" style="border-color:${col};${cardArt(s.name)?artStyle(s.name):'color:'+col}">${cardArt(s.name)?'':s.finalGrade}</div>
         <div class="rec-info">
           <div class="rec-name">${costBadge(s.name)}${gradeBadge(s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
           <div class="rec-badges">${recBadges(s,da)}${pickBadge(s.finalScore)}</div>
@@ -544,6 +582,40 @@ function isUpgradePriority(name,da){
   const fits=!(d.builds||[]).length||(d.builds||[]).some(b=>b==='any'||da.detected.some(x=>x.arch.id===b));
   const key=tierVal>=4||d.role==='engine'||d.role==='payoff'||(d.syn||[]).includes('scaling')||(d.mech||[]).includes('permanent_scaling');
   return key&&fits;
+}
+
+// ── 카드 상세 팝업 ──
+// 팝업 전용: {Var}를 (강화 여부에 따른) 단일 값으로 렌더 → 토글이 실제로 값이 바뀜
+function modalDescHTML(name, upgraded){
+  const raw=(typeof KO_OFF!=='undefined'&&KO_OFF[name])?KO_OFF[name].d:''; if(!raw)return '';
+  const st=cardStats(name); const vars=(st&&st.vars)||{};
+  let h=String(raw).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  h=h.replace(/\{([A-Za-z0-9_]+)(?::[^}]*)?\}/g,(m,key)=>{
+    const v=vars[key]; if(!v) return '<span class="gv">◆</span>';
+    const val=upgraded?v.u:v.b;
+    return `<span class="gv">${fmtN(val)}</span>`;
+  });
+  h=h.replace(/\[gold\]([\s\S]*?)\[\/gold\]/g,'<span class="gh">$1</span>')
+     .replace(/\[[a-zA-Z_]+\]([\s\S]*?)\[\/[a-zA-Z_]+\]/g,'<span class="gh">$1</span>')
+     .replace(/\[\/?[a-zA-Z_]+\]/g,'').replace(/\n/g,'<br>');
+  return h;
+}
+let modalCard=null, modalUp=false;
+function openCardModal(name){ modalCard=canonEN(name); modalUp=false; renderModal(); $('card-modal').classList.add('open'); }
+function closeCardModal(){ $('card-modal').classList.remove('open'); modalCard=null; }
+function renderModal(){
+  const name=modalCard; if(!name)return;
+  const d=getCard(state.char,name); const t=d?d.tier:'?'; const art=cardArt(name);
+  const st=cardStats(name); const canUp=!!(st&&Object.values(st.vars||{}).some(v=>v.u!==v.b));
+  $('modal-nm').innerHTML=`${koName(name)}<span class="en">${name}</span>`;
+  const ma=$('modal-art');
+  ma.setAttribute('style', art?`background-image:url('${art}')`:`color:${tierColor(t)}`);
+  ma.textContent=art?'':t;
+  $('modal-meta').innerHTML=`${costBadge(name)}${gradeBadge(t)}${typeBadge(name)}${hasOfficial(name)?'<span class="off-official">공식</span>':''}`;
+  $('modal-desc').innerHTML=modalDescHTML(name,modalUp)||'<span style="color:var(--text3)">설명 정보 없음</span>';
+  $('modal-up-wrap').style.display=canUp?'flex':'none';
+  $('modal-up-base').classList.toggle('on',!modalUp);
+  $('modal-up-plus').classList.toggle('on',modalUp);
 }
 
 // ── 렌더: 유물 ──
@@ -582,7 +654,7 @@ function renderDeck(){
     const dt=descText(name,up); const canUp=cardStats(name)&&Object.values((cardStats(name).vars)||{}).some(v=>v.u!==v.b);
     const tip=(up?'[강화됨] ':'')+(dt?dt+' · ':'')+(rem.reason||'');
     return `<div class="dcell${up?' upgraded':''}" title="${esc(tip)}">${badge}
-      ${cardArt(name)?`<span class="dart" style="${artStyle(name,t)}"></span>`:''}${gradeBadge(t)}${typeBadge(name)}
+      ${cardArt(name)?`<span class="dart pop" data-card="${esc(name)}" title="클릭: 상세" style="${artStyle(name,t)}"></span>`:''}${gradeBadge(t)}${typeBadge(name)}
       <span class="dn">${koName(name)}${up?'<span class="upplus">+</span>':''}</span>
       <button class="up-btn${up?' on':''}" data-up="${i}" title="강화 전/후 전환">강화${up?'+':''}</button>
       <span class="dx" data-i="${i}">✕</span></div>`;
@@ -615,6 +687,14 @@ $('deck-clear').addEventListener('click',()=>{ state.deck=[]; renderAll(); });
 makeAC($('offer-input'),$('offer-ac'),cardSource,addOffered);
 makeAC($('deck-input'),$('deck-ac'),cardSource,addDeck);
 makeAC($('relic-input'),$('relic-ac'),relicSource,addRelic);
+
+// ── 카드 상세 팝업 이벤트 (카드 그림 클릭) ──
+document.addEventListener('click',e=>{ const el=e.target.closest('.pop[data-card]'); if(el){ e.stopPropagation(); openCardModal(el.dataset.card); } });
+$('modal-x').addEventListener('click',closeCardModal);
+$('card-modal').addEventListener('click',e=>{ if(e.target===$('card-modal')) closeCardModal(); });
+$('modal-up-base').addEventListener('click',()=>{ modalUp=false; renderModal(); });
+$('modal-up-plus').addEventListener('click',()=>{ modalUp=true; renderModal(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('card-modal').classList.contains('open')) closeCardModal(); });
 
 // ── 초기화 ──
 if(!load()){ loadStarter(); }
