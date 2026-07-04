@@ -177,7 +177,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .deck-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
 .dcell{position:relative;display:flex;flex-direction:column;background:var(--bg3);border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:default}
 .dcell.upgraded{border-color:var(--gold);background:rgba(240,168,60,.06)}
-.dcell.upnext{border-color:var(--gold2);box-shadow:0 0 0 1px var(--gold2)}
+.dcell.upnext{border-color:var(--green2);box-shadow:0 0 0 1px var(--green2),0 0 10px rgba(75,191,110,.25)}
 .dtop{position:relative;width:100%;aspect-ratio:16/11;background:var(--bg4)}
 .dart{width:100%;height:100%;background-size:cover;background-position:top center;cursor:pointer;display:block}
 .dart-fb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem}
@@ -192,7 +192,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .dctrl .dx{width:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--text3);cursor:pointer;font-size:.72rem}
 .dctrl .dx:hover{color:var(--red2)}
 .dcell .dbadge{position:absolute;top:2px;right:2px;font-size:.56rem;line-height:1;padding:2px 4px;border-radius:6px;border:1px solid;font-weight:700;z-index:2;background:rgba(0,0,0,.55)}
-.b-upnext{color:#0a0a0b;background:var(--gold2);border-color:var(--gold2)}
+.dcell .dbadge.b-upnext{color:#0a0a0b;background:var(--green2);border-color:var(--green2)}
 
 /* 그리드 고르기 */
 .grid-wrap{display:none;flex-direction:column;gap:7px}
@@ -307,7 +307,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
         <div class="ac" id="deck-ac"></div>
       </div>
       <div class="deck-grid" id="deck-grid"></div>
-      <div class="note">🗑 <b>제거 추천</b> = 상점에서 뺄 후보 · ⬆ <b>강화 우선</b> = 먼저 업그레이드할 핵심 카드 · ◈ 유물은 추천에 반영. 보조 도구이며 완벽하지 않습니다.</div>
+      <div class="note"><span style="color:var(--green2)">⬆ <b>강화 추천</b>(초록)</span> = 먼저 강화할 카드 · ⬆ 강화 우선 후보 · 🗑 <b>제거 추천</b> = 상점에서 뺄 후보 · ◈ 유물은 추천에 반영. 보조 도구이며 완벽하지 않습니다.</div>
     </div>
   </div>
 </div>
@@ -390,13 +390,18 @@ function cardStats(name){ const k=statKey(name);
 const TYPE_KO={Attack:'공격',Skill:'스킬',Power:'파워',Status:'상태이상',Curse:'저주'};
 const TYPE_CLS={Attack:'t-atk',Skill:'t-skl',Power:'t-pow',Status:'t-etc',Curse:'t-etc'};
 function typeBadge(name){ const s=cardStats(name); if(!s||!s.type)return ''; return `<span class="tb ${TYPE_CLS[s.type]||'t-etc'}">${TYPE_KO[s.type]||s.type}</span>`; }
-function costBadge(name){ const s=cardStats(name); if(!s||s.cost==null)return ''; const c=(typeof s.cost==='number')?s.cost:s.cost; return `<span class="cb">${c}</span>`; }
-// ── 코스트(#17) + 강화 특수효과(#15) ──
+// ── 코스트(#17·#20) + 강화 특수효과(#15) ──
 const KW_KO={Innate:'선천성',Exhaust:'소멸',Retain:'유지',Ethereal:'공허',Unplayable:'사용 불가',Purge:'제거'};
-function cardCost(name,up){ const s=cardStats(name); if(!s||s.cost==null)return null; return (up&&s.upCost!=null)?s.upCost:s.cost; }
+// 표시할 코스트 값: 'X'(에너지 전부), 숫자, 또는 null(저주/상태이상 등 표시 안 함)
+function costDisplay(name,up){ const s=cardStats(name); if(!s||s.cost==null)return null;
+  if(s.cost==='X')return 'X';
+  if(typeof s.cost!=='number')return null;                 // -1 등(저주/상태이상)은 표시 안 함
+  return (up&&s.upCost!=null)?s.upCost:s.cost; }
+function cardCost(name,up){ return costDisplay(name,up); }
+function costBadge(name){ const c=costDisplay(name,false); if(c==null)return ''; return `<span class="cb">${c}</span>`; }
 // 카드 그림 좌상단 코너용 코스트 배지 (강화로 줄면 초록 강조)
-function costCorner(name,up){ const s=cardStats(name); if(!s||s.cost==null||typeof s.cost!=='number')return '';
-  const c=cardCost(name,up), reduced=up&&s.upCost!=null&&s.upCost<s.cost;
+function costCorner(name,up){ const s=cardStats(name); const c=costDisplay(name,up); if(c==null)return '';
+  const reduced=up&&s&&s.upCost!=null&&typeof s.cost==='number'&&s.upCost<s.cost;
   return `<span class="cost-cnr${reduced?' reduced':''}" title="비용 ${c}${reduced?' (강화로 감소)':''}">${c}</span>`; }
 // 강화 시 부여되는 키워드(선천성/소멸 등) — 설명 텍스트에 안 나오는 것 표시용
 function upKeywordsKo(name){ const s=cardStats(name); return (s&&s.upKw)?s.upKw.map(k=>KW_KO[k]||k):[]; }
@@ -772,7 +777,7 @@ function renderDeck(){
     const rem=scoreRemoval(name,state.char,da,state.deck,state.relics);
     const upPri=!up&&isUpgradePriority(name,da);
     let badge='', cls='';
-    if(i===nextIdx){ badge='<span class="dbadge b-upnext" title="다음 강화 우선순위">⬆</span>'; cls=' upnext'; }
+    if(i===nextIdx){ badge='<span class="dbadge b-upnext" title="강화 추천 · 다음 강화 우선순위">⬆</span>'; cls=' upnext'; }
     else if(upPri) badge='<span class="dbadge b-up" title="강화 우선 후보">⬆</span>';
     else if(!up&&rem.safeToRemove) badge='<span class="dbadge b-cut" title="제거 추천">🗑</span>';
     const dt=descText(name,up);

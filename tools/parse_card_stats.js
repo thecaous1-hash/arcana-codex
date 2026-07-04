@@ -24,6 +24,8 @@ function parseCard(src){
   const bm=src.match(/:\s*base\(\s*([^,]+?)\s*,\s*CardType\.(\w+)(?:\s*,\s*CardRarity\.(\w+))?/);
   let cost=null, type=null, rarity=null;
   if(bm){ cost = /^\d+$/.test(bm[1].trim())?parseInt(bm[1]):(bm[1].trim()); type=bm[2]; rarity=bm[3]||null; }
+  // X 코스트(가진 에너지 전부 소모): HasEnergyCostX => true → cost 'X'
+  if(/HasEnergyCostX\s*=>\s*true/.test(src)) cost='X';
   // CanonicalVars 블록 추출(=> ... ;)
   let varsBlock='';
   const vb=src.match(/CanonicalVars\s*=>([\s\S]*?);/);
