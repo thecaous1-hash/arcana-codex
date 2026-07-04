@@ -138,6 +138,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .rec-name .en{font-size:.66rem;color:var(--text3);font-weight:400;margin-left:5px}
 .rec-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
 .rec-pick{flex-shrink:0}
+.rec-x{flex-shrink:0;color:var(--text3);cursor:pointer;font-size:.82rem;padding:0 3px;align-self:center}
+.rec-x:hover{color:var(--red2)}
 .rec-why{padding:0 13px 12px;font-size:.9rem;line-height:1.55}
 .rec-lead{color:var(--text);margin-bottom:6px}
 .rec.best .rec-lead{color:var(--gold3)}
@@ -249,8 +251,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
           <input type="checkbox" id="grid-colorless"> 무색 카드 보기</label>
         <div class="grid" id="grid"></div>
       </div>
-      <div class="divider"></div>
-      <div class="tiles" id="offered-tiles"></div>
     </div>
   </div>
 
@@ -540,6 +540,7 @@ function renderGrid(){
 // ── 추가/제거 ──
 function addOffered(n){ n=canonEN(n); if(state.offered.length>=8)return; state.offered.push(n); renderOffered(); renderRec(); save(); }
 function removeOffered(i){ state.offered.splice(i,1); renderOffered(); renderRec(); save(); }
+function removeOfferedByName(n){ const i=state.offered.indexOf(n); if(i>=0){ state.offered.splice(i,1); renderOffered(); renderRec(); save(); } }
 function addDeck(n){ state.deck.push({name:canonEN(n)}); renderAll(); }
 function removeDeck(i){ state.deck.splice(i,1); renderAll(); }
 function pickCard(n){ // "이 카드 뽑기" — 덱에 넣고 보상 목록에서 제거
@@ -566,21 +567,9 @@ function recBadges(s,da){
 }
 
 // ── 렌더: 카드 선택(왼쪽 목록) ──
+// 선택한 보상 카드는 가운데 "추천 결과"에만 표시(왼쪽은 입력/검색 전용). 여기선 개수만 갱신.
 function renderOffered(){
   $('offered-count').textContent=state.offered.length?state.offered.length+'장':'';
-  const wrap=$('offered-tiles');
-  if(!state.offered.length){ wrap.innerHTML=`<div class="empty">${state.mode==='shop'?'상점에 뜬 카드를':'지금 뜬 보상 카드를'} 위에서 입력하거나<br>그리드에서 골라 넣으세요.</div>`; return; }
-  const da=analyzeDeck(state.char,state.deck);
-  wrap.innerHTML=state.offered.map((name,i)=>{
-    const d=getCard(state.char,name), t=d?d.tier:'?';
-    const s=scoreCard(name,state.char,da,state.floor,state.act,state.deck,state.encounter,state.relics);
-    return `<div class="tile"><div class="art pop" data-card="${esc(name)}" title="클릭: 상세" style="${artStyle(name,t)}">${artLetter(name,t)}</div>
-      <div class="body"><div class="nm">${costBadge(name)}${gradeBadge(t)}${typeBadge(name)} ${koName(name)}<span class="en">${name}</span>${hasOfficial(name)?'<span class="off-official">공식</span>':''}</div>
-      <div class="sub">${pickBadge(s.finalScore)}<span style="color:${tierColor(s.finalGrade)}">${s.finalGrade}등급</span></div>
-      ${descHTML(name,false)?`<div class="desc">${descHTML(name,false)}</div>`:''}</div>
-      <span class="x" data-i="${i}">✕</span></div>`;
-  }).join('');
-  wrap.querySelectorAll('.x').forEach(x=>x.addEventListener('click',()=>removeOffered(+x.dataset.i)));
 }
 
 // ── 렌더: 추천 결과(가운데) ──
@@ -618,6 +607,7 @@ function renderRec(){
           <div class="rec-badges">${recBadges(s,da)}${pickBadge(s.finalScore)}</div>
         </div>
         <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':'뽑기'}</button>
+        <span class="rec-x" data-name="${esc(s.name)}" title="이 카드 빼기">✕</span>
       </div>
       <div class="rec-why">
         ${descHTML(s.name,false)?`<div class="rec-desc">${descHTML(s.name,false)}</div>`:''}
@@ -635,6 +625,7 @@ function renderRec(){
 
   body.innerHTML=html;
   body.querySelectorAll('.rec-pick').forEach(b=>b.addEventListener('click',()=>pickCard(b.dataset.name)));
+  body.querySelectorAll('.rec-x').forEach(x=>x.addEventListener('click',()=>removeOfferedByName(x.dataset.name)));
   $('skip-btn').addEventListener('click',()=>{ state.offered=[]; renderOffered(); renderRec(); save(); });
 }
 
