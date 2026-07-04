@@ -40,8 +40,8 @@ const STARTERS = {
   ironclad:    ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Bash'],
   silent:      ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Defend','Survivor','Neutralize'],
   defect:      ['Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Zap','Dualcast'],
-  regent:      ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Venerate'],
-  necrobinder: ['Strike','Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Soul Spark'],
+  regent:      ['Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Falling Star','Venerate'],
+  necrobinder: ['Strike','Strike','Strike','Strike','Defend','Defend','Defend','Defend','Bodyguard','Unleash'],
 };
 
 function isStarter(cardName) {

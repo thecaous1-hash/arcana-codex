@@ -145,10 +145,17 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 
 /* 유물 */
 .sec-label{font-size:.72rem;color:var(--text2);font-family:'Cinzel',serif;letter-spacing:.05em;text-transform:uppercase}
-.relic-line{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
-.relic{display:inline-flex;align-items:center;gap:5px;padding:2px 9px 2px 3px;border-radius:14px;background:rgba(200,149,46,.1);border:1px solid rgba(200,149,46,.3);font-size:.78rem;color:var(--text2);cursor:pointer}
-.rimg{width:24px;height:24px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0;border:1px solid var(--border2)}
-.relic:hover{background:rgba(184,48,37,.15);border-color:var(--red);color:var(--red2)}
+.relic-line{display:flex;flex-direction:column;gap:5px;align-items:stretch}
+.rimg{width:28px;height:28px;border-radius:50%;background-size:cover;background-position:center;flex-shrink:0;border:1px solid var(--border2)}
+/* 유물 타일(아이콘 + 이름 + 등급 + 효과설명) */
+.rtile{display:flex;align-items:flex-start;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(200,149,46,.07);border:1px solid rgba(200,149,46,.22)}
+.rtile-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.rtile-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.rtile-nm{font-size:.84rem;color:var(--text);font-weight:500}
+.rtile-desc{font-size:.72rem;color:var(--text2);line-height:1.45}
+.rtile-x{align-self:center;color:var(--text3);cursor:pointer;font-size:.82rem;padding:0 3px;flex-shrink:0}
+.rtile-x:hover{color:var(--red2)}
+.rtile-lock{align-self:center;color:var(--text3);font-size:.72rem;flex-shrink:0}
 .divider{height:1px;background:var(--border);margin:1px 0}
 
 /* 덱 그리드 */
@@ -541,12 +548,22 @@ function isUpgradePriority(name,da){
 
 // ── 렌더: 유물 ──
 function renderRelics(){
-  $('relics').innerHTML=state.relics.length?state.relics.map((n,i)=>{
+  if(!state.relics.length){ $('relics').innerHTML=`<span style="color:var(--text3);font-size:.74rem">없음</span>`; return; }
+  $('relics').innerHTML=state.relics.map((n,i)=>{
     const d=DB.relics[relicKey(n)],t=d?d.tier:'?',col=tierColor(t);
     const starter=n===STARTER_RELICS[state.char]; const art=relicArt(n);
-    return `<span class="relic" data-i="${i}" title="${starter?'시작 유물(고정)':'클릭 제거'}">${art?`<span class="rimg" style="background-image:url('${art}')"></span>`:`<b style="color:${col}">${t}</b>`}${koName(n)}</span>`;
-  }).join(''):`<span style="color:var(--text3);font-size:.74rem">없음</span>`;
-  $('relics').querySelectorAll('.relic').forEach(el=>el.addEventListener('click',()=>removeRelic(+el.dataset.i)));
+    const desc=descHTML(n,false);
+    const icon=art?`<span class="rimg" style="background-image:url('${art}')"></span>`
+      :`<span class="rimg" style="display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;color:${col}">${t}</span>`;
+    return `<div class="rtile">${icon}
+      <div class="rtile-body">
+        <div class="rtile-top">${gradeBadge(t)}<span class="rtile-nm">${koName(n)}</span></div>
+        ${desc?`<div class="rtile-desc">${desc}</div>`:''}
+      </div>
+      ${starter?`<span class="rtile-lock" title="시작 유물(고정)">🔒</span>`:`<span class="rtile-x" data-i="${i}" title="제거">✕</span>`}
+    </div>`;
+  }).join('');
+  $('relics').querySelectorAll('.rtile-x').forEach(el=>el.addEventListener('click',()=>removeRelic(+el.dataset.i)));
 }
 
 // ── 렌더: 덱 그리드 ──

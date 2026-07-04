@@ -347,10 +347,31 @@ function canonEN(input) {
   return input;
 }
 
-// 자동완성/검색: 영어 id 또는 한국어 이름이 질의를 포함하면 매칭
+// ── 한글 초성 검색 (예: "ㅍㅅ" → "포식") ──────────────────────
+const CHOSUNG = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+// 한글 음절 문자열 → 각 글자의 초성만 뽑은 문자열 (한글 아닌 글자는 그대로)
+function toChosung(str) {
+  let out = '';
+  for (const ch of String(str)) {
+    const code = ch.charCodeAt(0);
+    if (code >= 0xAC00 && code <= 0xD7A3) out += CHOSUNG[Math.floor((code - 0xAC00) / 588)];
+    else out += ch;
+  }
+  return out;
+}
+// 질의가 초성 자모(ㄱ~ㅎ)로만 이루어졌는지
+function isChosungQuery(q) { return /^[ㄱ-ㅎ]+$/.test(q); }
+
+// 자동완성/검색: 영어 id / 한국어 이름 부분일치 + 한글 초성 검색
 function nameMatches(en, q) {
   if (!q) return false;
   const off = (typeof KO_OFF !== 'undefined' && KO_OFF[en]) ? KO_OFF[en].t : '';
   const ko = KO_NAME[en] || '';
-  return en.toLowerCase().includes(q) || ko.includes(q) || (off && off.includes(q));
+  if (en.toLowerCase().includes(q) || ko.includes(q) || (off && off.includes(q))) return true;
+  // 초성 질의면 이름의 초성열에서 부분일치 검사
+  if (isChosungQuery(q)) {
+    if (ko && toChosung(ko).includes(q)) return true;
+    if (off && toChosung(off).includes(q)) return true;
+  }
+  return false;
 }
