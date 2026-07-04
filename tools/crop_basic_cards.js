@@ -26,6 +26,7 @@ const OUTDIR=path.join(PROJ,'assets','cards'); fs.mkdirSync(OUTDIR,{recursive:tr
     if(!fs.existsSync(imgPath)){ console.log('  이미지 없음:', tex.image); continue; }
     const img=sharp(imgPath);
     for(const sp of tex.sprites){
+      if(/\/beta\//.test(sp.filename)) continue;   // beta(개발용 옛 그림) 제외 — 정식만
       const m=sp.filename.match(/(strike|defend)_(ironclad|silent|defect|regent|necrobinder)\.png$/i);
       if(!m) continue;
       const kind=m[1].toUpperCase(), ch=m[2].toLowerCase();
