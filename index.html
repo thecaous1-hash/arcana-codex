@@ -551,9 +551,13 @@ function removeOffered(i){ state.offered.splice(i,1); renderOffered(); renderRec
 function removeOfferedByName(n){ const i=state.offered.indexOf(n); if(i>=0){ state.offered.splice(i,1); renderOffered(); renderRec(); save(); } }
 function addDeck(n){ state.deck.push({name:canonEN(n)}); renderAll(); }
 function removeDeck(i){ state.deck.splice(i,1); renderAll(); }
-function pickCard(n){ // "이 카드 뽑기" — 덱에 넣고 보상 목록에서 제거
+function pickCard(n){ // "이 카드 뽑기" — 덱에 넣기
   n=canonEN(n); state.deck.push({name:n});
-  const i=state.offered.indexOf(n); if(i>=0) state.offered.splice(i,1);
+  if(state.mode==='shop'){ // 상점: 여러 장 살 수 있으니 산 카드만 빼고 나머지 후보 유지
+    const i=state.offered.indexOf(n); if(i>=0) state.offered.splice(i,1);
+  } else { // 보상: 한 장 뽑으면 나머지 후보는 사라짐 → 추천 결과 비움
+    state.offered=[];
+  }
   renderAll();
 }
 function addRelic(n){ n=canonEN(n); if(!state.relics.includes(n)){ state.relics.push(n); renderAll(); } }
