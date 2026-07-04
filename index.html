@@ -381,9 +381,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
     <div class="panel retro-side">
       <div class="panel-h"><h2>📂 런 기록</h2><span class="count" id="run-count"></span></div>
       <div class="panel-b">
-        <p class="slot-hint">게임 런 기록 폴더/파일(.run)을 불러오세요. 위치:<br><b>SlayTheSpire2\steam\…\profile1\saves\history</b></p>
+        <p class="slot-hint">저장된 런 기록이 <b>자동으로</b> 로드됩니다. 최근에 플레이한 런까지 반영하려면 아래로 <b>최신 기록을 다시 불러오세요</b> (선택).<br>위치: <b>SlayTheSpire2\steam\…\profile1\saves\history</b></p>
         <div class="row-btns">
-          <label class="btn gold" style="cursor:pointer">📁 폴더 불러오기<input type="file" id="run-folder" webkitdirectory directory multiple hidden></label>
+          <label class="btn" style="cursor:pointer">🔄 최신 폴더 갱신<input type="file" id="run-folder" webkitdirectory directory multiple hidden></label>
           <label class="btn" style="cursor:pointer">📄 파일 선택<input type="file" id="run-files" multiple accept=".run" hidden></label>
         </div>
         <div class="retro-filter" id="retro-filter" style="display:none">
@@ -445,6 +445,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 <script src="data/relic_stats.js"></script>
 <script src="data/basic_art.js"></script>
 <script src="data/extra_cards.js"></script>
+<script src="data/runs.js"></script>
 <script src="i18n.js"></script>
 <script src="logic.js"></script>
 <script>
@@ -1124,6 +1125,8 @@ if(typeof window.KO_OFF_VERSION!=='undefined' && window.KO_OFF_VERSION){
   document.querySelector('.footer').innerHTML = 'MIT © 2026 Shunrai · 한국어판 · 게임 데이터 STS2 '+window.KO_OFF_VERSION+' 추출';
 }
 renderAll();
+// 런 기록 스냅샷 자동 로드 (data/runs.js)
+if(typeof RUN_HISTORY!=='undefined' && RUN_HISTORY && RUN_HISTORY.length){ onRunsLoaded(RUN_HISTORY); }
 </script>
 </body>
 </html>
