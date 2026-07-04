@@ -221,7 +221,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .modal-x{cursor:pointer;color:var(--text3);font-size:1.2rem;line-height:1;padding:0 4px;flex-shrink:0}
 .modal-x:hover{color:var(--red2)}
 .modal-b{padding:14px;display:flex;flex-direction:column;gap:12px;align-items:center}
-.modal-art{position:relative;width:210px;max-width:100%;aspect-ratio:1/1;border-radius:8px;background-size:cover;background-position:top center;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700}
+.modal-art{position:relative;width:210px;max-width:100%;aspect-ratio:1/1;border-radius:8px;border:1px solid var(--border2);overflow:hidden;background:var(--bg4)}
+.modal-img{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:top center;font-family:'Cinzel',serif;font-size:2.2rem;font-weight:700}
 .modal-art .cost-cnr{top:6px;left:6px;min-width:26px;height:26px;font-size:1rem}
 .modal-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center}
 .modal-up{display:flex;border:1px solid var(--border2);border-radius:6px;overflow:hidden}
@@ -720,8 +721,7 @@ function renderModal(){
   const canUp=varsChange||costChange||kws.length>0;   // 수치·코스트·키워드 중 하나라도 바뀌면 강화 토글 표시
   $('modal-nm').innerHTML=`${koName(name)}<span class="en">${name}</span>`;
   const ma=$('modal-art');
-  ma.setAttribute('style', art?`background-image:url('${art}')`:`color:${tierColor(t)}`);
-  ma.innerHTML=`${costCorner(name,modalUp)}${art?'':t}`;
+  ma.innerHTML=`<span class="modal-img" style="${art?`background-image:url('${art}')`:`color:${tierColor(t)}`}">${art?'':t}</span>${costCorner(name,modalUp)}`;
   $('modal-meta').innerHTML=`${gradeBadge(t)}${typeBadge(name)}${hasOfficial(name)?'<span class="off-official">공식</span>':''}`;
   // 강화 효과 요약(코스트 변화·키워드 부여 — 설명 텍스트에 안 나오는 것)
   let upLine='';
