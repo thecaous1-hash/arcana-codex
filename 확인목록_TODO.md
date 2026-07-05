@@ -99,11 +99,12 @@
 
 > 방향성 확정 배경은 `어드바이저_설계서.md` §"방향성 확정 (2026-07-05)" 참고.
 
-- [ ] **(최우선) spire-codex API 검증** — 실제 응답 확인:
-  - (a) `/api/cards?lang=kor` 가 쓸 만한 한국어 카드 데이터를 주는지
-  - (b) `/meta` 가 승률/DELTA급 통계인지 vs 단순 픽 카운트인지
-  - (c) 라이브 데이터가 현재 STS2 패치 버전에 동기화돼 있는지
-  - → 결과로 통계 소스(spire-codex `/meta` vs ststracker) 확정
+- [x] **(최우선) spire-codex API 검증 — 완료(2026-07-05). 통계 소스 = spire-codex 확정.**
+  - (a) ✅ `GET /api/cards?lang=kor` — **577장 전부 한글**(이름·설명), 설명에 **수치 이미 완성**(예: "피해를 5 줍니다") + `description_raw`에 원본 자리표시자. 구조화 필드 풍부: `powers_applied`(약화 2 등), `is_x_cost`/`star_cost`, `upgrade`/`upgrade_description`, `image_url`. → 내 `db.js`+`card_stats`+`loc`+`card_art`를 **한 소스로 대체 가능**.
+  - (b) ✅ 승률 기반 통계. `GET /api/runs/stats?character=…&ascension=…` 의 `top_cards`가 `win_runs`/`total_runs_with` 제공 → **DELTA(승률차) 직접 계산 가능**(검증됨: 강카드 상위·저주/상태이상 하위로 합리적). 단순 픽카운트 아님. 추가로 `GET /api/runs/scores/{cards|relics|potions}`가 **미리 계산된 Codex Score**(Bayesian 보정·ELO·win_rate) 제공. 캐릭터/승천 필터 가능. (표본: 아이언클래드만 14.7만 런)
+  - (c) ✅ 최신성. 방금(초 단위 전) 제출된 런이 **build_id v0.108.0** = 내 게임과 동일 버전. `Last-Modified` 오늘. **CORS `Access-Control-Allow-Origin: *`** → 정적 웹앱에서 브라우저 직접 호출 OK(프록시 불필요). rate limit 60req/분.
+  - ⚖️ vs ststracker: ststracker.app는 **공개 API 없음**(404). → **spire-codex 단독 채택**(카드+통계 모두).
+  - ⚠️ 주의: DELTA는 선택편향 있음(고수가 늦게 얻는 강카드는 과대). → 전문가 티어표로 상위 보정 + 표본수 하한 필요(설계서 방침대로).
 - [ ] **개명** — 프로젝트명 "Spire Codex"가 spire-codex.com / ptrlrd/spire-codex와 충돌. 공개 전 교체.
 - [ ] 내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 문서·코드상 정리
 
