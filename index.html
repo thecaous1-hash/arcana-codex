@@ -707,8 +707,11 @@ function pickPool(){ const chars=Object.keys(DB.cards);
 function openPicker(slotIdx){
   pickSlot=slotIdx; pickReplace = slotIdx < state.offered.length && !!state.offered[slotIdx];
   $('pick-title').textContent=`카드 선택 — 슬롯 ${slotIdx+1}${pickReplace?' (교체)':''}`;
-  $('pick-search').value=''; pickFilter='cur';
-  $('pick-tabs').querySelectorAll('.ptab').forEach(t=>t.classList.toggle('on',t.dataset.f==='cur'));
+  $('pick-search').value='';
+  // 실제 인게임 상점: 1~5번=현재 캐릭터, 6~7번=중립 카드 → 기본 탭을 그에 맞춰 연다
+  const defF=(state.mode==='shop'&&slotIdx>=5)?'colorless':'cur';
+  pickFilter=defF;
+  $('pick-tabs').querySelectorAll('.ptab').forEach(t=>t.classList.toggle('on',t.dataset.f===defF));
   renderPickGrid(); $('pick-modal').classList.add('open');
   setTimeout(()=>$('pick-search').focus(),30);
 }
