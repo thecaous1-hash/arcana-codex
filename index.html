@@ -184,7 +184,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .dtier{position:absolute;bottom:2px;left:2px;font-family:'Cinzel',serif;font-weight:700;font-size:.5rem;line-height:1;padding:1px 3px;border-radius:3px;border:1px solid;background:rgba(0,0,0,.6)}
 .dtop .cost-cnr{top:1px;left:1px;min-width:15px;height:15px;font-size:.6rem;border-width:1px}
 .upplus{position:absolute;bottom:1px;right:3px;color:var(--gold3);font-weight:700;font-size:.8rem;text-shadow:0 0 3px #000,0 0 3px #000}
-.dcell .dn{font-size:.58rem;color:var(--text);text-align:center;padding:2px 2px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dcell .dn{font-size:.7rem;color:var(--text);text-align:center;padding:3px 2px;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .dctrl{display:flex;border-top:1px solid var(--border);margin-top:auto}
 .dctrl .up-btn{flex:1;background:transparent;border:none;border-right:1px solid var(--border);color:var(--text3);font-size:.66rem;padding:2px 0;cursor:pointer;font-family:inherit;border-radius:0;line-height:1.2}
 .dctrl .up-btn.on{background:rgba(240,168,60,.15);color:var(--gold3);font-weight:700}
@@ -241,7 +241,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .slot .slot-plus{font-size:1.15rem;line-height:1}
 .slot .slot-lbl{font-size:.66rem}
 .slot.filled{border-style:solid;cursor:pointer;justify-content:flex-start;gap:0;padding:0}
-.slot-img{width:100%;height:52px;background-size:cover;background-position:top center;background-color:var(--bg4)}
+.slot-img{width:100%;aspect-ratio:1/1;background-size:cover;background-position:top center;background-color:var(--bg4)}
 .slot-nm{font-size:.74rem;font-weight:500;color:var(--text);text-align:center;padding:3px 3px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%}
 .slot .slot-x{position:absolute;top:2px;right:3px;z-index:4;color:#fff;background:rgba(0,0,0,.6);border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;font-size:.66rem;cursor:pointer}
 .slot .slot-x:hover{color:var(--red2)}
@@ -370,7 +370,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
         <div class="ac" id="deck-ac"></div>
       </div>
       <div class="deck-grid" id="deck-grid"></div>
-      <div class="note"><span style="color:var(--green2)">⬆ <b>강화 추천</b>(초록)</span> = 먼저 강화할 카드 · ⬆ 강화 우선 후보 · 🗑 <b>제거 추천</b> = 상점에서 뺄 후보 · ◈ 유물은 추천에 반영. 보조 도구이며 완벽하지 않습니다.</div>
+      <div class="note"><span style="color:var(--green2)">⬆ <b>강화 추천</b></span> = 먼저 강화할 카드 · <span style="color:var(--gold3)">⬆ 강화 우선 후보</span> · <span style="color:var(--red2)">🗑 <b>제거 추천</b></span> = 상점에서 뺄 후보 · <span style="color:var(--gold3)">◈ 유물</span>은 추천에 반영. 보조 도구이며 완벽하지 않습니다.</div>
     </div>
   </div>
 </div>
