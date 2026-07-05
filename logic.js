@@ -1,5 +1,8 @@
 const GRADE_VALS = {S:5,A:4,B:3,C:2,D:1,F:0};
 const SCORE_GRADE = s => s>=4.5?'S':s>=3.5?'A':s>=2.5?'B':s>=1.5?'C':s>=0.5?'D':'F';
+// 표시용 등급: 커뮤니티/전문가 티어 스케일 S~D (F 없음). 기본점수(0~5)→등급 매핑.
+const SCORE_GRADE_SD = s => s>=4.3?'S':s>=3.4?'A':s>=2.5?'B':s>=1.5?'C':'D';
+// 티어 등급 기본점수(cardBaseScoreVal/cardBaseGrade)는 index.html에서 정의 — API.tier(Codex 커뮤니티 점수) 접근 필요.
 
 const SCALING_TAGS = new Set(['strength','scaling','focus','stellar','stars','soul','doom','infinite',
   'permanent_scaling','star_gain','poison_amplify','shiv_amplify','orb','claw']);
@@ -140,19 +143,13 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     return {name:cardName, base:'C', finalScore:2, finalGrade:'C', notes:'알 수 없는 카드', synReasons:[], antiReasons:[], isBest:false};
   }
 
-  // 기본점수: 커뮤니티 승률 DELTA(spire-codex) × 전문가 티어표(db.js, 출처 Shunrai STS2-Advisor) 블렌드.
-  // 표본이 클수록 DELTA를 신뢰(α↑), 작을수록 전문가 티어로 보정 — DELTA 선택편향·소표본 완화 (설계 §3)
+  // 기본점수 = 커뮤니티(Codex 승률 점수) × 전문가 티어(db.js) 블렌드 — index.html cardBaseScoreVal.
+  // DELTA(_dbs)는 추천 근거 표시용으로 별도 조회. (설계 §3: 커뮤니티 통계 + 전문가 티어 보정)
   const _dbs = (typeof dataBaseScore === 'function') ? dataBaseScore(cardName, char) : null;
   const tierVal = GRADE_VALS[data.tier] ?? 2;
   const base = tierVal;
-  let score;
-  if (_dbs && _dbs.score != null) {
-    const alpha = Math.max(0.2, Math.min(0.75, _dbs.n / (_dbs.n + 2000)));
-    score = alpha * _dbs.score + (1 - alpha) * tierVal;
-    _dbs.alpha = +alpha.toFixed(2); _dbs.tier = data.tier; _dbs.blended = +score.toFixed(2);
-  } else {
-    score = tierVal;
-  }
+  let score = (typeof cardBaseScoreVal === 'function') ? cardBaseScoreVal(cardName, char) : tierVal;
+  const baseGrade = SCORE_GRADE_SD(score);   // 맥락 제외 티어 등급(커뮤니티×전문가)
   const synR = [], antiR = [];
 
   // Synergy - graduated with diminishing returns + saturation
@@ -494,7 +491,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   }
 
   score = Math.max(0, Math.min(6, score));
-  return {name:cardName, base:data.tier, finalScore:score, finalGrade:SCORE_GRADE(score),
+  return {name:cardName, base:data.tier, baseGrade, finalScore:score, finalGrade:SCORE_GRADE_SD(score),
     notes:data.notes, synReasons:synR, antiReasons:antiR, isBest:false,
     builds:data.builds||[], char, dataStat:_dbs};
 }

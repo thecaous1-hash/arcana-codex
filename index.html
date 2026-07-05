@@ -514,6 +514,17 @@ function dataBaseScore(name, char){ if(!API||!API.stats) return null;
   if(!st){ return null; }                          // 통계 없음 → logic.js가 전문가 티어로 폴백
   const score=Math.max(0,Math.min(5, 2.5 + st.delta/12));  // Δ+30%p→5.0, Δ0→2.5, Δ-18→1.0
   return {score, delta:st.delta, wr:st.wr, n:st.n, src:'delta', band}; }
+// 티어 등급 기본점수(0~5) = 커뮤니티 Codex 점수(0~100→0~5)×0.7 + 전문가 티어(db.js)×0.3.
+// Codex는 Bayesian 보정 승률 점수라 S~D가 고르게 퍼짐(DELTA 단독은 +편향). 없으면 DELTA, 그것도 없으면 전문가 티어.
+function cardBaseScoreVal(name, char){ char=char||state.char;
+  const data=(typeof getCard==='function')?getCard(char,name):null;
+  const tierVal=data?(GRADE_VALS[data.tier]??2):2;
+  const t=(API&&API.tier)?API.tier[apiKey(name)]:null;
+  if(t&&t.score!=null){ const codex5=Math.max(0,Math.min(5,t.score/20)); return 0.7*codex5+0.3*tierVal; }
+  const dbs=dataBaseScore(name,char);
+  if(dbs&&dbs.score!=null){ const a=Math.max(0.2,Math.min(0.75,dbs.n/(dbs.n+2000))); return a*dbs.score+(1-a)*tierVal; }
+  return tierVal; }
+function cardBaseGrade(name, char){ return SCORE_GRADE_SD(cardBaseScoreVal(name,char)); }
 // 표시 이름은 API(공식 한글, 카드+유물)를 우선, 없으면 기존 i18n(추정) 사용. (검색은 i18n 그대로)
 if(API && typeof koName==='function'){ const _koName=koName;
   koName=function(n){ const a=apiEntity(n); return (a&&a.name)?a.name:_koName(n); }; }
@@ -721,13 +732,16 @@ function findCardAny(name){ if(!name)return null; const k=norm(name);
     for(const id in pool){ if(norm(pool[id].id)===k) return pool[id]; } }
   return null; }
 function cardTierAny(name){ const d=getCard(state.char,name)||findCardAny(name); return d?d.tier:'?'; }
+// 표시 등급 = 커뮤니티(DELTA)×전문가 티어 블렌드 → S~D (logic.js). char 미지정 시 현재 캐릭터.
+function cardGrade(name, char){ return (typeof cardBaseGrade==='function') ? cardBaseGrade(name, char||state.char) : cardTierAny(name); }
+function cardGradeVal(name, char){ return (typeof cardBaseScoreVal==='function') ? cardBaseScoreVal(name, char||state.char) : 0; }
 
 function renderSlots(){
   const n=slotCount(), wrap=$('offer-slots');
   wrap.className='slots '+(state.mode==='shop'?'shop':'reward');
   let html='';
   for(let i=0;i<n;i++){ const name=state.offered[i];
-    if(name){ const t=cardTierAny(name), col=tierColor(t);
+    if(name){ const t=cardGrade(name), col=tierColor(t);
       const img=cardArt(name)?`<span class="slot-img" style="${artStyle(name,t)}"></span>`
         :`<span class="slot-img" style="background:linear-gradient(160deg,${col}22,transparent)"></span>`;
       html+=`<div class="slot filled" data-slot="${i}" title="클릭: 교체 · ✕: 빼기">
@@ -767,15 +781,16 @@ function openPicker(slotIdx){
 }
 function closePicker(){ $('pick-modal').classList.remove('open'); pickSlot=-1; }
 function renderPickGrid(){
-  const q=$('pick-search').value.trim().toLowerCase(), TO={S:0,A:1,B:2,C:3,D:4,F:5};
+  const q=$('pick-search').value.trim().toLowerCase();
   let list=pickPool();
   if(q) list=list.filter(c=>nameMatches(c.id,q));
-  list.sort((a,b)=>(TO[a.tier]??3)-(TO[b.tier]??3)||koName(a.id).localeCompare(koName(b.id),'ko'));
+  // 커뮤니티×전문가 등급 높은 순 정렬 (카드별 자기 캐릭터 기준)
+  list.sort((a,b)=>cardGradeVal(b.id,b.char)-cardGradeVal(a.id,a.char)||koName(a.id).localeCompare(koName(b.id),'ko'));
   list=list.slice(0,240);
-  $('pick-grid').innerHTML=list.map(c=>{ const col=tierColor(c.tier);
-    const img=cardArt(c.id)?`<span class="pimg" style="${artStyle(c.id,c.tier)}"></span>`:`<span class="pimg-fb" style="color:${col}">${c.tier}</span>`;
+  $('pick-grid').innerHTML=list.map(c=>{ const g=cardGrade(c.id,c.char), col=tierColor(g);
+    const img=cardArt(c.id)?`<span class="pimg" style="${artStyle(c.id,g)}"></span>`:`<span class="pimg-fb" style="color:${col}">${g}</span>`;
     return `<div class="pcard" data-name="${esc(c.id)}" title="${esc(descText(c.id,false)||koName(c.id))}">`
-      +`${img}${costCorner(c.id,false)}<span class="ptier" style="color:${col};border-color:${col}">${c.tier}</span>`
+      +`${img}${costCorner(c.id,false)}<span class="ptier" style="color:${col};border-color:${col}">${g}</span>`
       +`<span class="pn">${koName(c.id)}</span></div>`;
   }).join('')||`<div class="empty" style="grid-column:1/-1">결과 없음</div>`;
   $('pick-grid').querySelectorAll('.pcard').forEach(el=>el.addEventListener('click',()=>pickChoose(el.dataset.name)));
@@ -847,12 +862,11 @@ function renderRec(){
     const relicR=s.synReasons.filter(r=>r.includes('유물'));
     const synR=s.synReasons.filter(r=>!r.includes('유물'));
     let reasons='';
-    // 커뮤니티 승률 DELTA + 전문가 티어 블렌드(기본점수 근거)
+    // 티어 등급 근거: 커뮤니티 승률 DELTA (기본점수는 Codex×전문가 티어, 배지로 표시)
     const ds=s.dataStat;
-    if(ds&&ds.src==='delta'){ const up=ds.delta>=0; const cp=Math.round((ds.alpha||0)*100);
+    if(ds&&ds.src==='delta'){ const up=ds.delta>=0;
       const bandTag = ds.band==='hi' ? ' <span style="color:var(--gold3)">· 최고 승천(A10)</span>' : '';
-      reasons+=`<div class="reason ${up?'pos':'neg'}"><span class="i">${up?'▲':'▼'}</span>커뮤니티 승률 <b>${up?'+':''}${ds.delta}%p</b> · 이 카드 넣은 런 ${ds.n.toLocaleString()}판 (승률 ${ds.wr}%)${bandTag}</div>`;
-      reasons+=`<div class="reason" style="color:var(--text2)"><span class="i">⚖</span>기본점수 = 커뮤니티 <b>${cp}%</b> + 전문가 티어 <b>${ds.tier}</b> ${100-cp}%</div>`; }
+      reasons+=`<div class="reason ${up?'pos':'neg'}"><span class="i">${up?'▲':'▼'}</span>커뮤니티 승률 <b>${up?'+':''}${ds.delta}%p</b> · 이 카드 넣은 런 ${ds.n.toLocaleString()}판 (승률 ${ds.wr}%)${bandTag}</div>`; }
     if(relicR.length){ reasons+=`<div class="reason-sub">◈ 보유 유물 영향</div>`+relicR.map(r=>`<div class="reason relic"><span class="i">◈</span>${r.replace(/^◈\s*/,'')}</div>`).join(''); }
     reasons+=synR.map(r=>`<div class="reason pos"><span class="i">▲</span>${r}</div>`).join('')
            +s.antiReasons.map(r=>`<div class="reason neg"><span class="i">▼</span>${r}</div>`).join('');
@@ -862,7 +876,7 @@ function renderRec(){
         <div class="rec-rank">${idx+1}</div>
         <div class="rec-art pop" data-card="${esc(s.name)}" title="클릭: 상세" style="border-color:${col};${cardArt(s.name)?artStyle(s.name):'color:'+col}">${costCorner(s.name,false)}${cardArt(s.name)?'':s.finalGrade}</div>
         <div class="rec-info">
-          <div class="rec-name">${gradeBadge(s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
+          <div class="rec-name">${gradeBadge(s.baseGrade||s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
           <div class="rec-badges">${recBadges(s,da)}${pickBadge(s.finalScore)}</div>
         </div>
         <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':'뽑기'}</button>
@@ -935,7 +949,7 @@ function openCardModal(name){ modalCard=canonEN(name); modalUp=false; renderModa
 function closeCardModal(){ $('card-modal').classList.remove('open'); modalCard=null; }
 function renderModal(){
   const name=modalCard; if(!name)return;
-  const d=getCard(state.char,name); const t=d?d.tier:'?'; const art=cardArt(name);
+  const t=cardGrade(name); const art=cardArt(name);
   const st=cardStats(name);
   const varsChange=!!(st&&Object.values(st.vars||{}).some(v=>v.u!==v.b));
   const costChange=!!(st&&st.upCost!=null&&st.upCost!==st.cost);
@@ -989,7 +1003,7 @@ function renderDeck(){
   state.deck.forEach((c,i)=>{ if(c.up)return; if(!isUpgradePriority(c.name,da))return;
     const sc=upgradeScore(c.name,da); if(sc>nextScore){ nextScore=sc; nextIdx=i; } });
   g.innerHTML=state.deck.map((card,i)=>{
-    const name=card.name, d=getCard(state.char,name), t=d?d.tier:'?', col=tierColor(t);
+    const name=card.name, d=getCard(state.char,name), t=cardGrade(name), col=tierColor(t);
     const up=!!card.up;
     const rem=scoreRemoval(name,state.char,da,state.deck,state.relics);
     const upPri=!up&&isUpgradePriority(name,da);
