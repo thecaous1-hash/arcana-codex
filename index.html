@@ -315,6 +315,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
     <div class="fg"><label>다음</label>
       <select id="encounter"><option value="normal">일반</option><option value="elite">정예</option><option value="boss">보스</option></select>
     </div>
+    <div class="fg"><label>승천</label>
+      <select id="asc" title="통계 기준 난이도"><option value="all">전체</option><option value="hi">최고(A10)</option></select>
+    </div>
   </div>
 </header>
 
@@ -468,7 +471,7 @@ const TIER_VAR={S:'var(--s)',A:'var(--a)',B:'var(--b)',C:'var(--c)',D:'var(--d)'
 const GRADE_WORD={S:'최우선 픽',A:'좋은 픽',B:'무난한 픽',C:'애매함',D:'비추천',F:'스킵 권장'};
 
 let state={ char:'ironclad', floor:1, act:1, encounter:'normal',
-           deck:[], relics:[], offered:[], mode:'reward', archFilter:'current' };
+           deck:[], relics:[], offered:[], mode:'reward', archFilter:'current', asc:'all' };
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/"/g,'&quot;');
 function tierColor(t){ return TIER_VAR[t]||'var(--text3)'; }
@@ -494,13 +497,17 @@ function apiDescText(text){ if(!text) return '';
   return String(text).replace(/\[energy:?(\d*)\]/gi,(m,n)=>(n||'')+'E').replace(/\[star:?(\d*)\]/gi,(m,n)=>(n||'')+'★')
     .replace(/\[\/?[a-zA-Z_]+(?::\d+)?\]/g,'').replace(/\n/g,' ').trim(); }
 // DELTA 원점수: 승률차(넣은 런 − 안 넣은 런)를 0~5로. (표본 신뢰도 가중은 logic.js 블렌드가 담당)
+// 승천 밴드: state.asc==='hi'면 최고 승천(A10) 통계 우선, 표본 부족(<200)하면 전체로 폴백.
 function dataBaseScore(name, char){ if(!API||!API.stats) return null;
-  const k=apiKey(name); const sc=API.stats[char];
-  let st=sc&&sc.cards[k];
-  if(!st&&(k==='STRIKE'||k==='DEFEND')) st=sc&&sc.cards[k+'_'+char.toUpperCase()];
+  const k=apiKey(name);
+  const pick=bank=>{ const sc=bank&&bank[char]; if(!sc) return null; let st=sc.cards[k];
+    if(!st&&(k==='STRIKE'||k==='DEFEND')) st=sc.cards[k+'_'+char.toUpperCase()]; return st; };
+  let st=null, band='all';
+  if(state.asc==='hi' && API.statsHi){ const hi=pick(API.statsHi); if(hi && hi.n>=200){ st=hi; band='hi'; } }
+  if(!st){ st=pick(API.stats); band='all'; }
   if(!st){ return null; }                          // 통계 없음 → logic.js가 전문가 티어로 폴백
   const score=Math.max(0,Math.min(5, 2.5 + st.delta/12));  // Δ+30%p→5.0, Δ0→2.5, Δ-18→1.0
-  return {score, delta:st.delta, wr:st.wr, n:st.n, src:'delta'}; }
+  return {score, delta:st.delta, wr:st.wr, n:st.n, src:'delta', band}; }
 // 표시 이름은 API(공식 한글)를 우선, 없으면 기존 i18n(추정) 사용. (검색은 i18n 그대로)
 if(API && typeof koName==='function'){ const _koName=koName;
   koName=function(n){ const a=apiCardOf(n); return (a&&a.name)?a.name:_koName(n); }; }
@@ -835,7 +842,8 @@ function renderRec(){
     // 커뮤니티 승률 DELTA + 전문가 티어 블렌드(기본점수 근거)
     const ds=s.dataStat;
     if(ds&&ds.src==='delta'){ const up=ds.delta>=0; const cp=Math.round((ds.alpha||0)*100);
-      reasons+=`<div class="reason ${up?'pos':'neg'}"><span class="i">${up?'▲':'▼'}</span>커뮤니티 승률 <b>${up?'+':''}${ds.delta}%p</b> · 이 카드 넣은 런 ${ds.n.toLocaleString()}판 (승률 ${ds.wr}%)</div>`;
+      const bandTag = ds.band==='hi' ? ' <span style="color:var(--gold3)">· 최고 승천(A10)</span>' : '';
+      reasons+=`<div class="reason ${up?'pos':'neg'}"><span class="i">${up?'▲':'▼'}</span>커뮤니티 승률 <b>${up?'+':''}${ds.delta}%p</b> · 이 카드 넣은 런 ${ds.n.toLocaleString()}판 (승률 ${ds.wr}%)${bandTag}</div>`;
       reasons+=`<div class="reason" style="color:var(--text2)"><span class="i">⚖</span>기본점수 = 커뮤니티 <b>${cp}%</b> + 전문가 티어 <b>${ds.tier}</b> ${100-cp}%</div>`; }
     if(relicR.length){ reasons+=`<div class="reason-sub">◈ 보유 유물 영향</div>`+relicR.map(r=>`<div class="reason relic"><span class="i">◈</span>${r.replace(/^◈\s*/,'')}</div>`).join(''); }
     reasons+=synR.map(r=>`<div class="reason pos"><span class="i">▲</span>${r}</div>`).join('')
@@ -1007,6 +1015,7 @@ function renderAll(){
 $('floor').addEventListener('input',()=>{ state.floor=+$('floor').value||1; state.act=floorToAct(state.floor); $('act').value=state.act; renderOffered(); renderRec(); renderChips(); save(); });
 $('act').addEventListener('input',()=>{ state.act=+$('act').value||1; renderOffered(); renderRec(); save(); });
 $('encounter').addEventListener('change',()=>{ state.encounter=$('encounter').value; renderOffered(); renderRec(); save(); });
+$('asc').addEventListener('change',()=>{ state.asc=$('asc').value; renderRec(); save(); });
 document.querySelectorAll('.subtab').forEach(t=>t.addEventListener('click',()=>{
   document.querySelectorAll('.subtab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
   state.mode=t.dataset.mode; renderOffered(); save();
@@ -1163,6 +1172,7 @@ if(location.search.includes('demo')){ state.char='ironclad'; loadStarter();
   state.offered=['Bash','Whirlwind','Inflame'];
   if(state.deck[9]) state.deck[9].up=true; /* 강타 강화 예시 */ }
 $('floor').value=state.floor; $('act').value=floorToAct(state.floor); state.act=+$('act').value; $('encounter').value=state.encounter;
+$('asc').value=state.asc||'all';
 document.querySelectorAll('.subtab').forEach(t=>t.classList.toggle('on',t.dataset.mode===state.mode));
 // 게임에서 추출한 데이터 버전 표시 (loc_ko.js 있으면)
 if(typeof window.KO_OFF_VERSION!=='undefined' && window.KO_OFF_VERSION){

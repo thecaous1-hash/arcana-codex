@@ -12,12 +12,33 @@ const fs = require('fs'), path = require('path');
 const PROJ = path.join(__dirname, '..');
 const BASE = 'https://spire-codex.com/api';
 const CHARS = { IronClad:'ironclad', Silent:'silent', Defect:'defect', Regent:'regent', Necrobinder:'necrobinder' };
+const MAX_ASC = 10;                 // STS2 최고 승천(전체 스냅샷 외에 최고난도 밴드도 저장)
 const r1 = n => Math.round(n * 10) / 10;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function getJSON(url) {
-  const res = await fetch(url, { headers: { 'Accept-Encoding': 'gzip' } });
-  if (!res.ok) throw new Error(`${res.status} ${url}`);
-  return res.json();
+async function getJSON(url, tries = 4) {
+  for (let i = 0; i < tries; i++) {
+    const ac = new AbortController();
+    const timer = setTimeout(() => ac.abort(), 25000);   // 25초 넘으면 중단 후 재시도(무한대기 방지)
+    try {
+      const res = await fetch(url, { headers: { 'Accept-Encoding': 'gzip' }, signal: ac.signal });
+      if (!res.ok) throw new Error(`${res.status}`);
+      return await res.json();
+    } catch (e) { if (i === tries - 1) throw new Error(`${e.message} ${url}`); await sleep(1000); }
+    finally { clearTimeout(timer); }
+  }
+}
+// runs/stats 응답 → {base_wr,total_runs,cards:{ID:{wr,delta,n}}} (승률 DELTA 계산)
+function statsFrom(rs) {
+  const T = rs.total_runs, W = rs.total_wins, baseWr = T ? r1(W / T * 100) : 0;
+  const cards = {};
+  for (const c of (rs.top_cards || [])) {
+    const n = c.total_runs_with; if (!n || n < 30) continue;
+    const wrWith = c.win_runs / n * 100, rWo = T - n, wWo = W - c.win_runs;
+    const wrWo = rWo > 0 ? wWo / rWo * 100 : baseWr;
+    cards[c.card_id] = { wr: r1(wrWith), delta: r1(wrWith - wrWo), n };
+  }
+  return { base_wr: baseWr, total_runs: T, cards };
 }
 
 (async () => {
@@ -49,23 +70,17 @@ async function getJSON(url) {
   }
   console.log(`  티어 ${Object.keys(tier).length}종`);
 
-  // 3) 캐릭터별 승률 DELTA
-  const stats = {};
+  // 3) 캐릭터별 승률 DELTA — 전체(stats) + 최고 승천(statsHi)
+  const stats = {}, statsHi = {};
   let stampVersion = null;
   for (const [param, id] of Object.entries(CHARS)) {
-    console.log(`· 통계 ${param} 받는 중…`);
-    const rs = await getJSON(`${BASE}/runs/stats?character=${param}`);
-    const T = rs.total_runs, W = rs.total_wins, baseWr = T ? r1(W / T * 100) : 0;
-    const cardStats = {};
-    for (const c of (rs.top_cards || [])) {
-      const n = c.total_runs_with; if (!n || n < 30) continue;       // 표본 30 미만 제외
-      const wrWith = c.win_runs / n * 100;
-      const rWo = T - n, wWo = W - c.win_runs;
-      const wrWo = rWo > 0 ? wWo / rWo * 100 : baseWr;
-      cardStats[c.card_id] = { wr: r1(wrWith), delta: r1(wrWith - wrWo), n };
-    }
-    stats[id] = { base_wr: baseWr, total_runs: T, cards: cardStats };
-    console.log(`  ${id}: base ${baseWr}% · 카드 ${Object.keys(cardStats).length}종 (${T} 런)`);
+    console.log(`· 통계 ${param} (전체) 받는 중…`);
+    stats[id] = statsFrom(await getJSON(`${BASE}/runs/stats?character=${param}`));
+    await sleep(400);
+    console.log(`· 통계 ${param} (승천 ${MAX_ASC}) 받는 중…`);
+    statsHi[id] = statsFrom(await getJSON(`${BASE}/runs/stats?character=${param}&ascension=${MAX_ASC}`));
+    await sleep(400);
+    console.log(`  ${id}: 전체 base ${stats[id].base_wr}% (${stats[id].total_runs}런) · A${MAX_ASC} base ${statsHi[id].base_wr}% (${statsHi[id].total_runs}런)`);
   }
 
   // 4) 버전 스탬프 (최신 런 build_id)
@@ -76,12 +91,12 @@ async function getJSON(url) {
     stampVersion = Object.entries(vc).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
   } catch (e) {}
 
-  const out = { source: 'spire-codex.com/api', version: stampVersion, cards, tier, stats };
+  const out = { source: 'spire-codex.com/api', version: stampVersion, maxAsc: MAX_ASC, cards, tier, stats, statsHi };
   const js = '// spire-codex API 스냅샷(개인용). tools/build_from_api.js 생성 · 갱신은 재실행.\n'
     + `// 소스: ${out.source} · 게임 ${stampVersion || '?'}\n`
     + 'window.API_DATA = ' + JSON.stringify(out) + ';\n';
   fs.mkdirSync(path.join(PROJ, 'data'), { recursive: true });
   fs.writeFileSync(path.join(PROJ, 'data', 'api_data.js'), js);
   const kb = (fs.statSync(path.join(PROJ, 'data', 'api_data.js')).size / 1024).toFixed(0);
-  console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 게임 ${stampVersion} · 카드 ${Object.keys(cards).length} · 티어 ${Object.keys(tier).length} · 통계 ${Object.keys(stats).length}캐릭`);
+  console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 게임 ${stampVersion} · 카드 ${Object.keys(cards).length} · 티어 ${Object.keys(tier).length} · 통계(전체+A${MAX_ASC}) ${Object.keys(stats).length}캐릭`);
 })().catch(e => { console.error('실패:', e.message); process.exit(1); });
