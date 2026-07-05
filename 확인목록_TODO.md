@@ -114,15 +114,16 @@
     - ✅ **(ii) 승천별 DELTA**(커밋 003f979) — 전체 / 최고(A10) 밴드 스냅샷 + 상단 '승천' 선택기. A10 표본<200 카드는 전체로 폴백. 추천에 'A10 기준' 태그.
     - ✅ **(iii) 이미지 API 폴백**(커밋 0a883e8) — 로컬 아트 없는 카드/유물은 API CDN(`image_url_card`)로 표시. 로컬은 그대로 우선.
     - ✅ **(iv) 유물 API**(커밋 0a883e8) — 유물 296개 한글 이름·설명 API 우선(`apiRelicOf`/`apiEntity`).
-  - 다음 후보: 전문가 티어 '출처 표기' UI 노출, 승천 세분(A5 등), 통계 정기 자동 갱신(스케줄러), 개명·공개 준비.
+    - ✅ **(v) 티어 배지 S~D 재보정**(커밋 07ac3fe) — 등급 = Codex 커뮤니티 점수(0~100→/20)×0.7 + 전문가 티어(db.js)×0.3. DELTA 단독의 A 쏠림 해소 → S13/A29/B26/C14/D18% 고른 분포. 슬롯·검색(등급순)·덱·추천·팝업 배지 통일. DELTA는 근거로 계속 표시.
+  - 다음 후보: 전문가 티어 '출처 표기' UI, 승천 세분(A5 등), 통계 정기 자동 갱신(스케줄러), Codex 미커버(~6%) 폴백 다듬기.
 - [x] **개명 완료(2026-07-05)** — 프로젝트명 "Spire Codex" → **"Arcana Codex"**(spire-codex.com/ptrlrd 충돌 회피). 바꾼 곳: 앱 헤더·`<title>`, README 제목, package.json(신규), 설계서/TODO/현재상태 제목, launch.json. **외부 데이터 소스(spire-codex API/크레딧·build_from_api.js)는 그대로 유지.** ⚠️ GitHub 레포명은 사용자가 Settings에서 `arcana-codex`로 변경 필요(gh CLI 미설치).
 - [ ] 내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 문서·코드상 정리
 
 ### 공개 준비 체크리스트 (배포 시점)
-- [ ] 비공식 고지: "메가크릿과 무관 / 게임 에셋 저작권은 메가크릿" + 공식 제휴 암시 금지
-- [ ] 라이선스 분리: 내 코드 MIT 가능, 번들 게임 에셋은 재라이선스 불가(메가크릿 소유 명시)
-- [ ] 제3자 데이터 출처 표기: 전문가 티어표·통계 소스 크레딧
-- [ ] 호스팅: GitHub Pages(무료·정적, Vite 빌드 배포)
+- [x] **비공식 고지**(2026-07-05, 커밋 d88ef63) — 앱 전화면 고정 푸터 + README Notice: "Mega Crit과 무관·게임 에셋은 Mega Crit 저작물". '공식' 인상 표현 금지 준수.
+- [x] **라이선스 분리**(d88ef63) — LICENSE에 자산 예외: 소스는 MIT, 게임 유래 에셋(이미지·게임 텍스트)은 Mega Crit 소유·MIT 미포함·팬 콘텐츠 정책하 비영리.
+- [x] **제3자 데이터 출처 표기**(d88ef63) — README Credits + 푸터: 데이터 spire-codex.com(ptrlrd) · 기반 코드 yard9/STS2-Advisor-Y(Shunrai, MIT). (외부 전문가 티어 도입 시 추가 크레딧 예정)
+- [ ] 호스팅: GitHub Pages(무료·정적). ⚠️ 먼저 레포명 `arcana-codex`로 변경(Settings) → remote URL 갱신.
 - [ ] 후원 링크: Ko-fi 또는 GitHub Sponsors(페이월 없이)
 
 ---
