@@ -109,7 +109,7 @@
   - `tools/build_from_api.js` → `data/api_data.js` 스냅샷(카드 한글 이름·설명·강화설명 + Codex 티어 + 캐릭터별 승률 DELTA). file:// 유지 위해 스냅샷 방식(갱신=재실행).
   - 카드 사실 API 우선: `koName`/`descHTML`/`descText`/`modalDescHTML` override → **◆ 완전 소멸**, 강화설명 완성본, `[energy:2]`→2⚡. 검색은 i18n 유지.
   - **기본점수 = DELTA**(표본수축 K=1500)로 `logic.js` scoreCard 기본값 교체. 시너지·아키타입·역할 맥락은 그대로. 추천에 "커뮤니티 승률 +X%p · 넣은 런 N판" 표시. (검증: 제물+31.7 > 발화+11.4 > 강타−24.7)
-  - 남은 개선: (i) **전문가 티어표 상위 보정**(선택편향 완화), (ii) 승천/맥락별 DELTA 세분, (iii) 카드 이미지도 API(`image_url_card`)로 통일할지 검토(현재는 로컬 유지), (iv) 유물도 API로.
+  - 남은 개선: ~~(i) 전문가 티어표 상위 보정~~ ✅**완료(2026-07-05, 커밋 f2ded4c)** — 기본점수 = 커뮤니티 DELTA × α + 전문가 티어(db.js) × (1−α), α=n/(n+2000)∈[0.2,0.75]. 추천에 블렌드 비율 표시. / (ii) 승천/맥락별 DELTA 세분, (iii) 카드 이미지도 API(`image_url_card`)로 통일할지 검토(현재는 로컬 유지), (iv) 유물도 API로.
 - [ ] **개명** — 프로젝트명 "Spire Codex"가 spire-codex.com / ptrlrd/spire-codex와 충돌. 공개 전 교체.
 - [ ] 내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 문서·코드상 정리
 
