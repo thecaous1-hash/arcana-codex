@@ -1,4 +1,6 @@
-# Shunrai's STS2 Advisor
+# Arcana Codex
+
+> 한국어 Slay the Spire 2 실시간 카드 픽 어드바이저. [Shunrai's STS2 Advisor](https://github.com/yard9/STS2-Advisor-Y) (MIT)를 토대로 하며, 카드·유물·통계 데이터는 외부 오픈소스 API [spire-codex](https://github.com/ptrlrd/spire-codex)를 사용합니다. (Arcana Codex는 spire-codex와 무관한 별개 프로젝트입니다.)
 
 Browser tool for Slay the Spire 2 that helps evaluate card rewards, shop buys and removals based on your current deck.
 

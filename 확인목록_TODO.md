@@ -1,4 +1,4 @@
-# Spire Codex — 확인 & 수정 목록
+# Arcana Codex — 확인 & 수정 목록
 
 > 2026-07-05 갱신. 항목 #1~#25를 실제 코드와 하나씩 대조해 정리했습니다.
 > 미완은 **#11 자동업데이트**(웹앱 한계 → Tauri 단계) 하나뿐. #15~#25는 모두 반영·검증 완료.
@@ -115,7 +115,7 @@
     - ✅ **(iii) 이미지 API 폴백**(커밋 0a883e8) — 로컬 아트 없는 카드/유물은 API CDN(`image_url_card`)로 표시. 로컬은 그대로 우선.
     - ✅ **(iv) 유물 API**(커밋 0a883e8) — 유물 296개 한글 이름·설명 API 우선(`apiRelicOf`/`apiEntity`).
   - 다음 후보: 전문가 티어 '출처 표기' UI 노출, 승천 세분(A5 등), 통계 정기 자동 갱신(스케줄러), 개명·공개 준비.
-- [ ] **개명** — 프로젝트명 "Spire Codex"가 spire-codex.com / ptrlrd/spire-codex와 충돌. 공개 전 교체.
+- [x] **개명 완료(2026-07-05)** — 프로젝트명 "Spire Codex" → **"Arcana Codex"**(spire-codex.com/ptrlrd 충돌 회피). 바꾼 곳: 앱 헤더·`<title>`, README 제목, package.json(신규), 설계서/TODO/현재상태 제목, launch.json. **외부 데이터 소스(spire-codex API/크레딧·build_from_api.js)는 그대로 유지.** ⚠️ GitHub 레포명은 사용자가 Settings에서 `arcana-codex`로 변경 필요(gh CLI 미설치).
 - [ ] 내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 문서·코드상 정리
 
 ### 공개 준비 체크리스트 (배포 시점)

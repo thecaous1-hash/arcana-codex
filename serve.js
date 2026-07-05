@@ -31,4 +31,4 @@ http.createServer((req, res) => {
     });
     res.end(data);
   });
-}).listen(PORT, () => console.log('Spire Codex serving on http://localhost:' + PORT));
+}).listen(PORT, () => console.log('Arcana Codex serving on http://localhost:' + PORT));
