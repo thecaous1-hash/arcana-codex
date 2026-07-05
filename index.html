@@ -485,6 +485,12 @@ function apiCardOf(name){ if(!API||!API.cards) return null; const k=apiKey(name)
   if(API.cards[k]) return API.cards[k];
   if(k==='STRIKE'||k==='DEFEND'){ const kk=k+'_'+state.char.toUpperCase(); if(API.cards[kk]) return API.cards[kk]; }
   return null; }
+// 유물 키(아포스트로피 제거) → API.relics
+function apiRelicKey(name){ const n=(typeof canonEN==='function')?canonEN(name):name;
+  return (n||'').toUpperCase().replace(/'/g,'').replace(/[\s\-]+/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_').replace(/_+$/,''); }
+function apiRelicOf(name){ if(!API||!API.relics) return null; return API.relics[apiRelicKey(name)]||null; }
+// 카드 또는 유물 — 이름/설명 통합 조회
+function apiEntity(name){ return apiCardOf(name) || apiRelicOf(name); }
 // API 설명 렌더: 수치는 이미 완성돼 있음. 아이콘 토큰([energy:2]→2⚡)·강조태그([gold]..[/gold])·줄바꿈 처리.
 function apiDescHTML(text){ if(!text) return '';
   let h=String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -508,22 +514,24 @@ function dataBaseScore(name, char){ if(!API||!API.stats) return null;
   if(!st){ return null; }                          // 통계 없음 → logic.js가 전문가 티어로 폴백
   const score=Math.max(0,Math.min(5, 2.5 + st.delta/12));  // Δ+30%p→5.0, Δ0→2.5, Δ-18→1.0
   return {score, delta:st.delta, wr:st.wr, n:st.n, src:'delta', band}; }
-// 표시 이름은 API(공식 한글)를 우선, 없으면 기존 i18n(추정) 사용. (검색은 i18n 그대로)
+// 표시 이름은 API(공식 한글, 카드+유물)를 우선, 없으면 기존 i18n(추정) 사용. (검색은 i18n 그대로)
 if(API && typeof koName==='function'){ const _koName=koName;
-  koName=function(n){ const a=apiCardOf(n); return (a&&a.name)?a.name:_koName(n); }; }
+  koName=function(n){ const a=apiEntity(n); return (a&&a.name)?a.name:_koName(n); }; }
 
 // 카드 그림: data/card_art.js 의 CARD_ART[영어id] → assets/cards/xxx.webp
 function cardArt(name){
   // 기본 카드(타격/수비)는 캐릭터별 그림 사용
   const k=(name||'').toUpperCase().replace(/[\s\-]/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_');
   if((k==='STRIKE'||k==='DEFEND') && typeof BASIC_ART!=='undefined' && BASIC_ART[state.char] && BASIC_ART[state.char][k]) return 'assets/'+BASIC_ART[state.char][k];
-  return (typeof CARD_ART!=='undefined' && CARD_ART[name]) ? ('assets/'+CARD_ART[name]) : null;
+  if(typeof CARD_ART!=='undefined' && CARD_ART[name]) return 'assets/'+CARD_ART[name];
+  const ac=apiCardOf(name); return (ac&&ac.img)?ac.img:null;    // 로컬 아트 없으면 API CDN 폴백
 }
 function artStyle(name, tier){ const a=cardArt(name);
   if(a) return `background-image:url('${a}');background-size:cover;background-position:top center`;
   return `color:${tierColor(tier)};background:linear-gradient(160deg,${tierColor(tier)}22,transparent)`; }
 function artLetter(name, tier){ return cardArt(name) ? '' : tier; } // 그림 있으면 글자 숨김
-function relicArt(name){ return (typeof RELIC_ART!=='undefined' && RELIC_ART[name]) ? ('assets/'+RELIC_ART[name]) : null; }
+function relicArt(name){ if(typeof RELIC_ART!=='undefined' && RELIC_ART[name]) return 'assets/'+RELIC_ART[name];
+  const r=apiRelicOf(name); return (r&&r.img)?r.img:null; }    // 로컬 아트 없으면 API CDN 폴백
 // 등급 배지 (S/A/B/C/D 색상 표기)
 function gradeBadge(tier){ const c=tierColor(tier); return `<span class="gb" style="color:${c};border-color:${c};background:${c}1a">${tier||'?'}</span>`; }
 
@@ -601,7 +609,7 @@ function preSmart(raw, upgraded, vars){
 
 // 설명의 {Var:...} 를 실제 수치로 바인딩 (변화값은 강화전→후, 현재상태 강조)
 function descHTML(name, upgraded){
-  const ac=apiCardOf(name); if(ac){ return apiDescHTML(upgraded&&ac.koUp?ac.koUp:ac.ko); }
+  const ac=apiEntity(name); if(ac){ return apiDescHTML(upgraded&&ac.koUp?ac.koUp:ac.ko); }
   const raw=(typeof KO_OFF!=='undefined'&&KO_OFF[name])?KO_OFF[name].d:''; if(!raw)return '';
   const st=cardStats(name); const vars=(st&&st.vars)||{};
   let h=preSmart(raw,upgraded,vars).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -620,7 +628,7 @@ function descHTML(name, upgraded){
 }
 // 툴팁용 평문 설명(값 바인딩, 변화값은 전→후)
 function descText(name, upgraded){
-  const ac=apiCardOf(name); if(ac){ return apiDescText(upgraded&&ac.koUp?ac.koUp:ac.ko); }
+  const ac=apiEntity(name); if(ac){ return apiDescText(upgraded&&ac.koUp?ac.koUp:ac.ko); }
   const raw=(typeof KO_OFF!=='undefined'&&KO_OFF[name])?KO_OFF[name].d:''; if(!raw)return '';
   const st=cardStats(name); const vars=(st&&st.vars)||{};
   return preSmart(raw,upgraded,vars).replace(/\{([A-Za-z0-9_]+)(?::[^}]*)?\}/g,(m,k)=>{const v=varLookup(vars,k);if(!v)return '?';return v.u===v.b?fmtN(v.b):fmtN(v.b)+'→'+fmtN(v.u);})
@@ -908,7 +916,7 @@ function upgradeScore(name,da){
 // ── 카드 상세 팝업 ──
 // 팝업 전용: {Var}를 (강화 여부에 따른) 단일 값으로 렌더 → 토글이 실제로 값이 바뀜
 function modalDescHTML(name, upgraded){
-  const ac=apiCardOf(name); if(ac){ return apiDescHTML(upgraded&&ac.koUp?ac.koUp:ac.ko); }
+  const ac=apiEntity(name); if(ac){ return apiDescHTML(upgraded&&ac.koUp?ac.koUp:ac.ko); }
   const raw=(typeof KO_OFF!=='undefined'&&KO_OFF[name])?KO_OFF[name].d:''; if(!raw)return '';
   const st=cardStats(name); const vars=(st&&st.vars)||{};
   let h=preSmart(raw,upgraded,vars).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');

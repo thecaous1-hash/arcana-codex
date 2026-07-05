@@ -56,9 +56,24 @@ function statsFrom(rs) {
       color: c.color || '',
       xcost: !!c.is_x_cost,
       starcost: !!c.is_x_star_cost,
+      img: c.image_url_card || null,          // CDN 절대 URL (로컬 아트 없을 때 폴백)
     };
   }
   console.log(`  카드 ${Object.keys(cards).length}장`);
+
+  // 1b) 한국어 유물
+  console.log('· 유물(한국어) 받는 중…');
+  const relicsKo = await getJSON(`${BASE}/relics?lang=kor`);
+  const relics = {};
+  for (const r of relicsKo) {
+    relics[r.id] = {
+      name: r.name,
+      ko: r.description || '',
+      rarity: r.rarity_key || '',
+      img: r.image_url ? ('https://spire-codex.com' + r.image_url) : null,
+    };
+  }
+  console.log(`  유물 ${Object.keys(relics).length}개`);
 
   // 2) Codex Score(티어)
   console.log('· Codex Score(scores/cards) 받는 중…');
@@ -91,12 +106,12 @@ function statsFrom(rs) {
     stampVersion = Object.entries(vc).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
   } catch (e) {}
 
-  const out = { source: 'spire-codex.com/api', version: stampVersion, maxAsc: MAX_ASC, cards, tier, stats, statsHi };
+  const out = { source: 'spire-codex.com/api', version: stampVersion, maxAsc: MAX_ASC, cards, relics, tier, stats, statsHi };
   const js = '// spire-codex API 스냅샷(개인용). tools/build_from_api.js 생성 · 갱신은 재실행.\n'
     + `// 소스: ${out.source} · 게임 ${stampVersion || '?'}\n`
     + 'window.API_DATA = ' + JSON.stringify(out) + ';\n';
   fs.mkdirSync(path.join(PROJ, 'data'), { recursive: true });
   fs.writeFileSync(path.join(PROJ, 'data', 'api_data.js'), js);
   const kb = (fs.statSync(path.join(PROJ, 'data', 'api_data.js')).size / 1024).toFixed(0);
-  console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 게임 ${stampVersion} · 카드 ${Object.keys(cards).length} · 티어 ${Object.keys(tier).length} · 통계(전체+A${MAX_ASC}) ${Object.keys(stats).length}캐릭`);
+  console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 게임 ${stampVersion} · 카드 ${Object.keys(cards).length} · 유물 ${Object.keys(relics).length} · 티어 ${Object.keys(tier).length} · 통계(전체+A${MAX_ASC}) ${Object.keys(stats).length}캐릭`);
 })().catch(e => { console.error('실패:', e.message); process.exit(1); });
