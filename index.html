@@ -24,7 +24,7 @@
   --radius-card:12px; --radius-ctrl:8px; --pad-card:20px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Pretendard','Noto Sans KR',-apple-system,sans-serif;font-size:15px;min-height:100vh}
+body{background:var(--bg);color:var(--text);font-family:'Pretendard','Noto Sans KR',-apple-system,sans-serif;font-size:15px;min-height:100vh;padding-bottom:58px}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 0%,rgba(240,168,60,.05),transparent 55%),radial-gradient(ellipse at 85% 100%,rgba(192,57,43,.04),transparent 55%);pointer-events:none;z-index:0}
 .cinzel{font-family:'Cinzel',serif}
 
@@ -208,7 +208,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .gcard .gn{font-size:.62rem;color:var(--text);text-align:center;padding:2px 2px 3px;line-height:1.15;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .note{font-size:.72rem;color:var(--text3);line-height:1.6;background:rgba(0,0,0,.18);border:1px dashed var(--border2);border-radius:var(--radius);padding:8px 10px}
 ::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
-.footer{position:fixed;bottom:6px;right:12px;font-size:.6rem;color:var(--text3);opacity:.6;font-family:'Cinzel',serif;z-index:5}
+.footer{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:5px 14px;text-align:center;font-size:.58rem;line-height:1.45;color:var(--text3);background:rgba(10,10,11,.93);backdrop-filter:blur(6px);border-top:1px solid var(--border)}
 
 /* 카드 클릭 → 상세 팝업 */
 .pop{cursor:pointer}
@@ -404,7 +404,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
   </div>
 </div>
 
-<div class="footer">MIT © 2026 Shunrai · 한국어판</div>
+<div class="footer">Arcana Codex는 비공식 팬 제작 도구이며 Mega Crit과 무관합니다. Slay the Spire·Slay the Spire 2 및 게임 내 이미지·텍스트는 Mega Crit의 저작물입니다. 데이터: spire-codex.com(ptrlrd) · 기반 코드: STS2-Advisor-Y(Shunrai, MIT). 무료·비영리 프로젝트.</div>
 
 <!-- 카드 상세 팝업 -->
 <div class="modal-ov" id="card-modal">
@@ -1182,10 +1182,7 @@ if(location.search.includes('demo')){ state.char='ironclad'; loadStarter();
 $('floor').value=state.floor; $('act').value=floorToAct(state.floor); state.act=+$('act').value; $('encounter').value=state.encounter;
 $('asc').value=state.asc||'all';
 document.querySelectorAll('.subtab').forEach(t=>t.classList.toggle('on',t.dataset.mode===state.mode));
-// 게임에서 추출한 데이터 버전 표시 (loc_ko.js 있으면)
-if(typeof window.KO_OFF_VERSION!=='undefined' && window.KO_OFF_VERSION){
-  document.querySelector('.footer').innerHTML = 'MIT © 2026 Shunrai · 한국어판 · 게임 데이터 STS2 '+window.KO_OFF_VERSION+' 추출';
-}
+// 푸터는 고정 고지문(비공식·저작권·데이터 출처) — 항상 표시. 버전 정보로 덮어쓰지 않음.
 renderAll();
 // 런 기록 스냅샷 자동 로드 (data/runs.js)
 if(typeof RUN_HISTORY!=='undefined' && RUN_HISTORY && RUN_HISTORY.length){ onRunsLoaded(RUN_HISTORY); }
