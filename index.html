@@ -493,14 +493,13 @@ function apiDescHTML(text){ if(!text) return '';
 function apiDescText(text){ if(!text) return '';
   return String(text).replace(/\[energy:?(\d*)\]/gi,(m,n)=>(n||'')+'E').replace(/\[star:?(\d*)\]/gi,(m,n)=>(n||'')+'★')
     .replace(/\[\/?[a-zA-Z_]+(?::\d+)?\]/g,'').replace(/\n/g,' ').trim(); }
-// DELTA 기본점수: 승률차(넣은 런 − 안 넣은 런)를 0~5로. 표본 작으면 중립(2.5)으로 수축.
+// DELTA 원점수: 승률차(넣은 런 − 안 넣은 런)를 0~5로. (표본 신뢰도 가중은 logic.js 블렌드가 담당)
 function dataBaseScore(name, char){ if(!API||!API.stats) return null;
   const k=apiKey(name); const sc=API.stats[char];
   let st=sc&&sc.cards[k];
   if(!st&&(k==='STRIKE'||k==='DEFEND')) st=sc&&sc.cards[k+'_'+char.toUpperCase()];
-  if(!st){ return null; }                          // 통계 없음 → logic.js가 기존 티어로 폴백
-  const K=1500, shrunk=st.delta*st.n/(st.n+K);     // 표본 수축(소표본 과대평가 방지)
-  const score=Math.max(0,Math.min(5, 2.5 + shrunk/12));  // Δ+30%p→5.0, Δ0→2.5, Δ-18→1.0
+  if(!st){ return null; }                          // 통계 없음 → logic.js가 전문가 티어로 폴백
+  const score=Math.max(0,Math.min(5, 2.5 + st.delta/12));  // Δ+30%p→5.0, Δ0→2.5, Δ-18→1.0
   return {score, delta:st.delta, wr:st.wr, n:st.n, src:'delta'}; }
 // 표시 이름은 API(공식 한글)를 우선, 없으면 기존 i18n(추정) 사용. (검색은 i18n 그대로)
 if(API && typeof koName==='function'){ const _koName=koName;
@@ -833,10 +832,11 @@ function renderRec(){
     const relicR=s.synReasons.filter(r=>r.includes('유물'));
     const synR=s.synReasons.filter(r=>!r.includes('유물'));
     let reasons='';
-    // 커뮤니티 승률 DELTA(기본점수 근거)
+    // 커뮤니티 승률 DELTA + 전문가 티어 블렌드(기본점수 근거)
     const ds=s.dataStat;
-    if(ds&&ds.src==='delta'){ const up=ds.delta>=0;
-      reasons+=`<div class="reason ${up?'pos':'neg'}"><span class="i">${up?'▲':'▼'}</span>커뮤니티 승률 <b>${up?'+':''}${ds.delta}%p</b> · 이 카드 넣은 런 ${ds.n.toLocaleString()}판 (승률 ${ds.wr}%)</div>`; }
+    if(ds&&ds.src==='delta'){ const up=ds.delta>=0; const cp=Math.round((ds.alpha||0)*100);
+      reasons+=`<div class="reason ${up?'pos':'neg'}"><span class="i">${up?'▲':'▼'}</span>커뮤니티 승률 <b>${up?'+':''}${ds.delta}%p</b> · 이 카드 넣은 런 ${ds.n.toLocaleString()}판 (승률 ${ds.wr}%)</div>`;
+      reasons+=`<div class="reason" style="color:var(--text2)"><span class="i">⚖</span>기본점수 = 커뮤니티 <b>${cp}%</b> + 전문가 티어 <b>${ds.tier}</b> ${100-cp}%</div>`; }
     if(relicR.length){ reasons+=`<div class="reason-sub">◈ 보유 유물 영향</div>`+relicR.map(r=>`<div class="reason relic"><span class="i">◈</span>${r.replace(/^◈\s*/,'')}</div>`).join(''); }
     reasons+=synR.map(r=>`<div class="reason pos"><span class="i">▲</span>${r}</div>`).join('')
            +s.antiReasons.map(r=>`<div class="reason neg"><span class="i">▼</span>${r}</div>`).join('');

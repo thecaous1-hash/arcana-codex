@@ -140,10 +140,19 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     return {name:cardName, base:'C', finalScore:2, finalGrade:'C', notes:'알 수 없는 카드', synReasons:[], antiReasons:[], isBest:false};
   }
 
-  // 기본점수: 커뮤니티 승률 DELTA(spire-codex)를 1차로, 없으면 기존 티어로 폴백 (설계 §3)
+  // 기본점수: 커뮤니티 승률 DELTA(spire-codex) × 전문가 티어표(db.js, 출처 Shunrai STS2-Advisor) 블렌드.
+  // 표본이 클수록 DELTA를 신뢰(α↑), 작을수록 전문가 티어로 보정 — DELTA 선택편향·소표본 완화 (설계 §3)
   const _dbs = (typeof dataBaseScore === 'function') ? dataBaseScore(cardName, char) : null;
-  const base = GRADE_VALS[data.tier] ?? 2;
-  let score = (_dbs && _dbs.score != null) ? _dbs.score : base;
+  const tierVal = GRADE_VALS[data.tier] ?? 2;
+  const base = tierVal;
+  let score;
+  if (_dbs && _dbs.score != null) {
+    const alpha = Math.max(0.2, Math.min(0.75, _dbs.n / (_dbs.n + 2000)));
+    score = alpha * _dbs.score + (1 - alpha) * tierVal;
+    _dbs.alpha = +alpha.toFixed(2); _dbs.tier = data.tier; _dbs.blended = +score.toFixed(2);
+  } else {
+    score = tierVal;
+  }
   const synR = [], antiR = [];
 
   // Synergy - graduated with diminishing returns + saturation
