@@ -105,6 +105,11 @@
   - (c) ✅ 최신성. 방금(초 단위 전) 제출된 런이 **build_id v0.108.0** = 내 게임과 동일 버전. `Last-Modified` 오늘. **CORS `Access-Control-Allow-Origin: *`** → 정적 웹앱에서 브라우저 직접 호출 OK(프록시 불필요). rate limit 60req/분.
   - ⚖️ vs ststracker: ststracker.app는 **공개 API 없음**(404). → **spire-codex 단독 채택**(카드+통계 모두).
   - ⚠️ 주의: DELTA는 선택편향 있음(고수가 늦게 얻는 강카드는 과대). → 전문가 티어표로 상위 보정 + 표본수 하한 필요(설계서 방침대로).
+- [x] **데이터 층 연결 + DELTA 추천 두뇌 1차 — 완료(2026-07-05, 커밋 ec0ee4d).**
+  - `tools/build_from_api.js` → `data/api_data.js` 스냅샷(카드 한글 이름·설명·강화설명 + Codex 티어 + 캐릭터별 승률 DELTA). file:// 유지 위해 스냅샷 방식(갱신=재실행).
+  - 카드 사실 API 우선: `koName`/`descHTML`/`descText`/`modalDescHTML` override → **◆ 완전 소멸**, 강화설명 완성본, `[energy:2]`→2⚡. 검색은 i18n 유지.
+  - **기본점수 = DELTA**(표본수축 K=1500)로 `logic.js` scoreCard 기본값 교체. 시너지·아키타입·역할 맥락은 그대로. 추천에 "커뮤니티 승률 +X%p · 넣은 런 N판" 표시. (검증: 제물+31.7 > 발화+11.4 > 강타−24.7)
+  - 남은 개선: (i) **전문가 티어표 상위 보정**(선택편향 완화), (ii) 승천/맥락별 DELTA 세분, (iii) 카드 이미지도 API(`image_url_card`)로 통일할지 검토(현재는 로컬 유지), (iv) 유물도 API로.
 - [ ] **개명** — 프로젝트명 "Spire Codex"가 spire-codex.com / ptrlrd/spire-codex와 충돌. 공개 전 교체.
 - [ ] 내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 문서·코드상 정리
 
