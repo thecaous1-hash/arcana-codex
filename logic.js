@@ -140,8 +140,10 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     return {name:cardName, base:'C', finalScore:2, finalGrade:'C', notes:'알 수 없는 카드', synReasons:[], antiReasons:[], isBest:false};
   }
 
+  // 기본점수: 커뮤니티 승률 DELTA(spire-codex)를 1차로, 없으면 기존 티어로 폴백 (설계 §3)
+  const _dbs = (typeof dataBaseScore === 'function') ? dataBaseScore(cardName, char) : null;
   const base = GRADE_VALS[data.tier] ?? 2;
-  let score = base;
+  let score = (_dbs && _dbs.score != null) ? _dbs.score : base;
   const synR = [], antiR = [];
 
   // Synergy - graduated with diminishing returns + saturation
@@ -485,7 +487,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   score = Math.max(0, Math.min(6, score));
   return {name:cardName, base:data.tier, finalScore:score, finalGrade:SCORE_GRADE(score),
     notes:data.notes, synReasons:synR, antiReasons:antiR, isBest:false,
-    builds:data.builds||[], char};
+    builds:data.builds||[], char, dataStat:_dbs};
 }
 
 function scoreRemoval(cardName, char, da, deckCards, equippedRelics) {
