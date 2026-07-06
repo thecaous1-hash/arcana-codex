@@ -1,4 +1,8 @@
 // ============================================================
+//  [역할: 백업(2차 소스)] 주력은 tools/build_from_api.js(spire-codex API).
+//   이 스크립트는 게임 파일 직접추출(GDRE/ILSpy) 예비 파이프라인 —
+//   1차(API)가 중단될 때만 쓰는 백업. 평소엔 실행할 필요 없음. (자세히: tools/README.md)
+//  ------------------------------------------------------------
 //  parse_card_stats.js — GDRE로 디컴파일한 C# 카드 소스에서 수치 추출
 //  입력: <recoveredDir>/src/Core/Models/Cards/*.cs
 //  출력: data/card_stats.js  (window.CARD_STATS = { LOCKEY: {...} })

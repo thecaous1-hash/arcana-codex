@@ -117,7 +117,11 @@
     - ✅ **(v) 티어 배지 S~D 재보정**(커밋 07ac3fe) — 등급 = Codex 커뮤니티 점수(0~100→/20)×0.7 + 전문가 티어(db.js)×0.3. DELTA 단독의 A 쏠림 해소 → S13/A29/B26/C14/D18% 고른 분포. 슬롯·검색(등급순)·덱·추천·팝업 배지 통일. DELTA는 근거로 계속 표시.
   - 다음 후보: 전문가 티어 '출처 표기' UI, 승천 세분(A5 등), 통계 정기 자동 갱신(스케줄러), Codex 미커버(~6%) 폴백 다듬기.
 - [x] **개명 완료(2026-07-05)** — 프로젝트명 "Spire Codex" → **"Arcana Codex"**(spire-codex.com/ptrlrd 충돌 회피). 바꾼 곳: 앱 헤더·`<title>`, README 제목, package.json(신규), 설계서/TODO/현재상태 제목, launch.json. **외부 데이터 소스(spire-codex API/크레딧·build_from_api.js)는 그대로 유지.** ⚠️ GitHub 레포명은 사용자가 Settings에서 `arcana-codex`로 변경 필요(gh CLI 미설치).
-- [ ] 내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 문서·코드상 정리
+- [x] **내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 정리 완료(2026-07-06).**
+  - 각 백업 스크립트(8개: `pck_extract`·`extract_loc`·`parse_card_stats`·`parse_relic_stats`·`crop_card_art`·`crop_basic_cards`·`extract_missing_cards`·`check_update`) 헤더에 `[역할: 백업(2차 소스)]` 표시.
+  - 주력(`build_from_api.js`)=`[역할: 주력(1차 소스)]`, 런복기(`build_run_history.js`)=`[역할: 런 복기 전용]`로 구분 표기.
+  - `tools/README.md` 신설 — 세 갈래(주력/백업/별개기능) 지도 + 각 스크립트 역할·사용법.
+  - 파일은 이동하지 않음(상대경로 유지). 문서·주석만 정리 → 앱 동작 변화 없음.
 
 ### 공개 준비 체크리스트 (배포 시점)
 - [x] **비공식 고지**(2026-07-05, 커밋 d88ef63) — 앱 전화면 고정 푸터 + README Notice: "Mega Crit과 무관·게임 에셋은 Mega Crit 저작물". '공식' 인상 표현 금지 준수.

@@ -1,4 +1,8 @@
 // ============================================================
+//  [역할: 백업(2차 소스)] 주력은 tools/build_from_api.js(spire-codex API).
+//   이 스크립트는 게임 파일 직접추출(GDRE/ILSpy) 예비 파이프라인 —
+//   1차(API)가 중단될 때만 쓰는 백업. 평소엔 실행할 필요 없음. (자세히: tools/README.md)
+//  ------------------------------------------------------------
 //  crop_basic_cards.js — 캐릭터별 기본 카드(타격/수비) 그림을 각각 잘라 저장
 //  crop_card_art.js 는 strike_ironclad 등을 전부 "Strike"로 합쳐 1개만 저장했음.
 //  이 스크립트는 캐릭터별로 STRIKE_<CHAR>.webp / DEFEND_<CHAR>.webp 를 만들고

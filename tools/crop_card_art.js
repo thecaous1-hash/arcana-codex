@@ -1,4 +1,8 @@
 // ============================================================
+//  [역할: 백업(2차 소스)] 주력은 tools/build_from_api.js(spire-codex API).
+//   이 스크립트는 게임 파일 직접추출(GDRE/ILSpy) 예비 파이프라인 —
+//   1차(API)가 중단될 때만 쓰는 백업. 평소엔 실행할 필요 없음. (자세히: tools/README.md)
+//  ------------------------------------------------------------
 //  crop_card_art.js — 카드/유물 아틀라스에서 그림을 잘라 WebP로 저장
 //  입력: GDRE로 복원한 *_atlas.tpsheet + *_atlas*.png
 //  출력: assets/cards/<ID>.webp, assets/relics/<ID>.webp + data/card_art.js, relic_art.js
