@@ -19,6 +19,9 @@ Light-touch principle: notes and numbers were updated to match in-game text; tie
 
 > These entries track **Arcana Codex fork changes to the app itself** (UI, recommendation brain, data layer), separate from the per-patch game-data sync further below.
 
+### 2026-07-06 (later — public-deploy safety)
+- **Game artwork removed from the repository.** The 857 extracted card/relic images (`assets/cards`, `assets/relics`) are no longer stored or redistributed here; `cardArt`/`relicArt` now load images at runtime from spire-codex.com's CDN (576/577 cards, 296/296 relics covered; the rare uncovered card shows a tier-letter placeholder). LICENSE/README asset notes updated accordingly. Reduces copyright exposure before going public.
+
 ### 2026-07-06
 - **Grade-source line on every recommendation.** Each card shows a small `ⓘ 등급 산정: …` line naming the data behind its S–D grade (community stats *spire-codex* + expert tier *Shunrai*). (`gradeSourceNote`, `.reason-src` in `index.html`)
 - **Graceful fallback for no-data cards.** Cards with no community statistics show `아직 커뮤니티 통계가 없는 카드예요 — 전문가 티어 Shunrai 평가만 반영했습니다` instead of a blank stat. (`isExpertOnly`, `.reason-src.nostat`)

@@ -118,8 +118,9 @@ https://www.reddit.com/r/slaythespire/comments/1rv5vwq/sts2_deck_assistant_helps
 
 Arcana Codex is an unofficial, non-commercial fan project and is not affiliated with or
 endorsed by Mega Crit. Slay the Spire and Slay the Spire 2, and all in-game images and text,
-are the property of Mega Crit. Game data and card info are provided by spire-codex.com
-(ptrlrd/spire-codex). Base UI/logic adapted from yard9/STS2-Advisor-Y (© Shunrai, MIT).
+are the property of Mega Crit. Card and relic artwork is **not stored in this repository** —
+it is loaded at runtime from spire-codex.com's CDN. Game data and card info are provided by
+spire-codex.com (ptrlrd/spire-codex). Base UI/logic adapted from yard9/STS2-Advisor-Y (© Shunrai, MIT).
 If expert tier-list data is used in db.js, credit those sources here as well.
 
 ---
