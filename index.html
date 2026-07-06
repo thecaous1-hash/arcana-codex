@@ -156,6 +156,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .reason-sub{font-size:.7rem;color:var(--gold2);font-family:'Cinzel',serif;margin:3px 0 1px}
 .reason-src{font-size:.66rem;color:var(--text3);line-height:1.35;margin-top:4px;padding-top:4px;border-top:1px dashed var(--border2)}
 .reason-src .i{opacity:.7;margin-right:3px}
+.reason-src.nostat{color:var(--text2);border-top-color:var(--border-strong)}
 .skip-area{margin-top:4px;border:1px dashed var(--border2);border-radius:8px;padding:11px 13px;display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.15)}
 .skip-area .st{flex:1;font-size:.86rem;color:var(--text2);line-height:1.5}
 .skip-area.warn{border-color:var(--f)}
@@ -534,7 +535,11 @@ function gradeSourceNote(name, char){ char=char||state.char;
   if(t&&t.score!=null) return '등급 산정: 커뮤니티 통계 <b>spire-codex</b> 70% + 전문가 티어 <b>Shunrai</b> 30%';
   const dbs=(typeof dataBaseScore==='function')?dataBaseScore(name,char):null;
   if(dbs&&dbs.score!=null) return '등급 산정: 커뮤니티 승률 <b>spire-codex</b> + 전문가 티어 <b>Shunrai</b> 보정';
-  return '등급 산정: 전문가 티어 <b>Shunrai</b>(db.js)'; }
+  return '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shunrai</b> 평가만 반영했습니다'; }
+// 이 카드가 커뮤니티 데이터 없이 전문가 티어로만 평가됐는지 여부(폴백 표시용).
+function isExpertOnly(name, char){ char=char||state.char;
+  const t=(API&&API.tier)?API.tier[apiKey(name)]:null; if(t&&t.score!=null) return false;
+  const dbs=(typeof dataBaseScore==='function')?dataBaseScore(name,char):null; return !(dbs&&dbs.score!=null); }
 // 표시 이름은 API(공식 한글, 카드+유물)를 우선, 없으면 기존 i18n(추정) 사용. (검색은 i18n 그대로)
 if(API && typeof koName==='function'){ const _koName=koName;
   koName=function(n){ const a=apiEntity(n); return (a&&a.name)?a.name:_koName(n); }; }
@@ -882,7 +887,9 @@ function renderRec(){
            +s.antiReasons.map(r=>`<div class="reason neg"><span class="i">▼</span>${r}</div>`).join('');
     if(!reasons) reasons=`<div class="reason"><span class="i">·</span>특별한 시너지·충돌 없음.</div>`;
     // 등급 출처 표기(전문가 티어 + 커뮤니티) — 근거 하단에 작은 안내문구.
-    reasons+=`<div class="reason-src"><span class="i">ⓘ</span>${gradeSourceNote(s.name,s.char)}</div>`;
+    // 커뮤니티 통계가 없는 카드는 'nostat'로 살짝 더 눈에 띄게(빈칸으로 오해 방지).
+    const _eo=isExpertOnly(s.name,s.char);
+    reasons+=`<div class="reason-src${_eo?' nostat':''}"><span class="i">ⓘ</span>${gradeSourceNote(s.name,s.char)}</div>`;
     return `<div class="rec${best?' best':''}">
       <div class="rec-head">
         <div class="rec-rank">${idx+1}</div>
