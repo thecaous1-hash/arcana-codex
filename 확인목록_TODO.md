@@ -118,8 +118,12 @@
   - ✅ **전문가 티어 '출처 표기' UI 완료(2026-07-06)** — 각 추천 카드 근거 하단에 'ⓘ 등급 산정: …' 한 줄 추가. `gradeSourceNote()`(index.html)가 등급 산정 경로를 그대로 반영: Codex 티어 있으면 '커뮤니티 통계 spire-codex 70% + 전문가 티어 Shunrai 30%', DELTA 보정이면 '커뮤니티 승률 spire-codex + 전문가 티어 Shunrai 보정', 통계 없으면 '전문가 티어 Shunrai(db.js)'. 흐린 회색·점선 구분으로 비침투적. 브라우저(Chromium)로 3경로 렌더 검증 완료.
   - ✅ **Codex 미커버 카드 폴백 다듬기 완료(2026-07-06)** — 커뮤니티 통계(Codex 점수·DELTA)가 전혀 없는 카드가 추천에 뜰 때, 근거 하단에 '아직 커뮤니티 통계가 없는 카드예요 — 전문가 티어 Shunrai 평가만 반영했습니다' 안내문구를 표시(`gradeSourceNote` 3번째 분기 개선 + `isExpertOnly()` 신규 + `.reason-src.nostat` 살짝 강조). 빈칸·데이터 누락으로 오해할 여지 제거.
     - **실측 커버리지(코드 대조):** 카드 풀 581장 중 커뮤니티 통계가 전혀 없는 카드 **42장** = 유령/STS1 잔재 17 + 상태·저주·퀘스트 15 + 전투 중 생성 토큰(단도·영혼·하수인·거대한 바위 등) 10. → **보상으로 실제 뽑히는 일반 카드는 사실상 전부 커버**(무색 특수카드도 캐릭터별 DELTA로 커버됨). 폴백은 수동 입력·토큰·향후 신규 카드 대비 안전망.
-    - (참고·별건) 유령 STS1 카드 17장(Reaper·Spot Weakness·Heavy Blade 등)이 검색 목록에 남아 있음 — STS2 미존재. 픽 목록에서 제외는 별도 작업(카드 풀 손대는 건이라 분리).
-  - 다음 후보: 승천 세분(A5 등), 통계 정기 자동 갱신(스케줄러), 유령 STS1 카드 검색 목록 정리.
+  - 다음 후보: 승천 세분(A5 등), 통계 정기 자동 갱신(스케줄러).
+- [x] **유령 STS1 카드 검색목록 정리 — 확인 결과 '이미 처리됨'(2026-07-06).**
+  - ⚠️ 정정: 직전 메모에 "유령 카드 17장이 검색에 남아 있다"고 적었으나 **사실이 아님**. 그 분석은 `data/extra_cards.js`의 런타임 프루닝을 반영하지 않은 **원본 db.js 기준**이었음.
+  - 실제 앱은 로드 시 `data/extra_cards.js`가 `STALE` 목록(ironclad 17장 = Heavy Blade·Clothesline·Wild Strike·Dropkick·Sever Soul·Searing Blow·Limit Break·Spot Weakness·Flex·Reaper·Brutality·Double Tap·Immolate·Intimidate·Disarm·Power Through·Combust + silent Follow Through + regent Child of Stars)을 `DB.cards`에서 `delete`로 제거함.
+  - **전수검사(프루닝 적용 런타임 575장):** `API.cards`(STS2 실제 카드)에 없는 유령 카드 **0장**. 브라우저에서 유령 영어명 검색 시 전부 '결과 없음', 이름 비슷한 진짜 카드(Reflex·Reaper Form)는 정상 표시 확인.
+  - 코드 변경 없음(불필요). `index.html` pickPool 위에 "유령 제거는 extra_cards.js가 담당" 설명 주석만 추가.
 - [x] **개명 완료(2026-07-05)** — 프로젝트명 "Spire Codex" → **"Arcana Codex"**(spire-codex.com/ptrlrd 충돌 회피). 바꾼 곳: 앱 헤더·`<title>`, README 제목, package.json(신규), 설계서/TODO/현재상태 제목, launch.json. **외부 데이터 소스(spire-codex API/크레딧·build_from_api.js)는 그대로 유지.** ⚠️ GitHub 레포명은 사용자가 Settings에서 `arcana-codex`로 변경 필요(gh CLI 미설치).
 - [x] **내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 정리 완료(2026-07-06).**
   - 각 백업 스크립트(8개: `pck_extract`·`extract_loc`·`parse_card_stats`·`parse_relic_stats`·`crop_card_art`·`crop_basic_cards`·`extract_missing_cards`·`check_update`) 헤더에 `[역할: 백업(2차 소스)]` 표시.

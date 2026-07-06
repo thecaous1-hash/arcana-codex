@@ -777,6 +777,8 @@ function renderSlots(){
 }
 
 // 검색 모달
+// ※ STS2 미존재 STS1 잔재(유령) 카드는 data/extra_cards.js가 로드 시점에 DB.cards에서 이미 제거함
+//   (STALE 목록). 그래서 pickPool은 별도 유령 필터가 필요 없음. (2026-07-06 전수검사로 유령 0장 확인)
 let pickSlot=-1, pickReplace=false, pickFilter='cur';
 function pickPool(){ const chars=Object.keys(DB.cards);
   if(pickFilter==='cur') return Object.values(DB.cards[state.char]||{});
