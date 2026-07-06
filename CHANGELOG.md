@@ -15,6 +15,23 @@ Light-touch principle: notes and numbers were updated to match in-game text; tie
 
 ---
 
+## Arcana Codex — app & UX changes
+
+> These entries track **Arcana Codex fork changes to the app itself** (UI, recommendation brain, data layer), separate from the per-patch game-data sync further below.
+
+### 2026-07-06
+- **Grade-source line on every recommendation.** Each card shows a small `ⓘ 등급 산정: …` line naming the data behind its S–D grade (community stats *spire-codex* + expert tier *Shunrai*). (`gradeSourceNote`, `.reason-src` in `index.html`)
+- **Graceful fallback for no-data cards.** Cards with no community statistics show `아직 커뮤니티 통계가 없는 카드예요 — 전문가 티어 Shunrai 평가만 반영했습니다` instead of a blank stat. (`isExpertOnly`, `.reason-src.nostat`)
+- **Backup extraction pipeline labelled.** The 8 GDRE/ILSpy game-file extraction scripts are tagged `[역할: 백업(2차 소스)]`; the primary data path is `tools/build_from_api.js` (spire-codex API). Added `tools/README.md` map.
+- **Phantom STS1 cards verified clean.** STS1-residue cards absent from STS2 are already removed at load by `data/extra_cards.js` (STALE list); a full sweep confirmed 0 phantom cards leak into search — no code change needed.
+
+### 2026-07-05
+- **Data layer unified on the spire-codex API.** `tools/build_from_api.js` → `data/api_data.js` (577 cards, 296 relics, Codex tiers, per-character win-rate stats incl. A10 band), synced to game **v0.108.0**. Korean names/descriptions from the API; local art with CDN fallback. Self-extraction (GDRE/ILSpy) demoted to backup.
+- **Recommendation brain = community score × expert-tier blend**, then context adjustment; S–D badges rebalanced (S13/A29/B26/C14/D18%). Ascension band selector (overall / A10).
+- **Renamed** Spire Codex → **Arcana Codex**. Added unofficial-disclaimer footer, LICENSE asset exception, README credits.
+
+---
+
 ## Advisor v1.6 — May 7 2026
 
 ### Header
