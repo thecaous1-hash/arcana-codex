@@ -1,4 +1,8 @@
 // ============================================================
+//  [역할: 백업(2차 소스) 자동화] 주력은 tools/build_from_api.js(spire-codex API).
+//   백업 파이프라인(extract_loc.js)을 게임 패치 시 자동 재실행하는 도우미 —
+//   1차(API) 사용 중이면 필수 아님. (자세히: tools/README.md)
+//  ------------------------------------------------------------
 //  check_update.js — STS2 패치 감지 → 필요 시 한글 데이터 재추출
 //  게임 폴더의 release_info.json(version, main_assembly_hash)을
 //  data/extracted_version.json 과 비교. 다르면 extract_loc.js 실행.

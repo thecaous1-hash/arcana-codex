@@ -17,6 +17,7 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 - Evaluate card rewards
 - Evaluate shop purchases
 - Suggest card removals
+- Show the data source behind every grade (community stats + expert tier), so you can judge how much to trust each pick
 
 ---
 
@@ -68,14 +69,12 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 
 ## How the logic currently works
 
-The current decision logic is based on a mix of practical run experience, community knowledge, and some experimentation.
+The advisor grades every card on an **S–D scale** built from two data sources, then adjusts it to your run:
 
-Right now it mainly relies on:
+1. **Base grade — community data + expert tier.** Each card's base score blends [spire-codex](https://github.com/ptrlrd/spire-codex) community statistics (Codex win-rate score / win-rate delta) with a hand-made expert tier list (`db.js`, from Shunrai's advisor). Community data carries most of the weight; the expert tier corrects small-sample and biased cases.
+2. **Context adjustment.** That base grade is then shifted by your detected archetypes, owned relics, the card's role, the current floor/act, and the ascension band you select (overall / A10).
 
-- decision patterns I would typically follow during my own runs
-- information and strategies from various community guides
-- some unconventional card combinations I’ve experimented with that might work well together
-- some AI-assisted exploration of card synergies and how certain cards can interact or enable specific builds
+Every recommendation shows **why**: the community win-rate delta ("+X%p over N runs"), synergy and anti-synergy notes, and a small line stating which data source set the grade. Cards that have no community data yet fall back to the expert tier and say so explicitly, so a blank stat never looks like a bug.
 
 ---
 
