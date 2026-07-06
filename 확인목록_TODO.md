@@ -115,7 +115,8 @@
     - ✅ **(iii) 이미지 API 폴백**(커밋 0a883e8) — 로컬 아트 없는 카드/유물은 API CDN(`image_url_card`)로 표시. 로컬은 그대로 우선.
     - ✅ **(iv) 유물 API**(커밋 0a883e8) — 유물 296개 한글 이름·설명 API 우선(`apiRelicOf`/`apiEntity`).
     - ✅ **(v) 티어 배지 S~D 재보정**(커밋 07ac3fe) — 등급 = Codex 커뮤니티 점수(0~100→/20)×0.7 + 전문가 티어(db.js)×0.3. DELTA 단독의 A 쏠림 해소 → S13/A29/B26/C14/D18% 고른 분포. 슬롯·검색(등급순)·덱·추천·팝업 배지 통일. DELTA는 근거로 계속 표시.
-  - 다음 후보: 전문가 티어 '출처 표기' UI, 승천 세분(A5 등), 통계 정기 자동 갱신(스케줄러), Codex 미커버(~6%) 폴백 다듬기.
+  - ✅ **전문가 티어 '출처 표기' UI 완료(2026-07-06)** — 각 추천 카드 근거 하단에 'ⓘ 등급 산정: …' 한 줄 추가. `gradeSourceNote()`(index.html)가 등급 산정 경로를 그대로 반영: Codex 티어 있으면 '커뮤니티 통계 spire-codex 70% + 전문가 티어 Shunrai 30%', DELTA 보정이면 '커뮤니티 승률 spire-codex + 전문가 티어 Shunrai 보정', 통계 없으면 '전문가 티어 Shunrai(db.js)'. 흐린 회색·점선 구분으로 비침투적. 브라우저(Chromium)로 3경로 렌더 검증 완료.
+  - 다음 후보: 승천 세분(A5 등), 통계 정기 자동 갱신(스케줄러), Codex 미커버(~6%) 폴백 다듬기.
 - [x] **개명 완료(2026-07-05)** — 프로젝트명 "Spire Codex" → **"Arcana Codex"**(spire-codex.com/ptrlrd 충돌 회피). 바꾼 곳: 앱 헤더·`<title>`, README 제목, package.json(신규), 설계서/TODO/현재상태 제목, launch.json. **외부 데이터 소스(spire-codex API/크레딧·build_from_api.js)는 그대로 유지.** ⚠️ GitHub 레포명은 사용자가 Settings에서 `arcana-codex`로 변경 필요(gh CLI 미설치).
 - [x] **내 GDRE/ILSpy 추출 파이프라인 → '백업' 역할로 정리 완료(2026-07-06).**
   - 각 백업 스크립트(8개: `pck_extract`·`extract_loc`·`parse_card_stats`·`parse_relic_stats`·`crop_card_art`·`crop_basic_cards`·`extract_missing_cards`·`check_update`) 헤더에 `[역할: 백업(2차 소스)]` 표시.
