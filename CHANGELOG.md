@@ -19,6 +19,12 @@ Light-touch principle: notes and numbers were updated to match in-game text; tie
 
 > These entries track **Arcana Codex fork changes to the app itself** (UI, recommendation brain, data layer), separate from the per-patch game-data sync further below.
 
+### 2026-07-06 (expert-tier sync v0.104 → v0.108)
+The hand-authored expert tiers in `db.js` lagged the game/community data (v0.104 vs v0.108). Using the official v0.105–v0.108 patch notes **corroborated with current spire-codex community data**, 12 cards had their tier changed (patch direction + community agreement required; conservative, mostly one step):
+- **Up:** Monarch's Gaze D→A, Blade Of Ink D→A, Sword Sage B→A, Juggernaut B→A, Royalties B→A, The Scythe C→B, Crescent Spear D→C, Fasten D→C, Uproar D→C
+- **Down:** Reflect S→A, Shatter A→B, Astral Pulse B→C
+- Cards already reflected at v0.104 (Conflagration, Drum of Battle, Untouchable, Parry, Tyranny, Booming Conch, Nutritious Soup) were left as-is. Sic 'Em held (patch buffed it but community rates it lower — direction unclear). Number/mechanic-only note refreshes deferred.
+
 ### 2026-07-06 (later — public-deploy safety)
 - **Game artwork removed from the repository.** The 857 extracted card/relic images (`assets/cards`, `assets/relics`) are no longer stored or redistributed here; `cardArt`/`relicArt` now load images at runtime from spire-codex.com's CDN (576/577 cards, 296/296 relics covered; the rare uncovered card shows a tier-letter placeholder). LICENSE/README asset notes updated accordingly. Reduces copyright exposure before going public.
 
