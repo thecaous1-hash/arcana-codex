@@ -306,7 +306,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 </head>
 <body>
 <header>
-  <div class="logo">☠ Arcana Codex<small>STS2 보조 도구 · 토대: Shunrai's STS2-Advisor (MIT)</small></div>
+  <div class="logo">☠ Arcana Codex<small>STS2 보조 도구 · 토대: Shawnrai's STS2-Advisor (MIT)</small></div>
   <div class="menu-tabs">
     <div class="menu-tab on" data-view="advisor">🃏 어드바이저</div>
     <div class="menu-tab" data-view="retro">📉 런 복기</div>
@@ -407,7 +407,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
   </div>
 </div>
 
-<div class="footer">Arcana Codex는 비공식 팬 제작 도구이며 Mega Crit과 무관합니다. Slay the Spire·Slay the Spire 2 및 게임 내 이미지·텍스트는 Mega Crit의 저작물입니다. 데이터: spire-codex.com(ptrlrd) · 기반 코드: STS2-Advisor-Y(Shunrai, MIT). 무료·비영리 프로젝트.</div>
+<div class="footer">Arcana Codex는 비공식 팬 제작 도구이며 Mega Crit과 무관합니다. Slay the Spire·Slay the Spire 2 및 게임 내 이미지·텍스트는 Mega Crit의 저작물입니다. 데이터: spire-codex.com(ptrlrd) · 기반 코드: STS2-Advisor-Y(Shawnrai, MIT). 무료·비영리 프로젝트.</div>
 
 <!-- 카드 상세 팝업 -->
 <div class="modal-ov" id="card-modal">
@@ -532,10 +532,10 @@ function cardBaseGrade(name, char){ return SCORE_GRADE_SD(cardBaseScoreVal(name,
 //  (cardBaseScoreVal과 같은 우선순위: Codex 티어 → DELTA 보정 → 전문가 티어 단독)
 function gradeSourceNote(name, char){ char=char||state.char;
   const t=(API&&API.tier)?API.tier[apiKey(name)]:null;
-  if(t&&t.score!=null) return '등급 산정: 커뮤니티 통계 <b>spire-codex</b> 70% + 전문가 티어 <b>Shunrai</b> 30%';
+  if(t&&t.score!=null) return '등급 산정: 커뮤니티 통계 <b>spire-codex</b> 70% + 전문가 티어 <b>Shawnrai</b> 30%';
   const dbs=(typeof dataBaseScore==='function')?dataBaseScore(name,char):null;
-  if(dbs&&dbs.score!=null) return '등급 산정: 커뮤니티 승률 <b>spire-codex</b> + 전문가 티어 <b>Shunrai</b> 보정';
-  return '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shunrai</b> 평가만 반영했습니다'; }
+  if(dbs&&dbs.score!=null) return '등급 산정: 커뮤니티 승률 <b>spire-codex</b> + 전문가 티어 <b>Shawnrai</b> 보정';
+  return '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shawnrai</b> 평가만 반영했습니다'; }
 // 이 카드가 커뮤니티 데이터 없이 전문가 티어로만 평가됐는지 여부(폴백 표시용).
 function isExpertOnly(name, char){ char=char||state.char;
   const t=(API&&API.tier)?API.tier[apiKey(name)]:null; if(t&&t.score!=null) return false;

@@ -32,8 +32,8 @@ The hand-authored expert tiers in `db.js` lagged the game/community data (v0.104
 - **Game artwork removed from the repository.** The 857 extracted card/relic images (`assets/cards`, `assets/relics`) are no longer stored or redistributed here; `cardArt`/`relicArt` now load images at runtime from spire-codex.com's CDN (576/577 cards, 296/296 relics covered; the rare uncovered card shows a tier-letter placeholder). LICENSE/README asset notes updated accordingly. Reduces copyright exposure before going public.
 
 ### 2026-07-06
-- **Grade-source line on every recommendation.** Each card shows a small `ⓘ 등급 산정: …` line naming the data behind its S–D grade (community stats *spire-codex* + expert tier *Shunrai*). (`gradeSourceNote`, `.reason-src` in `index.html`)
-- **Graceful fallback for no-data cards.** Cards with no community statistics show `아직 커뮤니티 통계가 없는 카드예요 — 전문가 티어 Shunrai 평가만 반영했습니다` instead of a blank stat. (`isExpertOnly`, `.reason-src.nostat`)
+- **Grade-source line on every recommendation.** Each card shows a small `ⓘ 등급 산정: …` line naming the data behind its S–D grade (community stats *spire-codex* + expert tier *Shawnrai*). (`gradeSourceNote`, `.reason-src` in `index.html`)
+- **Graceful fallback for no-data cards.** Cards with no community statistics show `아직 커뮤니티 통계가 없는 카드예요 — 전문가 티어 Shawnrai 평가만 반영했습니다` instead of a blank stat. (`isExpertOnly`, `.reason-src.nostat`)
 - **Backup extraction pipeline labelled.** The 8 GDRE/ILSpy game-file extraction scripts are tagged `[역할: 백업(2차 소스)]`; the primary data path is `tools/build_from_api.js` (spire-codex API). Added `tools/README.md` map.
 - **Phantom STS1 cards verified clean.** STS1-residue cards absent from STS2 are already removed at load by `data/extra_cards.js` (STALE list); a full sweep confirmed 0 phantom cards leak into search — no code change needed.
 

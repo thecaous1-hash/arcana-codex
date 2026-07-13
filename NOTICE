@@ -1,0 +1,25 @@
+# NOTICE
+
+Arcana Codex — 출처·라이선스 확인 기록 (사실). 법률 자문 아님.
+
+## 업스트림 (기반 프로젝트)
+- 저장소: yard9/STS2-Advisor-Y (= Shawnrai/Shunrai-s-STS2-Advisor)
+- 라이선스: MIT
+- 저작권: Copyright (c) 2026 Shawnrai
+- 확인 방법: 원본 LICENSE 파일을 raw로 직접 fetch
+  (raw.githubusercontent.com/Shawnrai/Shunrai-s-STS2-Advisor/main/LICENSE) →
+  MIT 전문 + 위 저작권 줄 확인.
+- 확인일: 2026-07-14
+- Arcana Codex는 이 프로젝트의 코드와 db.js 전문가 티어 데이터를 MIT 하에 포크하며,
+  저작권·허가 고지를 LICENSE에 보존함.
+
+## 데이터 출처
+- ptrlrd/spire-codex (https://spire-codex.com) — 카드/유물 한글 텍스트 및 승률 통계(공개 API).
+  카드/유물 이미지는 spire-codex CDN에서 런타임 로딩(저장소에 미포함).
+
+## 미해결 (MIT 범위 밖)
+- Mega Crit의 게임 IP는 업스트림 MIT에 포함되지 않음. 카드 이름·설명(게임 텍스트)은
+  여전히 db.js 및 data/api_data.js에 잔존하며 Mega Crit 저작물. 비영리 팬 프로젝트로
+  Mega Crit 팬 콘텐츠 정책 하에 사용 — MIT 코드와는 별개 사안.
+
+기록일 2026-07-14 · 사실 기록이며 법적 판단이 아님.

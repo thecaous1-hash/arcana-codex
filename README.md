@@ -1,6 +1,6 @@
 # Arcana Codex
 
-> 한국어 Slay the Spire 2 실시간 카드 픽 어드바이저. [Shunrai's STS2 Advisor](https://github.com/yard9/STS2-Advisor-Y) (MIT)를 토대로 하며, 카드·유물·통계 데이터는 외부 오픈소스 API [spire-codex](https://github.com/ptrlrd/spire-codex)를 사용합니다. (Arcana Codex는 spire-codex와 무관한 별개 프로젝트입니다.)
+> 한국어 Slay the Spire 2 실시간 카드 픽 어드바이저. [Shawnrai's STS2 Advisor](https://github.com/yard9/STS2-Advisor-Y) (MIT)를 토대로 하며, 카드·유물·통계 데이터는 외부 오픈소스 API [spire-codex](https://github.com/ptrlrd/spire-codex)를 사용합니다. (Arcana Codex는 spire-codex와 무관한 별개 프로젝트입니다.)
 
 Browser tool for Slay the Spire 2 that helps evaluate card rewards, shop buys and removals based on your current deck.
 
@@ -71,7 +71,7 @@ Still **early access** and the logic isn't perfect yet - feedback and issue repo
 
 The advisor grades every card on an **S–D scale** built from two data sources, then adjusts it to your run:
 
-1. **Base grade — community data + expert tier.** Each card's base score blends [spire-codex](https://github.com/ptrlrd/spire-codex) community statistics (Codex win-rate score / win-rate delta) with a hand-made expert tier list (`db.js`, from Shunrai's advisor). Community data carries most of the weight; the expert tier corrects small-sample and biased cases.
+1. **Base grade — community data + expert tier.** Each card's base score blends [spire-codex](https://github.com/ptrlrd/spire-codex) community statistics (Codex win-rate score / win-rate delta) with a hand-made expert tier list (`db.js`, from Shawnrai's advisor). Community data carries most of the weight; the expert tier corrects small-sample and biased cases.
 2. **Context adjustment.** That base grade is then shifted by your detected archetypes, owned relics, the card's role, the current floor/act, and the ascension band you select (overall / A10).
 
 Every recommendation shows **why**: the community win-rate delta ("+X%p over N runs"), synergy and anti-synergy notes, and a small line stating which data source set the grade. Cards that have no community data yet fall back to the expert tier and say so explicitly, so a blank stat never looks like a bug.
@@ -120,14 +120,14 @@ Arcana Codex is an unofficial, non-commercial fan project and is not affiliated 
 endorsed by Mega Crit. Slay the Spire and Slay the Spire 2, and all in-game images and text,
 are the property of Mega Crit. Card and relic artwork is **not stored in this repository** —
 it is loaded at runtime from spire-codex.com's CDN. Game data and card info are provided by
-spire-codex.com (ptrlrd/spire-codex). Base UI/logic adapted from yard9/STS2-Advisor-Y (© Shunrai, MIT).
+spire-codex.com (ptrlrd/spire-codex). Base UI/logic adapted from yard9/STS2-Advisor-Y (© Shawnrai, MIT).
 If expert tier-list data is used in db.js, credit those sources here as well.
 
 ---
 
 ## License
 
-MIT License © 2026 Arcana Codex contributors · base project © 2026 Shunrai (MIT)
+MIT License © 2026 Arcana Codex contributors · base project © 2026 Shawnrai (MIT)
 
 See the [LICENSE](LICENSE) file for details. Note: game-derived assets (images, in-game text)
 are property of Mega Crit and are not covered by the MIT license — see the LICENSE asset exception.
