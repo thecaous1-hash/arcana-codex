@@ -710,7 +710,7 @@ const DB = {
       },
       "JUGGERNAUT": {
         "id": "Juggernaut",
-        "tier": "B",
+        "tier": "A",
         "builds": [
           "block",
           "exhaust"
@@ -3478,7 +3478,7 @@ const DB = {
       },
       "BLADE_OF_INK": {
         "id": "Blade Of Ink",
-        "tier": "D",
+        "tier": "A",
         "builds": [
           "shiv",
           "sly"
@@ -4121,7 +4121,7 @@ const DB = {
       },
       "UPROAR": {
         "id": "Uproar",
-        "tier": "D",
+        "tier": "C",
         "builds": [
           "any"
         ],
@@ -5633,7 +5633,7 @@ const DB = {
       },
       "SHATTER": {
         "id": "Shatter",
-        "tier": "A",
+        "tier": "B",
         "builds": [
           "orb"
         ],
@@ -5882,7 +5882,7 @@ const DB = {
       },
       "REFLECT": {
         "id": "Reflect",
-        "tier": "S",
+        "tier": "A",
         "builds": [
           "stars"
         ],
@@ -6354,7 +6354,7 @@ const DB = {
       },
       "ASTRAL_PULSE": {
         "id": "Astral Pulse",
-        "tier": "B",
+        "tier": "C",
         "builds": [
           "stars"
         ],
@@ -6592,7 +6592,7 @@ const DB = {
       },
       "CRESCENT_SPEAR": {
         "id": "Crescent Spear",
-        "tier": "D",
+        "tier": "C",
         "builds": [
           "stars"
         ],
@@ -7418,7 +7418,7 @@ const DB = {
       },
       "MONARCHS_GAZE": {
         "id": "Monarch's Gaze",
-        "tier": "D",
+        "tier": "A",
         "builds": [
           "any"
         ],
@@ -7455,7 +7455,7 @@ const DB = {
       },
       "ROYALTIES": {
         "id": "Royalties",
-        "tier": "B",
+        "tier": "A",
         "builds": [],
         "role": "utility",
         "syn": [],
@@ -7467,7 +7467,7 @@ const DB = {
       },
       "SWORD_SAGE": {
         "id": "Sword Sage",
-        "tier": "B",
+        "tier": "A",
         "builds": [
           "forge"
         ],
@@ -8140,7 +8140,7 @@ const DB = {
       },
       "SCYTHE": {
         "id": "The Scythe",
-        "tier": "C",
+        "tier": "B",
         "builds": [
           "any"
         ],
@@ -9743,7 +9743,7 @@ const DB = {
       },
       "FASTEN": {
         "id": "Fasten",
-        "tier": "D",
+        "tier": "C",
         "builds": [],
         "role": "utility",
         "syn": [

@@ -544,20 +544,18 @@ function isExpertOnly(name, char){ char=char||state.char;
 if(API && typeof koName==='function'){ const _koName=koName;
   koName=function(n){ const a=apiEntity(n); return (a&&a.name)?a.name:_koName(n); }; }
 
-// 카드 그림: data/card_art.js 의 CARD_ART[영어id] → assets/cards/xxx.webp
+// 카드 그림: spire-codex CDN 이미지 사용.
+//  ※ 저작권상 게임 추출 아트를 저장소에 포함하지 않음(공개 배포). 로컬 assets/ 는 제외됨.
+//    CDN에 이미지 없는 소수 카드(예: 괴짜 과학)는 artStyle이 등급 글자로 대체 표시.
+//    apiCardOf가 타격/수비(캐릭터별 STRIKE_<CHAR>)도 처리함.
 function cardArt(name){
-  // 기본 카드(타격/수비)는 캐릭터별 그림 사용
-  const k=(name||'').toUpperCase().replace(/[\s\-]/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_');
-  if((k==='STRIKE'||k==='DEFEND') && typeof BASIC_ART!=='undefined' && BASIC_ART[state.char] && BASIC_ART[state.char][k]) return 'assets/'+BASIC_ART[state.char][k];
-  if(typeof CARD_ART!=='undefined' && CARD_ART[name]) return 'assets/'+CARD_ART[name];
-  const ac=apiCardOf(name); return (ac&&ac.img)?ac.img:null;    // 로컬 아트 없으면 API CDN 폴백
+  const ac=apiCardOf(name); return (ac&&ac.img)?ac.img:null;    // API(spire-codex) CDN
 }
 function artStyle(name, tier){ const a=cardArt(name);
   if(a) return `background-image:url('${a}');background-size:cover;background-position:top center`;
   return `color:${tierColor(tier)};background:linear-gradient(160deg,${tierColor(tier)}22,transparent)`; }
 function artLetter(name, tier){ return cardArt(name) ? '' : tier; } // 그림 있으면 글자 숨김
-function relicArt(name){ if(typeof RELIC_ART!=='undefined' && RELIC_ART[name]) return 'assets/'+RELIC_ART[name];
-  const r=apiRelicOf(name); return (r&&r.img)?r.img:null; }    // 로컬 아트 없으면 API CDN 폴백
+function relicArt(name){ const r=apiRelicOf(name); return (r&&r.img)?r.img:null; }    // spire-codex CDN (로컬 아트 미포함)
 // 등급 배지 (S/A/B/C/D 색상 표기)
 function gradeBadge(tier){ const c=tierColor(tier); return `<span class="gb" style="color:${c};border-color:${c};background:${c}1a">${tier||'?'}</span>`; }
 

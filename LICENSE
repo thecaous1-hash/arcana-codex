@@ -25,6 +25,7 @@ SOFTWARE.
 
 NOTE — Asset exception:
 This MIT license covers the source code of Arcana Codex only.
-Game-derived assets (card/relic images, in-game text) are the property of Mega Crit
-and are NOT licensed under MIT; they are included under Mega Crit's fan content policy
-for free, non-commercial use. Community data is provided by spire-codex.com.
+Card and relic artwork is NOT stored in or redistributed by this repository — it is loaded
+at runtime from spire-codex.com's CDN. In-game text (card names, descriptions) remains the
+property of Mega Crit and is NOT licensed under MIT; it is used under Mega Crit's fan content
+policy for free, non-commercial use. Community data is provided by spire-codex.com.
