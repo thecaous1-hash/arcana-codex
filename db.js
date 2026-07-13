@@ -1260,7 +1260,7 @@ const DB = {
       },
       "MANGLE": {
         "id": "Mangle",
-        "tier": "D",
+        "tier": "A",
         "builds": [
           "any"
         ],
@@ -1275,7 +1275,7 @@ const DB = {
       },
       "CASCADE": {
         "id": "Cascade",
-        "tier": "D",
+        "tier": "A",
         "builds": [
           "any"
         ],
@@ -3634,7 +3634,7 @@ const DB = {
       },
       "SHADOW_STEP": {
         "id": "Shadow Step",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "sly",
           "shiv"
@@ -3821,7 +3821,7 @@ const DB = {
       },
       "PHANTOM_BLADES": {
         "id": "Phantom Blades",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "shiv"
         ],
@@ -5524,7 +5524,7 @@ const DB = {
       },
       "HELIX_DRILL": {
         "id": "Helix Drill",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "any"
         ],
@@ -6613,7 +6613,7 @@ const DB = {
       },
       "STARDUST": {
         "id": "Stardust",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "stars"
         ],
@@ -6634,7 +6634,7 @@ const DB = {
       },
       "LUNAR_BLAST": {
         "id": "Lunar Blast",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "stars"
         ],
@@ -6717,7 +6717,7 @@ const DB = {
       },
       "CRASH_LANDING": {
         "id": "Crash Landing",
-        "tier": "D",
+        "tier": "B",
         "builds": [],
         "syn": [
           "damage",
@@ -6733,7 +6733,7 @@ const DB = {
       },
       "BUNDLE_OF_JOY": {
         "id": "Bundle of Joy",
-        "tier": "F",
+        "tier": "A",
         "builds": [],
         "syn": [
           "colorless"
@@ -6776,7 +6776,7 @@ const DB = {
       },
       "PROPHESIZE": {
         "id": "Prophesize",
-        "tier": "D",
+        "tier": "A",
         "builds": [],
         "syn": [
           "draw"
@@ -7164,7 +7164,7 @@ const DB = {
       },
       "ORBIT": {
         "id": "Orbit",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "stars",
           "any"
@@ -7339,7 +7339,7 @@ const DB = {
       },
       "HEAVENLY_DRILL": {
         "id": "Heavenly Drill",
-        "tier": "D",
+        "tier": "A",
         "builds": [
           "stars",
           "any"
@@ -7360,7 +7360,7 @@ const DB = {
       },
       "HEIRLOOM_HAMMER": {
         "id": "Heirloom Hammer",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "stars",
           "any"
@@ -7437,7 +7437,7 @@ const DB = {
       },
       "NEUTRON_AEGIS": {
         "id": "Neutron Aegis",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "any"
         ],
@@ -7877,7 +7877,7 @@ const DB = {
       },
       "ERADICATE": {
         "id": "Eradicate",
-        "tier": "D",
+        "tier": "A",
         "builds": [
           "doom"
         ],
@@ -8340,7 +8340,7 @@ const DB = {
       },
       "DANSE_MACABRE": {
         "id": "Danse Macabre",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "doom"
         ],
@@ -8362,7 +8362,7 @@ const DB = {
       },
       "DIRGE": {
         "id": "Dirge",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "soul",
           "osty"
@@ -8487,7 +8487,7 @@ const DB = {
       },
       "REAPER_FORM": {
         "id": "Reaper Form",
-        "tier": "D",
+        "tier": "B",
         "builds": [
           "doom"
         ],
@@ -9196,7 +9196,7 @@ const DB = {
       },
       "EIDOLON": {
         "id": "Eidolon",
-        "tier": "D",
+        "tier": "B",
         "builds": [],
         "role": "payoff",
         "syn": [
@@ -10113,7 +10113,7 @@ const DB = {
       },
       "ULTIMATE_DEFEND": {
         "id": "Ultimate Defend",
-        "tier": "D",
+        "tier": "B",
         "builds": [],
         "role": "generator",
         "syn": [
@@ -10539,7 +10539,7 @@ const DB = {
       },
       "THE_GAMBIT": {
         "id": "The Gambit",
-        "tier": "D",
+        "tier": "A",
         "builds": [],
         "role": "generator",
         "syn": [

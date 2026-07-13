@@ -19,6 +19,9 @@ Light-touch principle: notes and numbers were updated to match in-game text; tie
 
 > These entries track **Arcana Codex fork changes to the app itself** (UI, recommendation brain, data layer), separate from the per-patch game-data sync further below.
 
+### 2026-07-06 (expert-tier: single-player under-rated cards)
+`db.js` left 39 cards at tier D/F that current spire-codex data rates A/S. Classified into **18 multiplayer-only cards** (effects target allies — D is correct for a single-player advisor, kept as-is: Flanking, Legion of Bone, Gang Up, Beacon of Hope, Largesse, etc.) and **21 genuinely single-player under-rated cards**. The 21 were raised **one step below community** (community-only evidence, no patch corroboration, so discounted for selection bias): community S→**A** (The Gambit, Prophesize, Cascade, Eradicate, Bundle of Joy, Mangle, Heavenly Drill), community A→**B** (Reaper Form, Shadow Step, Helix Drill, Dirge, Orbit, Neutron Aegis, Lunar Blast, Danse Macabre, Phantom Blades, Heirloom Hammer, Crash Landing, Eidolon, Stardust, Ultimate Defend). Multiplayer cards untouched. Verified db.js parses, counts unchanged.
+
 ### 2026-07-06 (expert-tier sync v0.104 → v0.108)
 The hand-authored expert tiers in `db.js` lagged the game/community data (v0.104 vs v0.108). Using the official v0.105–v0.108 patch notes **corroborated with current spire-codex community data**, 12 cards had their tier changed (patch direction + community agreement required; conservative, mostly one step):
 - **Up:** Monarch's Gaze D→A, Blade Of Ink D→A, Sword Sage B→A, Juggernaut B→A, Royalties B→A, The Scythe C→B, Crescent Spear D→C, Fasten D→C, Uproar D→C
