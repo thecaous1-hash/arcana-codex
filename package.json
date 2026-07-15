@@ -2,7 +2,7 @@
   "name": "arcana-codex",
   "version": "0.1.0",
   "private": true,
-  "description": "한국어 Slay the Spire 2 실시간 카드 픽 어드바이저 (토대: Shunrai's STS2 Advisor, MIT · 데이터: spire-codex API)",
+  "description": "한국어 Slay the Spire 2 실시간 카드 픽 어드바이저 (토대: Shawnrai's STS2 Advisor, MIT · 데이터: spire-codex API)",
   "license": "MIT",
   "scripts": {
     "serve": "node serve.js",
