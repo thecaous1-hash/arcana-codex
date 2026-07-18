@@ -143,6 +143,17 @@
   - 너프: Colossus 방어5(8)→4(7), Crimson Mantle 8(10)→7(10), Tracking(공격 2배→50%↑), Beacon of Hope 비용1→2, Compact의 Fuel토큰(드로우 제거)
   - 리워크/희귀도: Outbreak(독 매번 AoE 3(4)), Shatter 이제 소멸, Flanking Uncommon→Rare, Ignition Rare→Uncommon, Legion of Bone 소멸 제거
   - 멀티플레이 전용 신규카드 15종(Midnight/Blade Symphony 등)은 싱글 어드바이저 무관 → 제외.
+- [ ] ⏸️ **v0.109.0 패치 반영 (2026-07-17 출시) — 데이터 소스 대기 중**
+  - **상태:** 대기 — spire-codex가 아직 v0.108.0 기준 (2026-07-18 확인).
+  - **선행 조건:** spire-codex 데이터가 v0.109 기준으로 갱신 + 승률 표본이 충분히 쌓일 것.
+  - **확인 방법:** https://spire-codex.com/news 에서 최신 패치 표기 확인.
+  - **반영할 내용:**
+    - 카드 너프/버프 다수 (밸런스 변경).
+    - Dominate(아이언클래드): 언커먼 → **레어** 등급 변경. ⚠️ 등급 변경은 등장 빈도가 바뀌어 언커먼 풀 전체 상대 가치에 연쇄 영향 → 단순 수치 수정이 아니라 티어 재검토 필요.
+    - Pillar of Creation(리전트): 카드 생성 시마다 3 블록 → 턴당 1회 5 블록.
+    - 신규 Neow 렐릭 추가 (Dowsing Rod 등).
+    - 출처: https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:V0.109.0_-_Beta_Patch
+  - **⚠️ 주의:** 스코어링이 `0.7 × Codex 점수 + 0.3 × 전문가 티어` 구조라, Codex 승률 데이터가 v0.109 기준으로 쌓이기 전에 티어만 먼저 고치면 두 축이 어긋남. (line 141 베타 보류 항목과 동일 원리)
 
 ### 향후 기능 (배포 후)
 - [ ] **피드백 버튼 (설계: `docs/기능_피드백시스템.md`)** — 앱에 열고 닫는 피드백 버튼 → GitHub Issues/구글 폼 링크. 검토는 "사용자 호출 시 Claude Code가 몰아서" 하는 반자동. 배포 마무리 후 구현.
