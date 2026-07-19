@@ -183,7 +183,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .dcell.upnext{border-color:var(--green2);box-shadow:0 0 0 1px var(--green2),0 0 10px rgba(75,191,110,.25)}
 .dtop{position:relative;width:100%;aspect-ratio:16/11;background:var(--bg4)}
 .dart{width:100%;height:100%;background-size:cover;background-position:top center;cursor:pointer;display:block}
-.dart-fb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem}
 .dtier{position:absolute;bottom:2px;left:2px;font-family:'Cinzel',serif;font-weight:700;font-size:.5rem;line-height:1;padding:1px 3px;border-radius:3px;border:1px solid;background:rgba(0,0,0,.6)}
 .dtop .cost-cnr{top:1px;left:1px;min-width:15px;height:15px;font-size:.6rem;border-width:1px}
 .upplus{position:absolute;bottom:1px;right:3px;color:var(--gold3);font-weight:700;font-size:.8rem;text-shadow:0 0 3px #000,0 0 3px #000}
@@ -269,7 +268,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .pcard{position:relative;display:block;min-width:0;background:var(--bg3);border:1px solid var(--border);border-radius:6px;overflow:hidden;cursor:pointer;transition:all .12s}
 .pcard:hover{border-color:var(--gold);background:rgba(240,168,60,.08)}
 .pimg{display:block;width:100%;height:58px;background-size:cover;background-position:top center;background-color:var(--bg4)}
-.pimg-fb{display:flex;width:100%;height:58px;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:1.1rem}
+/* 이미지 실패 폴백: 등급 글자를 항상 실제 콘텐츠로 두고 아트를 ::after 레이어로 덮는다.
+   CSS 배경은 onerror가 없어 실패 감지가 불가능하므로, 감지 대신 "실패해도 글자가 드러나는" 구조로 간다.
+   z-index:0 — 비용배지(z3)·슬롯✕(z4)·티어배지(z2) 등 오버레이 자식보다 아래에 깔리게. */
+.slot-img,.pimg,.dart,.rimg{display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700}
+.slot-img{font-size:1.4rem} .pimg,.dart{font-size:1.1rem} .rimg{font-size:.7rem;overflow:hidden}
+.slot-img,.pimg,.dart,.rimg,.modal-img,.rec-art{position:relative}
+.art-on::after{content:'';position:absolute;inset:0;z-index:0;background-image:var(--art);background-size:cover;background-position:top center;border-radius:inherit}
+.rec-art.art-on::after{inset:-2px}   /* 2px 테두리 아래까지 덮어 기존 렌더 유지 */
 .pcard .ptier{position:absolute;top:40px;left:2px;font-family:'Cinzel',serif;font-weight:700;font-size:.54rem;line-height:1;padding:1px 4px;border-radius:3px;border:1px solid;background:rgba(0,0,0,.6);z-index:2}
 .pcard .pn{display:block;font-size:.74rem;font-weight:500;color:var(--text);text-align:center;padding:3px 2px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
@@ -550,16 +556,17 @@ if(API && typeof koName==='function'){ const _koName=koName;
 
 // 카드 그림: spire-codex CDN 이미지 사용.
 //  ※ 저작권상 게임 추출 아트를 저장소에 포함하지 않음(공개 배포). 로컬 assets/ 는 제외됨.
-//    CDN에 이미지 없는 소수 카드(예: 괴짜 과학)는 artStyle이 등급 글자로 대체 표시.
+//    CDN에 이미지 없는 소수 카드(예: 괴짜 과학)는 artTile이 등급 글자만 렌더(.art-on 미부여).
 //    apiCardOf가 타격/수비(캐릭터별 STRIKE_<CHAR>)도 처리함.
 function cardArt(name){
   const ac=apiCardOf(name); return (ac&&ac.img)?ac.img:null;    // API(spire-codex) CDN
 }
-function artStyle(name, tier){ const a=cardArt(name);
-  if(a) return `background-image:url('${a}');background-size:cover;background-position:top center`;
-  return `color:${tierColor(tier)};background:linear-gradient(160deg,${tierColor(tier)}22,transparent)`; }
-function artLetter(name, tier){ return cardArt(name) ? '' : tier; } // 그림 있으면 글자 숨김
 function relicArt(name){ const r=apiRelicOf(name); return (r&&r.img)?r.img:null; }    // spire-codex CDN (로컬 아트 미포함)
+// 아트 타일: 등급 글자를 항상 실제 콘텐츠로 넣고, 이미지는 .art-on::after 레이어로 덮는다.
+//  → CDN 장애·404여도 이미지 레이어만 비고 아래 글자가 드러남(폴백 자동, 감지 불필요).
+function artTile(name,tier,cls,extra){ const a=cardArt(name), col=tierColor(tier);
+  const bg=a?`--art:url('${a}')`:`background:linear-gradient(160deg,${col}22,transparent)`;
+  return `<span class="${cls}${a?' art-on':''}" style="color:${col};${bg};${extra||''}">${tier||'?'}</span>`; }
 // 등급 배지 (S/A/B/C/D 색상 표기)
 function gradeBadge(tier){ const c=tierColor(tier); return `<span class="gb" style="color:${c};border-color:${c};background:${c}1a">${tier||'?'}</span>`; }
 
@@ -759,8 +766,7 @@ function renderSlots(){
   let html='';
   for(let i=0;i<n;i++){ const name=state.offered[i];
     if(name){ const t=cardGrade(name), col=tierColor(t);
-      const img=cardArt(name)?`<span class="slot-img" style="${artStyle(name,t)}"></span>`
-        :`<span class="slot-img" style="background:linear-gradient(160deg,${col}22,transparent)"></span>`;
+      const img=artTile(name,t,'slot-img');
       html+=`<div class="slot filled" data-slot="${i}" title="클릭: 교체 · ✕: 빼기">
         <span class="slot-x" data-x="${i}" title="빼기">✕</span>${costCorner(name,false)}${img}
         <span class="slot-nm">${gradeBadge(t)} ${koName(name)}</span></div>`;
@@ -807,7 +813,7 @@ function renderPickGrid(){
   list.sort((a,b)=>cardGradeVal(b.id,b.char)-cardGradeVal(a.id,a.char)||koName(a.id).localeCompare(koName(b.id),'ko'));
   list=list.slice(0,240);
   $('pick-grid').innerHTML=list.map(c=>{ const g=cardGrade(c.id,c.char), col=tierColor(g);
-    const img=cardArt(c.id)?`<span class="pimg" style="${artStyle(c.id,g)}"></span>`:`<span class="pimg-fb" style="color:${col}">${g}</span>`;
+    const img=artTile(c.id,g,'pimg');
     return `<div class="pcard" data-name="${esc(c.id)}" title="${esc(descText(c.id,false)||koName(c.id))}">`
       +`${img}${costCorner(c.id,false)}<span class="ptier" style="color:${col};border-color:${col}">${g}</span>`
       +`<span class="pn">${koName(c.id)}</span></div>`;
@@ -897,7 +903,7 @@ function renderRec(){
     return `<div class="rec${best?' best':''}">
       <div class="rec-head">
         <div class="rec-rank">${idx+1}</div>
-        <div class="rec-art pop" data-card="${esc(s.name)}" title="클릭: 상세" style="border-color:${col};${cardArt(s.name)?artStyle(s.name):'color:'+col}">${costCorner(s.name,false)}${cardArt(s.name)?'':s.finalGrade}</div>
+        <div class="rec-art pop${cardArt(s.name)?' art-on':''}" data-card="${esc(s.name)}" title="클릭: 상세" style="border-color:${col};color:${col};${cardArt(s.name)?`--art:url('${cardArt(s.name)}')`:''}">${costCorner(s.name,false)}${s.finalGrade}</div>
         <div class="rec-info">
           <div class="rec-name">${gradeBadge(s.baseGrade||s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
           <div class="rec-badges">${recBadges(s,da)}${pickBadge(s.finalScore)}</div>
@@ -980,7 +986,7 @@ function renderModal(){
   const canUp=varsChange||costChange||kws.length>0;   // 수치·코스트·키워드 중 하나라도 바뀌면 강화 토글 표시
   $('modal-nm').innerHTML=`${koName(name)}<span class="en">${name}</span>`;
   const ma=$('modal-art');
-  ma.innerHTML=`<span class="modal-img" style="${art?`background-image:url('${art}')`:`color:${tierColor(t)}`}">${art?'':t}</span>${costCorner(name,modalUp)}`;
+  ma.innerHTML=`<span class="modal-img${art?' art-on':''}" style="color:${tierColor(t)};${art?`--art:url('${art}')`:''}">${t}</span>${costCorner(name,modalUp)}`;
   $('modal-meta').innerHTML=`${gradeBadge(t)}${typeBadge(name)}${hasOfficial(name)?'<span class="off-official">공식</span>':''}`;
   // 강화 효과 요약(코스트 변화·키워드 부여 — 설명 텍스트에 안 나오는 것)
   let upLine='';
@@ -1002,8 +1008,7 @@ function renderRelics(){
     const d=DB.relics[relicKey(n)],t=d?d.tier:'?',col=tierColor(t);
     const starter=n===STARTER_RELICS[state.char]; const art=relicArt(n);
     const desc=descHTML(n,false);
-    const icon=art?`<span class="rimg" style="background-image:url('${art}')"></span>`
-      :`<span class="rimg" style="display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;color:${col}">${t}</span>`;
+    const icon=`<span class="rimg${art?' art-on':''}" style="color:${col};${art?`--art:url('${art}')`:''}">${t}</span>`;
     return `<div class="rtile">${icon}
       <div class="rtile-body">
         <div class="rtile-top">${gradeBadge(t)}<span class="rtile-nm">${koName(n)}</span></div>
@@ -1036,9 +1041,7 @@ function renderDeck(){
     else if(!up&&rem.safeToRemove) badge='<span class="dbadge b-cut" title="제거 추천">🗑</span>';
     const dt=descText(name,up);
     const tip=(up?'[강화됨] ':'')+(dt?dt+' · ':'')+(i===nextIdx?'다음 강화 우선순위 · ':upPri?'강화 우선 후보 · ':'')+(rem.reason||'');
-    const artInner=cardArt(name)
-      ? `<span class="dart pop" data-card="${esc(name)}" title="클릭: 상세" style="${artStyle(name,t)}"></span>`
-      : `<span class="dart-fb pop" data-card="${esc(name)}" style="color:${col}">${t}</span>`;
+    const artInner=`<span class="dart pop${cardArt(name)?' art-on':''}" data-card="${esc(name)}" title="클릭: 상세" style="color:${col};${cardArt(name)?`--art:url('${cardArt(name)}')`:''}">${t}</span>`;
     return `<div class="dcell${up?' upgraded':''}${cls}" title="${esc(tip)}">
       <div class="dtop">${artInner}${costCorner(name,up)}<span class="dtier" style="color:${col};border-color:${col}">${t}</span>${badge}${up?'<span class="upplus">+</span>':''}</div>
       <span class="dn">${koName(name)}</span>
