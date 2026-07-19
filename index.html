@@ -212,6 +212,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .note{font-size:.72rem;color:var(--text3);line-height:1.6;background:rgba(0,0,0,.18);border:1px dashed var(--border2);border-radius:var(--radius);padding:8px 10px}
 ::-webkit-scrollbar{width:7px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
 .footer{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:5px 14px;text-align:center;font-size:.58rem;line-height:1.45;color:var(--text3);background:rgba(10,10,11,.93);backdrop-filter:blur(6px);border-top:1px solid var(--border)}
+.footer a,.logo small a{color:var(--text2);text-decoration:underline;text-decoration-color:var(--border2);text-underline-offset:2px}
+.footer a:hover,.logo small a:hover{color:var(--gold2);text-decoration-color:var(--gold2)}
+/* 좁은 폭에서 고지문이 한 줄 더 접혀 65px가 되므로 body 하단 예약(58px)을 늘려 겹침 방지 */
+@media(max-width:420px){body{padding-bottom:72px}}
 
 /* 카드 클릭 → 상세 팝업 */
 .pop{cursor:pointer}
@@ -306,7 +310,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 </head>
 <body>
 <header>
-  <div class="logo">☠ Arcana Codex<small>STS2 보조 도구 · 토대: Shawnrai's STS2-Advisor (MIT)</small></div>
+  <div class="logo">☠ Arcana Codex<small>STS2 보조 도구 · 토대: <a href="https://github.com/Shawnrai/Shunrai-s-STS2-Advisor" target="_blank" rel="noopener noreferrer">Shawnrai's STS2-Advisor</a> (MIT)</small></div>
   <div class="menu-tabs">
     <div class="menu-tab on" data-view="advisor">🃏 어드바이저</div>
     <div class="menu-tab" data-view="retro">📉 런 복기</div>
@@ -407,7 +411,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
   </div>
 </div>
 
-<div class="footer">Arcana Codex는 비공식 팬 제작 도구이며 Mega Crit과 무관합니다. Slay the Spire·Slay the Spire 2 및 게임 내 이미지·텍스트는 Mega Crit의 저작물입니다. 데이터: spire-codex.com(ptrlrd) · 기반 코드: STS2-Advisor-Y(Shawnrai, MIT). 무료·비영리 프로젝트.</div>
+<div class="footer">Arcana Codex는 비공식 팬 제작 도구이며 Mega Crit과 무관합니다. Slay the Spire·Slay the Spire 2 및 게임 내 이미지·텍스트는 Mega Crit의 저작물입니다. 데이터: <a href="https://spire-codex.com" target="_blank" rel="noopener noreferrer">spire-codex.com</a>(ptrlrd) · 기반 코드: <a href="https://github.com/Shawnrai/Shunrai-s-STS2-Advisor" target="_blank" rel="noopener noreferrer">Shawnrai</a> 원작 · <a href="https://github.com/yard9/STS2-Advisor-Y" target="_blank" rel="noopener noreferrer">yard9</a> 포크 경유 (MIT). 무료·비영리 프로젝트.</div>
 
 <!-- 카드 상세 팝업 -->
 <div class="modal-ov" id="card-modal">

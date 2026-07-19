@@ -1,6 +1,6 @@
 # Arcana Codex
 
-> 한국어 Slay the Spire 2 실시간 카드 픽 어드바이저. [Shawnrai's STS2 Advisor](https://github.com/yard9/STS2-Advisor-Y) (MIT)를 토대로 하며, 카드·유물·통계 데이터는 외부 오픈소스 API [spire-codex](https://github.com/ptrlrd/spire-codex)를 사용합니다. (Arcana Codex는 spire-codex와 무관한 별개 프로젝트입니다.)
+> 한국어 Slay the Spire 2 실시간 카드 픽 어드바이저. [Shawnrai의 STS2 Advisor](https://github.com/Shawnrai/Shunrai-s-STS2-Advisor)(MIT)가 원작이며, 카드·유물 데이터 동기화가 반영된 [yard9 포크](https://github.com/yard9/STS2-Advisor-Y)를 토대로 합니다. 카드·유물·통계 데이터는 외부 오픈소스 API [spire-codex](https://github.com/ptrlrd/spire-codex)를 사용합니다. (Arcana Codex는 spire-codex와 무관한 별개 프로젝트입니다.)
 
 Browser tool for Slay the Spire 2 that helps evaluate card rewards, shop buys and removals based on your current deck.
 
@@ -120,7 +120,10 @@ Arcana Codex is an unofficial, non-commercial fan project and is not affiliated 
 endorsed by Mega Crit. Slay the Spire and Slay the Spire 2, and all in-game images and text,
 are the property of Mega Crit. Card and relic artwork is **not stored in this repository** —
 it is loaded at runtime from spire-codex.com's CDN. Game data and card info are provided by
-spire-codex.com (ptrlrd/spire-codex). Base UI/logic adapted from yard9/STS2-Advisor-Y (© Shawnrai, MIT).
+spire-codex.com (ptrlrd/spire-codex). Base UI/logic originally by Shawnrai
+([Shawnrai/Shunrai-s-STS2-Advisor](https://github.com/Shawnrai/Shunrai-s-STS2-Advisor), MIT),
+adapted via the [yard9/STS2-Advisor-Y](https://github.com/yard9/STS2-Advisor-Y) fork,
+which synced card/relic data to STS2 v0.104.0.
 If expert tier-list data is used in db.js, credit those sources here as well.
 
 ---
