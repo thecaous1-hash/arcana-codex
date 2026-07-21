@@ -162,8 +162,9 @@
 - [x] **비공식 고지**(2026-07-05, 커밋 d88ef63) — 앱 전화면 고정 푸터 + README Notice: "Mega Crit과 무관·게임 에셋은 Mega Crit 저작물". '공식' 인상 표현 금지 준수.
 - [x] **라이선스 분리**(d88ef63) — LICENSE에 자산 예외: 소스는 MIT, 게임 유래 에셋(이미지·게임 텍스트)은 Mega Crit 소유·MIT 미포함·팬 콘텐츠 정책하 비영리.
 - [x] **제3자 데이터 출처 표기**(d88ef63) — README Credits + 푸터: 데이터 spire-codex.com(ptrlrd) · 기반 코드 yard9/STS2-Advisor-Y(Shawnrai, MIT). (외부 전문가 티어 도입 시 추가 크레딧 예정)
+- [x] **Mega Crit 허가 확인**(2026-07-20) — Anthony Giovannetti(devs@megacrit.com) 이메일로 외부 컴패니언 툴 허용·기부 기반 선호 확인 → **Ko-fi 기부 전용·광고 없음 확정**. NOTICE 기록(84917a0) + 푸터 ©·Steam 링크(657573c). 공개 전 정책 블로커 해소.
 - [ ] 호스팅: GitHub Pages(무료·정적). ⚠️ 먼저 레포명 `arcana-codex`로 변경(Settings) → remote URL 갱신.
-- [ ] 후원 링크: Ko-fi 또는 GitHub Sponsors(페이월 없이)
+- [ ] 후원 링크: **Ko-fi 기부 전용**(광고 없음 — Mega Crit 확인 조건). 계정 개설 후 `index.html` 푸터의 Ko-fi 주석만 해제하면 됨(자리 준비 완료, 657573c).
 
 ---
 
