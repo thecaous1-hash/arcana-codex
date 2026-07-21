@@ -77,6 +77,25 @@ function statsFrom(rs) {
   }
   console.log(`  유물 ${Object.keys(relics).length}개`);
 
+  // 1c) 인챈트(한국어) — 22종. 이름·텍스트·타입제한·중복가능만 저장.
+  //     이미지(image_url)는 /static/ 경로 = robots.txt Disallow → 사용하지 않음(1단계 정책).
+  //     실패해도 나머지 스냅샷은 정상 생성(인챈트 기능만 앱에서 조용히 꺼짐).
+  console.log('· 인챈트(한국어) 받는 중…');
+  let enchants = null;
+  try {
+    const enchKo = await getJSON(`${BASE}/enchantments?lang=kor`);
+    enchants = {};
+    for (const e of enchKo) {
+      enchants[e.id] = {
+        name: e.name,
+        ko: e.description || '',
+        cardType: e.card_type || null,   // null = 카드 타입 제한 없음
+        stackable: !!e.is_stackable,
+      };
+    }
+    console.log(`  인챈트 ${Object.keys(enchants).length}종`);
+  } catch (e) { console.warn('  인챈트 스킵(폴백):', e.message); }
+
   // 2) Codex Score(티어)
   console.log('· Codex Score(scores/cards) 받는 중…');
   const scores = await getJSON(`${BASE}/runs/scores/cards`);
@@ -108,12 +127,12 @@ function statsFrom(rs) {
     stampVersion = Object.entries(vc).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
   } catch (e) {}
 
-  const out = { source: 'spire-codex.com/api', version: stampVersion, maxAsc: MAX_ASC, cards, relics, tier, stats, statsHi };
+  const out = { source: 'spire-codex.com/api', version: stampVersion, maxAsc: MAX_ASC, cards, relics, enchants, tier, stats, statsHi };
   const js = '// spire-codex API 스냅샷(개인용). tools/build_from_api.js 생성 · 갱신은 재실행.\n'
     + `// 소스: ${out.source} · 게임 ${stampVersion || '?'}\n`
     + 'window.API_DATA = ' + JSON.stringify(out) + ';\n';
   fs.mkdirSync(path.join(PROJ, 'data'), { recursive: true });
   fs.writeFileSync(path.join(PROJ, 'data', 'api_data.js'), js);
   const kb = (fs.statSync(path.join(PROJ, 'data', 'api_data.js')).size / 1024).toFixed(0);
-  console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 게임 ${stampVersion} · 카드 ${Object.keys(cards).length} · 유물 ${Object.keys(relics).length} · 티어 ${Object.keys(tier).length} · 통계(전체+A${MAX_ASC}) ${Object.keys(stats).length}캐릭`);
+  console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 게임 ${stampVersion} · 카드 ${Object.keys(cards).length} · 유물 ${Object.keys(relics).length} · 인챈트 ${enchants ? Object.keys(enchants).length : 0} · 티어 ${Object.keys(tier).length} · 통계(전체+A${MAX_ASC}) ${Object.keys(stats).length}캐릭`);
 })().catch(e => { console.error('실패:', e.message); process.exit(1); });

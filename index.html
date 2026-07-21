@@ -504,6 +504,16 @@ function apiRelicKey(name){ const n=(typeof canonEN==='function')?canonEN(name):
 function apiRelicOf(name){ if(!API||!API.relics) return null; return API.relics[apiRelicKey(name)]||null; }
 // 카드 또는 유물 — 이름/설명 통합 조회
 function apiEntity(name){ return apiCardOf(name) || apiRelicOf(name); }
+// ── 인챈트(1단계: 기록·표시용 데이터 층) ──
+// 스냅샷에 enchants가 없으면(구버전 api_data.js·fetch 실패) 기능 전체가 조용히 비활성.
+// 이미지는 사용하지 않음(스냅샷에 저장 안 함 — robots 정책). 설명 렌더는 apiDescHTML 재사용.
+const ENCH=(API&&API.enchants)||null;
+function enchOn(){ return !!(ENCH&&Object.keys(ENCH).length); }
+function enchOf(id){ return (ENCH&&ENCH[id])||null; }
+// 카드 타입에 맞는 인챈트 목록(cardType null=제한 없음, "Attack, Skill"형 복수 타입 지원). 이름 가나다순.
+function enchListFor(cardType){ if(!enchOn()) return [];
+  return Object.entries(ENCH).filter(([,e])=>!e.cardType||e.cardType.split(',').map(s=>s.trim()).includes(cardType))
+    .map(([id,e])=>({id,...e})).sort((a,b)=>a.name.localeCompare(b.name,'ko')); }
 // API 설명 렌더: 수치는 이미 완성돼 있음. 아이콘 토큰([energy:2]→2⚡)·강조태그([gold]..[/gold])·줄바꿈 처리.
 function apiDescHTML(text){ if(!text) return '';
   let h=String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
