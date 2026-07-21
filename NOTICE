@@ -17,9 +17,18 @@ Arcana Codex — 출처·라이선스 확인 기록 (사실). 법률 자문 아�
 - ptrlrd/spire-codex (https://spire-codex.com) — 카드/유물 한글 텍스트 및 승률 통계(공개 API).
   카드/유물 이미지는 spire-codex CDN에서 런타임 로딩(저장소에 미포함).
 
-## 미해결 (MIT 범위 밖)
-- Mega Crit의 게임 IP는 업스트림 MIT에 포함되지 않음. 카드 이름·설명(게임 텍스트)은
-  여전히 db.js 및 data/api_data.js에 잔존하며 Mega Crit 저작물. 비영리 팬 프로젝트로
-  Mega Crit 팬 콘텐츠 정책 하에 사용 — MIT 코드와는 별개 사안.
+## Mega Crit 허가 확인 (Permission from Mega Crit)
+- 2026-07-20, Mega Crit의 Anthony Giovannetti(devs@megacrit.com)로부터
+  이메일로 다음 사항을 확인받음:
+  - 게임을 수정하지 않는 외부 컴패니언 툴로서 카드 이름·설명·이미지를
+    표시하는 것은 허용됨
+  - 수익화는 기부(donation) 기반을 선호함
+  - 이에 따라 본 프로젝트는 광고 없이 Ko-fi 기부 전용으로 운영함
+- 원본 이메일은 개발자가 별도 보관 중.
 
-기록일 2026-07-14 · 사실 기록이며 법적 판단이 아님.
+## Mega Crit IP (MIT 범위 밖 — 허가로 해소)
+- Mega Crit의 게임 IP는 업스트림 MIT에 포함되지 않음. 카드 이름·설명(게임 텍스트)은
+  db.js 및 data/api_data.js에 있으며 Mega Crit 저작물. 위 2026-07-20 허가 확인에
+  따라 외부 컴패니언 툴로서 표시·사용 — MIT 코드와는 별개 사안.
+
+기록일 2026-07-14 · 최종 갱신 2026-07-21 · 사실 기록이며 법적 판단이 아님.
