@@ -1067,7 +1067,10 @@ function renderDeck(){
     const name=card.name, d=getCard(state.char,name), t=cardGrade(name), col=tierColor(t);
     const up=!!card.up;
     const en=card.ench?enchOf(card.ench):null;
-    const rem=scoreRemoval(name,state.char,da,state.deck,state.relics);
+    let rem=scoreRemoval(name,state.char,da,state.deck,state.relics);
+    // R1(인챈트 2단계): 인챈트 붙은 장(사본)은 제거 추천 억제 — 인챈트는 제거·교체 불가 영구 투자.
+    if(en){ rem={...rem, score:Math.max(0,rem.score-1), safeToRemove:false,
+      reason:'✦ 인챈트('+en.name+') 투자됨 — 제거 비추천'+(rem.reason?' · '+rem.reason:'')}; }
     const upPri=!up&&isUpgradePriority(name,da);
     let badge='', cls='';
     if(i===nextIdx){ badge='<span class="dbadge b-upnext" title="강화 추천 · 다음 강화 우선순위">⬆</span>'; cls=' upnext'; }
