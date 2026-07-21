@@ -2,16 +2,28 @@
 
 Arcana Codex — 출처·라이선스 확인 기록 (사실). 법률 자문 아님.
 
-## 업스트림 (기반 프로젝트)
-- 저장소: yard9/STS2-Advisor-Y (= Shawnrai/Shunrai-s-STS2-Advisor)
-- 라이선스: MIT
-- 저작권: Copyright (c) 2026 Shawnrai
-- 확인 방법: 원본 LICENSE 파일을 raw로 직접 fetch
+## 업스트림 계보 (원본 → 포크 → 이 프로젝트)
+
+이전 기록은 두 저장소를 동일한 것으로 적었으나 사실과 다름. 아래가 정정본이며,
+GitHub 저장소 페이지에서 직접 확인함(확인일 2026-07-19).
+
+### 1. 원본 (network root) — Shawnrai/Shunrai-s-STS2-Advisor
+- 라이선스: MIT · 저작권: Copyright (c) 2026 Shawnrai
+- 확인 방법: 원본 LICENSE를 raw로 직접 fetch
   (raw.githubusercontent.com/Shawnrai/Shunrai-s-STS2-Advisor/main/LICENSE) →
-  MIT 전문 + 위 저작권 줄 확인.
-- 확인일: 2026-07-14
-- Arcana Codex는 이 프로젝트의 코드와 db.js 전문가 티어 데이터를 MIT 하에 포크하며,
-  저작권·허가 고지를 LICENSE에 보존함.
+  MIT 전문 + 위 저작권 줄 확인. 확인일 2026-07-14.
+- 철자: 저작권자명은 **Shawnrai**가 정본(원본 LICENSE 원문 기준).
+  저장소 이름의 "Shunrai"는 저장소명 표기일 뿐이므로 저작권자명과 혼동하지 않는다.
+
+### 2. 중간 포크 — yard9/STS2-Advisor-Y
+- GitHub에 "forked from Shawnrai/Shunrai-s-STS2-Advisor"로 명시됨.
+- 기여: 카드·유물 데이터를 STS2 **v0.104.0** 기준으로 동기화.
+- 라이선스: MIT 승계.
+
+### 3. 이 프로젝트 — Arcana Codex
+- **yard9 포크에서 가져옴**(원본에서 직접 포크한 것이 아님).
+- 코드와 db.js 전문가 티어 데이터를 MIT 하에 사용하며,
+  원저작권·허가 고지를 LICENSE에 보존함.
 
 ## 데이터 출처
 - ptrlrd/spire-codex (https://spire-codex.com) — 카드/유물 한글 텍스트 및 승률 통계(공개 API).
