@@ -537,6 +537,8 @@ function enchOf(id){ return (ENCH&&ENCH[id])||null; }
 function enchListFor(cardType){ if(!enchOn()) return [];
   return Object.entries(ENCH).filter(([,e])=>!e.cardType||e.cardType.split(',').map(s=>s.trim()).includes(cardType))
     .map(([id,e])=>({id,...e})).sort((a,b)=>a.name.localeCompare(b.name,'ko')); }
+// R2(2단계): 가치 증폭류 인챈트 — 붙은 장의 강화 우선순위 가점 대상(지시서 §2 확정 7종)
+const ENCH_UPGRADE_BOOST=new Set(['INSTINCT','SHARP','VIGOROUS','MOMENTUM','TEZCATARAS_EMBER','SOULS_POWER','CORRUPTED']);
 // API 설명 렌더: 수치는 이미 완성돼 있음. 아이콘 토큰([energy:2]→2⚡)·강조태그([gold]..[/gold])·줄바꿈 처리.
 function apiDescHTML(text){ if(!text) return '';
   let h=String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -975,7 +977,7 @@ function isUpgradePriority(name,da){
   return key&&canUp;
 }
 // 강화 우선순위 점수(높을수록 먼저 강화). 이미 강화한 카드/강화효과 없는 카드는 뒤로.
-function upgradeScore(name,da){
+function upgradeScore(name,da,copy){
   const d=getCard(state.char,name); if(!d)return -99;
   const st=cardStats(name); const canUp=st&&Object.values(st.vars||{}).some(v=>v.u!==v.b);
   if(!canUp)return -99;
@@ -986,6 +988,8 @@ function upgradeScore(name,da){
   const fits=!(d.builds||[]).length||(d.builds||[]).some(b=>b==='any'||da.detected.some(x=>x.arch.id===b));
   if(fits)s+=1;                // 빌드에 맞으면 가점(감점은 없음 — 강한 카드가 묻히지 않게)
   if(isStarter(name))s-=1.5;   // 시작 카드(타격/수비)는 강화 가치 낮음
+  // R2(인챈트 2단계): 증폭 인챈트 붙은 장은 강화 가치 상승 — engine(+2.5)·scaling(+1.5)보다 작게.
+  if(copy&&copy.ench&&ENCH_UPGRADE_BOOST.has(copy.ench))s+=1.0;
   return s;
 }
 
@@ -1062,12 +1066,15 @@ function renderDeck(){
   // 다음 강화 1순위: 아직 강화 안 한 카드 중 우선순위 점수 최고 (강화할수록 다음 카드로 이동)
   let nextIdx=-1, nextScore=-Infinity;
   state.deck.forEach((c,i)=>{ if(c.up)return; if(!isUpgradePriority(c.name,da))return;
-    const sc=upgradeScore(c.name,da); if(sc>nextScore){ nextScore=sc; nextIdx=i; } });
+    const sc=upgradeScore(c.name,da,c); if(sc>nextScore){ nextScore=sc; nextIdx=i; } });
   g.innerHTML=state.deck.map((card,i)=>{
     const name=card.name, d=getCard(state.char,name), t=cardGrade(name), col=tierColor(t);
     const up=!!card.up;
     const en=card.ench?enchOf(card.ench):null;
-    const rem=scoreRemoval(name,state.char,da,state.deck,state.relics);
+    let rem=scoreRemoval(name,state.char,da,state.deck,state.relics);
+    // R1(인챈트 2단계): 인챈트 붙은 장(사본)은 제거 추천 억제 — 인챈트는 제거·교체 불가 영구 투자.
+    if(en){ rem={...rem, score:Math.max(0,rem.score-1), safeToRemove:false,
+      reason:'✦ 인챈트('+en.name+') 투자됨 — 제거 비추천'+(rem.reason?' · '+rem.reason:'')}; }
     const upPri=!up&&isUpgradePriority(name,da);
     let badge='', cls='';
     if(i===nextIdx){ badge='<span class="dbadge b-upnext" title="강화 추천 · 다음 강화 우선순위">⬆</span>'; cls=' upnext'; }

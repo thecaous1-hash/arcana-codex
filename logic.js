@@ -7,6 +7,14 @@ const SCORE_GRADE_SD = s => s>=4.3?'S':s>=3.4?'A':s>=2.5?'B':s>=1.5?'C':'D';
 const SCALING_TAGS = new Set(['strength','scaling','focus','stellar','stars','soul','doom','infinite',
   'permanent_scaling','star_gain','poison_amplify','shiv_amplify','orb','claw']);
 
+// 인챈트 2단계(R3): 덱의 인챈트 → 특정 태그 후보 가산 지식표 (relics scoreEffects 패턴 재사용)
+// bonus: 붙은 장 1개당 가산, cap: 인챈트별 상한. 총합 캡은 ENCH_FX_TOTAL_CAP.
+const ENCH_SCORE_FX = {
+  CORRUPTED: { tags:['heal','self_damage'], bonus:0.3, cap:0.6,
+               reason:'오염 인챈트(체력 소모) 보유 — 회복·자해 시너지 가치 상승' },
+};
+const ENCH_FX_TOTAL_CAP = 0.6;   // 인챈트발 후보 점수 가감 총합 캡(±)
+
 
 function ensureDbNames() {
   if (typeof DB !== 'object' || !DB || typeof DB.cards !== 'object') return;
@@ -230,6 +238,28 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
             score += boost;
             synR.push(`◈ +${boost} ${koName(rd.id)} 유물이 ${matchingTags.map(koTag).join('/')} 카드 강화`);
           }
+        }
+      }
+    }
+  }
+
+  // 인챈트 시너지(2단계 R3) — 덱에 붙은 인챈트가 특정 태그의 후보를 가산. (scoreEffects와 동일 패턴)
+  if (typeof ENCH_SCORE_FX !== 'undefined') {
+    const enchCounts = {};
+    for (const c of deckCards) if (c.ench && ENCH_SCORE_FX[c.ench]) enchCounts[c.ench]=(enchCounts[c.ench]||0)+1;
+    if (Object.keys(enchCounts).length) {
+      const cardTags = new Set([...(data.syn||[]), ...(data.mech||[]), ...(data.builds||[]).filter(b=>b!=='any')]);
+      let enchTotal = 0;
+      for (const [id, n] of Object.entries(enchCounts)) {
+        const fx = ENCH_SCORE_FX[id];
+        if (!(fx.tags||[]).some(t => cardTags.has(t))) continue;
+        let boost = fx.bonus * n;                                  // +0.3/개
+        if (fx.cap != null) boost = Math.min(boost, fx.cap);       // 인챈트별 상한 +0.6
+        boost = Math.min(boost, ENCH_FX_TOTAL_CAP - enchTotal);    // 총합 캡 ±0.6
+        boost = +boost.toFixed(1);
+        if (boost >= 0.1) {
+          score += boost; enchTotal += boost;
+          synR.push(`✦ +${boost.toFixed(1)} ${fx.reason}`);
         }
       }
     }
