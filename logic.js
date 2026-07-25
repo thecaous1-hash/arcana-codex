@@ -151,7 +151,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     return {name:cardName, base:'C', finalScore:2, finalGrade:'C', notes:'알 수 없는 카드', synReasons:[], antiReasons:[], isBest:false};
   }
 
-  // 기본점수 = 커뮤니티(Codex 승률 점수) × 전문가 티어(db.js) 블렌드 — index.html cardBaseScoreVal.
+  // 기본점수 = 3원 블렌드(승률 DELTA 주도 · 전문가 티어 앵커 · Codex 참고) — index.html cardBaseScoreVal (2026-07-25 안2).
   // DELTA(_dbs)는 추천 근거 표시용으로 별도 조회. (설계 §3: 커뮤니티 통계 + 전문가 티어 보정)
   const _dbs = (typeof dataBaseScore === 'function') ? dataBaseScore(cardName, char) : null;
   const tierVal = GRADE_VALS[data.tier] ?? 2;

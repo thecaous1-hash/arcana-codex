@@ -562,25 +562,42 @@ function dataBaseScore(name, char){ if(!API||!API.stats) return null;
   if(!st){ return null; }                          // 통계 없음 → logic.js가 전문가 티어로 폴백
   const score=Math.max(0,Math.min(5, 2.5 + st.delta/12));  // Δ+30%p→5.0, Δ0→2.5, Δ-18→1.0
   return {score, delta:st.delta, wr:st.wr, n:st.n, src:'delta', band}; }
-// 티어 등급 기본점수(0~5) = 커뮤니티 Codex 점수(0~100→0~5)×0.7 + 전문가 티어(db.js)×0.3.
-// Codex는 Bayesian 보정 승률 점수라 S~D가 고르게 퍼짐(DELTA 단독은 +편향). 없으면 DELTA, 그것도 없으면 전문가 티어.
-function cardBaseScoreVal(name, char){ char=char||state.char;
+// ── 기본점수(0~5) 3원 블렌드 — 2026-07-25 재설계(안2: DELTA 주도 + 전문가 앵커) ──
+//  구조: 가중평균( DELTA×W_DELTA×표본신뢰 · 전문가 티어×W_EXPERT · Codex×W_CODEX ).
+//  없는 신호는 항을 빼고 남은 가중치로 재정규화(0 나눗셈 없음).
+//  저표본 DELTA는 신뢰 n/(n+N_CONF)로 자동 감쇠(n=1000→50%, n=10000→91%) — 요동 방지.
+//  (구 산식: Codex 0.7 + 전문가 0.3, DELTA는 Codex 있으면 미조회 — 진단 2026-07-25에서 1차 원인 판정)
+const BLEND_W_DELTA  = 0.45;  // 승률 델타: 이 카드를 넣은 런이 실제로 더 이겼는가 — 1순위
+const BLEND_W_EXPERT = 0.30;  // 전문가 티어(db.js): 최신 패치를 아는 앵커
+const BLEND_W_CODEX  = 0.25;  // Codex 점수: 전기간 누적이라 낡음 — 참고 수준으로 강등
+const BLEND_N_CONF   = 1000;  // DELTA 표본 신뢰 반감점(n=1000에서 신뢰 50%)
+// 세 신호의 원값 묶음 — 블렌드와 근거 표시(gradeSourceNote)가 공유.
+function baseScoreParts(name, char){ char=char||state.char;
   const data=(typeof getCard==='function')?getCard(char,name):null;
   const tierVal=data?(GRADE_VALS[data.tier]??2):2;
   const t=(API&&API.tier)?API.tier[apiKey(name)]:null;
-  if(t&&t.score!=null){ const codex5=Math.max(0,Math.min(5,t.score/20)); return 0.7*codex5+0.3*tierVal; }
+  const codex5=(t&&t.score!=null)?Math.max(0,Math.min(5,t.score/20)):null;
   const dbs=dataBaseScore(name,char);
-  if(dbs&&dbs.score!=null){ const a=Math.max(0.2,Math.min(0.75,dbs.n/(dbs.n+2000))); return a*dbs.score+(1-a)*tierVal; }
-  return tierVal; }
+  return { tier:data?data.tier:null, tierVal,
+    codex:(t&&t.score!=null)?t.score:null, codex5,
+    delta:dbs?dbs.delta:null, deltaScore:dbs?dbs.score:null, n:dbs?dbs.n:0, band:dbs?dbs.band:null }; }
+function cardBaseScoreVal(name, char){ const p=baseScoreParts(name,char);
+  let sw=0, s=0;
+  if(p.codex5!=null){ sw+=BLEND_W_CODEX; s+=BLEND_W_CODEX*p.codex5; }
+  if(p.deltaScore!=null){ const w=BLEND_W_DELTA*(p.n/(p.n+BLEND_N_CONF)); sw+=w; s+=w*p.deltaScore; }
+  sw+=BLEND_W_EXPERT; s+=BLEND_W_EXPERT*p.tierVal;
+  return sw>0 ? s/sw : p.tierVal; }
 function cardBaseGrade(name, char){ return SCORE_GRADE_SD(cardBaseScoreVal(name,char)); }
-// 등급(S~D) 출처 안내문구 — 이 카드의 등급을 어떤 데이터로 매겼는지 한 줄로.
-//  (cardBaseScoreVal과 같은 우선순위: Codex 티어 → DELTA 보정 → 전문가 티어 단독)
-function gradeSourceNote(name, char){ char=char||state.char;
-  const t=(API&&API.tier)?API.tier[apiKey(name)]:null;
-  if(t&&t.score!=null) return '등급 산정: 커뮤니티 통계 <b>spire-codex</b> 70% + 전문가 티어 <b>Shawnrai</b> 30%';
-  const dbs=(typeof dataBaseScore==='function')?dataBaseScore(name,char):null;
-  if(dbs&&dbs.score!=null) return '등급 산정: 커뮤니티 승률 <b>spire-codex</b> + 전문가 티어 <b>Shawnrai</b> 보정';
-  return '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shawnrai</b> 평가만 반영했습니다'; }
+// 등급(S~D) 출처 안내문구 — 어떤 신호가 이 점수를 만들었는지 성분을 그대로 표시.
+//  예: '등급 산정: 승률Δ +19.7%p(61,502판) · Codex 53 · 전문가 티어 S'
+function gradeSourceNote(name, char){ const p=baseScoreParts(name,char);
+  if(p.deltaScore==null && p.codex==null)
+    return '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shawnrai</b> 평가만 반영했습니다';
+  const bits=[];
+  if(p.deltaScore!=null) bits.push(`승률Δ <b>${p.delta>=0?'+':''}${p.delta}%p</b>(${p.n.toLocaleString()}판)`);
+  if(p.codex!=null) bits.push(`Codex <b>${p.codex}</b>`);
+  bits.push(`전문가 티어 <b>${p.tier||'?'}</b>`);
+  return '등급 산정: '+bits.join(' · ')+' <span style="opacity:.65">— spire-codex + Shawnrai 3원 블렌드</span>'; }
 // 이 카드가 커뮤니티 데이터 없이 전문가 티어로만 평가됐는지 여부(폴백 표시용).
 function isExpertOnly(name, char){ char=char||state.char;
   const t=(API&&API.tier)?API.tier[apiKey(name)]:null; if(t&&t.score!=null) return false;
