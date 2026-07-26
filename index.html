@@ -160,6 +160,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .skip-area{margin-top:4px;border:1px dashed var(--border2);border-radius:8px;padding:11px 13px;display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.15)}
 .skip-area .st{flex:1;font-size:.86rem;color:var(--text2);line-height:1.5}
 .skip-area.warn{border-color:var(--f)}
+.skip-area.top{margin-top:0;margin-bottom:8px}
 
 /* 유물 */
 .sec-label{font-size:.72rem;color:var(--text2);font-family:'Cinzel',serif;letter-spacing:.05em;text-transform:uppercase}
@@ -925,6 +926,10 @@ function reasonLead(s,da){
   }
   return `아직 빌드가 정해지지 않아, 범용적으로 강한 카드 위주로 평가했습니다.`;
 }
+// 스킵 경고 문턱(1위 최종점수 기준) — 2026-07-26 재산정(시안2·문턱 3.0 채택).
+//  의미: 1위가 '무난한 픽'(B) 수준에 못 미치면 스킵 권장. 층5 시작덱×20,000회 시뮬레이션
+//  발동률 4.3%(구 문턱 2.5는 0.3%로 사문), 2막 보조검증 4.1%. 희귀도 60/37/3 가정 — TODO 재검증 메모.
+const SKIP_WARN_TH=3.0;
 function renderRec(){
   const body=$('rec-body');
   const off=offeredCards();
@@ -932,10 +937,11 @@ function renderRec(){
   const da=analyzeDeck(state.char,state.deck);
   const scored=off.map(n=>scoreCard(n,state.char,da,state.floor,state.act,state.deck,state.encounter,state.relics));
   const sorted=[...scored].sort((a,b)=>b.finalScore-a.finalScore);
-  const allBad=sorted.every(s=>s.finalScore<1.6);
+  // 구 allBad(전원<1.6)는 실측 발동 0%로 폐지 — 버튼·배너를 skipWarn 하나로 일원화(메시지 모순 해소)
+  const skipWarn=sorted[0].finalScore<SKIP_WARN_TH;
 
   let html=sorted.map((s,idx)=>{
-    const best=idx===0&&!allBad, col=tierColor(s.finalGrade);
+    const best=idx===0&&!skipWarn, col=tierColor(s.finalGrade);
     const relicR=s.synReasons.filter(r=>r.includes('유물'));
     const synR=s.synReasons.filter(r=>!r.includes('유물'));
     let reasons='';
@@ -960,7 +966,7 @@ function renderRec(){
           <div class="rec-name">${gradeBadge(s.baseGrade||s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
           <div class="rec-badges">${recBadges(s,da)}${pickBadge(s.finalScore)}</div>
         </div>
-        <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':'뽑기'}</button>
+        <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':(idx===0&&skipWarn?'그래도 뽑는다면 이 카드':'뽑기')}</button>
         <span class="rec-x" data-name="${esc(s.name)}" title="이 카드 빼기">✕</span>
       </div>
       <div class="rec-why">
@@ -970,14 +976,12 @@ function renderRec(){
       </div></div>`;
   }).join('');
 
-  // 스킵 영역
-  const best=sorted[0];
-  const skipWarn=allBad||best.finalScore<2.5;
-  html+=`<div class="skip-area${skipWarn?' warn':''}">
-    <div class="st">${skipWarn?'⚠ 지금 후보들은 현재 빌드에 큰 도움이 안 됩니다. <b>스킵</b>(또는 체력/골드)이 나을 수 있어요.':'괜찮은 선택지가 있습니다. 위 1순위를 뽑으세요.'}</div>
+  // 스킵 영역 — 경고 시엔 가시성 위해 목록 맨 위(.top), 평상시엔 기존대로 맨 아래 (2026-07-26)
+  const skipHtml=`<div class="skip-area${skipWarn?' warn top':''}">
+    <div class="st">${skipWarn?'⚠ <b>스킵 권장</b> — 지금 후보들은 현재 빌드에 큰 도움이 안 됩니다. 체력/골드 보상이 낫고, 꼭 뽑아야 한다면 아래 1순위(금색 버튼)를 고르세요.':'괜찮은 선택지가 있습니다. 위 1순위를 뽑으세요.'}</div>
     <button class="btn" id="skip-btn">스킵하기</button></div>`;
 
-  body.innerHTML=html;
+  body.innerHTML=skipWarn?skipHtml+html:html+skipHtml;
   body.querySelectorAll('.rec-pick').forEach(b=>b.addEventListener('click',()=>pickCard(b.dataset.name)));
   body.querySelectorAll('.rec-x').forEach(x=>x.addEventListener('click',()=>removeOfferedByName(x.dataset.name)));
   $('skip-btn').addEventListener('click',()=>{ state.offered=[]; renderOffered(); renderRec(); save(); });
