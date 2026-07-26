@@ -160,6 +160,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .skip-area{margin-top:4px;border:1px dashed var(--border2);border-radius:8px;padding:11px 13px;display:flex;align-items:center;gap:11px;background:rgba(0,0,0,.15)}
 .skip-area .st{flex:1;font-size:.86rem;color:var(--text2);line-height:1.5}
 .skip-area.warn{border-color:var(--f)}
+.skip-area.top{margin-top:0;margin-bottom:8px}
 
 /* 유물 */
 .sec-label{font-size:.72rem;color:var(--text2);font-family:'Cinzel',serif;letter-spacing:.05em;text-transform:uppercase}
@@ -975,12 +976,12 @@ function renderRec(){
       </div></div>`;
   }).join('');
 
-  // 스킵 영역 (skipWarn은 상단에서 계산 — 버튼·배너 일원화)
-  html+=`<div class="skip-area${skipWarn?' warn':''}">
-    <div class="st">${skipWarn?'⚠ <b>스킵 권장</b> — 지금 후보들은 현재 빌드에 큰 도움이 안 됩니다. 체력/골드 보상이 낫고, 꼭 뽑아야 한다면 위 1순위(금색 버튼)를 고르세요.':'괜찮은 선택지가 있습니다. 위 1순위를 뽑으세요.'}</div>
+  // 스킵 영역 — 경고 시엔 가시성 위해 목록 맨 위(.top), 평상시엔 기존대로 맨 아래 (2026-07-26)
+  const skipHtml=`<div class="skip-area${skipWarn?' warn top':''}">
+    <div class="st">${skipWarn?'⚠ <b>스킵 권장</b> — 지금 후보들은 현재 빌드에 큰 도움이 안 됩니다. 체력/골드 보상이 낫고, 꼭 뽑아야 한다면 아래 1순위(금색 버튼)를 고르세요.':'괜찮은 선택지가 있습니다. 위 1순위를 뽑으세요.'}</div>
     <button class="btn" id="skip-btn">스킵하기</button></div>`;
 
-  body.innerHTML=html;
+  body.innerHTML=skipWarn?skipHtml+html:html+skipHtml;
   body.querySelectorAll('.rec-pick').forEach(b=>b.addEventListener('click',()=>pickCard(b.dataset.name)));
   body.querySelectorAll('.rec-x').forEach(x=>x.addEventListener('click',()=>removeOfferedByName(x.dataset.name)));
   $('skip-btn').addEventListener('click',()=>{ state.offered=[]; renderOffered(); renderRec(); save(); });
