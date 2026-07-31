@@ -588,6 +588,12 @@ function cardBaseScoreVal(name, char){ const p=baseScoreParts(name,char);
   if(p.deltaScore!=null){ const w=BLEND_W_DELTA*(p.n/(p.n+BLEND_N_CONF)); sw+=w; s+=w*p.deltaScore; }
   sw+=BLEND_W_EXPERT; s+=BLEND_W_EXPERT*p.tierVal;
   return sw>0 ? s/sw : p.tierVal; }
+// 전문가 항 제외 블렌드 — 티어표(db.js) 미등재 카드용. 커뮤니티 신호(Codex·DELTA)가 하나도 없으면 null.
+function cardCommunityScoreVal(name, char){ const p=baseScoreParts(name,char);
+  let sw=0, s=0;
+  if(p.codex5!=null){ sw+=BLEND_W_CODEX; s+=BLEND_W_CODEX*p.codex5; }
+  if(p.deltaScore!=null){ const w=BLEND_W_DELTA*(p.n/(p.n+BLEND_N_CONF)); sw+=w; s+=w*p.deltaScore; }
+  return sw>0 ? s/sw : null; }
 function cardBaseGrade(name, char){ return SCORE_GRADE_SD(cardBaseScoreVal(name,char)); }
 // 등급(S~D) 출처 안내문구 — 어떤 신호가 이 점수를 만들었는지 성분을 그대로 표시.
 //  예: '등급 산정: 승률Δ +19.7%p(61,502판) · Codex 53 · 전문가 티어 S'
@@ -938,7 +944,9 @@ function renderRec(){
   const scored=off.map(n=>scoreCard(n,state.char,da,state.floor,state.act,state.deck,state.encounter,state.relics));
   const sorted=[...scored].sort((a,b)=>b.finalScore-a.finalScore);
   // 구 allBad(전원<1.6)는 실측 발동 0%로 폐지 — 버튼·배너를 skipWarn 하나로 일원화(메시지 모순 해소)
-  const skipWarn=sorted[0].finalScore<SKIP_WARN_TH;
+  // 데이터 전무(isNoData) 카드는 경고 판정에서 제외 — 희귀도 근거만으로 '스킵 권장'을 띄우지 않음.
+  const _judged=sorted.filter(s=>!s.isNoData);
+  const skipWarn=_judged.length>0 && _judged[0].finalScore<SKIP_WARN_TH;
 
   let html=sorted.map((s,idx)=>{
     const best=idx===0&&!skipWarn, col=tierColor(s.finalGrade);
@@ -957,7 +965,11 @@ function renderRec(){
     // 등급 출처 표기(전문가 티어 + 커뮤니티) — 근거 하단에 작은 안내문구.
     // 커뮤니티 통계가 없는 카드는 'nostat'로 살짝 더 눈에 띄게(빈칸으로 오해 방지).
     const _eo=isExpertOnly(s.name,s.char);
-    reasons+=`<div class="reason-src${_eo?' nostat':''}"><span class="i">ⓘ</span>${gradeSourceNote(s.name,s.char)}</div>`;
+    reasons+= s.isNoData
+      ? `<div class="reason-src nostat"><span class="i">ⓘ</span>이 카드는 아직 <b>평가 데이터가 없어요</b> — 희귀도만 참고한 임시 등급이니 직접 판단해 주세요.</div>`
+      : s.isExpertMissing
+      ? `<div class="reason-src"><span class="i">ⓘ</span>전문가 티어 평가가 없는 카드예요 — <b>커뮤니티 통계만</b> 반영했습니다.</div>`
+      : `<div class="reason-src${_eo?' nostat':''}"><span class="i">ⓘ</span>${gradeSourceNote(s.name,s.char)}</div>`;
     return `<div class="rec${best?' best':''}">
       <div class="rec-head">
         <div class="rec-rank">${idx+1}</div>
@@ -966,19 +978,19 @@ function renderRec(){
           <div class="rec-name">${gradeBadge(s.baseGrade||s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
           <div class="rec-badges">${recBadges(s,da)}${pickBadge(s.finalScore)}</div>
         </div>
-        <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':(idx===0&&skipWarn?'그래도 뽑는다면 이 카드':'뽑기')}</button>
+        <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':(skipWarn&&_judged[0]===s?'그래도 뽑는다면 이 카드':'뽑기')}</button>
         <span class="rec-x" data-name="${esc(s.name)}" title="이 카드 빼기">✕</span>
       </div>
       <div class="rec-why">
         ${descHTML(s.name,false)?`<div class="rec-desc">${descHTML(s.name,false)}</div>`:''}
-        <div class="rec-lead">${best?reasonLead(s,da):`추천 등급 ${s.finalGrade} · ${GRADE_WORD[s.finalGrade]}`}</div>
+        <div class="rec-lead">${best?reasonLead(s,da):(s.isNoData?`임시 등급 ${s.finalGrade} · 평가 데이터 없음 — 직접 판단 필요`:`추천 등급 ${s.finalGrade} · ${GRADE_WORD[s.finalGrade]}`)}</div>
         <div class="reasons">${reasons}</div>
       </div></div>`;
   }).join('');
 
   // 스킵 영역 — 경고 시엔 가시성 위해 목록 맨 위(.top), 평상시엔 기존대로 맨 아래 (2026-07-26)
   const skipHtml=`<div class="skip-area${skipWarn?' warn top':''}">
-    <div class="st">${skipWarn?'⚠ <b>스킵 권장</b> — 지금 후보들은 현재 빌드에 큰 도움이 안 됩니다. 체력/골드 보상이 낫고, 꼭 뽑아야 한다면 아래 1순위(금색 버튼)를 고르세요.':'괜찮은 선택지가 있습니다. 위 1순위를 뽑으세요.'}</div>
+    <div class="st">${skipWarn?'⚠ <b>스킵 권장</b> — 지금 후보들은 현재 빌드에 큰 도움이 안 됩니다. 체력/골드 보상이 낫고, 꼭 뽑아야 한다면 금색 버튼의 카드를 고르세요.':'괜찮은 선택지가 있습니다. 위 1순위를 뽑으세요.'}</div>
     <button class="btn" id="skip-btn">스킵하기</button></div>`;
 
   body.innerHTML=skipWarn?skipHtml+html:html+skipHtml;

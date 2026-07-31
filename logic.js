@@ -148,7 +148,18 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   if (typeof canonEN === 'function') cardName = canonEN(cardName);
   const data = getCard(char, cardName);
   if (!data) {
-    return {name:cardName, base:'C', finalScore:2, finalGrade:'C', notes:'알 수 없는 카드', synReasons:[], antiReasons:[], isBest:false};
+    // 티어표 미등재 — (가) 커뮤니티 통계 있으면 전문가 항 제외 블렌드, (나) 아무 데이터도 없으면 희귀도 임시 등급.
+    const commScore = (typeof cardCommunityScoreVal === 'function') ? cardCommunityScoreVal(cardName, char) : null;
+    if (commScore != null) {
+      const _dbs = (typeof dataBaseScore === 'function') ? dataBaseScore(cardName, char) : null;
+      const g = SCORE_GRADE_SD(commScore);
+      return {name:cardName, base:g, baseGrade:g, finalScore:commScore, finalGrade:g, notes:'전문가 평가 없음',
+              synReasons:[], antiReasons:[], isBest:false, char, dataStat:_dbs, isExpertMissing:true};
+    }
+    const apiRarity = (typeof apiCardOf === 'function') ? (apiCardOf(cardName)||{}).rarity : null;
+    const [ug, us] = apiRarity==='Rare' ? ['B',3] : apiRarity==='Uncommon' ? ['C+',2.5] : ['C',2];
+    return {name:cardName, base:ug, finalScore:us, finalGrade:ug, notes:'데이터 없음',
+            synReasons:[], antiReasons:[], isBest:false, char, isNoData:true};
   }
 
   // 기본점수 = 3원 블렌드(승률 DELTA 주도 · 전문가 티어 앵커 · Codex 참고) — index.html cardBaseScoreVal (2026-07-25 안2).
