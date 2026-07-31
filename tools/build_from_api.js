@@ -46,7 +46,7 @@ function statsFrom(rs) {
 (async () => {
   // 1) 한국어 카드
   console.log('· 카드(한국어) 받는 중…');
-  const cardsKo = await getJSON(`${BASE}/cards?lang=kor`);
+  const cardsKo = await getJSON(`${BASE}/cards?lang=kor&channel=beta`);
   const cards = {};
   for (const c of cardsKo) {
     cards[c.id] = {
@@ -65,7 +65,7 @@ function statsFrom(rs) {
 
   // 1b) 한국어 유물
   console.log('· 유물(한국어) 받는 중…');
-  const relicsKo = await getJSON(`${BASE}/relics?lang=kor`);
+  const relicsKo = await getJSON(`${BASE}/relics?lang=kor&channel=beta`);
   const relics = {};
   for (const r of relicsKo) {
     relics[r.id] = {
@@ -83,7 +83,7 @@ function statsFrom(rs) {
   console.log('· 인챈트(한국어) 받는 중…');
   let enchants = null;
   try {
-    const enchKo = await getJSON(`${BASE}/enchantments?lang=kor`);
+    const enchKo = await getJSON(`${BASE}/enchantments?lang=kor&channel=beta`);
     enchants = {};
     for (const e of enchKo) {
       enchants[e.id] = {
