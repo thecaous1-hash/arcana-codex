@@ -619,10 +619,29 @@ function cardCommunityScoreVal(name, char){ const p=baseScoreParts(name,char);
   if(p.codex5!=null){ sw+=BLEND_W_CODEX; s+=BLEND_W_CODEX*p.codex5; }
   if(p.deltaScore!=null){ const w=BLEND_W_DELTA*(p.n/(p.n+BLEND_N_CONF)); sw+=w; s+=w*p.deltaScore; }
   return sw>0 ? s/sw : null; }
-function cardBaseGrade(name, char){ return SCORE_GRADE_SD(cardBaseScoreVal(name,char)); }
+// 미등재 카드 점수·등급 — 추천 화면(logic.js:150 scoreCard 미등재 경로)과 동일 규칙.
+//  (가) 커뮤니티 통계 있음→전문가 항 제외 블렌드 · (나) 없음→희귀도 임시 등급(Rare B/3·Uncommon C+/2.5·그 외 C/2)
+//  ※ logic.js 쪽 규칙을 바꾸면 여기도 함께 바꿀 것 (배지-추천 등급 일치 유지)
+function unlistedScoreGrade(name, char){
+  const comm=cardCommunityScoreVal(name, char);
+  if(comm!=null) return {score:comm, grade:SCORE_GRADE_SD(comm)};
+  const a=apiCardOf(name), r=a?a.rarity:null;
+  return r==='Rare' ? {score:3, grade:'B'} : r==='Uncommon' ? {score:2.5, grade:'C+'} : {score:2, grade:'C'};
+}
+function cardBaseGrade(name, char){ char=char||state.char;
+  if(!getCard(char,name)) return unlistedScoreGrade(name,char).grade;   // 미등재: 추천 화면과 동일 등급
+  return SCORE_GRADE_SD(cardBaseScoreVal(name,char)); }
 // 등급(S~D) 출처 안내문구 — 어떤 신호가 이 점수를 만들었는지 성분을 그대로 표시.
 //  예: '등급 산정: 승률Δ +19.7%p(61,502판) · Codex 53 · 전문가 티어 S'
 function gradeSourceNote(name, char){ const p=baseScoreParts(name,char);
+  if(p.tier==null){  // 티어표(db.js) 미등재 — "전문가 티어 ?" 대신 추천 화면과 동일 규칙으로 안내
+    if(p.deltaScore==null && p.codex==null)
+      return '이 카드는 아직 <b>평가 데이터가 없어요</b> — 희귀도만 참고한 임시 등급이니 직접 판단해 주세요';
+    const bits=[];
+    if(p.deltaScore!=null) bits.push(`승률Δ <b>${p.delta>=0?'+':''}${p.delta}%p</b>(${p.n.toLocaleString()}판)`);
+    if(p.codex!=null) bits.push(`Codex <b>${p.codex}</b>`);
+    return '등급 산정: '+bits.join(' · ')+' <span style="opacity:.65">— 전문가 티어 평가가 없는 카드예요, 커뮤니티 통계만 반영했습니다</span>';
+  }
   if(p.deltaScore==null && p.codex==null)
     return '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shawnrai</b> 평가만 반영했습니다';
   const bits=[];
@@ -843,7 +862,10 @@ function findCardAny(name){ if(!name)return null; const k=norm(name);
 function cardTierAny(name){ const d=getCard(state.char,name)||findCardAny(name); return d?d.tier:'?'; }
 // 표시 등급 = 커뮤니티(DELTA)×전문가 티어 블렌드 → S~D (logic.js). char 미지정 시 현재 캐릭터.
 function cardGrade(name, char){ return (typeof cardBaseGrade==='function') ? cardBaseGrade(name, char||state.char) : cardTierAny(name); }
-function cardGradeVal(name, char){ return (typeof cardBaseScoreVal==='function') ? cardBaseScoreVal(name, char||state.char) : 0; }
+function cardGradeVal(name, char){ char=char||state.char;
+  if(typeof cardBaseScoreVal!=='function') return 0;
+  if(!getCard(char,name)) return unlistedScoreGrade(name,char).score;   // 미등재: 배지와 같은 점수로 정렬
+  return cardBaseScoreVal(name,char); }
 
 function renderSlots(){
   const n=slotCount(), wrap=$('offer-slots');
