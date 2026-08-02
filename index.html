@@ -528,6 +528,31 @@ function apiRelicKey(name){ const n=(typeof canonEN==='function')?canonEN(name):
 function apiRelicOf(name){ if(!API||!API.relics) return null; return API.relics[apiRelicKey(name)]||null; }
 // 카드 또는 유물 — 이름/설명 통합 조회
 function apiEntity(name){ return apiCardOf(name) || apiRelicOf(name); }
+// ── API 보강 풀(안 A): db.js 미등재 카드(베타 신규 등)를 후보 목록에 추가 ──
+//  매핑: color 5종→해당 캐릭터 탭 · colorless/event→중립 탭 (db 전례: event 16장이 colorless 섹션)
+//  포함: Ancient 희귀도(db 전례 17/19장 등재) · 제외: status/curse/token/quest 색, Basic 희귀도
+//  항목 형태는 {id,char}로 db 카드와 동일 — 등급은 scoreCard 미등재 경로(커뮤니티/희귀도)가 책임짐.
+//  캐시는 지연 생성(첫 사용 시)이라 extra_cards.js의 DB.cards 주입(로드 시점)보다 항상 늦음 → 중복 없음.
+let _apiExtraCache=null;
+function apiExtraCards(){
+  if(_apiExtraCache) return _apiExtraCache;
+  const out={}; if(!API||!API.cards||!DB||!DB.cards) return (_apiExtraCache=out);
+  const covered=new Set();
+  for(const pool of Object.values(DB.cards)) for(const c of Object.values(pool)) covered.add(apiKey(c.id));
+  const CHAR_COLORS={ironclad:1,silent:1,defect:1,regent:1,necrobinder:1};
+  for(const [k,c] of Object.entries(API.cards)){
+    if(covered.has(k)) continue;
+    if(c.color==='status'||c.color==='curse'||c.color==='token'||c.color==='quest') continue;
+    if(c.rarity==='Basic') continue;            // 기본 카드(STRIKE_*/DEFEND_* 포함) 제외
+    const bucket=CHAR_COLORS[c.color]?c.color:'colorless';   // colorless·event → 중립
+    (out[bucket]=out[bucket]||[]).push({id:k, char:bucket});
+  }
+  return (_apiExtraCache=out);
+}
+function apiExtraFor(bucket){ return apiExtraCards()[bucket]||[]; }
+// api 한글 이름 매칭(초성 포함) — i18n 사전에 없는 베타 신규 카드 검색 보강 (i18n.js 전역 재사용)
+function apiNameMatches(id,q){ const a=apiCardOf(id); if(!a||!a.name) return false;
+  const n=a.name; return n.toLowerCase().includes(q) || (isChosungQuery(q)&&toChosung(n).includes(q)); }
 // ── 인챈트(1단계: 기록·표시용 데이터 층) ──
 // 스냅샷에 enchants가 없으면(구버전 api_data.js·fetch 실패) 기능 전체가 조용히 비활성.
 // 이미지는 사용하지 않음(스냅샷에 저장 안 함 — robots 정책). 설명 렌더는 apiDescHTML 재사용.
@@ -588,10 +613,35 @@ function cardBaseScoreVal(name, char){ const p=baseScoreParts(name,char);
   if(p.deltaScore!=null){ const w=BLEND_W_DELTA*(p.n/(p.n+BLEND_N_CONF)); sw+=w; s+=w*p.deltaScore; }
   sw+=BLEND_W_EXPERT; s+=BLEND_W_EXPERT*p.tierVal;
   return sw>0 ? s/sw : p.tierVal; }
-function cardBaseGrade(name, char){ return SCORE_GRADE_SD(cardBaseScoreVal(name,char)); }
+// 전문가 항 제외 블렌드 — 티어표(db.js) 미등재 카드용. 커뮤니티 신호(Codex·DELTA)가 하나도 없으면 null.
+function cardCommunityScoreVal(name, char){ const p=baseScoreParts(name,char);
+  let sw=0, s=0;
+  if(p.codex5!=null){ sw+=BLEND_W_CODEX; s+=BLEND_W_CODEX*p.codex5; }
+  if(p.deltaScore!=null){ const w=BLEND_W_DELTA*(p.n/(p.n+BLEND_N_CONF)); sw+=w; s+=w*p.deltaScore; }
+  return sw>0 ? s/sw : null; }
+// 미등재 카드 점수·등급 — 추천 화면(logic.js:150 scoreCard 미등재 경로)과 동일 규칙.
+//  (가) 커뮤니티 통계 있음→전문가 항 제외 블렌드 · (나) 없음→희귀도 임시 등급(Rare B/3·Uncommon C+/2.5·그 외 C/2)
+//  ※ logic.js 쪽 규칙을 바꾸면 여기도 함께 바꿀 것 (배지-추천 등급 일치 유지)
+function unlistedScoreGrade(name, char){
+  const comm=cardCommunityScoreVal(name, char);
+  if(comm!=null) return {score:comm, grade:SCORE_GRADE_SD(comm)};
+  const a=apiCardOf(name), r=a?a.rarity:null;
+  return r==='Rare' ? {score:3, grade:'B'} : r==='Uncommon' ? {score:2.5, grade:'C+'} : {score:2, grade:'C'};
+}
+function cardBaseGrade(name, char){ char=char||state.char;
+  if(!getCard(char,name)) return unlistedScoreGrade(name,char).grade;   // 미등재: 추천 화면과 동일 등급
+  return SCORE_GRADE_SD(cardBaseScoreVal(name,char)); }
 // 등급(S~D) 출처 안내문구 — 어떤 신호가 이 점수를 만들었는지 성분을 그대로 표시.
 //  예: '등급 산정: 승률Δ +19.7%p(61,502판) · Codex 53 · 전문가 티어 S'
 function gradeSourceNote(name, char){ const p=baseScoreParts(name,char);
+  if(p.tier==null){  // 티어표(db.js) 미등재 — "전문가 티어 ?" 대신 추천 화면과 동일 규칙으로 안내
+    if(p.deltaScore==null && p.codex==null)
+      return '이 카드는 아직 <b>평가 데이터가 없어요</b> — 희귀도만 참고한 임시 등급이니 직접 판단해 주세요';
+    const bits=[];
+    if(p.deltaScore!=null) bits.push(`승률Δ <b>${p.delta>=0?'+':''}${p.delta}%p</b>(${p.n.toLocaleString()}판)`);
+    if(p.codex!=null) bits.push(`Codex <b>${p.codex}</b>`);
+    return '등급 산정: '+bits.join(' · ')+' <span style="opacity:.65">— 전문가 티어 평가가 없는 카드예요, 커뮤니티 통계만 반영했습니다</span>';
+  }
   if(p.deltaScore==null && p.codex==null)
     return '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shawnrai</b> 평가만 반영했습니다';
   const bits=[];
@@ -774,13 +824,14 @@ function renderChips(){
 
 // ── 자동완성 ──
 function relicKey(n){ return n.toUpperCase().replace(/'/g,'').replace(/[\s-]+/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_').replace(/_+$/,''); }
-function cardSource(){ return DB.names.filter(n=>n.c===state.char||n.c==='colorless'); }
+function cardSource(){ return DB.names.filter(n=>n.c===state.char||n.c==='colorless')
+  .concat(apiExtraFor(state.char).concat(apiExtraFor('colorless')).map(x=>({n:x.id,c:x.char}))); }
 function relicSource(){ return (DB.relicNames||[]).filter(n=>n.c===state.char||n.c==='any').map(n=>({n:n.n,relic:true})); }
 function makeAC(input,acEl,source,onPick){
   const close=()=>acEl.classList.remove('open');
   input.addEventListener('input',()=>{
     const q=input.value.trim().toLowerCase(); if(q.length<1){close();return;}
-    const hits=source().filter(h=>nameMatches(h.n,q)).slice(0,14);
+    const hits=source().filter(h=>nameMatches(h.n,q)||apiNameMatches(h.n,q)).slice(0,14);
     if(!hits.length){close();return;}
     acEl.innerHTML=hits.map(h=>{
       const d=h.relic?DB.relics[relicKey(h.n)]:getCard(state.char,h.n);
@@ -811,7 +862,10 @@ function findCardAny(name){ if(!name)return null; const k=norm(name);
 function cardTierAny(name){ const d=getCard(state.char,name)||findCardAny(name); return d?d.tier:'?'; }
 // 표시 등급 = 커뮤니티(DELTA)×전문가 티어 블렌드 → S~D (logic.js). char 미지정 시 현재 캐릭터.
 function cardGrade(name, char){ return (typeof cardBaseGrade==='function') ? cardBaseGrade(name, char||state.char) : cardTierAny(name); }
-function cardGradeVal(name, char){ return (typeof cardBaseScoreVal==='function') ? cardBaseScoreVal(name, char||state.char) : 0; }
+function cardGradeVal(name, char){ char=char||state.char;
+  if(typeof cardBaseScoreVal!=='function') return 0;
+  if(!getCard(char,name)) return unlistedScoreGrade(name,char).score;   // 미등재: 배지와 같은 점수로 정렬
+  return cardBaseScoreVal(name,char); }
 
 function renderSlots(){
   const n=slotCount(), wrap=$('offer-slots');
@@ -842,10 +896,10 @@ function renderSlots(){
 //   (STALE 목록). 그래서 pickPool은 별도 유령 필터가 필요 없음. (2026-07-06 전수검사로 유령 0장 확인)
 let pickSlot=-1, pickReplace=false, pickFilter='cur';
 function pickPool(){ const chars=Object.keys(DB.cards);
-  if(pickFilter==='cur') return Object.values(DB.cards[state.char]||{});
-  if(pickFilter==='colorless') return Object.values(DB.cards.colorless||{});
-  if(pickFilter==='other') return chars.filter(c=>c!==state.char&&c!=='colorless').flatMap(c=>Object.values(DB.cards[c]||{}));
-  return chars.flatMap(c=>Object.values(DB.cards[c]||{})); }
+  if(pickFilter==='cur') return Object.values(DB.cards[state.char]||{}).concat(apiExtraFor(state.char));
+  if(pickFilter==='colorless') return Object.values(DB.cards.colorless||{}).concat(apiExtraFor('colorless'));
+  if(pickFilter==='other') return chars.filter(c=>c!==state.char&&c!=='colorless').flatMap(c=>Object.values(DB.cards[c]||{}).concat(apiExtraFor(c)));
+  return chars.flatMap(c=>Object.values(DB.cards[c]||{}).concat(apiExtraFor(c))); }
 function openPicker(slotIdx){
   pickSlot=slotIdx; pickReplace = slotIdx < state.offered.length && !!state.offered[slotIdx];
   $('pick-title').textContent=`카드 선택 — 슬롯 ${slotIdx+1}${pickReplace?' (교체)':''}`;
@@ -861,7 +915,7 @@ function closePicker(){ $('pick-modal').classList.remove('open'); pickSlot=-1; }
 function renderPickGrid(){
   const q=$('pick-search').value.trim().toLowerCase();
   let list=pickPool();
-  if(q) list=list.filter(c=>nameMatches(c.id,q));
+  if(q) list=list.filter(c=>nameMatches(c.id,q)||apiNameMatches(c.id,q));
   // 커뮤니티×전문가 등급 높은 순 정렬 (카드별 자기 캐릭터 기준)
   list.sort((a,b)=>cardGradeVal(b.id,b.char)-cardGradeVal(a.id,a.char)||koName(a.id).localeCompare(koName(b.id),'ko'));
   list=list.slice(0,240);
@@ -938,7 +992,9 @@ function renderRec(){
   const scored=off.map(n=>scoreCard(n,state.char,da,state.floor,state.act,state.deck,state.encounter,state.relics));
   const sorted=[...scored].sort((a,b)=>b.finalScore-a.finalScore);
   // 구 allBad(전원<1.6)는 실측 발동 0%로 폐지 — 버튼·배너를 skipWarn 하나로 일원화(메시지 모순 해소)
-  const skipWarn=sorted[0].finalScore<SKIP_WARN_TH;
+  // 데이터 전무(isNoData) 카드는 경고 판정에서 제외 — 희귀도 근거만으로 '스킵 권장'을 띄우지 않음.
+  const _judged=sorted.filter(s=>!s.isNoData);
+  const skipWarn=_judged.length>0 && _judged[0].finalScore<SKIP_WARN_TH;
 
   let html=sorted.map((s,idx)=>{
     const best=idx===0&&!skipWarn, col=tierColor(s.finalGrade);
@@ -957,7 +1013,11 @@ function renderRec(){
     // 등급 출처 표기(전문가 티어 + 커뮤니티) — 근거 하단에 작은 안내문구.
     // 커뮤니티 통계가 없는 카드는 'nostat'로 살짝 더 눈에 띄게(빈칸으로 오해 방지).
     const _eo=isExpertOnly(s.name,s.char);
-    reasons+=`<div class="reason-src${_eo?' nostat':''}"><span class="i">ⓘ</span>${gradeSourceNote(s.name,s.char)}</div>`;
+    reasons+= s.isNoData
+      ? `<div class="reason-src nostat"><span class="i">ⓘ</span>이 카드는 아직 <b>평가 데이터가 없어요</b> — 희귀도만 참고한 임시 등급이니 직접 판단해 주세요.</div>`
+      : s.isExpertMissing
+      ? `<div class="reason-src"><span class="i">ⓘ</span>전문가 티어 평가가 없는 카드예요 — <b>커뮤니티 통계만</b> 반영했습니다.</div>`
+      : `<div class="reason-src${_eo?' nostat':''}"><span class="i">ⓘ</span>${gradeSourceNote(s.name,s.char)}</div>`;
     return `<div class="rec${best?' best':''}">
       <div class="rec-head">
         <div class="rec-rank">${idx+1}</div>
@@ -966,19 +1026,19 @@ function renderRec(){
           <div class="rec-name">${gradeBadge(s.baseGrade||s.base)}${typeBadge(s.name)} ${koName(s.name)}<span class="en">${s.name}</span></div>
           <div class="rec-badges">${recBadges(s,da)}${pickBadge(s.finalScore)}</div>
         </div>
-        <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':(idx===0&&skipWarn?'그래도 뽑는다면 이 카드':'뽑기')}</button>
+        <button class="btn ${best?'green':'gold'} rec-pick" data-name="${esc(s.name)}">${best?'① 이 카드 뽑기':(skipWarn&&_judged[0]===s?'그래도 뽑는다면 이 카드':'뽑기')}</button>
         <span class="rec-x" data-name="${esc(s.name)}" title="이 카드 빼기">✕</span>
       </div>
       <div class="rec-why">
         ${descHTML(s.name,false)?`<div class="rec-desc">${descHTML(s.name,false)}</div>`:''}
-        <div class="rec-lead">${best?reasonLead(s,da):`추천 등급 ${s.finalGrade} · ${GRADE_WORD[s.finalGrade]}`}</div>
+        <div class="rec-lead">${best?reasonLead(s,da):(s.isNoData?`임시 등급 ${s.finalGrade} · 평가 데이터 없음 — 직접 판단 필요`:`추천 등급 ${s.finalGrade} · ${GRADE_WORD[s.finalGrade]}`)}</div>
         <div class="reasons">${reasons}</div>
       </div></div>`;
   }).join('');
 
   // 스킵 영역 — 경고 시엔 가시성 위해 목록 맨 위(.top), 평상시엔 기존대로 맨 아래 (2026-07-26)
   const skipHtml=`<div class="skip-area${skipWarn?' warn top':''}">
-    <div class="st">${skipWarn?'⚠ <b>스킵 권장</b> — 지금 후보들은 현재 빌드에 큰 도움이 안 됩니다. 체력/골드 보상이 낫고, 꼭 뽑아야 한다면 아래 1순위(금색 버튼)를 고르세요.':'괜찮은 선택지가 있습니다. 위 1순위를 뽑으세요.'}</div>
+    <div class="st">${skipWarn?'⚠ <b>스킵 권장</b> — 지금 후보들은 현재 빌드에 큰 도움이 안 됩니다. 체력/골드 보상이 낫고, 꼭 뽑아야 한다면 금색 버튼의 카드를 고르세요.':'괜찮은 선택지가 있습니다. 위 1순위를 뽑으세요.'}</div>
     <button class="btn" id="skip-btn">스킵하기</button></div>`;
 
   body.innerHTML=skipWarn?skipHtml+html:html+skipHtml;

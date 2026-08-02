@@ -4605,7 +4605,7 @@ const DB = {
         ],
         "role": "generator"
       },
-      "HYPER_BEAM": {
+      "HYPERBEAM": {
         "id": "Hyperbeam",
         "tier": "D",
         "builds": [
@@ -6527,7 +6527,7 @@ const DB = {
         ],
         "role": "payoff"
       },
-      "PATTERN": {
+      "PATTER": {
         "id": "Patter",
         "tier": "C",
         "builds": [
@@ -8138,7 +8138,7 @@ const DB = {
         ],
         "role": "generator"
       },
-      "SCYTHE": {
+      "THE_SCYTHE": {
         "id": "The Scythe",
         "tier": "B",
         "builds": [

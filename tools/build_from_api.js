@@ -18,17 +18,24 @@ const MAX_ASC = 10;                 // STS2 최고 승천(전체 스냅샷 외�
 const r1 = n => Math.round(n * 10) / 10;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function getJSON(url, tries = 4) {
+async function getJSON(url, tries = 4, timeoutMs = 25000) {
   for (let i = 0; i < tries; i++) {
     const ac = new AbortController();
-    const timer = setTimeout(() => ac.abort(), 25000);   // 25초 넘으면 중단 후 재시도(무한대기 방지)
+    const timer = setTimeout(() => ac.abort(), timeoutMs);   // 기본 25초(핵심 데이터), 넘으면 중단 후 재시도(무한대기 방지)
     try {
       const res = await fetch(url, { headers: { 'Accept-Encoding': 'gzip' }, signal: ac.signal });
       if (!res.ok) throw new Error(`${res.status}`);
       return await res.json();
-    } catch (e) { if (i === tries - 1) throw new Error(`${e.message} ${url}`); await sleep(1000); }
+    } catch (e) { if (i === tries - 1) throw new Error(`${e.message} ${url}`);
+      console.warn(`  재시도 ${i + 1}/${tries - 1} (${e.message})…`); await sleep(1500 * (i + 1)); }
     finally { clearTimeout(timer); }
   }
+}
+// 통계(/runs/*) 전용 관대 래퍼 — 타임아웃 60초로 연장, 재시도 소진 시 중단 대신 null 반환.
+// (카드·유물·티어 등 핵심 데이터는 getJSON 그대로: 25초·실패 시 전체 중단 유지)
+async function getJSONSoft(url, tries = 4, timeoutMs = 60000) {
+  try { return await getJSON(url, tries, timeoutMs); }
+  catch (e) { console.warn(`  ⚠ 누락 처리(계속 진행): ${e.message}`); return null; }
 }
 // runs/stats 응답 → {base_wr,total_runs,cards:{ID:{wr,delta,n}}} (승률 DELTA 계산)
 function statsFrom(rs) {
@@ -46,7 +53,7 @@ function statsFrom(rs) {
 (async () => {
   // 1) 한국어 카드
   console.log('· 카드(한국어) 받는 중…');
-  const cardsKo = await getJSON(`${BASE}/cards?lang=kor`);
+  const cardsKo = await getJSON(`${BASE}/cards?lang=kor&channel=beta`);
   const cards = {};
   for (const c of cardsKo) {
     cards[c.id] = {
@@ -65,7 +72,7 @@ function statsFrom(rs) {
 
   // 1b) 한국어 유물
   console.log('· 유물(한국어) 받는 중…');
-  const relicsKo = await getJSON(`${BASE}/relics?lang=kor`);
+  const relicsKo = await getJSON(`${BASE}/relics?lang=kor&channel=beta`);
   const relics = {};
   for (const r of relicsKo) {
     relics[r.id] = {
@@ -83,7 +90,7 @@ function statsFrom(rs) {
   console.log('· 인챈트(한국어) 받는 중…');
   let enchants = null;
   try {
-    const enchKo = await getJSON(`${BASE}/enchantments?lang=kor`);
+    const enchKo = await getJSON(`${BASE}/enchantments?lang=kor&channel=beta`);
     enchants = {};
     for (const e of enchKo) {
       enchants[e.id] = {
@@ -108,15 +115,18 @@ function statsFrom(rs) {
 
   // 3) 캐릭터별 승률 DELTA — 전체(stats) + 최고 승천(statsHi)
   const stats = {}, statsHi = {};
+  const missingStats = [];
   let stampVersion = null;
   for (const [param, id] of Object.entries(CHARS)) {
     console.log(`· 통계 ${param} (전체) 받는 중…`);
-    stats[id] = statsFrom(await getJSON(`${BASE}/runs/stats?character=${param}`));
+    const all = await getJSONSoft(`${BASE}/runs/stats?character=${param}`);
+    if (all) stats[id] = statsFrom(all); else missingStats.push(`${id}(전체)`);
     await sleep(400);
     console.log(`· 통계 ${param} (승천 ${MAX_ASC}) 받는 중…`);
-    statsHi[id] = statsFrom(await getJSON(`${BASE}/runs/stats?character=${param}&ascension=${MAX_ASC}`));
+    const hi = await getJSONSoft(`${BASE}/runs/stats?character=${param}&ascension=${MAX_ASC}`);
+    if (hi) statsHi[id] = statsFrom(hi); else missingStats.push(`${id}(A${MAX_ASC})`);
     await sleep(400);
-    console.log(`  ${id}: 전체 base ${stats[id].base_wr}% (${stats[id].total_runs}런) · A${MAX_ASC} base ${statsHi[id].base_wr}% (${statsHi[id].total_runs}런)`);
+    console.log(`  ${id}: 전체 ${stats[id] ? `base ${stats[id].base_wr}% (${stats[id].total_runs}런)` : '누락'} · A${MAX_ASC} ${statsHi[id] ? `base ${statsHi[id].base_wr}% (${statsHi[id].total_runs}런)` : '누락'}`);
   }
 
   // 4) 버전 스탬프 (최신 런 build_id)
@@ -135,4 +145,6 @@ function statsFrom(rs) {
   fs.writeFileSync(path.join(PROJ, 'data', 'api_data.js'), js);
   const kb = (fs.statSync(path.join(PROJ, 'data', 'api_data.js')).size / 1024).toFixed(0);
   console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 게임 ${stampVersion} · 카드 ${Object.keys(cards).length} · 유물 ${Object.keys(relics).length} · 인챈트 ${enchants ? Object.keys(enchants).length : 0} · 티어 ${Object.keys(tier).length} · 통계(전체+A${MAX_ASC}) ${Object.keys(stats).length}캐릭`);
+  if (missingStats.length) console.warn(`⚠ 통계 누락 ${missingStats.length}건: ${missingStats.join(', ')} — 앱은 해당 캐릭터를 Codex+전문가 블렌드로 폴백합니다. 재실행하면 다시 시도합니다.`);
+  else console.log(`통계 누락 없음 (${Object.keys(CHARS).length * 2}/${Object.keys(CHARS).length * 2})`);
 })().catch(e => { console.error('실패:', e.message); process.exit(1); });
