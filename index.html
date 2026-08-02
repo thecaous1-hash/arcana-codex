@@ -528,6 +528,31 @@ function apiRelicKey(name){ const n=(typeof canonEN==='function')?canonEN(name):
 function apiRelicOf(name){ if(!API||!API.relics) return null; return API.relics[apiRelicKey(name)]||null; }
 // 카드 또는 유물 — 이름/설명 통합 조회
 function apiEntity(name){ return apiCardOf(name) || apiRelicOf(name); }
+// ── API 보강 풀(안 A): db.js 미등재 카드(베타 신규 등)를 후보 목록에 추가 ──
+//  매핑: color 5종→해당 캐릭터 탭 · colorless/event→중립 탭 (db 전례: event 16장이 colorless 섹션)
+//  포함: Ancient 희귀도(db 전례 17/19장 등재) · 제외: status/curse/token/quest 색, Basic 희귀도
+//  항목 형태는 {id,char}로 db 카드와 동일 — 등급은 scoreCard 미등재 경로(커뮤니티/희귀도)가 책임짐.
+//  캐시는 지연 생성(첫 사용 시)이라 extra_cards.js의 DB.cards 주입(로드 시점)보다 항상 늦음 → 중복 없음.
+let _apiExtraCache=null;
+function apiExtraCards(){
+  if(_apiExtraCache) return _apiExtraCache;
+  const out={}; if(!API||!API.cards||!DB||!DB.cards) return (_apiExtraCache=out);
+  const covered=new Set();
+  for(const pool of Object.values(DB.cards)) for(const c of Object.values(pool)) covered.add(apiKey(c.id));
+  const CHAR_COLORS={ironclad:1,silent:1,defect:1,regent:1,necrobinder:1};
+  for(const [k,c] of Object.entries(API.cards)){
+    if(covered.has(k)) continue;
+    if(c.color==='status'||c.color==='curse'||c.color==='token'||c.color==='quest') continue;
+    if(c.rarity==='Basic') continue;            // 기본 카드(STRIKE_*/DEFEND_* 포함) 제외
+    const bucket=CHAR_COLORS[c.color]?c.color:'colorless';   // colorless·event → 중립
+    (out[bucket]=out[bucket]||[]).push({id:k, char:bucket});
+  }
+  return (_apiExtraCache=out);
+}
+function apiExtraFor(bucket){ return apiExtraCards()[bucket]||[]; }
+// api 한글 이름 매칭(초성 포함) — i18n 사전에 없는 베타 신규 카드 검색 보강 (i18n.js 전역 재사용)
+function apiNameMatches(id,q){ const a=apiCardOf(id); if(!a||!a.name) return false;
+  const n=a.name; return n.toLowerCase().includes(q) || (isChosungQuery(q)&&toChosung(n).includes(q)); }
 // ── 인챈트(1단계: 기록·표시용 데이터 층) ──
 // 스냅샷에 enchants가 없으면(구버전 api_data.js·fetch 실패) 기능 전체가 조용히 비활성.
 // 이미지는 사용하지 않음(스냅샷에 저장 안 함 — robots 정책). 설명 렌더는 apiDescHTML 재사용.
@@ -780,13 +805,14 @@ function renderChips(){
 
 // ── 자동완성 ──
 function relicKey(n){ return n.toUpperCase().replace(/'/g,'').replace(/[\s-]+/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_').replace(/_+$/,''); }
-function cardSource(){ return DB.names.filter(n=>n.c===state.char||n.c==='colorless'); }
+function cardSource(){ return DB.names.filter(n=>n.c===state.char||n.c==='colorless')
+  .concat(apiExtraFor(state.char).concat(apiExtraFor('colorless')).map(x=>({n:x.id,c:x.char}))); }
 function relicSource(){ return (DB.relicNames||[]).filter(n=>n.c===state.char||n.c==='any').map(n=>({n:n.n,relic:true})); }
 function makeAC(input,acEl,source,onPick){
   const close=()=>acEl.classList.remove('open');
   input.addEventListener('input',()=>{
     const q=input.value.trim().toLowerCase(); if(q.length<1){close();return;}
-    const hits=source().filter(h=>nameMatches(h.n,q)).slice(0,14);
+    const hits=source().filter(h=>nameMatches(h.n,q)||apiNameMatches(h.n,q)).slice(0,14);
     if(!hits.length){close();return;}
     acEl.innerHTML=hits.map(h=>{
       const d=h.relic?DB.relics[relicKey(h.n)]:getCard(state.char,h.n);
@@ -848,10 +874,10 @@ function renderSlots(){
 //   (STALE 목록). 그래서 pickPool은 별도 유령 필터가 필요 없음. (2026-07-06 전수검사로 유령 0장 확인)
 let pickSlot=-1, pickReplace=false, pickFilter='cur';
 function pickPool(){ const chars=Object.keys(DB.cards);
-  if(pickFilter==='cur') return Object.values(DB.cards[state.char]||{});
-  if(pickFilter==='colorless') return Object.values(DB.cards.colorless||{});
-  if(pickFilter==='other') return chars.filter(c=>c!==state.char&&c!=='colorless').flatMap(c=>Object.values(DB.cards[c]||{}));
-  return chars.flatMap(c=>Object.values(DB.cards[c]||{})); }
+  if(pickFilter==='cur') return Object.values(DB.cards[state.char]||{}).concat(apiExtraFor(state.char));
+  if(pickFilter==='colorless') return Object.values(DB.cards.colorless||{}).concat(apiExtraFor('colorless'));
+  if(pickFilter==='other') return chars.filter(c=>c!==state.char&&c!=='colorless').flatMap(c=>Object.values(DB.cards[c]||{}).concat(apiExtraFor(c)));
+  return chars.flatMap(c=>Object.values(DB.cards[c]||{}).concat(apiExtraFor(c))); }
 function openPicker(slotIdx){
   pickSlot=slotIdx; pickReplace = slotIdx < state.offered.length && !!state.offered[slotIdx];
   $('pick-title').textContent=`카드 선택 — 슬롯 ${slotIdx+1}${pickReplace?' (교체)':''}`;
@@ -867,7 +893,7 @@ function closePicker(){ $('pick-modal').classList.remove('open'); pickSlot=-1; }
 function renderPickGrid(){
   const q=$('pick-search').value.trim().toLowerCase();
   let list=pickPool();
-  if(q) list=list.filter(c=>nameMatches(c.id,q));
+  if(q) list=list.filter(c=>nameMatches(c.id,q)||apiNameMatches(c.id,q));
   // 커뮤니티×전문가 등급 높은 순 정렬 (카드별 자기 캐릭터 기준)
   list.sort((a,b)=>cardGradeVal(b.id,b.char)-cardGradeVal(a.id,a.char)||koName(a.id).localeCompare(koName(b.id),'ko'));
   list=list.slice(0,240);
