@@ -578,7 +578,16 @@ function apiDescText(text){ if(!text) return '';
     .replace(/\[\/?[a-zA-Z_]+(?::\d+)?\]/g,'').replace(/\n/g,' ').trim(); }
 // DELTA 원점수: 승률차(넣은 런 − 안 넣은 런)를 0~5로. (표본 신뢰도 가중은 logic.js 블렌드가 담당)
 // 승천 밴드: state.asc==='hi'면 최고 승천(A10) 통계 우선, 표본 부족(<200)하면 전체로 폴백.
+// 시작 카드(Basic) 여부 — API 희귀도 기준(하드코딩 목록 금지). apiCardOf 동등 경로지만 char 파라미터로
+// STRIKE/DEFEND 캐릭터별 키를 조회(산식 블록 안에 두어 검증 하네스에서도 동일 동작).
+// dataBaseScore(델타 차단)·gradeSourceNote(안내문)가 공유.
+function isBasicCard(name, char){ if(!API||!API.cards) return false; const k=apiKey(name);
+  const a=API.cards[k]||((k==='STRIKE'||k==='DEFEND')?API.cards[k+'_'+String(char||state.char).toUpperCase()]:null);
+  return !!(a&&a.rarity==='Basic'); }
 function dataBaseScore(name, char){ if(!API||!API.stats) return null;
+  // 시작 카드 델타 차단(2026-08-03 감사): Basic은 "안 넣은 런 = 제거에 성공한 고수의 런"이라
+  // Δ가 -25~-40%p로 왜곡됨 → 델타 신호를 블렌드에서 제외, 전문가 티어(+Codex)만으로 평가.
+  if(isBasicCard(name,char)) return null;
   const k=apiKey(name);
   const pick=bank=>{ const sc=bank&&bank[char]; if(!sc) return null; let st=sc.cards[k];
     if(!st&&(k==='STRIKE'||k==='DEFEND')) st=sc.cards[k+'_'+char.toUpperCase()]; return st; };
@@ -597,6 +606,7 @@ const BLEND_W_DELTA  = 0.45;  // 승률 델타: 이 카드를 넣은 런이 실�
 const BLEND_W_EXPERT = 0.30;  // 전문가 티어(db.js): 최신 패치를 아는 앵커
 const BLEND_W_CODEX  = 0.25;  // Codex 점수: 전기간 누적이라 낡음 — 참고 수준으로 강등
 const BLEND_N_CONF   = 1000;  // DELTA 표본 신뢰 반감점(n=1000에서 신뢰 50%)
+const BLEND_CLAMP    = 1.0;   // 전문가 앵커 가드레일: 블렌드 결과를 티어값 ±1.0으로 제한(2026-08-03 감사)
 // 세 신호의 원값 묶음 — 블렌드와 근거 표시(gradeSourceNote)가 공유.
 function baseScoreParts(name, char){ char=char||state.char;
   const data=(typeof getCard==='function')?getCard(char,name):null;
@@ -607,12 +617,19 @@ function baseScoreParts(name, char){ char=char||state.char;
   return { tier:data?data.tier:null, tierVal,
     codex:(t&&t.score!=null)?t.score:null, codex5,
     delta:dbs?dbs.delta:null, deltaScore:dbs?dbs.score:null, n:dbs?dbs.n:0, band:dbs?dbs.band:null }; }
-function cardBaseScoreVal(name, char){ const p=baseScoreParts(name,char);
-  let sw=0, s=0;
+// 블렌드 원값(가드레일 적용 전) — cardBaseScoreVal과 gradeSourceNote(보정 표시)가 공유.
+function blendRawVal(p){ let sw=0, s=0;
   if(p.codex5!=null){ sw+=BLEND_W_CODEX; s+=BLEND_W_CODEX*p.codex5; }
   if(p.deltaScore!=null){ const w=BLEND_W_DELTA*(p.n/(p.n+BLEND_N_CONF)); sw+=w; s+=w*p.deltaScore; }
   sw+=BLEND_W_EXPERT; s+=BLEND_W_EXPERT*p.tierVal;
   return sw>0 ? s/sw : p.tierVal; }
+// 전문가 앵커 가드레일(2026-08-03 감사): 티어표 등재 카드는 블렌드 결과를 티어값 ±BLEND_CLAMP로 클램프.
+// 상황 의존 카드의 선택 편향(좋은 덱에서만 채용 → 승률Δ 부풀림)이 티어 대비 2등급 이상 띄우는 것 차단.
+// 티어표 미등재 카드(cardCommunityScoreVal/unlistedScoreGrade 경로)에는 적용하지 않음.
+function expertClampVal(p, raw){ if(p.tier==null) return raw;
+  return Math.max(p.tierVal-BLEND_CLAMP, Math.min(p.tierVal+BLEND_CLAMP, raw)); }
+function cardBaseScoreVal(name, char){ const p=baseScoreParts(name,char);
+  return expertClampVal(p, blendRawVal(p)); }
 // 전문가 항 제외 블렌드 — 티어표(db.js) 미등재 카드용. 커뮤니티 신호(Codex·DELTA)가 하나도 없으면 null.
 function cardCommunityScoreVal(name, char){ const p=baseScoreParts(name,char);
   let sw=0, s=0;
@@ -642,13 +659,20 @@ function gradeSourceNote(name, char){ const p=baseScoreParts(name,char);
     if(p.codex!=null) bits.push(`Codex <b>${p.codex}</b>`);
     return '등급 산정: '+bits.join(' · ')+' <span style="opacity:.65">— 전문가 티어 평가가 없는 카드예요, 커뮤니티 통계만 반영했습니다</span>';
   }
+  const basic=isBasicCard(name,char);
   if(p.deltaScore==null && p.codex==null)
-    return '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shawnrai</b> 평가만 반영했습니다';
+    return basic
+      ? '<b>시작 카드</b>예요 — 시작 카드는 승률 통계가 왜곡되기 쉬워 반영하지 않고, 전문가 티어 <b>Shawnrai</b> 평가만 반영했습니다'
+      : '아직 <b>커뮤니티 통계가 없는 카드</b>예요 — 전문가 티어 <b>Shawnrai</b> 평가만 반영했습니다';
   const bits=[];
   if(p.deltaScore!=null) bits.push(`승률Δ <b>${p.delta>=0?'+':''}${p.delta}%p</b>(${p.n.toLocaleString()}판)`);
   if(p.codex!=null) bits.push(`Codex <b>${p.codex}</b>`);
   bits.push(`전문가 티어 <b>${p.tier||'?'}</b>`);
-  return '등급 산정: '+bits.join(' · ')+' <span style="opacity:.65">— spire-codex + Shawnrai 3원 블렌드</span>'; }
+  let note='등급 산정: '+bits.join(' · ')+' <span style="opacity:.65">— spire-codex + Shawnrai 3원 블렌드</span>';
+  if(basic) note+=' <span style="opacity:.65">— 시작 카드라 승률 통계는 반영하지 않았습니다</span>';
+  const raw=blendRawVal(p);
+  if(Math.abs(expertClampVal(p,raw)-raw)>1e-9) note+=' <span style="opacity:.65">— 전문가 티어 기준으로 보정됨</span>';
+  return note; }
 // 이 카드가 커뮤니티 데이터 없이 전문가 티어로만 평가됐는지 여부(폴백 표시용).
 function isExpertOnly(name, char){ char=char||state.char;
   const t=(API&&API.tier)?API.tier[apiKey(name)]:null; if(t&&t.score!=null) return false;
