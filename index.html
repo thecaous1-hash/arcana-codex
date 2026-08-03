@@ -1232,6 +1232,14 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('ench-modal').cl
 $('pick-x').addEventListener('click',closePicker);
 $('pick-modal').addEventListener('click',e=>{ if(e.target===$('pick-modal')) closePicker(); });
 $('pick-search').addEventListener('input',renderPickGrid);
+// 엔터: 필터 결과가 정확히 1장이면 클릭과 동일하게 선택. 한글 IME 조합 확정 엔터는 무시.
+$('pick-search').addEventListener('keydown',e=>{
+  if(e.key!=='Enter') return;
+  if(e.isComposing||e.keyCode===229) return;   // 조합 중 엔터 → 글자 확정만
+  e.preventDefault();
+  const cards=$('pick-grid').querySelectorAll('.pcard');
+  if(cards.length===1) pickChoose(cards[0].dataset.name);  // 클릭 핸들러와 동일 경로
+});
 $('pick-tabs').querySelectorAll('.ptab').forEach(t=>t.addEventListener('click',()=>{
   $('pick-tabs').querySelectorAll('.ptab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
   pickFilter=t.dataset.f; renderPickGrid(); $('pick-search').focus(); }));
