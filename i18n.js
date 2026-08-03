@@ -362,6 +362,20 @@ function toChosung(str) {
 // 질의가 초성 자모(ㄱ~ㅎ)로만 이루어졌는지
 function isChosungQuery(q) { return /^[ㄱ-ㅎ]+$/.test(q); }
 
+// ── 초성 비교용 정규화 (초성 검색 경로 전용 — 완성형 텍스트 검색에는 미적용) ──
+// IME가 ㄱ+ㅅ 연타를 ㄳ 한 글자로 합치므로, 겹받침 계열 호환 자모는 구성 자음 2개로 분해.
+// 쌍자음(ㄲㄸㅃㅆㅉ)은 실제 초성이므로 절대 분해하지 않는다. ("까마귀"가 ㄱㄱ에 걸리면 안 됨)
+const COMPOUND_JAMO = { 'ㄳ':'ㄱㅅ','ㄵ':'ㄴㅈ','ㄶ':'ㄴㅎ','ㄺ':'ㄹㄱ','ㄻ':'ㄹㅁ','ㄼ':'ㄹㅂ','ㄽ':'ㄹㅅ','ㄾ':'ㄹㅌ','ㄿ':'ㄹㅍ','ㅀ':'ㄹㅎ','ㅄ':'ㅂㅅ' };
+function normChosung(s) {
+  return String(s).replace(/\s+/g, '').replace(/[ㄳㄵㄶㄺㄻㄼㄽㄾㄿㅀㅄ]/g, ch => COMPOUND_JAMO[ch]);
+}
+// 이름 ↔ 초성 질의 부분일치. 비교 직전 양쪽 모두 정규화(공백 제거+겹자음 분해).
+// nameMatches·apiNameMatches(index.html) 공용 — 중복 구현 금지.
+function chosungMatches(name, q) {
+  const cq = normChosung(q);
+  return isChosungQuery(cq) && normChosung(toChosung(name)).includes(cq);
+}
+
 // 자동완성/검색: 영어 id / 한국어 이름 부분일치 + 한글 초성 검색
 function nameMatches(en, q) {
   if (!q) return false;
@@ -369,9 +383,7 @@ function nameMatches(en, q) {
   const ko = KO_NAME[en] || '';
   if (en.toLowerCase().includes(q) || ko.includes(q) || (off && off.includes(q))) return true;
   // 초성 질의면 이름의 초성열에서 부분일치 검사
-  if (isChosungQuery(q)) {
-    if (ko && toChosung(ko).includes(q)) return true;
-    if (off && toChosung(off).includes(q)) return true;
-  }
+  if (ko && chosungMatches(ko, q)) return true;
+  if (off && chosungMatches(off, q)) return true;
   return false;
 }

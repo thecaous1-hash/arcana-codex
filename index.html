@@ -552,7 +552,7 @@ function apiExtraCards(){
 function apiExtraFor(bucket){ return apiExtraCards()[bucket]||[]; }
 // api 한글 이름 매칭(초성 포함) — i18n 사전에 없는 베타 신규 카드 검색 보강 (i18n.js 전역 재사용)
 function apiNameMatches(id,q){ const a=apiCardOf(id); if(!a||!a.name) return false;
-  const n=a.name; return n.toLowerCase().includes(q) || (isChosungQuery(q)&&toChosung(n).includes(q)); }
+  const n=a.name; return n.toLowerCase().includes(q) || chosungMatches(n,q); }
 // ── 인챈트(1단계: 기록·표시용 데이터 층) ──
 // 스냅샷에 enchants가 없으면(구버전 api_data.js·fetch 실패) 기능 전체가 조용히 비활성.
 // 이미지는 사용하지 않음(스냅샷에 저장 안 함 — robots 정책). 설명 렌더는 apiDescHTML 재사용.
