@@ -552,7 +552,7 @@ function apiExtraCards(){
 function apiExtraFor(bucket){ return apiExtraCards()[bucket]||[]; }
 // api 한글 이름 매칭(초성 포함) — i18n 사전에 없는 베타 신규 카드 검색 보강 (i18n.js 전역 재사용)
 function apiNameMatches(id,q){ const a=apiCardOf(id); if(!a||!a.name) return false;
-  const n=a.name; return n.toLowerCase().includes(q) || (isChosungQuery(q)&&toChosung(n).includes(q)); }
+  const n=a.name; return n.toLowerCase().includes(q) || chosungMatches(n,q); }
 // ── 인챈트(1단계: 기록·표시용 데이터 층) ──
 // 스냅샷에 enchants가 없으면(구버전 api_data.js·fetch 실패) 기능 전체가 조용히 비활성.
 // 이미지는 사용하지 않음(스냅샷에 저장 안 함 — robots 정책). 설명 렌더는 apiDescHTML 재사용.
@@ -1232,6 +1232,14 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('ench-modal').cl
 $('pick-x').addEventListener('click',closePicker);
 $('pick-modal').addEventListener('click',e=>{ if(e.target===$('pick-modal')) closePicker(); });
 $('pick-search').addEventListener('input',renderPickGrid);
+// 엔터: 필터 결과가 정확히 1장이면 클릭과 동일하게 선택. 한글 IME 조합 확정 엔터는 무시.
+$('pick-search').addEventListener('keydown',e=>{
+  if(e.key!=='Enter') return;
+  if(e.isComposing||e.keyCode===229) return;   // 조합 중 엔터 → 글자 확정만
+  e.preventDefault();
+  const cards=$('pick-grid').querySelectorAll('.pcard');
+  if(cards.length===1) pickChoose(cards[0].dataset.name);  // 클릭 핸들러와 동일 경로
+});
 $('pick-tabs').querySelectorAll('.ptab').forEach(t=>t.addEventListener('click',()=>{
   $('pick-tabs').querySelectorAll('.ptab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
   pickFilter=t.dataset.f; renderPickGrid(); $('pick-search').focus(); }));
