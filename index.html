@@ -325,6 +325,20 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 .rhead{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .rhead .rh-title{font-size:1.05rem;color:var(--text);font-weight:700}
 .rbadge{font-size:.72rem;padding:2px 8px;border-radius:4px;border:1px solid var(--border2);color:var(--text2)}
+
+/* 피드백 플로팅 버튼 + 구글 폼 모달 */
+.feedback-fab{position:fixed;right:16px;bottom:68px;z-index:45;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:10px 16px;background:var(--bg3);border:1px solid var(--gold);color:var(--gold2);border-radius:22px;font-family:inherit;font-size:.88rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.45);transition:all .15s}
+.feedback-fab:hover{background:rgba(240,168,60,.14);color:var(--gold3)}
+@media(max-width:420px){.feedback-fab{bottom:80px}}
+.feedback-modal-ov{position:fixed;inset:0;z-index:220;background:rgba(0,0,0,.72);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px}
+.feedback-modal-ov.open{display:flex}
+.feedback-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;width:min(640px,95vw);height:min(90vh,900px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.feedback-modal-h{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 14px;border-bottom:1px solid var(--border);flex-shrink:0}
+.feedback-title{flex:1;font-size:.95rem;color:var(--gold2);font-family:'Cinzel',serif}
+.feedback-x{background:transparent;border:none;color:var(--text3);font-size:1.2rem;line-height:1;min-width:44px;min-height:44px;cursor:pointer;flex-shrink:0}
+.feedback-x:hover{color:var(--red2)}
+.feedback-body{flex:1;overflow-y:auto;background:var(--bg3);scrollbar-width:thin;scrollbar-color:var(--border2) transparent}
+.feedback-body iframe{display:block;width:100%;height:1910px;border:none}
 </style>
 </head>
 <body>
@@ -474,6 +488,20 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
       <div class="ptab" data-f="all">전체</div>
     </div>
     <div class="pick-grid" id="pick-grid"></div>
+  </div>
+</div>
+
+<!-- 피드백 플로팅 버튼 + 구글 폼 모달 -->
+<button class="feedback-fab" id="feedback-fab" aria-label="피드백 보내기">💬 피드백</button>
+<div class="feedback-modal-ov" id="feedback-modal" role="dialog" aria-modal="true" aria-label="피드백 보내기">
+  <div class="feedback-modal">
+    <div class="feedback-modal-h">
+      <span class="feedback-title">💬 피드백</span>
+      <button class="feedback-x" id="feedback-x" aria-label="피드백 창 닫기">✕</button>
+    </div>
+    <div class="feedback-body">
+      <iframe id="feedback-iframe" title="피드백 보내기" data-src="https://docs.google.com/forms/d/e/1FAIpQLSc_imSTQnz1h1pWogBGp1HPwo5uThrJRFAd7k2h81oTgtdrcQ/viewform?embedded=true"></iframe>
+    </div>
   </div>
 </div>
 
@@ -1268,6 +1296,29 @@ $('pick-tabs').querySelectorAll('.ptab').forEach(t=>t.addEventListener('click',(
   $('pick-tabs').querySelectorAll('.ptab').forEach(x=>x.classList.remove('on')); t.classList.add('on');
   pickFilter=t.dataset.f; renderPickGrid(); $('pick-search').focus(); }));
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&$('pick-modal').classList.contains('open')) closePicker(); });
+
+// ── 피드백 버튼 + 구글 폼 모달 (UI 전용 — 추천 로직과 무관) ──
+let feedbackLoaded=false;
+function openFeedback(){
+  // 첫 클릭 때만 data-src → src 주입. 이후엔 재로드하지 않음(입력 중이던 폼 내용 유지).
+  if(!feedbackLoaded){ const f=$('feedback-iframe'); f.src=f.dataset.src; feedbackLoaded=true; }
+  $('feedback-modal').classList.add('open');
+  document.body.style.overflow='hidden';   // 모달 열림 동안 뒤 본문 스크롤 잠금
+}
+function closeFeedback(){
+  $('feedback-modal').classList.remove('open');
+  document.body.style.overflow='';         // 닫을 때 반드시 원복
+}
+$('feedback-fab').addEventListener('click',openFeedback);
+$('feedback-x').addEventListener('click',closeFeedback);
+$('feedback-modal').addEventListener('click',e=>{ if(e.target===$('feedback-modal')) closeFeedback(); });   // backdrop 클릭
+// 캡처 단계 리스너: 모달 열림 동안 Esc는 이 모달만 닫고, 나머지 키 입력은 전파를 끊어
+// 문서 레벨의 기존/향후 단축키 핸들러(다른 모달 Esc, 검색 엔터 등)가 발동하지 않게 함.
+document.addEventListener('keydown',e=>{
+  if(!$('feedback-modal').classList.contains('open')) return;
+  if(e.key==='Escape') closeFeedback();
+  e.stopPropagation();
+},true);
 
 // ══════ 런 복기 / 실패 분석 (설계 §6) ══════
 let RUNS=[], curRunIdx=-1;
