@@ -1,5 +1,39 @@
 # Arcana Codex — 확인 & 수정 목록
 
+## 다음 세션 재개 지점 (2026-08-14 기준)
+
+**첫 번째로 할 일: A10 서버 회복 확인**
+브라우저에서 아래 주소를 연다.
+https://spire-codex.com/api/runs/stats?character=IronClad&ascension=10
+- 데이터가 뜨면 → npm run build-data 실행 후 A10 5개 성공 확인 → 커밋
+- 504 Gateway time-out이면 → 아직 회복 안 됨. 아래 항목만 진행
+
+**미해결 사항**
+1. 데이터 갱신 보류 — upstream A10 엔드포인트가 504로 응답 불가 (2026-08-14 확인).
+   Cloudflare 진단상 Host만 Error, 우리 쪽 문제 아님.
+   타임아웃 연장은 무의미(Cloudflare가 100초에 먼저 끊음).
+
+2. [우선순위 높음] 빌드 부분 실패 대비 구조 개선
+   현재는 항목을 못 받으면 빈 값으로 파일을 새로 써서, 기존 정상 데이터가 사라짐.
+   → 못 받은 항목은 기존 api_data.js의 값을 물려받도록 변경할 것.
+   이게 있었으면 2026-08-14에 "카드 최신 + A10 이전 값"으로 커밋 가능했음.
+
+3. betaDiff.changed 60장 필드 전수 조사
+   → cost/vars/powers_applied 등 성능 영향 필드 분류 → 배지 표시 + DELTA 가중치 조정
+
+4. Actions 접근성 테스트 미실행
+   .github/workflows/api-reachability-test.yml 이미 main에 있음.
+   Actions 탭 → api-reachability-test → Run workflow 클릭만 하면 됨.
+
+**이번에 알아낸 것**
+- 푸터 버전이 옛날로 뜨는 원인: 버전 문자열은 카드 데이터 버전이 아니라
+  최근 런들의 다수 build_id를 찍는 값. 대부분 정식 버전 플레이어라 계속 뒤처짐.
+  → betaDiff.version을 쓰도록 바꾸면 해결.
+- /api/beta/diff는 "직전 베타 대비"가 아니라 "정식 대비" 누적 비교.
+  패치가 여러 번 나도 누락 구간 없음.
+
+---
+
 > 2026-07-05 갱신. 항목 #1~#25를 실제 코드와 하나씩 대조해 정리했습니다.
 > 미완은 **#11 자동업데이트**(웹앱 한계 → Tauri 단계) 하나뿐. #15~#25는 모두 반영·검증 완료.
 > 다음 큰 작업은 설계 **§3 데이터 기반 추천 두뇌**.
