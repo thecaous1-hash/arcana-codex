@@ -103,6 +103,23 @@ function statsFrom(rs) {
     console.log(`  인챈트 ${Object.keys(enchants).length}종`);
   } catch (e) { console.warn('  인챈트 스킵(폴백):', e.message); }
 
+  // 1d) 베타 패치 변경 정보(beta/diff) — 신규/변경/삭제 카드 목록.
+  //     구버전 통계 신호 조정용(신규=통계 없음, 성능 변경=DELTA 가중치 낮춤).
+  //     실패해도 나머지 스냅샷은 정상 생성(betaDiff=null → 앱은 조정 없이 기존 동작).
+  console.log('· 베타 패치 변경 정보(beta/diff) 받는 중…');
+  let betaDiff = null;
+  try {
+    const diff = await getJSON(`${BASE}/beta/diff`);
+    const cd = (diff.types && diff.types.cards) || {};
+    betaDiff = {
+      version: diff.beta_version || null,
+      added: cd.added || [],
+      changed: cd.changed || {},
+      removed: cd.removed || [],
+    };
+    console.log(`  베타 ${betaDiff.version || '?'} · 신규 ${betaDiff.added.length}장 / 변경 ${Object.keys(betaDiff.changed).length}장 / 삭제 ${betaDiff.removed.length}장`);
+  } catch (e) { console.warn('  베타 diff 스킵(폴백):', e.message); }
+
   // 2) Codex Score(티어)
   console.log('· Codex Score(scores/cards) 받는 중…');
   const scores = await getJSON(`${BASE}/runs/scores/cards`);
@@ -137,7 +154,7 @@ function statsFrom(rs) {
     stampVersion = Object.entries(vc).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
   } catch (e) {}
 
-  const out = { source: 'spire-codex.com/api', version: stampVersion, maxAsc: MAX_ASC, cards, relics, enchants, tier, stats, statsHi };
+  const out = { source: 'spire-codex.com/api', version: stampVersion, maxAsc: MAX_ASC, cards, relics, enchants, betaDiff, tier, stats, statsHi };
   const js = '// spire-codex API 스냅샷(개인용). tools/build_from_api.js 생성 · 갱신은 재실행.\n'
     + `// 소스: ${out.source} · 게임 ${stampVersion || '?'}\n`
     + 'window.API_DATA = ' + JSON.stringify(out) + ';\n';

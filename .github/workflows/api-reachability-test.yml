@@ -1,0 +1,29 @@
+# spire-codex API가 GitHub Actions(데이터센터 IP)에서 접근 가능한지 수동 테스트.
+# 자동 갱신 워크플로 제작 전 사전 확인용 — workflow_dispatch로만 실행됨.
+name: api-reachability-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  reachability:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test spire-codex API endpoints
+        continue-on-error: true
+        run: |
+          for url in \
+            "https://spire-codex.com/api/beta/diff" \
+            "https://spire-codex.com/api/cards?lang=kor&channel=beta" \
+            "https://spire-codex.com/api/runs/scores/cards"
+          do
+            echo "===================================================="
+            echo "URL: $url"
+            rm -f body.txt headers.txt
+            status=$(curl -s -o body.txt -D headers.txt -w "%{http_code}" --max-time 30 "$url" || echo "CURL_FAILED")
+            echo "HTTP 상태 코드: $status"
+            echo "x-ratelimit-limit: $(grep -i '^x-ratelimit-limit' headers.txt || echo '(헤더 없음)')"
+            echo "응답 앞부분 200자:"
+            head -c 200 body.txt || true
+            echo ""
+          done
