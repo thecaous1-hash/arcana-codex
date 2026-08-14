@@ -344,7 +344,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 /* 피드백 플로팅 버튼 + 구글 폼 모달 */
 .feedback-fab{position:fixed;right:16px;bottom:68px;z-index:45;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:44px;padding:10px 16px;background:var(--bg3);border:1px solid var(--gold);color:var(--gold2);border-radius:22px;font-family:inherit;font-size:.88rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.45);transition:all .15s}
 .feedback-fab:hover{background:rgba(240,168,60,.14);color:var(--gold3)}
-@media(max-width:420px){.feedback-fab{bottom:80px}}
+@media(max-width:420px){.feedback-fab{bottom:80px;width:44px;height:44px;padding:0;border-radius:50%}.feedback-fab-label{display:none}}
 .feedback-modal-ov{position:fixed;inset:0;z-index:220;background:rgba(0,0,0,.72);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px}
 .feedback-modal-ov.open{display:flex}
 .feedback-modal{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;width:min(640px,95vw);height:min(90vh,900px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
@@ -507,7 +507,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 </div>
 
 <!-- 피드백 플로팅 버튼 + 구글 폼 모달 -->
-<button class="feedback-fab" id="feedback-fab" aria-label="피드백 보내기">💬 피드백</button>
+<button class="feedback-fab" id="feedback-fab" aria-label="피드백 보내기">💬 <span class="feedback-fab-label">피드백</span></button>
 <div class="feedback-modal-ov" id="feedback-modal" role="dialog" aria-modal="true" aria-label="피드백 보내기">
   <div class="feedback-modal">
     <div class="feedback-modal-h">
