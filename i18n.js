@@ -22,7 +22,7 @@ const KO_ARCH = {
   "Stars Engine": "별 엔진",
   "Forge / Sovereign Blade": "단조/군주의 검",
   "Soul Engine": "영혼 엔진",
-  "Osty / Summon": "오스티/소환",
+  "Osty / Summon": "골골이/소환",
   "Doom Stack": "파멸 중첩",
   "Status Engine": "상태이상 엔진",
 };
@@ -31,7 +31,7 @@ const KO_ARCH = {
 const KO_BUILD = {
   strength: "힘", block: "방어", exhaust: "소진", self_damage: "사혈",
   strike: "타격", sly: "교활", poison: "중독", shiv: "비수", orb: "구체",
-  claw: "발톱", stars: "별", forge: "단조", soul: "영혼", osty: "오스티",
+  claw: "발톱", stars: "별", forge: "단조", soul: "영혼", osty: "골골이",
   doom: "파멸", status: "상태이상",
 };
 
