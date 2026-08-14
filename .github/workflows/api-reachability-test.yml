@@ -19,6 +19,7 @@ jobs:
           do
             echo "===================================================="
             echo "URL: $url"
+            rm -f body.txt headers.txt
             status=$(curl -s -o body.txt -D headers.txt -w "%{http_code}" --max-time 30 "$url" || echo "CURL_FAILED")
             echo "HTTP 상태 코드: $status"
             echo "x-ratelimit-limit: $(grep -i '^x-ratelimit-limit' headers.txt || echo '(헤더 없음)')"
