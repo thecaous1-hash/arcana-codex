@@ -1,36 +1,36 @@
 # Arcana Codex — 확인 & 수정 목록
 
-## 다음 세션 재개 지점 (2026-08-14 기준)
+## 다음 세션 재개 지점 (2026-08-15 기준)
 
-**첫 번째로 할 일: A10 서버 회복 확인**
-브라우저에서 아래 주소를 연다.
-https://spire-codex.com/api/runs/stats?character=IronClad&ascension=10
-- 데이터가 뜨면 → npm run build-data 실행 후 A10 5개 성공 확인 → 커밋
-- 504 Gateway time-out이면 → 아직 회복 안 됨. 아래 항목만 진행
+**바로 시작할 것: 배지 표시 + DELTA 가중치 조정 설계**
+betaDiff 데이터가 스냅샷에 들어왔고, 카드 분류도 끝났다. 남은 건 앱 반영.
 
-**미해결 사항**
-1. 데이터 갱신 보류 — upstream A10 엔드포인트가 504로 응답 불가 (2026-08-14 확인).
-   Cloudflare 진단상 Host만 Error, 우리 쪽 문제 아님.
-   타임아웃 연장은 무의미(Cloudflare가 100초에 먼저 끊음).
+**확정된 카드 분류 (betaDiff.changed 78장 기준, v0.111.0)**
+- 성능 변경 68장 → 승률 신호 낮춤 대상
+  판정 필드: vars, damage, block, upgrade, cost, star_cost, powers_applied,
+            cards_draw, energy_gain, hp_loss, target, type, rarity, keywords
+- 획득 경로만 변경 5장 (보류, 통계는 유효로 봄)
+  ASCENDERS_BANE, NIGHTMARE, TRANSFIGURE (can_be_generated_in_combat)
+  MAD_SCIENCE (type_variants), BURN (sources)
+- 순수 문구 변경 5장 (처리 불필요)
+  TRACKING, HELIX_DRILL, ROCKET_PUNCH, FORGOTTEN_RITUAL, BEAT_INTO_SHAPE
+- 신규 카드 19장은 별도 처리 (통계 자체가 없음)
 
-2. [우선순위 높음] 빌드 부분 실패 대비 구조 개선
-   현재는 항목을 못 받으면 빈 값으로 파일을 새로 써서, 기존 정상 데이터가 사라짐.
-   → 못 받은 항목은 기존 api_data.js의 값을 물려받도록 변경할 것.
-   이게 있었으면 2026-08-14에 "카드 최신 + A10 이전 값"으로 커밋 가능했음.
+**설계 시 정할 것**
+- DELTA 가중치를 0.45에서 얼마로 낮출지, 낮춘 몫을 어디로 보낼지
+- 배지 문구와 표시 위치
+- 신규 19장 표시 방식
 
-3. betaDiff.changed 60장 필드 전수 조사
-   → cost/vars/powers_applied 등 성능 영향 필드 분류 → 배지 표시 + DELTA 가중치 조정
+**미해결**
+1. A10 엔드포인트 여전히 응답 불가 (8/15 확인, 502·타임아웃).
+   단 물려받기 구조가 들어가서 갱신은 정상 진행 가능해짐.
+   현재 A10 보유: silent, defect 2명 (이전 값 보존 중)
+2. 자동 갱신 워크플로 — Actions에서 API 접근 200 확인 완료(8/15).
+   제작 가능 상태. 요청 제한 주의: /runs/ 계열이 분당 60회로 가장 빡빡함.
 
-4. Actions 접근성 테스트 미실행
-   .github/workflows/api-reachability-test.yml 이미 main에 있음.
-   Actions 탭 → api-reachability-test → Run workflow 클릭만 하면 됨.
-
-**이번에 알아낸 것**
-- 푸터 버전이 옛날로 뜨는 원인: 버전 문자열은 카드 데이터 버전이 아니라
-  최근 런들의 다수 build_id를 찍는 값. 대부분 정식 버전 플레이어라 계속 뒤처짐.
-  → betaDiff.version을 쓰도록 바꾸면 해결.
-- /api/beta/diff는 "직전 베타 대비"가 아니라 "정식 대비" 누적 비교.
-  패치가 여러 번 나도 누락 구간 없음.
+**8/15에 알아낸 것**
+- rarity/rarity_key, type/type_key, keywords/keywords_key는 항상 쌍으로 변경됨(_key는 무시 가능)
+- betaDiff 변경 카드: 8/14 60장 → 8/15 78장 (v0.111.0 패치로 18장 증가)
 
 ---
 
