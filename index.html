@@ -267,6 +267,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 
 /* 카드 선택 슬롯 (설계 §1) */
 .slot-hint{font-size:.74rem;color:var(--text3);line-height:1.5}
+.hint-path{word-break:break-all}                                  /* 긴 경로가 패널 밖으로 넘치지 않게 */
+.hint-more>summary{cursor:pointer;color:var(--text2);list-style:none}
+.hint-more>summary::-webkit-details-marker{display:none}
+.hint-more>summary::before{content:'▸ ';color:var(--gold3)}
+.hint-more[open]>summary::before{content:'▾ '}
+.hint-more>summary:hover{color:var(--gold3)}
+.hint-more .hint-body{margin-top:5px;padding-left:9px;border-left:1px solid var(--border2)}
 .slots{display:grid;gap:6px}
 .slots.reward{grid-template-columns:repeat(3,1fr)}
 .slots.shop{grid-template-columns:repeat(4,1fr)}
@@ -439,7 +446,17 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
     <div class="panel retro-side">
       <div class="panel-h"><h2>📂 런 기록</h2><span class="count" id="run-count"></span></div>
       <div class="panel-b">
-        <p class="slot-hint">저장된 런 기록이 <b>자동으로</b> 로드됩니다. 최근에 플레이한 런까지 반영하려면 아래로 <b>최신 기록을 다시 불러오세요</b> (선택).<br>위치: <b>SlayTheSpire2\steam\…\profile1\saves\history</b></p>
+        <p class="slot-hint">저장된 런 기록이 <b>자동으로</b> 로드됩니다. 최근에 플레이한 런까지 반영하려면 아래로 <b>최신 기록을 다시 불러오세요</b> (선택).<br>
+          위치: <b class="hint-path">%APPDATA%\SlayTheSpire2\steam\(숫자 폴더)\profile1\(게임 내 프로필명)\saves\history</b></p>
+        <details class="slot-hint hint-more">
+          <summary>폴더를 못 찾겠어요</summary>
+          <div class="hint-body">
+            <b>윈도우키 + R</b> 을 누르고 → <b class="hint-path">%APPDATA%\SlayTheSpire2</b> 를 입력한 뒤 → <b>엔터</b>. 폴더가 바로 열립니다.<br>
+            탐색기에서 폴더를 하나씩 눌러 들어가는 방법으로는 찾을 수 없습니다. <b>AppData는 윈도우 숨김 폴더</b>라서 목록에 아예 표시되지 않기 때문입니다.<br>
+            열린 창에서 <b>steam</b> → <b>숫자로 된 폴더</b> → <b>profile1</b> → <b>게임 안에서 쓰는 프로필 이름 폴더</b> → <b>saves</b> → <b>history</b> 순서로 들어가면 됩니다.<br>
+            숫자 폴더 이름은 스팀 계정 번호라 사람마다 다릅니다. 하나만 있으면 그 폴더로 들어가세요.
+          </div>
+        </details>
         <div class="row-btns">
           <label class="btn" style="cursor:pointer">🔄 최신 폴더 갱신<input type="file" id="run-folder" webkitdirectory directory multiple hidden></label>
           <label class="btn" style="cursor:pointer">📄 파일 선택<input type="file" id="run-files" multiple accept=".run" hidden></label>
@@ -1382,7 +1399,7 @@ document.querySelectorAll('.menu-tab').forEach(t=>t.addEventListener('click',()=
 // 파일 로딩(.run) — file:// 대응
 function loadRunFiles(fileList){
   const files=[...fileList].filter(f=>/\.run$/i.test(f.name)&&!/\.backup$/i.test(f.name));
-  if(!files.length){ alert('.run 파일을 찾지 못했습니다.\nsaves\\history 폴더(또는 .run 파일)를 선택하세요.'); return; }
+  if(!files.length){ alert('.run 파일을 찾지 못했습니다.\n\n아래 경로의 history 폴더(또는 .run 파일)를 선택하세요.\n%APPDATA%\\SlayTheSpire2\\steam\\(숫자 폴더)\\profile1\\(게임 내 프로필명)\\saves\\history\n\n폴더가 안 보이면: 윈도우키+R → %APPDATA%\\SlayTheSpire2 입력 → 엔터\nAppData는 윈도우 숨김 폴더라 탐색기에서 눌러 들어가면 보이지 않습니다.'); return; }
   let pending=files.length; const loaded=[];
   files.forEach(f=>{ const rd=new FileReader();
     rd.onload=()=>{ try{ const r=JSON.parse(rd.result); r.__name=f.name; loaded.push(r); }catch(e){} if(--pending===0)onRunsLoaded(loaded); };
