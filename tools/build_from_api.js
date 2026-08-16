@@ -194,7 +194,7 @@ function statsFrom(rs) {
   // 3) 캐릭터별 승률 DELTA — 전체(stats) + 최고 승천(statsHi)
   const stats = {}, statsHi = {};
   const missingStats = [];
-  let stampVersion = null;
+  let sampleBuildId = null;
   for (const [param, id] of Object.entries(CHARS)) {
     console.log(`· 통계 ${param} (전체) 받는 중…`);
     const allRaw = await getJSONSoft(`${BASE}/runs/stats?character=${param}`);
@@ -210,22 +210,31 @@ function statsFrom(rs) {
     console.log(`  ${id}: 전체 ${stats[id] ? `base ${stats[id].base_wr}% (${stats[id].total_runs}런${tag(`stats.${id}`)})` : '누락'} · A${MAX_ASC} ${statsHi[id] ? `base ${statsHi[id].base_wr}% (${statsHi[id].total_runs}런${tag(`statsHi.${id}`)})` : '누락'}`);
   }
 
-  // 4) 버전 스탬프 (최신 런 build_id)
+  // 4) 표본 빌드 ID — 최근 런 20개의 최빈 build_id. ※카드 데이터 버전이 아님(플레이어 구성 따라 오르내림).
+  //    "이 통계를 만든 플레이어들이 쓴 버전" 참고용으로만 보관. 표시용 버전은 아래 dataVersion.
   try {
     const runs = await getJSON(`${BASE}/runs/list?limit=20`);
     const arr = Array.isArray(runs) ? runs : (runs.runs || runs.data || runs.results || []);
     const vc = {}; arr.forEach(x => { if (x.build_id) vc[x.build_id] = (vc[x.build_id] || 0) + 1; });
-    stampVersion = Object.entries(vc).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+    sampleBuildId = Object.entries(vc).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
   } catch (e) {}
-  // 버전은 앱이 읽지 않는 표시용 라벨이라 inherited에 남기지 않는다. null로 지워지는 것만 막는다.
-  if (stampVersion == null && prev && prev.version) {
-    stampVersion = prev.version;
-    console.warn(`⚠ 게임 버전 스탬프 수신 실패 → 이전 값 유지 (${stampVersion})`);
+  // 앱이 읽지 않는 참고 필드라 inherited에 남기지 않는다. null로 지워지는 것만 막는다.
+  if (sampleBuildId == null && prev && prev.sampleBuildId) {
+    sampleBuildId = prev.sampleBuildId;
+    console.warn(`⚠ 표본 빌드 ID 수신 실패 → 이전 값 유지 (${sampleBuildId})`);
   }
 
-  const out = { source: 'spire-codex.com/api', generatedAt: new Date().toISOString(), version: stampVersion, maxAsc: MAX_ASC, cards, relics, enchants, betaDiff, tier, stats, statsHi, inherited };
+  // 표시용 버전 = 카드 데이터 기준(beta/diff의 beta_version).
+  // betaDiff 수신 실패 시 keep()이 이전 스냅샷을 물려받았으므로 버전도 자동으로 따라온다.
+  // 이전 값조차 없으면 null — 구식 build_id(prev.version)로 폴백하지 않는다(혼동 재생산 방지).
+  const dataVersion = (betaDiff && betaDiff.version) || null;
+  if (!dataVersion) console.warn('⚠ 데이터 버전 없음(betaDiff 미확보) → version=null로 기록');
+  // betaDiff를 물려받았다면 버전도 옛 스냅샷 기준 — 헤더에 표시해 "카드는 최신인데 버전은 옛 값"임을 드러낸다.
+  const verLabel = (dataVersion || '?') + (inherited.betaDiff ? '(물려받음)' : '');
+
+  const out = { source: 'spire-codex.com/api', generatedAt: new Date().toISOString(), version: dataVersion, sampleBuildId, maxAsc: MAX_ASC, cards, relics, enchants, betaDiff, tier, stats, statsHi, inherited };
   const js = '// spire-codex API 스냅샷(개인용). tools/build_from_api.js 생성 · 갱신은 재실행.\n'
-    + `// 소스: ${out.source} · 게임 ${stampVersion || '?'} · 생성 ${out.generatedAt.slice(0, 10)}\n`
+    + `// 소스: ${out.source} · 데이터 ${verLabel} · 생성 ${out.generatedAt.slice(0, 10)}\n`
     + 'window.API_DATA = ' + JSON.stringify(out) + ';\n';
   fs.mkdirSync(path.join(PROJ, 'data'), { recursive: true });
   fs.writeFileSync(path.join(PROJ, 'data', 'api_data.js'), js);
@@ -236,7 +245,7 @@ function statsFrom(rs) {
   const inhAll = inhKeys.filter(k => k.startsWith('stats.')).length;
   const inhHi = inhKeys.filter(k => k.startsWith('statsHi.')).length;
   const band = (have, inh) => `${have}/${N}` + (inh ? ` (신규 ${have - inh}·물려받음 ${inh})` : '');
-  console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 게임 ${stampVersion || '?'} · 카드 ${Object.keys(cards).length} · 유물 ${Object.keys(relics).length} · 인챈트 ${enchants ? Object.keys(enchants).length : 0} · 티어 ${Object.keys(tier).length} · 통계 전체 ${band(Object.keys(stats).length, inhAll)} · A${MAX_ASC} ${band(Object.keys(statsHi).length, inhHi)}`);
+  console.log(`\n✓ data/api_data.js 생성: ${kb}KB · 데이터 ${verLabel} · 표본빌드 ${sampleBuildId || '?'} · 카드 ${Object.keys(cards).length} · 유물 ${Object.keys(relics).length} · 인챈트 ${enchants ? Object.keys(enchants).length : 0} · 티어 ${Object.keys(tier).length} · 통계 전체 ${band(Object.keys(stats).length, inhAll)} · A${MAX_ASC} ${band(Object.keys(statsHi).length, inhHi)}`);
   if (inhKeys.length) console.warn(`↺ 물려받은 항목 ${inhKeys.length}건(이전 값 유지, 새로 받지 못함): ${inhKeys.join(', ')} — 기준 ${prevDate}`);
   if (missingStats.length) console.warn(`⚠ 통계 빈 항목 ${missingStats.length}건(물려받을 이전 값도 없음): ${missingStats.join(', ')} — 앱은 해당 캐릭터를 Codex+전문가 블렌드로 폴백합니다. 재실행하면 다시 시도합니다.`);
   else console.log(`통계 빈 항목 없음 (${N * 2}/${N * 2})`);
