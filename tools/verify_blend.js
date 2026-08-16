@@ -20,7 +20,7 @@ eval(fs.readFileSync(path.join(PROJ,'data/extra_cards.js'),'utf8'));
 eval(fs.readFileSync(path.join(PROJ,'data/api_data.js'),'utf8'));
 
 // index.html 전역 스텁 (i18n·DOM 무관 최소치)
-global.state = { char:'ironclad', floor:5, act:1, encounter:'normal', deck:[], relics:[], offered:[], mode:'reward', archFilter:'current', asc:'all' };
+global.state = { char:'ironclad', floor:5, act:1, encounter:'normal', deck:[], relics:[], offeredByMode:{reward:[],shop:[]}, mode:'reward', archFilter:'current', asc:'all' };
 global.API = window.API_DATA;
 global.canonEN = n => n;
 global.apiKey = n => (n||'').toUpperCase().replace(/[\s\-]/g,'_').replace(/[^A-Z0-9_]/g,'').replace(/_+/g,'_');
