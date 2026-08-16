@@ -1429,7 +1429,7 @@ function renderRunList(){
     return `<div class="run-item${i===curRunIdx?' on':''}" data-i="${i}">
       <span class="run-dot" style="background:${charColor(ch)}"></span>
       <div class="rmeta"><div class="rtop">${charKoName(ch)} <span class="run-res ${resCls(res)}">${resLabel(res)}</span></div>
-      <div class="rsub">${fmtDate(r.start_time)} · 덱 ${deckN}장 · ${(r.acts||[]).length}막</div></div></div>`;
+      <div class="rsub">${fmtDate(r.start_time)} · 덱 ${deckN}장 · ${actsReached(r)}막</div></div></div>`;
   }).join('')||`<div class="empty">해당하는 런이 없어요.</div>`;
   $('run-list').querySelectorAll('.run-item').forEach(el=>el.addEventListener('click',()=>{ curRunIdx=+el.dataset.i; renderRunList(); renderAnalysis(); }));
 }
@@ -1443,7 +1443,20 @@ function cardKoR(key){ const c=cardByKey(key); return c?koName(c.id):titleFromKe
 function cardTypeR(key){ key=ck(key); const s=(typeof CARD_STATS!=='undefined')?CARD_STATS[key]:null; return s?s.type:null; }
 function relicByKey(key){ key=rk(key); return (DB.relics&&DB.relics[key])||null; }
 // map_point_history = [ [맵포인트,…] , … ] → 모든 맵포인트를 평탄화, 각 맵포인트의 player_stats[0]
-function mapPS(r){ return (r.map_point_history||[]).flat().filter(m=>m&&typeof m==='object').map(m=>m.player_stats&&m.player_stats[0]).filter(Boolean); }
+function mapPS(r){ const mph=(r&&Array.isArray(r.map_point_history))?r.map_point_history:[];   // 배열이 아닌 값이 와도 죽지 않게
+  return mph.flat().filter(m=>m&&typeof m==='object').map(m=>m.player_stats&&m.player_stats[0]).filter(Boolean); }
+// 실제로 발을 들인 막 수 = map_point_history의 그룹 수(맵포인트가 하나라도 있는 마지막 그룹까지).
+//  r.acts는 "예정된 경로"라 1막에서 죽어도 항상 전체 길이(예: 3)여서 막 번호로 쓸 수 없다.
+//  map_point_history가 없거나 구조가 예상과 다르면 기존 방식(acts.length)으로 폴백한다.
+function actsReached(r){
+  const mph=r&&r.map_point_history;
+  if(Array.isArray(mph)){
+    let last=-1;
+    for(let i=0;i<mph.length;i++){ const g=mph[i]; if(Array.isArray(g)&&g.length) last=i; }
+    if(last>=0) return last+1;
+  }
+  return ((r&&r.acts)||[]).length;
+}
 function cleanEnc(e){ return titleFromKey((e||'').replace(/^ENCOUNTER\./,'')); }
 function rCard(title,fbs,mini){ return `<div class="rcard"><h3>${title}</h3>`+fbs.map(([cls,txt])=>`<div class="rfb ${cls}"><span class="i">${cls==='warn'?'▲':cls==='good'?'✔':'·'}</span><span>${txt}</span></div>`).join('')+(mini?`<div class="rmini">${mini}</div>`:'')+`</div>`; }
 function deckArch(ch,deck){ try{ const dc=deck.map(k=>cardByKey(k)).filter(Boolean).map(c=>({name:c.id})); const da=analyzeDeck(ch,dc); return (da.detected&&da.detected[0])||null; }catch(e){ return null; } }
@@ -1454,7 +1467,7 @@ function renderAnalysis(){
   const deck=(p.deck||[]).map(c=>ck(c.id)), relics=(p.relics||[]).map(x=>rk(x.id));
   let html=`<div class="rhead"><span class="rh-title">${charKoName(ch)}</span>
     <span class="run-res ${resCls(res)}">${resLabel(res)}</span>
-    <span class="rbadge">덱 ${deck.length}장</span><span class="rbadge">유물 ${relics.length}</span><span class="rbadge">${(r.acts||[]).length}막</span>${r.build_id?`<span class="rbadge">${r.build_id}</span>`:''}</div>`;
+    <span class="rbadge">덱 ${deck.length}장</span><span class="rbadge">유물 ${relics.length}</span><span class="rbadge">${actsReached(r)}막</span>${r.build_id?`<span class="rbadge">${r.build_id}</span>`:''}</div>`;
   html+=aDeck(ch,deck); html+=aDeath(r); html+=aChoices(r); html+=aRelics(ch,deck,relics);
   html+=`<div class="rmini">⚠ 규칙 기반 보조 조언입니다. 실제 패배 원인은 플레이 상황에 따라 다를 수 있어요. 인과를 단정하지 않습니다.</div>`;
   box.innerHTML=html;
@@ -1477,11 +1490,15 @@ function aDeath(r){
   const res=runResult(r), fb=[];
   if(res==='win'){ fb.push(['good','이 런은 <b>승리</b>했어요! 잘한 흐름을 기억해두세요.']); return rCard('🏁 결과', fb,''); }
   if(res==='abandon'){ fb.push(['','<b>포기</b>한 런이에요.']); return rCard('🏁 결과', fb,''); }
-  const enc=cleanEnc(r.killed_by_encounter), acts=r.acts||[];
-  fb.push(['warn',`<b>${acts.length}막</b>에서 <b>${enc||'알 수 없는 적'}</b>에게 패배했어요.`]);
+  const enc=cleanEnc(r.killed_by_encounter), acts=r.acts||[], reached=actsReached(r);
+  // 진단용(콘솔 전용): 예정 경로와 실제 진행이 다르면 한 줄 남긴다. 화면에는 띄우지 않는다.
+  if(acts.length!==reached) console.warn(`[retro] acts=${acts.length} 실제진행=${reached} — 표시는 실제진행 기준`);
+  fb.push(['warn',`<b>${reached}막</b>에서 <b>${enc||'알 수 없는 적'}</b>에게 패배했어요.`]);
   const hps=mapPS(r).map(ps=>ps.current_hp).filter(h=>h!=null);
   if(hps.length>=2){ const a=hps[hps.length-2], b=hps[hps.length-1]; if(a-b>=25) fb.push(['warn',`마지막 전투에서 체력이 <b>${a}→${b}</b>로 급감 — 한 방에 무너진 패턴.`]); }
-  return rCard('💀 사망 지점', fb, `막 진행: ${acts.map(a=>titleFromKey(a.replace(/^ACT\./,''))).join(' → ')||'-'}`);
+  // 예정 경로(acts)가 실제 진행보다 길면 뒤쪽(가보지 못한 막)은 잘라낸다.
+  const walked=acts.slice(0,reached||acts.length);
+  return rCard('💀 사망 지점', fb, `막 진행: ${walked.map(a=>titleFromKey(String(a).replace(/^ACT\./,''))).join(' → ')||'-'}`);
 }
 function aChoices(r){
   let pick=0,skip=0; const good=[];
