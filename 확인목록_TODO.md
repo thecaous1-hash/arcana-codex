@@ -1,36 +1,82 @@
 # Arcana Codex — 확인 & 수정 목록
 
-## 다음 세션 재개 지점 (2026-08-15 기준)
+## 다음 세션 재개 지점 (2026-08-16 기준)
 
-**바로 시작할 것: 배지 표시 + DELTA 가중치 조정 설계**
-betaDiff 데이터가 스냅샷에 들어왔고, 카드 분류도 끝났다. 남은 건 앱 반영.
+> 이 문서만 읽고도 상황 파악이 되도록 배경과 근거를 함께 적는다.
 
-**확정된 카드 분류 (betaDiff.changed 78장 기준, v0.111.0)**
+### 현재 상태
+- 스냅샷: 게임 v0.111.0 기준 카드/통계, 런 기록 314개(승 72·패 183·포기 59)
+- 승천10(A10) 통계는 silent·defect 2명만 보유. upstream 서버 장애로 나머지는 못 받음
+- 런 스냅샷에 rooms(room_type, turns_taken)와 damage_taken 포함됨 (2.5MB)
+
+### 8/16에 한 일 (친구 피드백 대응)
+1. 보상/상점 탭이 카드 목록을 공유하던 문제 → 탭별 분리.
+   상한을 하드코딩 8에서 slotCount()로 바꿔 숨은 초과분이 생기지 않게 함
+2. 런 기록 폴더 안내 정확화 (프로필명 폴더 누락 + AppData 숨김 폴더 문제)
+3. 막 번호 계산 수정. r.acts는 "예정 경로"라 1막에서 죽어도 항상 3이었음.
+   map_point_history의 실제 그룹 수로 교체. **패배 런 124건 중 101건(81%)이 틀려 있었음**
+4. 사망 분석 전면 교체. 기존 "체력 A→B 급감" 판정은 사망 시 HP가 항상 0이라
+   사실상 "마지막 전투에 25 이상으로 들어갔나"만 묻던 무의미한 판정이었음.
+   실측 183건 분포 기반 3층 구조로 교체 (index.html의 DEATH_TH 상수)
+
+### 사망 분석 설계 요약 (수정 시 참고)
+- 문턱은 index.html의 DEATH_TH 한 곳에 모여 있음. 조정은 여기만 고치면 됨
+- 실측 분포(패배 183건): 진입체력 중앙 36 / 소요턴 중앙 6 / 턴당피해 중앙 5.5, 90% 9.1
+- 사망 방: 엘리트 76 · 보스 74 · 일반 33 (엘리트가 보스보다 많음)
+- 2층은 최대 2개, 우선순위 A>B>E>C>D. A 발동 시 B 억제(같은 현상 중복 서술)
+- 예외: 진입체력 - damage_taken >= 1이면 기록을 못 믿으므로 2층 전체 침묵 (183건 중 8건)
+
+### 다음에 할 일 (우선순위 순)
+
+**1. 배지 + DELTA 가중치 조정** — 가장 큰 미완 항목
+betaDiff 데이터는 이미 스냅샷에 있음. 카드 분류도 끝남(아래).
 - 성능 변경 68장 → 승률 신호 낮춤 대상
   판정 필드: vars, damage, block, upgrade, cost, star_cost, powers_applied,
             cards_draw, energy_gain, hp_loss, target, type, rarity, keywords
-- 획득 경로만 변경 5장 (보류, 통계는 유효로 봄)
-  ASCENDERS_BANE, NIGHTMARE, TRANSFIGURE (can_be_generated_in_combat)
-  MAD_SCIENCE (type_variants), BURN (sources)
-- 순수 문구 변경 5장 (처리 불필요)
-  TRACKING, HELIX_DRILL, ROCKET_PUNCH, FORGOTTEN_RITUAL, BEAT_INTO_SHAPE
-- 신규 카드 19장은 별도 처리 (통계 자체가 없음)
+- 획득 경로만 변경 5장 (통계 유효로 봄): ASCENDERS_BANE, NIGHTMARE, TRANSFIGURE,
+  MAD_SCIENCE, BURN
+- 순수 문구 변경 5장 (처리 불필요): TRACKING, HELIX_DRILL, ROCKET_PUNCH,
+  FORGOTTEN_RITUAL, BEAT_INTO_SHAPE
+- 신규 19장은 통계 자체가 없어 별도 처리 필요
+정할 것: DELTA 가중치를 0.45에서 얼마로 낮출지, 낮춘 몫을 어디로 보낼지,
+        배지 문구와 표시 위치, 신규 카드 표시 방식
 
-**설계 시 정할 것**
-- DELTA 가중치를 0.45에서 얼마로 낮출지, 낮춘 몫을 어디로 보낼지
-- 배지 문구와 표시 위치
-- 신규 19장 표시 방식
+**2. 상점 카드별 스킵** — 친구 피드백 중 미처리
+현재 스킵 버튼(index.html의 skip-btn)은 후보 전체를 비운다.
+보상은 한 장 고르면 나머지가 사라지므로 맞지만, 상점은 여러 장 살 수 있어
+"이 카드만 안 산다"가 안 된다. 슬롯의 ✕로는 가능하나 추천 목록에서 멀어 발견이 어려움.
+친구에게 "카드별로 빼고 싶었던 것이 맞는지" 확인 후 진행할 것.
 
-**미해결**
-1. A10 엔드포인트 여전히 응답 불가 (8/15 확인, 502·타임아웃).
-   단 물려받기 구조가 들어가서 갱신은 정상 진행 가능해짐.
-   현재 A10 보유: silent, defect 2명 (이전 값 보존 중)
-2. 자동 갱신 워크플로 — Actions에서 API 접근 200 확인 완료(8/15).
-   제작 가능 상태. 요청 제한 주의: /runs/ 계열이 분당 60회로 가장 빡빡함.
+**3. 히스토리 경로 안내 보완**
+프로필명 폴더는 사람마다 있고 없다. 실제 확인:
+- 친구: ...\profile1\(프로필명)\saves\history
+- 정쀼쨔: ...\profile1\saves\history  ← 프로필명 폴더 없음
+현재 안내는 항상 있는 것처럼 쓰여 있어, 없는 사람이 헤맬 수 있음.
+"있을 수도, 없을 수도 있습니다" 정도로 보완 필요.
 
-**8/15에 알아낸 것**
-- rarity/rarity_key, type/type_key, keywords/keywords_key는 항상 쌍으로 변경됨(_key는 무시 가능)
-- betaDiff 변경 카드: 8/14 60장 → 8/15 78장 (v0.111.0 패치로 18장 증가)
+**4. max_hp 추가 (작음)**
+사망 분석 1층이 "체력 36으로 시작해"까지만 표시된다. "36/70"으로 하려면
+tools/build_run_history.js의 slim()에 max_hp를 추가하고 재빌드해야 한다.
+재빌드는 .run 원본이 있는 PC에서만 가능.
+
+**5. A10 통계 복구 대기**
+upstream의 /api/runs/stats?...&ascension=10 이 504/502로 응답 불가.
+8/14, 8/15 확인했고 하루 넘게 지속. Cloudflare 진단상 Host만 Error.
+타임아웃 연장은 무의미(Cloudflare가 100초에 먼저 끊음).
+확인 방법: 브라우저에서 아래 주소를 연다.
+https://spire-codex.com/api/runs/stats?character=IronClad&ascension=10
+데이터가 뜨면 npm run build-data 재실행. 물려받기 구조가 있어 실패해도 안전함.
+
+**6. 자동 갱신 워크플로 제작 가능**
+GitHub Actions에서 spire-codex API 접근 200 확인 완료(8/15).
+요청 제한은 엔드포인트마다 다름: /cards 300, /beta/diff 120, /runs/ 계열 60 (분당).
+/runs/가 가장 빡빡하므로 통계 수집 속도는 여기에 맞춰야 함.
+
+### 작업 환경 메모
+- 클라우드 세션은 spire-codex 접근 시 NODE_USE_ENV_PROXY=1 필요.
+  네트워크 정책 허용 목록에 spire-codex.com 등록 완료
+- .run 원본이 필요한 작업(build_run_history.js)은 PC에서만 가능
+- 클라우드 세션은 main 직접 푸시 금지, 브랜치까지만
 
 ---
 
