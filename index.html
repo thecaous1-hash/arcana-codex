@@ -1486,6 +1486,21 @@ function aDeck(ch,deck){
   if(!fb.length) fb.push(['good','덱 밸런스는 무난해 보여요.']);
   return rCard('🃏 덱 구성', fb, `공격 ${t.atk} · 스킬 ${t.skl} · 파워 ${t.pow}`+(t.cur+t.st?` · 저주/상태 ${t.cur+t.st}`:'')+'<br>'+arch);
 }
+// 노드 나열(막 순서 유지): 각 맵포인트의 대표 스탯(player_stats[0])과 방(rooms[0]).
+//  rooms·damage_taken은 2026-08 스냅샷부터 존재 — 옛 스냅샷 런은 null로 남아 해당 분석만 조용히 빠진다.
+function runNodes(r){
+  const out=[];
+  (Array.isArray(r&&r.map_point_history)?r.map_point_history:[]).forEach(g=>(Array.isArray(g)?g:[g]).forEach(mp=>{
+    if(mp&&typeof mp==='object') out.push({ps:(mp.player_stats||[])[0]||null, room:(mp.rooms||[])[0]||null});
+  }));
+  return out;
+}
+const ROOM_KO={monster:'일반 전투',elite:'엘리트',boss:'보스'};
+// 사망 전투 분석 문턱 — 2026-08 실측(314런 중 패배 183건) 분포 기준.
+//  PER_TURN_HIGH: 턴당 피해 상위 10%(90퍼센타일 9.1). FAST_DEATH: 소요 턴 하위 25% 부근(≤3턴).
+//  LOW_ENTRY: 진입 체력 하위 25%(≤24). SIMILAR_RATIO: 다른 전투 평균 대비 1.2배 이하면 "평소와 비슷".
+//  UNDERCOUNT: 진입체력-damage_taken≥1이면 치명 피해가 과소기록된 런(실측 8건) — 수지가 안 맞으면 잔차 크기와 무관하게 판정 근거로 안 씀.
+const DEATH_TH={PER_TURN_HIGH:9.1, FAST_DEATH:3, LOW_ENTRY:24, SIMILAR_RATIO:1.2, UNDERCOUNT:1};
 function aDeath(r){
   const res=runResult(r), fb=[];
   if(res==='win'){ fb.push(['good','이 런은 <b>승리</b>했어요! 잘한 흐름을 기억해두세요.']); return rCard('🏁 결과', fb,''); }
@@ -1494,8 +1509,53 @@ function aDeath(r){
   // 진단용(콘솔 전용): 예정 경로와 실제 진행이 다르면 한 줄 남긴다. 화면에는 띄우지 않는다.
   if(acts.length!==reached) console.warn(`[retro] acts=${acts.length} 실제진행=${reached} — 표시는 실제진행 기준`);
   fb.push(['warn',`<b>${reached}막</b>에서 <b>${enc||'알 수 없는 적'}</b>에게 패배했어요.`]);
-  const hps=mapPS(r).map(ps=>ps.current_hp).filter(h=>h!=null);
-  if(hps.length>=2){ const a=hps[hps.length-2], b=hps[hps.length-1]; if(a-b>=25) fb.push(['warn',`마지막 전투에서 체력이 <b>${a}→${b}</b>로 급감 — 한 방에 무너진 패턴.`]); }
+  // ── 사망 전투 분석: 사망 노드(current_hp 0인 마지막 노드) 기준 ──
+  const nodes=runNodes(r);
+  let di=-1; for(let i=nodes.length-1;i>=0;i--){ if(nodes[i].ps&&nodes[i].ps.current_hp===0){ di=i; break; } }
+  if(di>=0){
+    const room=nodes[di].room||{}, roomKo=ROOM_KO[room.room_type];
+    const turns=(typeof room.turns_taken==='number'&&room.turns_taken>0)?room.turns_taken:null;
+    const dmg=(nodes[di].ps&&typeof nodes[di].ps.damage_taken==='number')?nodes[di].ps.damage_taken:null;
+    const prev=di>0?nodes[di-1].ps:null;
+    const entry=(prev&&typeof prev.current_hp==='number')?prev.current_hp:null;   // 진입 체력 = 직전 노드 체력
+    const perTurn=(dmg!=null&&turns)?dmg/turns:null;
+    // 1층 — 항상 표시(사실만). 스냅샷에 없는 값은 그 조각만 생략.
+    let l1='마지막 전투'+(roomKo?`(<b>${roomKo}</b>)`:'');
+    l1+=(entry!=null)?`를 체력 <b>${entry}</b>으로 시작해`:'에서';
+    l1+=(turns?` <b>${turns}턴</b> 만에`:'')+' 패배했어요.';
+    if(perTurn!=null) l1+=` 턴당 평균 <b>${perTurn.toFixed(1)}</b> 피해.`;
+    fb.push(['',l1]);
+    // 2층 — 조건부 진단, 우선순위(A>B>E>C>D)로 최대 2개.
+    //  예외: 치명 피해 과소기록 런(진입체력-피해≥1)은 수치를 믿을 수 없어 2층 전체 생략.
+    const undercount=(entry!=null&&dmg!=null&&entry-dmg>=DEATH_TH.UNDERCOUNT);
+    if(!undercount){
+      const cand=[];
+      const oneShot=(dmg!=null&&entry!=null&&dmg>entry);
+      if(oneShot) cand.push('마지막 일격이 남은 체력을 넘겼어요 — 한 방에 무너진 패턴이에요.');
+      if(!oneShot&&perTurn!=null&&perTurn>=DEATH_TH.PER_TURN_HIGH) cand.push('턴당 피해가 이례적으로 높았어요 (상위 10% 수준).');
+      if(turns&&turns<=DEATH_TH.FAST_DEATH) cand.push(`<b>${turns}턴</b> 만에 끝났어요 — 대응할 시간이 거의 없었어요.`);
+      if(entry!=null&&entry<=DEATH_TH.LOW_ENTRY&&room.room_type){   // 휴식처 탐색은 rooms 있는 스냅샷에서만
+        let ri=-1; for(let i=di-1;i>=0;i--){ const rm=nodes[i].room; if(rm&&rm.room_type==='rest_site'){ ri=i; break; } }
+        if(ri<0) cand.push(`휴식처를 만나지 못한 채 체력 <b>${entry}</b>으로 전투에 들어갔어요.`);
+        else{
+          const rp=nodes[ri].ps, bp=ri>0?nodes[ri-1].ps:null;
+          const healed=!!(rp&&bp&&rp.current_hp!=null&&bp.current_hp!=null&&rp.current_hp>bp.current_hp);
+          cand.push(healed
+            ?`회복 후에도 체력 <b>${entry}</b>까지 깎인 채 마지막 전투에 들어갔어요. 회복 기회에 비해 소모가 컸어요.`
+            :`직전 휴식처에서 회복하지 않은 채 체력 <b>${entry}</b>으로 전투에 들어갔어요. 강화도 중요하지만 체력이 낮을 땐 회복이 더 안전할 수 있어요.`);
+        }
+      }
+      if(perTurn!=null){
+        let s=0,n=0;
+        nodes.forEach((nd,i)=>{ if(i===di)return; const rm=nd.room;
+          if(rm&&ROOM_KO[rm.room_type]&&typeof rm.turns_taken==='number'&&rm.turns_taken>0&&nd.ps&&typeof nd.ps.damage_taken==='number'){ s+=nd.ps.damage_taken/rm.turns_taken; n++; } });
+        if(n&&s>0&&perTurn<=DEATH_TH.SIMILAR_RATIO*(s/n)) cand.push('이 런 내내 비슷한 수준으로 맞았어요 — 특정 전투가 아니라 방어 수단 자체가 부족했을 수 있어요.');
+      }
+      cand.slice(0,2).forEach(t=>fb.push(['warn',t]));
+    }
+    // 3층 — 엘리트전 사망이면 한 줄 추가(2층 개수 제한·예외와 별개).
+    if(room.room_type==='elite') fb.push(['','엘리트전에서 패배했어요. 무리하게 도는 것보다 넘기는 편이 나을 때도 있어요.']);
+  }
   // 예정 경로(acts)가 실제 진행보다 길면 뒤쪽(가보지 못한 막)은 잘라낸다.
   const walked=acts.slice(0,reached||acts.length);
   return rCard('💀 사망 지점', fb, `막 진행: ${walked.map(a=>titleFromKey(String(a).replace(/^ACT\./,''))).join(' → ')||'-'}`);
