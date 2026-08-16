@@ -30,7 +30,13 @@ function slim(r){
   const mph=(r.map_point_history||[]).map(act=>(Array.isArray(act)?act:[act]).map(mp=>({
     player_stats:((mp&&mp.player_stats)||[]).map(ps=>({
       card_choices:((ps&&ps.card_choices)||[]).map(cc=>({card:{id:cc.card&&cc.card.id}, was_picked:!!cc.was_picked})),
-      current_hp:ps&&ps.current_hp
+      current_hp:ps&&ps.current_hp,
+      damage_taken:ps&&ps.damage_taken
+    })),
+    // 방 정보(사망 지점 분석용). 분석이 쓰는 room_type·turns_taken만 남긴다 —
+    // 전투 이름은 killed_by_encounter로 충분하고, model_id·monster_ids는 필요해지면 그때 추가·재빌드.
+    rooms:((mp&&mp.rooms)||[]).map(rm=>({
+      room_type:rm&&rm.room_type, turns_taken:rm&&rm.turns_taken
     }))
   })));
   return {
