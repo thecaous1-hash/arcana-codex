@@ -406,6 +406,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
   <!-- 가운데: 추천 결과 -->
   <div class="panel">
     <div class="panel-h"><h2>⚔ 추천 결과</h2></div>
+    <div class="note" id="asc-note" style="display:none"></div>
     <div class="panel-b" id="rec-body">
       <div class="empty">왼쪽에 지금 뜬 보상/상점 카드를 넣으면<br>순위 추천과 <b>한글 이유</b>가 나옵니다.</div>
     </div>
@@ -1101,6 +1102,11 @@ function reasonLead(s,da){
 const SKIP_WARN_TH=3.0;
 function renderRec(){
   const body=$('rec-body');
+  // 승천 안내 — '최고(A10)'인데 이 캐릭터의 A10 통계가 아예 없으면 전체 폴백(dataBaseScore) 사실을 알린다.
+  // 빈 슬롯 조기 return보다 먼저 토글해야 빈 화면에서도 안내문이 남지 않는다.
+  { const an=$('asc-note'), noHi=state.asc==='hi' && !(API && API.statsHi && API.statsHi[state.char]);
+    if(an){ an.style.display=noHi?'':'none';
+      if(noHi) an.textContent='이 캐릭터는 최고 승천(A10) 통계가 아직 없어 전체 기준으로 표시하고 있어요.'; } }
   const off=offeredCards();
   if(!off.length){ body.innerHTML=`<div class="empty">왼쪽 슬롯에 지금 뜬 보상/상점 카드를 넣으면<br>순위 추천과 <b>한글 이유</b>가 나옵니다.</div>`; return; }
   const da=analyzeDeck(state.char,state.deck);
