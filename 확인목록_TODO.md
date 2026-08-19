@@ -23,6 +23,14 @@
    값이 신규 값으로 교체됨(`inherited` 표시 사라짐).
    확인(1·2 공통): https://spire-codex.com/api/runs/stats?character=IronClad&ascension=10
    이 정상 응답 + `data/api_data.js`의 statsHi에 5캐릭터 모두 존재·inherited 없음
+3. **ABUNDANCE / DOWSING 티어 누락 — 원인 규명 후 종결**
+   - upstream 버그 아님: 채점 대상 필터 정규화로, 원래 채점 대상이 아니던
+     두 장(특수 희귀도 Ancient·Quest)이 정리된 것
+   - 등급 전 캐릭터 불변(ABUNDANCE B, DOWSING D) → 사용자 체감 영향 0
+   - 둘 다 보상 선택지로 등장하지 않는 카드
+   - upstream 이슈 제기 불필요로 종결
+   부수 발견: 가드레일 사각지대(아래 다음에 할 일 5번), MULTI_CAST 중복,
+   유령 id SCARE (아래 기록만 참조)
 
 ### 2026-08-18 완료 (확인법 포함)
 
@@ -129,16 +137,15 @@ betaDiff 데이터는 이미 스냅샷에 있음. 카드 분류도 끝남(betaDi
 tools/build_run_history.js의 slim()에 max_hp를 추가하고 재빌드해야 한다.
 재빌드는 .run 원본이 있는 PC에서만 가능.
 
-**5. ABUNDANCE / DOWSING 티어 누락 — 원인 진단 후 업스트림 이슈 제기 검토**
-8/16 발견: upstream `scores/cards`에서 2종 누락, 티어 503→501.
-카드는 595로 그대로라 그 2장만 티어 점수 없이 평가됨.
-8/19 재빌드에서도 미복귀 → **2회 연속 미복귀**. 일시적 오류가 아닐 가능성 높음.
-진단 단계:
-1) API 카드 목록에 ABUNDANCE / DOWSING이 존재하는지 (id, rarity)
-2) 존재한다면 티어 정보가 붙어있는지
-3) 없다면 개명된 id가 있는지
-4) db.js에서 우리가 참조하는 id 확인
-5) 501 vs 503 차이가 정확히 이 두 장이 맞는지 대조
+**5. 전문가 앵커 가드레일 사각지대 — 신규 카드 17장** (우선순위: 중 — 급하지 않으나 구조적)
+db.js 미등재 카드는 expertClampVal(±1.0 클램프)을 건너뛰어 DELTA 단독 채점됨.
+8/19 전수 대조에서 확인:
+- 17장 중 15장이 S(4.57~5.00), Δ +21~+43%p — 앵커 없이 만점 수렴
+- 17장은 v0.111.0 베타 신규 19장에서 ABUNDANCE/DOWSING을 제외한
+  나머지와 정확히 일치
+- 완충: 17장 중 16장이 multiplayer_only=true라 솔로 보상 화면 미노출.
+  실질 노출은 SIDESTEP(회피) 1장
+- 구조적 문제 — 다음 패치에 신규 카드가 들어오면 동일 현상 재발
 
 **6. 자동 갱신 워크플로 제작 가능**
 GitHub Actions에서 spire-codex API 접근 200 확인 완료(8/15).
@@ -157,6 +164,12 @@ GitHub Actions에서 spire-codex API 접근 200 확인 완료(8/15).
 - **`osty_atk` vs `osty_attack` 중복 의심**(8/16) — db.js에 둘 다(7곳/5곳).
   오타로 갈린 거면 태그가 반쪽만 잡혀 추천 정확도에 영향.
   → "실제 참조 위치를 찾아서 보고" 요청할 것.
+  같은 계열 사례(8/19): **MULTI_CAST 중복 확인됨** — db.js에 MULTICAST(B)와
+  MULTI_CAST(A)가 동시 존재, 티어 불일치. 실사용은 MULTI_CAST(A),
+  MULTICAST는 도달 불가 고아 키. → db.js 전반의 중복 키 전수 점검 필요.
+- **유령 id SCARE**(8/19) — extra_cards.js에 게임 추출본으로 등재돼 있으나
+  API 카드 목록 595장에 없음. upstream scores 501종에는 존재.
+  upstream이 카드 목록에서 누락한 것으로 보임.
 - **현재상태.md 3행 날짜** — 날짜만 고치면 또 낡음. 헤더에서 날짜 빼는 쪽 검토.
 - **푸터 날짜는 표준시(UTC) 기준** — `generatedAt.slice(0,10)`.
   `build_from_api.js` 237행의 헤더 주석과 같은 기준을 쓰려고 일부러 맞춘 것.
