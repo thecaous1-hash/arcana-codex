@@ -1,6 +1,6 @@
 # Arcana Codex — 확인 & 수정 목록
 
-## 다음 세션 재개 지점 (2026-08-18 기준)
+## 다음 세션 재개 지점 (2026-08-19 기준)
 
 > 이 문서만 읽고도 상황 파악이 되도록 배경과 근거를 함께 적는다.
 > 새 대화창을 열면 이 섹션부터 읽을 것.
@@ -11,8 +11,18 @@
 
 ### 현재 상태
 - 스냅샷: 게임 v0.111.0 기준 카드/통계, 런 기록 314개(승 72·패 183·포기 59)
-- 승천10(A10) 통계는 silent·defect 2명만 보유. upstream 서버 장애로 나머지는 못 받음
+- 승천10(A10) 통계 전 캐릭터 보유 (2026-08-19 재빌드에서 신규 수신 — 아래 8/19 완료 참조)
 - 런 스냅샷에 rooms(room_type, turns_taken)와 damage_taken 포함됨 (2.5MB)
+
+### 2026-08-19 완료 (확인법 포함)
+
+1. **A10 통계 upstream 회귀 해소** — 이슈 제출했던 ptrlrd/spire-codex#868이
+   #874로 수정되어 해결됨. 2026-08-19 재빌드에서 ironclad/regent/necrobinder
+   A10 전부 신규 수신 확인.
+2. **사일런트·디펙트 A10 값 동결 해소** — 같은 재빌드에서 8/15에 고정돼 있던
+   값이 신규 값으로 교체됨(`inherited` 표시 사라짐).
+   확인(1·2 공통): https://spire-codex.com/api/runs/stats?character=IronClad&ascension=10
+   이 정상 응답 + `data/api_data.js`의 statsHi에 5캐릭터 모두 존재·inherited 없음
 
 ### 2026-08-18 완료 (확인법 포함)
 
@@ -119,16 +129,16 @@ betaDiff 데이터는 이미 스냅샷에 있음. 카드 분류도 끝남(betaDi
 tools/build_run_history.js의 slim()에 max_hp를 추가하고 재빌드해야 한다.
 재빌드는 .run 원본이 있는 PC에서만 가능.
 
-**5. A10 통계 — upstream 회귀, 대기 중**
-`/api/runs/stats`에 `ascension` 파라미터가 붙으면 캐릭터 무관 504.
-파라미터를 빼면 정상 → 서버 다운이 아니라 승천 필터 경로의 문제.
-- ~8/15: 사일런트·디펙트는 성공, 나머지 3캐릭만 504
-- 8/16: 전 캐릭터 A10 실패 (스냅샷이 8/15 값을 물려받음)
-- 8/18: `ascension=5`까지 실패. 성공하는 승천 값을 못 찾음
-upstream은 8/18에도 활발히 커밋 중(2,167커밋) — 방치가 아니라 회귀로 판단.
-이슈 제출: ptrlrd/spire-codex#868
-앱 영향: 안내문으로 이용자에게 알림 완료. 복구되면 `npm run build-data` 재실행.
-확인 방법: https://spire-codex.com/api/runs/stats?character=IronClad&ascension=10
+**5. ABUNDANCE / DOWSING 티어 누락 — 원인 진단 후 업스트림 이슈 제기 검토**
+8/16 발견: upstream `scores/cards`에서 2종 누락, 티어 503→501.
+카드는 595로 그대로라 그 2장만 티어 점수 없이 평가됨.
+8/19 재빌드에서도 미복귀 → **2회 연속 미복귀**. 일시적 오류가 아닐 가능성 높음.
+진단 단계:
+1) API 카드 목록에 ABUNDANCE / DOWSING이 존재하는지 (id, rarity)
+2) 존재한다면 티어 정보가 붙어있는지
+3) 없다면 개명된 id가 있는지
+4) db.js에서 우리가 참조하는 id 확인
+5) 501 vs 503 차이가 정확히 이 두 장이 맞는지 대조
 
 **6. 자동 갱신 워크플로 제작 가능**
 GitHub Actions에서 spire-codex API 접근 200 확인 완료(8/15).
@@ -144,9 +154,6 @@ GitHub Actions에서 spire-codex API 접근 200 확인 완료(8/15).
 
 ### 기록만 — 급하지 않음
 
-- **ABUNDANCE / DOWSING 티어 소실**(8/16) — upstream `scores/cards`에서 2종 누락,
-  티어 503→501. 카드는 595로 그대로라 그 2장만 티어 점수 없이 평가됨.
-  다음 갱신에 복귀하면 일시적 오류, 계속 없으면 별도 대응.
 - **`osty_atk` vs `osty_attack` 중복 의심**(8/16) — db.js에 둘 다(7곳/5곳).
   오타로 갈린 거면 태그가 반쪽만 잡혀 추천 정확도에 영향.
   → "실제 참조 위치를 찾아서 보고" 요청할 것.
@@ -155,10 +162,6 @@ GitHub Actions에서 spire-codex API 접근 200 확인 완료(8/15).
   `build_from_api.js` 237행의 헤더 주석과 같은 기준을 쓰려고 일부러 맞춘 것.
   한국시간 새벽 0~9시에 갱신하면 하루 전 날짜로 찍힌다(정상).
   바꾸려면 index.html이 아니라 build_from_api.js 한 곳을 고칠 것.
-- **사일런트·디펙트 A10 값 동결**(8/18) — upstream 장애로 갱신이 안 되어
-  `inherited: statsHi.silent/defect = 2026-08-15`에 고정. 물려받기 덕에 깨지진
-  않지만 패치가 쌓이면 낡아진다. "며칠부터 낡은 것으로 볼지" 기준을 정하고
-  표시할지 여부는 미정. A10 복구되면 자동 해소.
 
 ### 홍보 계획 (앱 준비 끝난 뒤)
 
