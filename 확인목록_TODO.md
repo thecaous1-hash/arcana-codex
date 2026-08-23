@@ -106,18 +106,78 @@
 
 ### 다음에 할 일 (우선순위 순)
 
-**1. 배지 + DELTA 가중치 조정** — 가장 큰 미완 항목 (8/15 설계 대기)
-betaDiff 데이터는 이미 스냅샷에 있음. 카드 분류도 끝남(betaDiff.changed 78장, v0.111.0 기준).
-- 성능 변경 68장 → 승률 신호 낮춤 대상
-  판정 필드: vars, damage, block, upgrade, cost, star_cost, powers_applied,
-            cards_draw, energy_gain, hp_loss, target, type, rarity, keywords
-- 획득 경로만 변경 5장 (보류, 통계 유효로 봄): ASCENDERS_BANE, NIGHTMARE, TRANSFIGURE,
-  MAD_SCIENCE, BURN
-- 순수 문구 변경 5장 (처리 불필요): TRACKING, HELIX_DRILL, ROCKET_PUNCH,
-  FORGOTTEN_RITUAL, BEAT_INTO_SHAPE
-- 신규 19장은 통계 자체가 없어 별도 처리 필요
-정할 것: DELTA 가중치를 0.45에서 얼마로 낮출지, 낮춘 몫을 어디로 보낼지,
-        배지 문구와 표시 위치, 신규 카드 표시 방식
+**1. 배지 + DELTA 가중치 조정** — 8/22 조사 완료, 처방 확정 단계
+
+■ 8/22 조사 결과 (Claude Code, 파일 수정 없음)
+
+betaDiff.changed 78장 분류 (합 78 검증됨):
+- A군 63장 = 성능 변경 (damage/block/vars/cost 등 17개 필드)
+- B군 10장 = 희귀도·획득경로만 변경 (rarity 9장, sources 1장)
+- C군  5장 = 문구만 (HELIX_DRILL, TRACKING, FORGOTTEN_RITUAL,
+             ROCKET_PUNCH, BEAT_INTO_SHAPE)
+- 판정 불가·규칙 밖 필드 없음
+
+A+B군 73장 중 현재 S/A 등급 = 22장, 멀티 전용(TANK) 제외 시 21장
+계산은 verify_blend.js와 동일 경로로 앱 실제 산식 호출
+
+21장 내역:
+- S등급 · 일반카드 3장: TRANSFIGURE(necro), MANGLE(ironclad),
+  CRIMSON_MANTLE(ironclad)
+- S등급 · event 2장: WHISTLE, MAD_SCIENCE (전 캐릭터 S)
+- A등급 · 일반카드 11장: SACRIFICE, TAUNT, EXPERTISE, DEMON_FORM,
+  ALIGNMENT, EXPECT_A_FIGHT, MIRAGE, COLOSSUS, REND, EIDOLON,
+  WELL_LAID_PLANS
+- A등급 · event 2장: BRIGHTEST_FLAME, RELAX
+- B군 3장: CRUELTY, SALVO, BLOODLETTING (전부 A)
+
+■ 결정 (8/22)
+
+- 배지 대상은 A군 63장으로 한정. B군은 제외
+  근거: 희귀도만 바뀐 카드는 성능이 그대로라 승률 데이터가
+  오염되지 않음. "데이터 부정확" 문구가 사실과 다름.
+  등장 빈도로 인한 상대 가치 변화는 별개 사안으로 분리
+- S 3장은 배지가 아니라 손으로 티어 수정 (아래 다음 단계 1번)
+- 가중치 조정은 배지 구현 후 재평가. 지금 결정하지 않음
+  근거: DELTA에서 뺀 몫을 Codex로 보내면 같은 승률 데이터라
+  무의미하고, 티어표로 보내면 그 티어표가 v0.108 기준이라
+  이번 변경들을 모름. 옮길 깨끗한 통이 없음
+
+■ ⚠️ 실물로 확인된 오작동
+
+TODO 389~392행의 손수 정리한 v0.109 너프 목록과 대조:
+- CRIMSON_MANTLE 8(10)→7(10) 너프 → 현재 ironclad S
+- COLOSSUS 방어5(8)→4(7) 너프 → 현재 ironclad A
+"너프된 카드가 아직 좋게 뜬다"가 추측이 아니라 실제 사례로 확인됨
+단, 389행 목록은 v0.109 기준이고 betaDiff는 v0.111.0이라
+같은 변경인지 누적인지 패치노트 재확인 필요
+
+■ 다음 단계 (순서대로)
+
+1. S 3장 + COLOSSUS 패치노트 대조 → 너프면 db.js 티어 수동 하향
+   자료: sts2.gg/patch-notes, sts2companion.com/patch-notes
+   TRANSFIGURE, MANGLE, CRIMSON_MANTLE, COLOSSUS
+
+2. event 카드 4장(WHISTLE, MAD_SCIENCE, BRIGHTEST_FLAME, RELAX)이
+   일반 카드 보상 화면에 실제로 등장하는지 확인
+   → 등장 안 하면 처리 대상에서 제외
+
+3. MAD_SCIENCE는 db.js 미등재라 전문가 앵커 클램프를 건너뜀
+   → 아래 5번(천장 A 처방)을 구현하면 자동 해소됨. 5번과 묶어 처리
+
+4. A군 63장 배지 표시 구현
+   문구안: "최근 패치에서 바뀐 카드예요. 승률 데이터에 변경 전
+   기록이 섞여 있어 점수가 부정확할 수 있습니다"
+   표시 위치·아이콘 미정
+
+5. 배지 적용 후 체감 보고 DELTA 가중치 재평가
+
+■ 참고: 자동 방향 판별 불가 (8/22 확인)
+
+betaDiff.changed는 카드키 → 바뀐 필드명 문자열 배열 구조이고,
+변경 전/후 값이 없음. cards에는 변경 후 값만 저장.
+따라서 버프/너프 방향을 자동으로 알 방법이 없고,
+패치노트 수동 대조(A안)만 가능. 전수는 비효율이므로
+S/A 등급 카드로 좁혀서 적용
 
 **2. 상점 카드별 스킵** — 친구 피드백 중 미처리
 현재 스킵 버튼(index.html의 skip-btn)은 후보 전체를 비운다.
