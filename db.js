@@ -19027,15 +19027,7 @@ const DB = {
         "poison",
         "shiv"
       ],
-      "scoreEffects": [
-        {
-          "tags": [
-            "sly",
-            "draw"
-          ],
-          "bonus": 0.2
-        }
-      ]
+      "scoreEffects": []
     },
     "RING_OF_THE_DRAKE": {
       "id": "Ring of the Drake",
@@ -19074,15 +19066,7 @@ const DB = {
         "stars",
         "forge"
       ],
-      "scoreEffects": [
-        {
-          "tags": [
-            "stars",
-            "star_gain"
-          ],
-          "bonus": 0.5
-        }
-      ]
+      "scoreEffects": []
     },
     "DIVINE_DESTINY": {
       "id": "Divine Destiny",
@@ -19121,16 +19105,7 @@ const DB = {
         "soul",
         "doom"
       ],
-      "scoreEffects": [
-        {
-          "tags": [
-            "osty",
-            "soul",
-            "doom"
-          ],
-          "bonus": 0.3
-        }
-      ]
+      "scoreEffects": []
     },
     "PHYLACTERY_UNBOUND": {
       "id": "Phylactery Unbound",
