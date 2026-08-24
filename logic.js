@@ -230,14 +230,21 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   }
 
   // Relic-card combo bonus — equipped relics that synergize with this card
+  // 확인목록 B-2: 무제한 누적 방지 — 보너스 내림차순 정렬 후 DIMN 감쇠(1/0.6/0.3, 4번째 이후 0).
+  // 정렬 덕에 유물 장착 순서와 무관하게 같은 점수가 나온다.
   if (equippedRelics.length > 0 && DB.relicCombos) {
     const equippedSet = new Set(equippedRelics.map(r => r.toLowerCase()));
-    for (const rc of DB.relicCombos) {
-      if (equippedSet.has(rc.relic.toLowerCase()) && norm(rc.card) === norm(cardName)) {
-        score += rc.bonus;
-        synR.push(`◈ +${rc.bonus.toFixed(1)} ${koName(rc.relic)} 유물과 시너지`);
-      }
-    }
+    const comboHits = DB.relicCombos
+      .filter(rc => equippedSet.has(rc.relic.toLowerCase()) && norm(rc.card) === norm(cardName))
+      .sort((a, b) => b.bonus - a.bonus);
+    comboHits.forEach((rc, i) => {
+      if (i >= DIMN.length) return;
+      const bon = +(rc.bonus * DIMN[i]).toFixed(1);
+      if (bon <= 0) return;
+      score += bon;
+      const ord = i > 0 ? ` (${i+1}번째 시너지)` : '';
+      synR.push(`◈ +${bon.toFixed(1)} ${koName(rc.relic)} 유물과 시너지${ord}`);
+    });
   }
 
   // Relic scoreEffects — equipped relics passively boosting cards with matching tags
