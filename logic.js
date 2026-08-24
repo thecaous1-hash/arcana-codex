@@ -171,12 +171,17 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   const baseGrade = SCORE_GRADE_SD(score);   // 맥락 제외 티어 등급(커뮤니티×전문가)
   const synR = [], antiR = [];
 
+  // 데이터 가드: syn과 anti 양쪽에 동시 등재된 태그는 데이터 충돌 — 가점·감점·근거 표시 모두 제외.
+  // (상쇄나 한쪽 우선 적용 금지. 데이터가 수정되어 중복이 사라지면 자동으로 정상 계산됨.)
+  const synAntiDup = new Set((data.syn || []).filter(t => (data.anti || []).includes(t)));
+
   // Synergy - graduated with diminishing returns + saturation
   const DIMN = [1.0, 0.6, 0.3];
   let matchCount = 0;
   for (const {arch, strength} of da.detected) {
     if (matchCount >= DIMN.length) break;
     for (const tag of data.syn) {
+      if (synAntiDup.has(tag)) continue;
       if (arch.core.includes(tag) || arch.support.includes(tag) || arch.id === tag) {
         const satCount = da.unionCount(tag);
         const satMult = satCount >= 7 ? 0.35 : satCount >= 4 ? 0.65 : 1.0;
@@ -194,6 +199,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   let antiDelta = 0;
   for (const {arch, strength} of da.detected) {
     for (const tag of (data.anti || [])) {
+      if (synAntiDup.has(tag)) continue;
       if (arch.core.includes(tag) || arch.support.includes(tag)) {
         const pen = -(0.4 + strength * 0.5);
         score += pen; antiDelta += pen;
@@ -203,6 +209,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     }
   }
   for (const tag of (data.anti || [])) {
+    if (synAntiDup.has(tag)) continue;
     if (da.unionCount(tag) >= 2) {
       const pen = -0.7;
       score += pen; antiDelta += pen;

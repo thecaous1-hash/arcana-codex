@@ -593,12 +593,10 @@ const DB = {
         ],
         "syn": [
           "exhaust",
-          "damage",
-          "self_damage"
+          "damage"
         ],
         "anti": [
-          "strength",
-          "self_damage"
+          "strength"
         ],
         "notes": "[Reworked v0.100.0] 1-cost Skill, Rare: Exhaust your Hand. Add 1 random (Upgraded) card to Hand for each card Exhausted. Massive Exhaust payoff trigger; use after dumping value or to reset bricks.",
         "mech": [
@@ -1034,7 +1032,6 @@ const DB = {
         ],
         "syn": [
           "damage",
-          "exhaust",
           "strike"
         ],
         "anti": [
@@ -1873,7 +1870,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "exhaust",
           "block"
         ],
         "notes": "[Reworked v0.100.0] 1-cost Skill, Uncommon: Apply 1(2) Vulnerable, then gain 1 Strength per Vulnerable on the enemy, Exhaust. Strong in Vulnerable-stacking decks (Tremble, Bully, Uppercut). Beware enemies with Artifact.",
@@ -2274,9 +2270,7 @@ const DB = {
           "shiv",
           "skill_synergy"
         ],
-        "anti": [
-          "shiv"
-        ],
+        "anti": [],
         "notes": "This turn, your next Skill is played an extra time. Most Poison applicators are Skills — Burst+Noxious Fumes applies double Poison stacks, Burst+Deadly Poison double stacks, Burst+Haze double AoE Poison. Also doubles Calculated Gamble for double hand refresh and double Sly triggers. Only works on Skills, not Powers or Attacks.",
         "mech": [
           "skill_doubler",
@@ -3191,7 +3185,6 @@ const DB = {
           "shiv_synergy"
         ],
         "anti": [
-          "sly",
           "poison"
         ],
         "notes": "Discard your Hand. Add 1 Shiv into your Hand for each card discarded. Double payoff — discarding triggers ALL Sly cards in hand for free, THEN you get Shivs equal to hand size. With 6 cards = 6 free Sly triggers + 6 Shivs.",
@@ -6299,9 +6292,7 @@ const DB = {
           "draw",
           "exhaust"
         ],
-        "anti": [
-          "forge"
-        ],
+        "anti": [],
         "notes": "Draw 3 then triple any Skill. Royal Gamble → 27 Stars. Reflect → 51 Block. The Smith → Forge 90. One of the strongest multiplier cards.",
         "mech": [
           "draw",
@@ -7706,7 +7697,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Gain 3 Energy and draw 2. Each turn applies 3 Doom to yourself. S-tier setup card — the Energy and draw alone are worth it. Self-Doom is manageable.",
@@ -7752,8 +7742,7 @@ const DB = {
           "summon"
         ],
         "anti": [
-          "doom",
-          "osty"
+          "doom"
         ],
         "notes": "Whenever you play a Soul, Summon 1. A-tier passive — every Soul played grows Osty. In Soul-heavy builds, Osty grows to enormous HP passively.",
         "mech": [
@@ -7842,8 +7831,7 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
-          "osty"
+          "soul"
         ],
         "notes": "Osty deals 7 damage. Hits again for each other time Osty attacked this turn. A-tier payoff — with Fetch and Sic Em setting up, Rattle becomes massive multi-hit.",
         "mech": [
@@ -8703,8 +8691,7 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "doom",
-          "soul"
+          "doom"
         ],
         "notes": "Reduce card cost to 0 when Osty attacks first. Enables big combo turns.",
         "mech": [
