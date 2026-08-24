@@ -171,12 +171,17 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   const baseGrade = SCORE_GRADE_SD(score);   // 맥락 제외 티어 등급(커뮤니티×전문가)
   const synR = [], antiR = [];
 
+  // 데이터 가드: syn과 anti 양쪽에 동시 등재된 태그는 데이터 충돌 — 가점·감점·근거 표시 모두 제외.
+  // (상쇄나 한쪽 우선 적용 금지. 데이터가 수정되어 중복이 사라지면 자동으로 정상 계산됨.)
+  const synAntiDup = new Set((data.syn || []).filter(t => (data.anti || []).includes(t)));
+
   // Synergy - graduated with diminishing returns + saturation
   const DIMN = [1.0, 0.6, 0.3];
   let matchCount = 0;
   for (const {arch, strength} of da.detected) {
     if (matchCount >= DIMN.length) break;
     for (const tag of data.syn) {
+      if (synAntiDup.has(tag)) continue;
       if (arch.core.includes(tag) || arch.support.includes(tag) || arch.id === tag) {
         const satCount = da.unionCount(tag);
         const satMult = satCount >= 7 ? 0.35 : satCount >= 4 ? 0.65 : 1.0;
@@ -194,6 +199,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   let antiDelta = 0;
   for (const {arch, strength} of da.detected) {
     for (const tag of (data.anti || [])) {
+      if (synAntiDup.has(tag)) continue;
       if (arch.core.includes(tag) || arch.support.includes(tag)) {
         const pen = -(0.4 + strength * 0.5);
         score += pen; antiDelta += pen;
@@ -203,6 +209,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     }
   }
   for (const tag of (data.anti || [])) {
+    if (synAntiDup.has(tag)) continue;
     if (da.unionCount(tag) >= 2) {
       const pen = -0.7;
       score += pen; antiDelta += pen;
@@ -323,6 +330,9 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
       return d && d.role === 'payoff' && (d.builds||[]).some(b => b===archId||b==='any');
     }).length;
 
+    // 카드 자신이 topArch 소속이 아니면(카운팅과 동일 판정) 역할 기반 가점은 주지 않음. 감점은 유지.
+    const cardFitsTopArch = (data.builds||[]).some(b => b===archId || b==='any');
+
     const floorEarly = floor <= 8;
     const floorLate  = floor >= 20;
 
@@ -336,7 +346,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
       } else if (effectiveEngines === 1 && generatorsInDeck < 2) {
         score -= 0.7;
         antiR.push(`-0.7 엔진은 있으나 생성기 ${generatorsInDeck}개뿐 - 보상이 자주 안 터짐`);
-      } else if (effectiveEngines >= 1 && generatorsInDeck >= 2) {
+      } else if (effectiveEngines >= 1 && generatorsInDeck >= 2 && cardFitsTopArch) {
         const bon = floorLate ? 0.5 : 0.2;
         score += bon;
         synR.push(`+${bon.toFixed(1)} 엔진·생성기 가동 중 - 보상이 안정적으로 발동`);
@@ -349,12 +359,16 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
 
     if (data.role === 'engine') {
       if (enginesInDeck === 0) {
-        const bon = floorEarly ? 0.6 : 0.3;
-        score += bon;
-        synR.push(`+${bon.toFixed(1)} 첫 엔진 카드 - 빌드 전체를 가동시킴`);
+        if (cardFitsTopArch) {
+          const bon = floorEarly ? 0.6 : 0.3;
+          score += bon;
+          synR.push(`+${bon.toFixed(1)} 첫 엔진 카드 - 빌드 전체를 가동시킴`);
+        }
       } else if (enginesInDeck === 1) {
-        score += 0.1;
-        synR.push(`+0.1 두 번째 엔진 - 안정성 향상`);
+        if (cardFitsTopArch) {
+          score += 0.1;
+          synR.push(`+0.1 두 번째 엔진 - 안정성 향상`);
+        }
       } else {
         score -= 0.4;
         antiR.push(`-0.4 이미 엔진 ${enginesInDeck}개 - 추가 엔진은 잉여`);
@@ -373,7 +387,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
         antiR.push(`-0.5 이미 생성기 ${generatorsInDeck}개 - 패가 막힘`);
       } else if (generatorsInDeck >= 3 && payoffsInDeck === 0) {
         antiR.push(`(생성기 ${generatorsInDeck}개, 보상 0개 - 이제 보상 카드를 찾으세요)`);
-      } else if (generatorsInDeck < 4) {
+      } else if (generatorsInDeck < 4 && cardFitsTopArch) {
         score += 0.2;
         synR.push(`+0.2 ${koArch(topArch.arch.name)} 자원 생성에 기여`);
       }
