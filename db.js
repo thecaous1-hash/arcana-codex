@@ -19215,7 +19215,7 @@ const DB = {
             "block",
             "strength"
           ],
-          "bonus": 5
+          "bonus": 0.5
         }
       ]
     },
@@ -19530,7 +19530,7 @@ const DB = {
           "tags": [
             "power"
           ],
-          "bonus": 5
+          "bonus": 0.4
         }
       ]
     },
@@ -20017,7 +20017,7 @@ const DB = {
             "block",
             "strength"
           ],
-          "bonus": 5
+          "bonus": 0.5
         }
       ]
     },
@@ -26093,12 +26093,6 @@ const DB = {
       "card": "Shiv",
       "bonus": 1.8,
       "reason": "Shivs Exhaust when played — Joss Paper draws 1 card per 5 Exhausts. In Shiv-heavy turns with 5-10 Shivs, Joss Paper draws 1-2 extra cards passively."
-    },
-    {
-      "relic": "Joss Paper",
-      "card": "Blade Dance",
-      "bonus": 1.5,
-      "reason": "Blade Dance generates 3 Shivs that Exhaust — Joss Paper draws from Exhausts. Each Blade Dance contributes 3 Exhausts toward Joss Paper's draw threshold."
     },
     {
       "relic": "Tingsha",
