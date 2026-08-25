@@ -29,6 +29,36 @@ GitHub 저장소 페이지에서 직접 확인함(확인일 2026-07-19).
 - ptrlrd/spire-codex (https://spire-codex.com) — 카드/유물 한글 텍스트 및 승률 통계(공개 API).
   카드/유물 이미지는 spire-codex CDN에서 런타임 로딩(저장소에 미포함).
 
+### spire-codex 라이선스 구분 (2026-08-25 확인)
+
+두 가지가 서로 다른 문서로 갈려 있으므로 구분해서 적는다.
+
+- **저장소 소스 코드** — PolyForm Noncommercial 1.0.0 (LICENSE.md)
+  Required Notice: Copyright (c) 2025-present Peter Lord and Spire Codex contributors.
+  https://polyformproject.org/licenses/noncommercial/1.0.0
+- **호스팅 API** (`https://spire-codex.com/api/*`) — 별도 문서 API_TERMS.md 적용.
+  해당 문서에 "소프트웨어 라이선스를 대체하지 않는다"고 명시됨.
+  - 커뮤니티 사용 무료
+  - 출처 표기는 **권장, 필수 아님**(encouraged, not required).
+    그럼에도 본 프로젝트는 푸터에 링크를 표기함
+  - 속도 제한: 데이터 엔드포인트 60 req/분/IP
+  - 게임 데이터 소유권은 Mega Crit Games (위 Mega Crit 허가 항목 참조)
+
+본 프로젝트는 **API만 사용하며 spire-codex의 소스 코드는 사용하지 않는다.**
+코드 계보는 Shawnrai(MIT) 쪽이며 위 「업스트림 계보」 항목이 정본.
+
+확인 방법: raw.githubusercontent.com에서 LICENSE.md, API_TERMS.md,
+CONTRIBUTING.md를 직접 fetch. 확인일 2026-08-25.
+
+### 사전 통보 기록
+
+2026-08-25, ptrlrd/spire-codex#891로 트래픽 증가 예고 및 출처 표기 문의.
+https://github.com/ptrlrd/spire-codex/issues/891
+
+회신 대기 중인 사항 2건:
+- 카드/유물 이미지 CDN 핫링크 유지 여부 (자체 호스팅 전환 제안해둠)
+- 출처 표기 문구·위치에 대한 선호
+
 ## Mega Crit 허가 확인 (Permission from Mega Crit)
 - 2026-07-20, Mega Crit의 Anthony Giovannetti(devs@megacrit.com)로부터
   이메일로 다음 사항을 확인받음:
@@ -43,4 +73,4 @@ GitHub 저장소 페이지에서 직접 확인함(확인일 2026-07-19).
   db.js 및 data/api_data.js에 있으며 Mega Crit 저작물. 위 2026-07-20 허가 확인에
   따라 외부 컴패니언 툴로서 표시·사용 — MIT 코드와는 별개 사안.
 
-기록일 2026-07-14 · 최종 갱신 2026-07-21 · 사실 기록이며 법적 판단이 아님.
+기록일 2026-07-14 · 최종 갱신 2026-08-25 · 사실 기록이며 법적 판단이 아님.
