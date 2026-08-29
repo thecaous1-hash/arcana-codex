@@ -338,7 +338,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     }).length;
 
     // 카드 자신이 topArch 소속이 아니면(카운팅과 동일 판정) 역할 기반 가점은 주지 않음. 감점은 유지.
-    const cardFitsTopArch = (data.builds||[]).some(b => b===archId || b==='any');
+    const cardFitsTopArch = (data.builds||[]).some(b => b===archId);
 
     const floorEarly = floor <= 8;
     const floorLate  = floor >= 20;
@@ -437,7 +437,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     }
   } else if (act === 2) {
     if (!da.isUndefined && da.detected[0].strength >= 0.5) {
-      const fitsTop = (data.builds||[]).includes(da.detected[0].arch.id) || (data.builds||[]).includes('any');
+      const fitsTop = (data.builds||[]).includes(da.detected[0].arch.id);
       if (fitsTop) { score += 0.2; synR.push('+0.2 확정된 빌드에 적합 (2막)'); }
     }
   } else if (act === 3) {
