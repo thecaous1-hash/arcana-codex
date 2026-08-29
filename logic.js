@@ -142,6 +142,31 @@ function analyzeDeck(char, deckCards) {
   };
 }
 
+// C 처방 ②(core 우선, 2026-08-29): 같은 아키타입에서 카드 태그가 core에 하나라도 걸리면
+// 그 아키타입의 support 경로는 가점·감점 모두 무시하고 core 경로만 계산한다.
+// coreHit은 syn·anti를 합쳐 판정 — tools/sim_c_options.js __simPickPaths의 ② 케이스와 동일 동작.
+// syn의 core 판정은 arch.id 경로 포함, anti의 core 판정은 arch.core만 (기존 매칭 규칙 유지).
+function pickArchTags(data, arch, dup) {
+  const syn = data.syn || [], anti = data.anti || [];
+  let synCore = null, synAny = null, antiCore = null, antiAny = null;
+  for (const t of syn) {
+    if (dup.has(t)) continue;
+    const c = arch.core.includes(t) || arch.id === t;
+    const s = arch.support.includes(t);
+    if ((c || s) && synAny === null) synAny = t;
+    if (c && synCore === null) synCore = t;
+  }
+  for (const t of anti) {
+    if (dup.has(t)) continue;
+    const c = arch.core.includes(t);
+    const s = arch.support.includes(t);
+    if ((c || s) && antiAny === null) antiAny = t;
+    if (c && antiCore === null) antiCore = t;
+  }
+  const coreHit = synCore !== null || antiCore !== null;
+  return { synTag: coreHit ? synCore : synAny, antiTag: coreHit ? antiCore : antiAny };
+}
+
 function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippedRelics) {
   encounter = encounter || 'normal';
   equippedRelics = equippedRelics || [];
@@ -176,37 +201,31 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   const synAntiDup = new Set((data.syn || []).filter(t => (data.anti || []).includes(t)));
 
   // Synergy - graduated with diminishing returns + saturation
+  // C 처방 ②: 태그 선택은 pickArchTags(core 우선)로 일원화. coreHit 시 support 가점 무시.
   const DIMN = [1.0, 0.6, 0.3];
   let matchCount = 0;
   for (const {arch, strength} of da.detected) {
     if (matchCount >= DIMN.length) break;
-    for (const tag of data.syn) {
-      if (synAntiDup.has(tag)) continue;
-      if (arch.core.includes(tag) || arch.support.includes(tag) || arch.id === tag) {
-        const satCount = da.unionCount(tag);
-        const satMult = satCount >= 7 ? 0.35 : satCount >= 4 ? 0.65 : 1.0;
-        const boost = (0.3 + strength * 0.5) * DIMN[matchCount] * satMult;
-        score += boost;
-        const satNote = satMult < 1 ? ` (포화)` : '';
-        synR.push(`+${boost.toFixed(1)} ${koArch(arch.name)} 빌드에 적합${satNote}`);
-        matchCount++;
-        break;
-      }
-    }
+    const tag = pickArchTags(data, arch, synAntiDup).synTag;
+    if (tag === null) continue;
+    const satCount = da.unionCount(tag);
+    const satMult = satCount >= 7 ? 0.35 : satCount >= 4 ? 0.65 : 1.0;
+    const boost = (0.3 + strength * 0.5) * DIMN[matchCount] * satMult;
+    score += boost;
+    const satNote = satMult < 1 ? ` (포화)` : '';
+    synR.push(`+${boost.toFixed(1)} ${koArch(arch.name)} 빌드에 적합${satNote}`);
+    matchCount++;
   }
 
   // Anti-synergy - penalize cards that conflict with detected archetypes
+  // C 처방 ②: coreHit 시 support 감점 무시 (아키타입 경로만. 아래 덱 태그 경로는 기존 유지).
   let antiDelta = 0;
   for (const {arch, strength} of da.detected) {
-    for (const tag of (data.anti || [])) {
-      if (synAntiDup.has(tag)) continue;
-      if (arch.core.includes(tag) || arch.support.includes(tag)) {
-        const pen = -(0.4 + strength * 0.5);
-        score += pen; antiDelta += pen;
-        antiR.push(`${pen.toFixed(1)} ${koArch(arch.name)} 빌드와 충돌 (${koTag(tag)})`);
-        break;
-      }
-    }
+    const tag = pickArchTags(data, arch, synAntiDup).antiTag;
+    if (tag === null) continue;
+    const pen = -(0.4 + strength * 0.5);
+    score += pen; antiDelta += pen;
+    antiR.push(`${pen.toFixed(1)} ${koArch(arch.name)} 빌드와 충돌 (${koTag(tag)})`);
   }
   for (const tag of (data.anti || [])) {
     if (synAntiDup.has(tag)) continue;
