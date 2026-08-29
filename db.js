@@ -89,7 +89,12 @@ const DB = {
           "damage",
           "self_damage"
         ],
-        "anti": [],
+        "anti": [
+          "strength",
+          "block",
+          "exhaust",
+          "strike"
+        ],
         "notes": "Permanent max HP on kill. Snowballs hard. Especially valuable in Bloodletting builds where HP loss is flat — more max HP means more room to work with.",
         "mech": [
           "permanent_scaling"
@@ -109,7 +114,11 @@ const DB = {
           "scaling",
           "blood"
         ],
-        "anti": [],
+        "anti": [
+          "strength",
+          "block",
+          "strike"
+        ],
         "notes": "Lose 6 HP, draw 3, gain 2 energy. Enables explosive turns. Triggers Rupture.",
         "mech": [
           "self_damage",
@@ -4220,7 +4229,10 @@ const DB = {
           "orb",
           "block"
         ],
-        "anti": [],
+        "anti": [
+          "claw",
+          "status"
+        ],
         "notes": "Channel 2 Frost + block. Excellent defensive orb card.",
         "mech": [
           "frost",
@@ -4405,7 +4417,10 @@ const DB = {
           "orb",
           "scaling"
         ],
-        "anti": [],
+        "anti": [
+          "claw",
+          "status"
+        ],
         "notes": "2 Focus burst for big damage turns.",
         "mech": [
           "focus",
@@ -4481,7 +4496,10 @@ const DB = {
           "draw",
           "claw"
         ],
-        "anti": [],
+        "anti": [
+          "orb",
+          "status"
+        ],
         "notes": "Pure draw. Essential in Claw builds where your cards are cheap but you need more of them in hand.",
         "mech": [
           "draw"
@@ -5578,7 +5596,10 @@ const DB = {
           "orb_slot",
           "draw"
         ],
-        "anti": [],
+        "anti": [
+          "claw",
+          "status"
+        ],
         "mech": [
           "orb_slot",
           "draw",
@@ -5675,7 +5696,10 @@ const DB = {
           "aoe",
           "scaling"
         ],
-        "anti": [],
+        "anti": [
+          "claw",
+          "status"
+        ],
         "mech": [
           "orb_channel",
           "glass",
@@ -8903,7 +8927,10 @@ const DB = {
           "exhaust",
           "deck_thin"
         ],
-        "anti": [],
+        "anti": [
+          "soul",
+          "doom"
+        ],
         "mech": [
           "summon",
           "exhaust"
@@ -9227,7 +9254,10 @@ const DB = {
           "exhaust",
           "deck_thin"
         ],
-        "anti": [],
+        "anti": [
+          "osty",
+          "doom"
+        ],
         "mech": [
           "soul_gen",
           "exhaust",
@@ -9439,7 +9469,22 @@ const DB = {
           "damage",
           "scaling"
         ],
-        "anti": [],
+        "anti": [
+          "strength",
+          "block",
+          "exhaust",
+          "self_damage",
+          "strike",
+          "poison",
+          "shiv",
+          "orb",
+          "status",
+          "stars",
+          "forge",
+          "soul",
+          "osty",
+          "doom"
+        ],
         "notes": "Every 5 cards played in a turn, deal 10 AoE. S-tier — in Claw or Sly builds playing 10+ cards per turn, Panache deals 20-30 free AoE every turn passively.",
         "mech": [
           "aoe",
