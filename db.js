@@ -7571,7 +7571,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Ethereal. At start of turn, gain Energy and draw 1 additional card. S-tier permanent passive — +1 Energy and +1 draw every turn, at the cost of Ethereal (discards if not played).",
@@ -7600,7 +7599,6 @@ const DB = {
           "burst"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "[Reworked v0.102.0] 1-cost Skill: Gain 4(6) Energy, all cards cost +1 this turn. No longer self-Doom. Best with high-cost Necrobinder cards (Reap, Bury, Banshee's Cry) where the surcharge barely matters.",
@@ -7623,7 +7621,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Power: every time you play a Soul, random enemy loses 6 HP (ignores block). Stack multiples.",
@@ -7648,7 +7645,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Damage per Soul played this combat. Late game = 100+ damage in one card.",
@@ -7672,7 +7668,6 @@ const DB = {
           "aoe"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "3-cost: apply 29 Doom to ALL + execute any enemy with Doom ≥ HP. Mass setup + removal.",
@@ -7719,7 +7714,6 @@ const DB = {
           "draw"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "[v0.100.0 nerf reverted in v0.101.0] Restored to original: HP loss 3(4), Souls 3(4). Top Necrobinder pick again.",
@@ -7741,9 +7735,7 @@ const DB = {
           "osty",
           "summon"
         ],
-        "anti": [
-          "doom"
-        ],
+        "anti": [],
         "notes": "Whenever you play a Soul, Summon 1. A-tier passive — every Soul played grows Osty. In Soul-heavy builds, Osty grows to enormous HP passively.",
         "mech": [
           "summon",
@@ -7763,7 +7755,6 @@ const DB = {
           "draw"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Put 3 cards from Discard into Hand then Exhaust. Incredible setup card — retrieves key cards exactly when needed.",
@@ -7786,7 +7777,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Ethereal. First Attack each turn deals 50% additional damage. A-tier — massive damage multiplier on your best attack each turn. Ethereal means you always want to draw and play it same turn.",
@@ -7809,7 +7799,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Gain 6 Block. If you applied Doom this turn, gain Block 2 more times — total 18 Block. A-tier payoff — trivial to trigger in Doom builds, massive defensive value.",
@@ -7853,7 +7842,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "At start of turn apply 6 Doom to random enemy. Passive Doom stacking per turn.",
@@ -7876,7 +7864,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "0★X: deal 11 damage X times. Dump energy for massive damage.",
@@ -7972,7 +7959,6 @@ const DB = {
           "draw"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Deal 4 damage. Put a card from Discard into Hand. Exhaust. S-tier retrieval — cycles key cards back on demand.",
@@ -7996,7 +7982,6 @@ const DB = {
           "vulnerable"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Deal 7 damage. Vulnerable and Weak are twice as effective for 3 turns. A-tier — this doubles ALL Vulnerable and Weak on the enemy for 3 turns. Insane multiplier for debuff builds. [Buffed v0.100.0] Damage 7(9)→10(12).",
@@ -8021,7 +8006,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Apply 10 Doom, draw 1 card. Foundation of Doom builds — stacks fast and replaces itself.",
@@ -8044,7 +8028,6 @@ const DB = {
           "aoe"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "2-cost: 21 Doom to ALL enemies + Weak.",
@@ -8068,7 +8051,6 @@ const DB = {
           "ethereal"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Ethereal. Draw 3 cards. A-tier — 0-cost Ethereal draw 3. Pairs with Pagestorm (Ethereal triggers draw), Spirit of Ash (4 Block), and Demesne.",
@@ -8092,7 +8074,6 @@ const DB = {
           "aoe"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "[Nerfed v0.100.0] Cost 6 → 9(7). Upgrade no longer increases damage. 33 AoE; cost reduces 2 per Ethereal played. Steeper to drop down without strong Ethereal density.",
@@ -8116,7 +8097,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Apply 10 Doom + 5 more per 10 Doom already on target. Exponential — destroys high-HP bosses.",
@@ -8157,7 +8137,6 @@ const DB = {
           "block"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "AoE Doom + block in one card.",
@@ -8180,7 +8159,6 @@ const DB = {
           "block"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "[Changed v0.100.0] 8 Block + add a Soul to Draw Pile. Upgrade now 8(11) Block (was 8(10)) and no longer upgrades the Soul.",
@@ -8250,7 +8228,6 @@ const DB = {
           "replay"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Add Replay to a card in Hand (costs +1 Energy). Exhaust. A-tier — Replay causes a card to play twice. On Undeath this creates 2 copies. On Death March, doubles damage output.",
@@ -8272,7 +8249,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "Deal 8 damage + 3 per card drawn this turn. A-tier — in Soul builds drawing 5-7 cards per turn, this deals 23-29 damage for 2 Energy.",
@@ -8315,7 +8291,6 @@ const DB = {
           "strength"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Enemy loses X Strength this turn. Scales with energy.",
@@ -8338,7 +8313,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "3 block per expensive card played. Passive block in doom builds. [Buffed v0.100.0] Block 3(4)→4(6).",
@@ -8361,10 +8335,7 @@ const DB = {
           "exhaust",
           "scaling"
         ],
-        "anti": [
-          "doom",
-          "osty"
-        ],
+        "anti": [],
         "notes": "[Nerfed v0.100.0] Now Exhausts. Make X Souls + raise Osty's HP. Setup card for soul+osty combo, but one-shot.",
         "mech": [
           "soul_generator",
@@ -8385,7 +8356,6 @@ const DB = {
           "damage"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "8 damage + 8 Doom. Decent filler in doom builds.",
@@ -8406,7 +8376,6 @@ const DB = {
           "damage"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Deal damage equal to enemy's Doom. Exhaust. Clean Doom payoff — executes once threshold is reached.",
@@ -8429,7 +8398,6 @@ const DB = {
           "damage"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Basic filler. Damage + Vulnerable.",
@@ -8484,7 +8452,6 @@ const DB = {
           "energy_gain"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Lose 2 Strength for energy ramp. Bad trade.",
@@ -8505,7 +8472,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "Lose 2 Strength. Enemy loses 2 Strength. Exhaust. A-tier — free Strength drain that permanently weakens the enemy. The self-Strength cost is negligible vs permanent enemy debuff.",
@@ -8596,7 +8562,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "soul",
           "osty"
         ],
         "notes": "High-impact doom finisher. Powerful once doom execution is online.",
@@ -8619,7 +8584,6 @@ const DB = {
           "scaling"
         ],
         "anti": [
-          "doom",
           "osty"
         ],
         "notes": "1-cost attack that puts a Soul into your draw pile. Key soul generator.",
@@ -8690,9 +8654,7 @@ const DB = {
           "energy_gain",
           "scaling"
         ],
-        "anti": [
-          "doom"
-        ],
+        "anti": [],
         "notes": "Reduce card cost to 0 when Osty attacks first. Enables big combo turns.",
         "mech": [
           "cost_reduction",
