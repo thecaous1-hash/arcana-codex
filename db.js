@@ -3484,8 +3484,7 @@ const DB = {
           "after_image"
         ],
         "anti": [
-          "poison",
-          "sly"
+          "poison"
         ],
         "notes": "[Reworked v0.102.0] 1-cost Skill: Add 2 Inky Shivs to Hand (Inky = Shiv + 2 dmg + apply 1 Weak). Major Shiv payoff & Weak applier; no longer grants temporary Strength.",
         "mech": [
