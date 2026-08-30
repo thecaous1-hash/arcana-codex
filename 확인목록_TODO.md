@@ -446,6 +446,32 @@ notes에는 "in Claw or Sly builds playing 10+ cards per turn"이라고
   둘 다 1단계에서 새로 단 anti `block`이 만든 support↔support 조합.
   처방 ②의 해소 범위(core↔support) 밖이라 안 잡힘.
 
+**3단계 — any 구분안 + 데이터 예외 (2026-08-30)**
+브랜치 claude/stage3-any-onlyfix (claude/stage2-logic에서 분기)
+
+배경: 8/29 최종 검수의 "부당 하락 9장"은 전부 builds가 `any` 단독인 카드였다.
+작업 A로 any 통과권을 없애면서 이들만 빌드 정보가 통째로 사라진 것.
+조사 D가 "any = 좋은 카드 표식"이라 판정한 것은 any가 구체 빌드와
+**섞인** 카드(78장) 얘기였고, any **단독** 카드(130장)는 성격이 다름.
+
+처방(구분안): builds가 any 단독이고 anti가 비어 있으면 통과권 유지.
+  - logic.js 2곳(cardFitsTopArch·fitsTop)에 onlyAny 조건 추가
+  - anti 조건을 넣은 이유: builds=["any"]인데 anti가 달린 카드 7장에서
+    "+0.2 확정된 빌드에 적합"과 "−0.9 ○○ 빌드와 충돌"이 동시 출력됨
+    (마지막 축제·격돌·유령의 형상·초강력 광선·공허 형상·공명·잔혹)
+데이터 예외 2건:
+  - 제물(Offering): 1단계에서 단 anti [strength, block, strike] 전부 삭제
+    → 3.10(B)에서 1단계 이전 값 4.80(S)로 복귀. 사혈·거상과 동일 처리
+  - 탈출구(Escape Plan): builds ["sly","any"] → ["any"]
+    ("any 단독" 조건에 걸리게. any면 sly도 포함이라 손실 없음)
+
+결과(3,445쌍 전수, 기준선 조건 동일):
+  main → stage2      등급변동 292쌍 (상승 6 / 하락 286), 모순 1건
+  main → 3단계 최종   등급변동 129쌍 (상승 9 / 하락 120), 모순 0건
+  부당 지목 9장 전원 원등급 복귀 확인
+
+⏳ 남은 것: 사용자 최종 등급 검수 → 통과 시 main으로 PR
+
 
 **잉크 칼날(Blade Of Ink) 자기모순** — silent, A티어
 builds=[shiv, sly] / anti=[poison, sly]로 sly가 양쪽에 있음.
