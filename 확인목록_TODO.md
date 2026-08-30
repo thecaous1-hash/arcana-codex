@@ -441,11 +441,69 @@ notes에는 "in Claw or Sly builds playing 10+ cards per turn"이라고
 
 ⏳ 다음 세션 결정: 부당 9장 처리 방법
 
-**남은 모순 2건** (2단계 보고서 §5)
-  제물(ironclad/exhaust, syn draw ↔ anti block)
-  위풍당당(necrobinder/osty, syn damage ↔ anti block)
-  둘 다 1단계에서 새로 단 anti `block`이 만든 support↔support 조합.
-  처방 ②의 해소 범위(core↔support) 밖이라 안 잡힘.
+**남은 모순 — 조사 완료, 수정하지 않기로 결론 (2026-08-30)**
+  제물(ironclad/exhaust) — ✅ 해소됨. 3단계에서 anti 3개 삭제.
+  위풍당당(necrobinder/osty) — ⛔ 조사 결과 **수정하면 점수가 나빠짐.**
+
+  【위풍당당 조사 내용】
+  · 데이터: colorless/PANACHE, tier S, builds=[claw, sly, any],
+    syn=[aoe, damage, scaling], anti 14개.
+    anti 14개는 전체 아키타입 16개에서 claw·sly만 뺀 정확한 여집합.
+    화이트리스트를 블랙리스트로 다시 적은 형태라 정보량이 0이고,
+    비적합 아키타입마다 -0.9(충돌) + -0.9(빌드 부적합) 이중 감점이 걸림.
+    ※ 이런 여집합형 anti를 가진 카드는 전수 확인 결과 이 1장뿐.
+      anti가 5개 이상인 카드도 이것 하나. 1단계 S티어 anti 추가의
+      국소적 부작용이며 다른 9장은 정상.
+
+  · 두 처방을 3,445쌍 전수 시뮬로 검증했고, 둘 다 방향이 틀렸음:
+    A안(anti 전부 삭제) — 14쌍 상승. anti가 사라지면 syn(aoe·damage·
+      scaling)이 살아나 "+0.8 빌드에 적합"이 붙고 감점은 -0.9만 남음.
+      결과: silent/poison 2.77B→4.47S, necrobinder/soul 2.67B→4.37S,
+      defect/orb 2.71B→4.41S. claw·sly 전용 카드가 독·영혼 빌드에서 S.
+    B안(anti에서 block만 삭제) — 2쌍 변동.
+      necrobinder/osty 3.47A→4.37S. 역시 과대평가.
+
+  · 결론: **현재 점수가 가장 정확함.** claw·sly에서만 6.0 S,
+    나머지 14곳은 전부 B(2.5~2.8)로 카드 성격에 부합.
+    정보량 0인 anti가 결과적으로 브레이크 역할을 하고 있음.
+    특히 osty가 혼자 3.47A로 튀는 원인은 anti가 아니라 syn의 damage가
+    osty에 걸려 붙는 +0.8이고, anti block의 -0.9가 그걸 눌러 A에 머무름.
+    지우면 S로 튐.
+
+  · 남는 문제는 점수가 아니라 **화면 문구**이며,
+    아래 "빌드 적합/부적합 문구 동시 표출" 항목으로 통합한다.
+
+**빌드 적합/부적합 문구 동시 표출 — 291쌍 / 165장 (2026-08-30 발견)**
+⏳ 미착수. 점수 오류가 아니라 표시 문구 문제로 추정.
+
+  · 증상: 한 카드에 "+0.8 X 빌드에 적합"과
+    "-0.9 ○○ 카드라 X 빌드와 안 맞음"이 동시에 표시됨.
+    예) 사혈 · ironclad/strength
+        +0.8 Strength 빌드에 적합
+        -0.9 self_damage 카드라 Strength 빌드와 안 맞음
+
+  · 원인: syn 태그 적합 판정과 builds 부적합 판정이 서로 독립 발화.
+    사혈은 builds=[self_damage]이지만 syn에 scaling이 있고
+    strength 아키타입의 support에도 scaling이 있어 양쪽이 다 걸림.
+    즉 "자해 빌드 카드지만 힘 빌드가 원하는 scaling 요소는 갖고 있다"는
+    뜻이라 점수 자체는 틀리지 않았을 수 있음. 문구만 모순으로 보임.
+
+  · 규모: 291쌍 / 165장.
+    등급 분포 S:30 A:63 B:92 C:36 D:70
+    적합 가점을 유발한 syn 태그 상위:
+      scaling 99건 · damage 81건 · draw 61건 · block 35건 · strength 17건
+    셋(scaling·damage·draw)이 여러 아키타입의 support에 공통으로 들어간
+    범용 태그라, 대부분이 여기서 발생함.
+
+  · ⚠️ 검사기 주의: 기존 모순 검사는 "확정된 빌드에 적합"(2막 가점)
+    문구만 봤기 때문에 이 계열을 0건으로 보고했음. 3단계까지의
+    "모순 0건"은 그 좁은 정의 기준이며 여전히 유효하나,
+    이 계열은 별도로 세어야 함. 검사 정규식을
+    /빌드에 적합|빌드 핵심 카드|유연한 카드/ 로 넓혀야 잡힘.
+
+  · 유력 방향: 점수를 건드리지 말고 문구를 근거 중심으로 바꾸기.
+    "+0.8 Strength 빌드에 적합" → "+0.8 scaling이 Strength 빌드와 맞음"
+    처럼 어느 태그 때문인지 밝히면 모순으로 보이지 않음.
 
 **3단계 — any 구분안 + 데이터 예외 (2026-08-30)**
 브랜치 claude/stage3-any-onlyfix (claude/stage2-logic에서 분기)
