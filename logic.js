@@ -142,6 +142,31 @@ function analyzeDeck(char, deckCards) {
   };
 }
 
+// C 처방 ②(core 우선, 2026-08-29): 같은 아키타입에서 카드 태그가 core에 하나라도 걸리면
+// 그 아키타입의 support 경로는 가점·감점 모두 무시하고 core 경로만 계산한다.
+// coreHit은 syn·anti를 합쳐 판정 — tools/sim_c_options.js __simPickPaths의 ② 케이스와 동일 동작.
+// syn의 core 판정은 arch.id 경로 포함, anti의 core 판정은 arch.core만 (기존 매칭 규칙 유지).
+function pickArchTags(data, arch, dup) {
+  const syn = data.syn || [], anti = data.anti || [];
+  let synCore = null, synAny = null, antiCore = null, antiAny = null;
+  for (const t of syn) {
+    if (dup.has(t)) continue;
+    const c = arch.core.includes(t) || arch.id === t;
+    const s = arch.support.includes(t);
+    if ((c || s) && synAny === null) synAny = t;
+    if (c && synCore === null) synCore = t;
+  }
+  for (const t of anti) {
+    if (dup.has(t)) continue;
+    const c = arch.core.includes(t);
+    const s = arch.support.includes(t);
+    if ((c || s) && antiAny === null) antiAny = t;
+    if (c && antiCore === null) antiCore = t;
+  }
+  const coreHit = synCore !== null || antiCore !== null;
+  return { synTag: coreHit ? synCore : synAny, antiTag: coreHit ? antiCore : antiAny };
+}
+
 function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippedRelics) {
   encounter = encounter || 'normal';
   equippedRelics = equippedRelics || [];
@@ -176,37 +201,31 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   const synAntiDup = new Set((data.syn || []).filter(t => (data.anti || []).includes(t)));
 
   // Synergy - graduated with diminishing returns + saturation
+  // C 처방 ②: 태그 선택은 pickArchTags(core 우선)로 일원화. coreHit 시 support 가점 무시.
   const DIMN = [1.0, 0.6, 0.3];
   let matchCount = 0;
   for (const {arch, strength} of da.detected) {
     if (matchCount >= DIMN.length) break;
-    for (const tag of data.syn) {
-      if (synAntiDup.has(tag)) continue;
-      if (arch.core.includes(tag) || arch.support.includes(tag) || arch.id === tag) {
-        const satCount = da.unionCount(tag);
-        const satMult = satCount >= 7 ? 0.35 : satCount >= 4 ? 0.65 : 1.0;
-        const boost = (0.3 + strength * 0.5) * DIMN[matchCount] * satMult;
-        score += boost;
-        const satNote = satMult < 1 ? ` (포화)` : '';
-        synR.push(`+${boost.toFixed(1)} ${koArch(arch.name)} 빌드에 적합${satNote}`);
-        matchCount++;
-        break;
-      }
-    }
+    const tag = pickArchTags(data, arch, synAntiDup).synTag;
+    if (tag === null) continue;
+    const satCount = da.unionCount(tag);
+    const satMult = satCount >= 7 ? 0.35 : satCount >= 4 ? 0.65 : 1.0;
+    const boost = (0.3 + strength * 0.5) * DIMN[matchCount] * satMult;
+    score += boost;
+    const satNote = satMult < 1 ? ` (포화)` : '';
+    synR.push(`+${boost.toFixed(1)} ${koArch(arch.name)} 빌드에 적합${satNote}`);
+    matchCount++;
   }
 
   // Anti-synergy - penalize cards that conflict with detected archetypes
+  // C 처방 ②: coreHit 시 support 감점 무시 (아키타입 경로만. 아래 덱 태그 경로는 기존 유지).
   let antiDelta = 0;
   for (const {arch, strength} of da.detected) {
-    for (const tag of (data.anti || [])) {
-      if (synAntiDup.has(tag)) continue;
-      if (arch.core.includes(tag) || arch.support.includes(tag)) {
-        const pen = -(0.4 + strength * 0.5);
-        score += pen; antiDelta += pen;
-        antiR.push(`${pen.toFixed(1)} ${koArch(arch.name)} 빌드와 충돌 (${koTag(tag)})`);
-        break;
-      }
-    }
+    const tag = pickArchTags(data, arch, synAntiDup).antiTag;
+    if (tag === null) continue;
+    const pen = -(0.4 + strength * 0.5);
+    score += pen; antiDelta += pen;
+    antiR.push(`${pen.toFixed(1)} ${koArch(arch.name)} 빌드와 충돌 (${koTag(tag)})`);
   }
   for (const tag of (data.anti || [])) {
     if (synAntiDup.has(tag)) continue;
@@ -338,7 +357,14 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     }).length;
 
     // 카드 자신이 topArch 소속이 아니면(카운팅과 동일 판정) 역할 기반 가점은 주지 않음. 감점은 유지.
-    const cardFitsTopArch = (data.builds||[]).some(b => b===archId || b==='any');
+    // 구분안(2026-08-30): builds가 'any' 하나뿐이고 anti가 비어 있으면
+    // 진짜 범용 카드로 보고 통과권을 유지한다.
+    // 'any'가 구체 빌드와 섞여 있으면(조사 D의 '좋은 카드 표식') 무시.
+    // anti가 있으면 '적합'과 '충돌'이 동시 출력되므로 제외.
+    const onlyAny = (data.builds||[]).length === 1
+                    && data.builds[0] === 'any'
+                    && (data.anti||[]).length === 0;
+    const cardFitsTopArch = onlyAny || (data.builds||[]).some(b => b===archId);
 
     const floorEarly = floor <= 8;
     const floorLate  = floor >= 20;
@@ -437,7 +463,11 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     }
   } else if (act === 2) {
     if (!da.isUndefined && da.detected[0].strength >= 0.5) {
-      const fitsTop = (data.builds||[]).includes(da.detected[0].arch.id) || (data.builds||[]).includes('any');
+      // 구분안(2026-08-30): 위 cardFitsTopArch와 동일 기준
+      const onlyAnyB = (data.builds||[]).length === 1
+                       && data.builds[0] === 'any'
+                       && (data.anti||[]).length === 0;
+      const fitsTop = onlyAnyB || (data.builds||[]).includes(da.detected[0].arch.id);
       if (fitsTop) { score += 0.2; synR.push('+0.2 확정된 빌드에 적합 (2막)'); }
     }
   } else if (act === 3) {
