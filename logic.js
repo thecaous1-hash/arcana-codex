@@ -543,14 +543,14 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   // Encounter context
   if (encounter === 'boss') {
     if ((data.syn||[]).includes('doom') && data.role === 'payoff') {
-      score -= 0.4; antiR.push(`-0.4 파멸 즉사는 보스에게 불안정`);
+      score -= 0.4; antiR.push(`-0.4 종말 즉사는 보스에게 불안정`);
     }
     if (hasDefense) {
       score += 0.3; synR.push(`+0.3 보스 임박 - 방어가 중요`);
     }
   } else if (encounter === 'elite') {
     if ((data.syn||[]).includes('doom') && data.role === 'payoff') {
-      score += 0.3; synR.push(`+0.3 파멸 보상 - 정예는 파멸이 빠르게 쌓임`);
+      score += 0.3; synR.push(`+0.3 종말 보상 - 정예는 종말이 빠르게 쌓임`);
     }
     const hasSingleUseExhaust = data.role === 'payoff' && (data.mech||[]).includes('exhaust');
     if (hasSingleUseExhaust) {
@@ -571,13 +571,13 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     if ((data.syn||[]).includes('doom') && data.role === 'payoff') {
       if (doomGens < 2) {
         score -= 0.6;
-        antiR.push(`-0.6 파멸 보상이지만 파멸 생성기 ${doomGens}개뿐 - 적이 임계치에 못 미침`);
+        antiR.push(`-0.6 종말 보상이지만 종말 생성기 ${doomGens}개뿐 - 적이 임계치에 못 미침`);
       } else if (doomGens >= 3 && act >= 2) {
         score += 0.4;
-        synR.push(`+0.4 파멸 생성기 ${doomGens}개 - 적이 안정적으로 임계치 도달`);
+        synR.push(`+0.4 종말 생성기 ${doomGens}개 - 적이 안정적으로 임계치 도달`);
       }
       if (act >= 2 && doomPayoffs >= 2) {
-        antiR.push(`(참고: 파멸 즉사는 보스에게 불안정 - 대체 피해 수단을 유지하세요)`);
+        antiR.push(`(참고: 종말 즉사는 보스에게 불안정 - 대체 피해 수단을 유지하세요)`);
       }
     }
   }
