@@ -357,7 +357,14 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     }).length;
 
     // 카드 자신이 topArch 소속이 아니면(카운팅과 동일 판정) 역할 기반 가점은 주지 않음. 감점은 유지.
-    const cardFitsTopArch = (data.builds||[]).some(b => b===archId);
+    // 구분안(2026-08-30): builds가 'any' 하나뿐이고 anti가 비어 있으면
+    // 진짜 범용 카드로 보고 통과권을 유지한다.
+    // 'any'가 구체 빌드와 섞여 있으면(조사 D의 '좋은 카드 표식') 무시.
+    // anti가 있으면 '적합'과 '충돌'이 동시 출력되므로 제외.
+    const onlyAny = (data.builds||[]).length === 1
+                    && data.builds[0] === 'any'
+                    && (data.anti||[]).length === 0;
+    const cardFitsTopArch = onlyAny || (data.builds||[]).some(b => b===archId);
 
     const floorEarly = floor <= 8;
     const floorLate  = floor >= 20;
@@ -456,7 +463,11 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     }
   } else if (act === 2) {
     if (!da.isUndefined && da.detected[0].strength >= 0.5) {
-      const fitsTop = (data.builds||[]).includes(da.detected[0].arch.id);
+      // 구분안(2026-08-30): 위 cardFitsTopArch와 동일 기준
+      const onlyAnyB = (data.builds||[]).length === 1
+                       && data.builds[0] === 'any'
+                       && (data.anti||[]).length === 0;
+      const fitsTop = onlyAnyB || (data.builds||[]).includes(da.detected[0].arch.id);
       if (fitsTop) { score += 0.2; synR.push('+0.2 확정된 빌드에 적합 (2막)'); }
     }
   } else if (act === 3) {

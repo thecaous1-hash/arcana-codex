@@ -114,11 +114,7 @@ const DB = {
           "scaling",
           "blood"
         ],
-        "anti": [
-          "strength",
-          "block",
-          "strike"
-        ],
+        "anti": [],
         "notes": "Lose 6 HP, draw 3, gain 2 energy. Enables explosive turns. Triggers Rupture.",
         "mech": [
           "self_damage",
@@ -3379,7 +3375,6 @@ const DB = {
         "id": "Escape Plan",
         "tier": "A",
         "builds": [
-          "sly",
           "any"
         ],
         "syn": [
