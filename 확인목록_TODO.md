@@ -490,8 +490,13 @@ notes에는 "in Claw or Sly builds playing 10+ cards per turn"이라고
 
   · 규모: 291쌍 / 165장.
     등급 분포 S:30 A:63 B:92 C:36 D:70
-    적합 가점을 유발한 syn 태그 상위:
-      scaling 99건 · damage 81건 · draw 61건 · block 35건 · strength 17건
+    적합 가점을 유발한 syn 태그 상위 (선택된 태그 1개 기준):
+      damage 75건 · scaling 71건 · draw 51건 · block 33건 · strength 17건
+    ※ 기준 주의 — logic.js 216행의 +0.8 문구를 만드는 태그는
+      pickArchTags(...).synTag 하나뿐이다(C항목 core 우선 선택).
+      매칭된 태그를 전부 세면 scaling 99 · damage 81 · draw 61 로
+      1·2위가 뒤바뀌므로, 문구 개선 착수 시에는 반드시
+      선택된 태그 기준을 쓸 것. 결론(범용 태그 셋이 대부분)은 동일.
     셋(scaling·damage·draw)이 여러 아키타입의 support에 공통으로 들어간
     범용 태그라, 대부분이 여기서 발생함.
 
