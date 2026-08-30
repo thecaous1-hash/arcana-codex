@@ -197,9 +197,7 @@ const DB = {
           "attack_density",
           "draw"
         ],
-        "anti": [
-          "exhaust_heavy"
-        ],
+        "anti": [],
         "notes": "[Reworked v0.100.0] Cost 2(1) Skill, Uncommon: Gain Energy for each Attack in Hand. You cannot gain additional Energy this turn. Closes off most Ironclad infinite loops; still excellent burst energy with attack-dense hands.",
         "mech": [
           "energy_gain",
