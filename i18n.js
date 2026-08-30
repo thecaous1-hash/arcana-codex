@@ -23,7 +23,7 @@ const KO_ARCH = {
   "Forge / Sovereign Blade": "단조/군주의 검",
   "Soul Engine": "영혼 엔진",
   "Osty / Summon": "골골이/소환",
-  "Doom Stack": "파멸 중첩",
+  "Doom Stack": "종말 중첩",
   "Status Engine": "상태이상 엔진",
 };
 
@@ -32,7 +32,7 @@ const KO_BUILD = {
   strength: "힘", block: "방어", exhaust: "소진", self_damage: "사혈",
   strike: "타격", sly: "교활", poison: "중독", shiv: "비수", orb: "구체",
   claw: "발톱", stars: "별", forge: "단조", soul: "영혼", osty: "골골이",
-  doom: "파멸", status: "상태이상",
+  doom: "종말", status: "상태이상",
 };
 
 // ── 메커니즘/시너지 태그(유물 도감 등에서 표시) ──────────────
@@ -44,7 +44,7 @@ const KO_TAG = {
   hp_loss_synergy:"체력 손실 시너지", blood:"피", energy_gain:"에너지 획득",
   multi_hit:"다단 공격", strength_scaling:"힘 성장", damage:"피해", poison:"중독",
   poison_amplify:"중독 증폭", shiv:"비수", shiv_amplify:"비수 증폭", discard:"버리기",
-  sly:"교활", orb:"구체", focus:"집중", doom:"파멸", soul:"영혼", stars:"별",
+  sly:"교활", orb:"구체", focus:"집중", doom:"종말", soul:"영혼", stars:"별",
   star_gain:"별 획득", forge:"단조", dexterity:"민첩", intangible:"무형",
   plating:"도금", retain:"보존", aoe:"광역", healing:"회복", debuff:"디버프",
   power:"파워", permanent_scaling:"영구 성장", persistent_scaling:"지속 성장",
