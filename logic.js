@@ -393,7 +393,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     if (data.role === 'engine') {
       if (enginesInDeck === 0) {
         if (cardFitsTopArch) {
-          const bon = floorEarly ? 0.6 : 0.3;
+          const bon = floorEarly ? 0.3 : 0.5;
           score += bon;
           synR.push(`+${bon.toFixed(1)} 첫 엔진 카드 - 빌드 전체를 가동시킴`);
         }
@@ -435,7 +435,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   const runProgress = Math.min(1.0, (floor - 1) / 56);
   const flexValue  = Math.max(0, 1.0 - runProgress * 3.5);
   const scaleValue = Math.max(0, (runProgress - 0.33) * 1.8);
-  const defValue   = Math.sin(runProgress * Math.PI) * 0.8;
+  const defValue   = Math.max(Math.sin(runProgress * Math.PI) * 0.8, floor <= 8 ? 0.6 : 0);
   if (da.isUndefined && data.syn.length >= 2) {
     const fb = +(flexValue * 0.4).toFixed(1);
     if (fb >= 0.1) { score += fb; synR.push(`+${fb} 유연한 선택 (초반 런)`); }
@@ -444,7 +444,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     const sb = +(scaleValue * 0.5).toFixed(1);
     if (sb >= 0.1) { score += sb; synR.push(`+${sb} 성장형 카드, 후반 런`); }
   }
-  if (!da.isUndefined && hasDefense) {
+  if ((!da.isUndefined || floor <= 8) && hasDefense) {
     const db_ = +(defValue * 0.25).toFixed(1);
     if (db_ >= 0.1) { score += db_; synR.push(`+${db_} 중반 런에는 방어가 중요`); }
   }
@@ -454,8 +454,21 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     if ((data.builds||[]).includes('any') && da.isUndefined) {
       score += 0.2; synR.push('+0.2 유연한 카드, 개방적인 1막에 좋음');
     }
-    if (data.role === 'engine') {
-      score += 0.3; synR.push('+0.3 엔진 카드 - 1막에 빌드를 세팅하세요');
+    if (data.role === 'engine' && floor >= 9) {
+      score += 0.3; synR.push('+0.3 엔진 카드 - 1막 후반, 빌드를 세팅할 때');
+    }
+    // 1막 초반(생존 구간) 즉발성 감가 — 근거: DC 1막 공략(2026-08-30 TODO 3차 항목)
+    // "초반에는 시너지를 붙일 수 없으므로 조건 없이 즉발로 강한 카드가 최강"
+    // 파워 카드(설치 턴에 즉발 효과 없음) 또는 즉발 전투 태그가 전무한 카드를 감가.
+    if (floor <= 8) {
+      const IMMEDIATE = ['damage','block','vulnerable','weak','poison','aoe'];
+      const apiT = (typeof apiCardOf === 'function') ? (apiCardOf(cardName)||{}).type : null;
+      const noImmediate = !(data.syn||[]).some(t => IMMEDIATE.includes(t));
+      if (apiT === 'Power' || noImmediate) {
+        const damp = floor <= 4 ? 0.7 : 0.4;
+        score -= damp;
+        antiR.push('-' + damp.toFixed(1) + ' 1막 초반 - 즉발 전투력이 없는 카드는 생존에 도움이 안 됨');
+      }
     }
     if (data.role === 'payoff') {
       const enginesNow = deckCards.filter(c => { const d=getCard(char,c.name); return d&&d.role==='engine'; }).length;
