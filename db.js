@@ -22005,7 +22005,7 @@ const DB = {
     },
     "ARCANE_SCROLL": {
       "id": "Arcane Scroll",
-      "tier": "B",
+      "tier": "D",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22017,7 +22017,7 @@ const DB = {
     },
     "BOOMING_CONCH": {
       "id": "Booming Conch",
-      "tier": "A",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22031,7 +22031,7 @@ const DB = {
     },
     "CURSED_PEARL": {
       "id": "Cursed Pearl",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22045,7 +22045,7 @@ const DB = {
     },
     "GOLDEN_PEARL": {
       "id": "Golden Pearl",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22059,7 +22059,7 @@ const DB = {
     },
     "LARGE_CAPSULE": {
       "id": "Large Capsule",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22071,7 +22071,7 @@ const DB = {
     },
     "LAVA_ROCK": {
       "id": "Lava Rock",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22083,7 +22083,7 @@ const DB = {
     },
     "LEAD_PAPERWEIGHT": {
       "id": "Lead Paperweight",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22107,7 +22107,7 @@ const DB = {
     },
     "LOST_COFFER": {
       "id": "Lost Coffer",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22119,7 +22119,7 @@ const DB = {
     },
     "MASSIVE_SCROLL": {
       "id": "Massive Scroll",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22131,7 +22131,7 @@ const DB = {
     },
     "NEOWS_TORMENT": {
       "id": "Neow's Torment",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22143,7 +22143,7 @@ const DB = {
     },
     "NEW_LEAF": {
       "id": "New Leaf",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22155,7 +22155,7 @@ const DB = {
     },
     "NUTRITIOUS_OYSTER": {
       "id": "Nutritious Oyster",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22169,7 +22169,7 @@ const DB = {
     },
     "POMANDER": {
       "id": "Pomander",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22209,7 +22209,7 @@ const DB = {
     },
     "SCROLL_BOXES": {
       "id": "Scroll Boxes",
-      "tier": "B",
+      "tier": "D",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22221,7 +22221,7 @@ const DB = {
     },
     "SILVER_CRUCIBLE": {
       "id": "Silver Crucible",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22235,7 +22235,7 @@ const DB = {
     },
     "SMALL_CAPSULE": {
       "id": "Small Capsule",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22247,7 +22247,7 @@ const DB = {
     },
     "STONE_HUMIDIFIER": {
       "id": "Stone Humidifier",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22273,7 +22273,7 @@ const DB = {
     },
     "ARCHAIC_TOOTH": {
       "id": "Archaic Tooth",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22311,7 +22311,7 @@ const DB = {
     },
     "GLASS_EYE": {
       "id": "Glass Eye",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22346,7 +22346,7 @@ const DB = {
     },
     "RADIANT_PEARL": {
       "id": "Radiant Pearl",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22384,7 +22384,7 @@ const DB = {
     },
     "TOUCH_OF_OROBAS": {
       "id": "Touch of Orobas",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22396,7 +22396,7 @@ const DB = {
     },
     "PAELS_BLOOD": {
       "id": "Pael's Blood",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22429,7 +22429,7 @@ const DB = {
     },
     "PAELS_EYE": {
       "id": "Pael's Eye",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22441,7 +22441,7 @@ const DB = {
     },
     "PAELS_FLESH": {
       "id": "Pael's Flesh",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22472,7 +22472,7 @@ const DB = {
     },
     "PAELS_GROWTH": {
       "id": "Pael's Growth",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22484,7 +22484,7 @@ const DB = {
     },
     "PAELS_HORN": {
       "id": "Pael's Horn",
-      "tier": "B",
+      "tier": "D",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22519,7 +22519,7 @@ const DB = {
     },
     "PAELS_TEARS": {
       "id": "Pael's Tears",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22554,7 +22554,7 @@ const DB = {
     },
     "PAELS_WING": {
       "id": "Pael's Wing",
-      "tier": "B",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22604,7 +22604,7 @@ const DB = {
     },
     "PUMPKIN_CANDLE": {
       "id": "Pumpkin Candle",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22612,9 +22612,7 @@ const DB = {
       ],
       "notes": "Gain Energy each turn. Extinguishes at Act 3.",
       "builds": [
-        "stars",
-        "orb",
-        "doom"
+        "any"
       ],
       "scoreEffects": [
         {
@@ -22728,7 +22726,7 @@ const DB = {
     },
     "YUMMY_COOKIE": {
       "id": "Yummy Cookie",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22742,7 +22740,7 @@ const DB = {
     },
     "BEAUTIFUL_BRACELET": {
       "id": "Beautiful Bracelet",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22756,7 +22754,7 @@ const DB = {
     },
     "BLESSED_ANTLER": {
       "id": "Blessed Antler",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22779,7 +22777,7 @@ const DB = {
     },
     "BRILLIANT_SCARF": {
       "id": "Brilliant Scarf",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22808,7 +22806,7 @@ const DB = {
     },
     "DELICATE_FROND": {
       "id": "Delicate Frond",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22820,7 +22818,7 @@ const DB = {
     },
     "DIAMOND_DIADEM": {
       "id": "Diamond Diadem",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22842,7 +22840,7 @@ const DB = {
     },
     "FUR_COAT": {
       "id": "Fur Coat",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22854,7 +22852,7 @@ const DB = {
     },
     "GLITTER": {
       "id": "Glitter",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22866,7 +22864,7 @@ const DB = {
     },
     "JEWELRY_BOX": {
       "id": "Jewelry Box",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22882,7 +22880,7 @@ const DB = {
     },
     "LOOMING_FRUIT": {
       "id": "Looming Fruit",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22896,7 +22894,7 @@ const DB = {
     },
     "SIGNET_RING": {
       "id": "Signet Ring",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22910,7 +22908,7 @@ const DB = {
     },
     "CLAWS": {
       "id": "Claws",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22922,7 +22920,7 @@ const DB = {
     },
     "CROSSBOW": {
       "id": "Crossbow",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22946,7 +22944,7 @@ const DB = {
     },
     "IRON_CLUB": {
       "id": "Iron Club",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -22976,7 +22974,7 @@ const DB = {
     },
     "MEAT_CLEAVER": {
       "id": "Meat Cleaver",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -22988,7 +22986,7 @@ const DB = {
     },
     "SAI": {
       "id": "Sai",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23010,7 +23008,7 @@ const DB = {
     },
     "SPIKED_GAUNTLETS": {
       "id": "Spiked Gauntlets",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23038,7 +23036,7 @@ const DB = {
     },
     "TANXS_WHISTLE": {
       "id": "Tanx's Whistle",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -23050,7 +23048,7 @@ const DB = {
     },
     "THROWING_AXE": {
       "id": "Throwing Axe",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23074,7 +23072,7 @@ const DB = {
     },
     "TRI_BOOMERANG": {
       "id": "Tri-Boomerang",
-      "tier": "B",
+      "tier": "S",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -23088,7 +23086,7 @@ const DB = {
     },
     "WAR_HAMMER": {
       "id": "War Hammer",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23102,7 +23100,7 @@ const DB = {
     },
     "BLOOD_SOAKED_ROSE": {
       "id": "Blood-Soaked Rose",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23125,7 +23123,7 @@ const DB = {
     },
     "CHOICES_PARADOX": {
       "id": "Choices Paradox",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -23137,7 +23135,7 @@ const DB = {
     },
     "DISTINGUISHED_CAPE": {
       "id": "Distinguished Cape",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -23151,7 +23149,7 @@ const DB = {
     },
     "FIDDLE": {
       "id": "Fiddle",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23175,7 +23173,7 @@ const DB = {
     },
     "JEWELED_MASK": {
       "id": "Jeweled Mask",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23198,7 +23196,7 @@ const DB = {
     },
     "LORDS_PARASOL": {
       "id": "Lord's Parasol",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -23210,7 +23208,7 @@ const DB = {
     },
     "MUSIC_BOX": {
       "id": "Music Box",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23234,7 +23232,7 @@ const DB = {
     },
     "PRESERVED_FOG": {
       "id": "Preserved Fog",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -23247,7 +23245,7 @@ const DB = {
     },
     "SERE_TALON": {
       "id": "Sere Talon",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [],
@@ -23259,7 +23257,7 @@ const DB = {
     },
     "WHISPERING_EARRING": {
       "id": "Whispering Earring",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23394,7 +23392,7 @@ const DB = {
     },
     "RUNIC_PYRAMID": {
       "id": "Runic Pyramid",
-      "tier": "B",
+      "tier": "A",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -23402,9 +23400,7 @@ const DB = {
       ],
       "notes": "No hand discard at end of turn.",
       "builds": [
-        "stars",
-        "sly",
-        "doom"
+        "any"
       ],
       "scoreEffects": [
         {
@@ -24589,7 +24585,7 @@ const DB = {
     },
     "HEFTY_TABLET": {
       "id": "Hefty Tablet",
-      "tier": "A",
+      "tier": "D",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -24604,7 +24600,7 @@ const DB = {
     },
     "NEOWS_TALISMAN": {
       "id": "Neow's Talisman",
-      "tier": "B",
+      "tier": "D",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -24627,7 +24623,7 @@ const DB = {
     },
     "NEOWS_BONES": {
       "id": "Neow's Bones",
-      "tier": "S",
+      "tier": "D",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -24642,7 +24638,7 @@ const DB = {
     },
     "PHIAL_HOLSTER": {
       "id": "Phial Holster",
-      "tier": "S",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
@@ -24656,13 +24652,79 @@ const DB = {
     },
     "WINGED_BOOTS": {
       "id": "Winged Boots",
-      "tier": "A",
+      "tier": "C",
       "char": "any",
       "rarity": "ancient",
       "syn": [
         "map_route"
       ],
       "notes": "[Added v0.103.0] Neow relic: 3 charges to ignore paths when choosing the next room. Use to grab off-path Elites, shops, or key event rooms — major routing flexibility.",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "FISHING_ROD": {
+      "id": "Fishing Rod",
+      "tier": "D",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "neow_relic"
+      ],
+      "notes": "[Added 2026-08-31] Neow cohort lift -3.1 vs 33% baseline (spire-codex /runs/scores/relics).",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "NEOWS_SACRIFICE": {
+      "id": "Neow's Sacrifice",
+      "tier": "B",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "neow_relic"
+      ],
+      "notes": "[Added 2026-08-31] Neow cohort lift +3.7 — top tier among Neow relics (spire-codex /runs/scores/relics).",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "DOWSING_ROD": {
+      "id": "Dowsing Rod",
+      "tier": "C",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [
+        "neow_relic"
+      ],
+      "notes": "[Added 2026-08-31] Quest relic — pick-time data distorted, held neutral (cohort analysis).",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "KALEIDOSCOPE": {
+      "id": "Kaleidoscope",
+      "tier": "D",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "[Added 2026-08-31] Early-pickup cohort lift -3.2 vs 33% baseline (spire-codex /runs/scores/relics).",
+      "builds": [
+        "any"
+      ],
+      "scoreEffects": []
+    },
+    "SILKEN_TRESS": {
+      "id": "Silken Tress",
+      "tier": "C",
+      "char": "any",
+      "rarity": "ancient",
+      "syn": [],
+      "notes": "[Added 2026-08-31] Early-pickup cohort lift -0.5 vs 33% baseline (spire-codex /runs/scores/relics).",
       "builds": [
         "any"
       ],
@@ -25826,7 +25888,27 @@ const DB = {
     "Neow's Talisman",
     "Neow's Bones",
     "Phial Holster",
-    "Winged Boots"
+    "Winged Boots",
+    {
+      "n": "Fishing Rod",
+      "c": "any"
+    },
+    {
+      "n": "Neow's Sacrifice",
+      "c": "any"
+    },
+    {
+      "n": "Dowsing Rod",
+      "c": "any"
+    },
+    {
+      "n": "Kaleidoscope",
+      "c": "any"
+    },
+    {
+      "n": "Silken Tress",
+      "c": "any"
+    }
   ],
   "relicCombos": [
     {

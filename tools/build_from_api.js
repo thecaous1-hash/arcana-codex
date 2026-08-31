@@ -191,6 +191,10 @@ function statsFrom(rs) {
   }
   console.log(`  티어 ${Object.keys(tier).length}종`);
 
+  // 유물 승률 (2026-08-31 발견한 엔드포인트) — 획득 시점 편향 있음: 소비 측에서 코호트 보정 필수
+  const relicScores = await getJSONSoft(`${BASE}/runs/scores/relics`);
+  console.log(`  유물 승률 ${relicScores ? Object.keys(relicScores).length : 0}종${relicScores ? '' : ' (수신 실패)'}`);
+
   // 3) 캐릭터별 승률 DELTA — 전체(stats) + 최고 승천(statsHi)
   const stats = {}, statsHi = {};
   const missingStats = [];
@@ -232,7 +236,7 @@ function statsFrom(rs) {
   // betaDiff를 물려받았다면 버전도 옛 스냅샷 기준 — 헤더에 표시해 "카드는 최신인데 버전은 옛 값"임을 드러낸다.
   const verLabel = (dataVersion || '?') + (inherited.betaDiff ? '(물려받음)' : '');
 
-  const out = { source: 'spire-codex.com/api', generatedAt: new Date().toISOString(), version: dataVersion, sampleBuildId, maxAsc: MAX_ASC, cards, relics, enchants, betaDiff, tier, stats, statsHi, inherited };
+  const out = { source: 'spire-codex.com/api', generatedAt: new Date().toISOString(), version: dataVersion, sampleBuildId, maxAsc: MAX_ASC, cards, relics, enchants, betaDiff, tier, relicScores, stats, statsHi, inherited };
   const js = '// spire-codex API 스냅샷(개인용). tools/build_from_api.js 생성 · 갱신은 재실행.\n'
     + `// 소스: ${out.source} · 데이터 ${verLabel} · 생성 ${out.generatedAt.slice(0, 10)}\n`
     + 'window.API_DATA = ' + JSON.stringify(out) + ';\n';
