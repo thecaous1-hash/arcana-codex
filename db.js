@@ -16173,187 +16173,187 @@ const DB = {
       "deckCard": "Automation",
       "offeredCard": "Scrape",
       "bonus": 1.8,
-      "reason": "Automation gains Energy every 10 cards drawn — Scrape draws 4 cards at once. One Scrape play counts as 4 toward Automation's threshold, making it trigger after only 2-3 Scrapes."
+      "reason": "자동화가 드로우 10장마다 에너지를 얻는다. 긁어내기는 한 번에 4장을 뽑아 임계치의 4장 몫을 채우니, 두세 번이면 자동화가 발동한다."
     },
     {
       "deckCard": "Scrape",
       "offeredCard": "Automation",
       "bonus": 1.8,
-      "reason": "Scrape draws 4 cards at once — Automation gains Energy per 10 cards drawn. Scrape accelerates reaching the threshold faster than any other draw card."
+      "reason": "긁어내기가 한 번에 4장을 뽑는다. 자동화는 드로우 10장마다 에너지 — 긁어내기가 어떤 드로우 카드보다 빠르게 임계치를 채워준다."
     },
     {
       "deckCard": "Calamity",
       "offeredCard": "Claw",
       "bonus": 1.8,
-      "reason": "Calamity adds a random Attack to hand whenever you play an Attack — in Claw builds playing 10+ attacks per turn, Calamity floods the hand with additional Attacks, fueling further plays."
+      "reason": "재앙이 공격을 낼 때마다 무작위 공격을 손에 넣어준다. 턴당 공격 10회 이상인 후벼 파기 빌드에서는 손이 추가 공격으로 넘쳐나 플레이가 꼬리를 문다."
     },
     {
       "deckCard": "Claw",
       "offeredCard": "Calamity",
       "bonus": 1.8,
-      "reason": "Calamity generates a random Attack per attack played — Claw builds play many attacks per turn, making Calamity provide a cascade of additional Attacks every turn."
+      "reason": "재앙이 공격 사용마다 무작위 공격을 생성한다. 후벼 파기 빌드는 턴당 공격이 많아 재앙이 매 턴 공격을 연쇄로 쏟아부어 준다."
     },
     {
       "deckCard": "Calamity",
       "offeredCard": "Panache",
       "bonus": 1.5,
-      "reason": "Calamity floods hand with attacks — more attacks in hand means more cards played per turn, accelerating Panache's 10-AoE-per-5-cards trigger rate."
+      "reason": "재앙이 손을 공격으로 채운다. 손에 공격이 많을수록 턴당 카드 사용이 늘어 위풍당당의 '5장마다 광역 10' 발동 속도가 빨라진다."
     },
     {
       "deckCard": "Fisticuffs",
       "offeredCard": "Inflame",
       "bonus": 1.8,
-      "reason": "Fisticuffs gains Block equal to damage dealt — Inflame adds permanent Strength, making Fisticuffs deal more damage AND gain more Block with every Strength point added."
+      "reason": "주먹다짐이 준 피해만큼 방어도를 얻는다. 발화의 영구 힘이 힘 1마다 주먹다짐의 피해와 방어도를 동시에 키운다."
     },
     {
       "deckCard": "Inflame",
       "offeredCard": "Fisticuffs",
       "bonus": 1.8,
-      "reason": "Fisticuffs deals damage and gains equal Block — Inflame's permanent Strength increases both Fisticuffs' damage and Block gain simultaneously with each point of Strength."
+      "reason": "주먹다짐은 피해를 주고 같은 만큼 방어도를 얻는다. 발화의 영구 힘 한 점 한 점이 주먹다짐의 피해와 방어도를 함께 올린다."
     },
     {
       "deckCard": "Fisticuffs",
       "offeredCard": "Juggernaut",
       "bonus": 1.5,
-      "reason": "Fisticuffs gains Block equal to damage — Juggernaut deals damage whenever you gain Block. Fisticuffs gaining 7+ Block triggers Juggernaut for free damage simultaneously."
+      "reason": "주먹다짐이 피해만큼 방어도를 얻는다. 절대적인 힘은 방어도를 얻을 때마다 피해를 준다. 주먹다짐의 방어도 7 이상이 절대적인 힘을 공짜로 발동시킨다."
     },
     {
       "deckCard": "Juggernaut",
       "offeredCard": "Fisticuffs",
       "bonus": 1.5,
-      "reason": "Juggernaut deals damage on Block gain — Fisticuffs gains Block equal to damage dealt, triggering Juggernaut every play for additional damage on top of Fisticuffs itself."
+      "reason": "절대적인 힘이 방어도 획득마다 피해를 준다. 주먹다짐이 준 피해만큼 방어도를 얻으니, 낼 때마다 주먹다짐 위에 절대적인 힘의 피해가 얹힌다."
     },
     {
       "deckCard": "Prowess",
       "offeredCard": "Celestial Might",
       "bonus": 1.5,
-      "reason": "Prowess gives permanent Strength and Dexterity — Celestial Might hits 3 times, applying Strength to each hit. Prowess adds +3 total damage to Celestial Might immediately."
+      "reason": "기량이 영구 힘과 민첩을 준다. 천상의 권능은 3타라 힘이 세 번 실린다. 기량 하나로 천상의 권능에 즉시 총 +3피해."
     },
     {
       "deckCard": "Prowess",
       "offeredCard": "Seven Stars",
       "bonus": 1.8,
-      "reason": "Prowess gives permanent Strength — Seven Stars hits 49 times across all enemies. Even 1 Strength from Prowess adds 49 total damage to Seven Stars."
+      "reason": "기량이 영구 힘을 준다. 일곱 개의 별은 전체 적에게 49타 — 기량의 힘 1만으로도 일곱 개의 별에 총 49피해가 더해진다."
     },
     {
       "deckCard": "Seven Stars",
       "offeredCard": "Prowess",
       "bonus": 1.8,
-      "reason": "Seven Stars' 49 multi-hits multiply every point of Strength — Prowess gives +1 permanent Strength, adding 49 damage to Seven Stars per Prowess played."
+      "reason": "일곱 개의 별의 49타는 힘 한 점 한 점을 곱한다. 기량이 영구 힘 +1을 줘서 기량 한 장마다 일곱 개의 별에 49피해가 붙는다."
     },
     {
       "deckCard": "Prowess",
       "offeredCard": "Rattle",
       "bonus": 1.5,
-      "reason": "Prowess gives Strength and Dexterity — Rattle multi-hits scale with Strength. Prowess directly improves every Rattle hit while also improving all Block cards with Dexterity."
+      "reason": "기량이 힘과 민첩을 준다. 덜그럭대기의 다단 타격이 힘으로 성장하니 기량이 모든 타격을 직접 강화하고, 민첩으로 방어 카드까지 좋아진다."
     },
     {
       "deckCard": "Equilibrium",
       "offeredCard": "Body Slam",
       "bonus": 1.8,
-      "reason": "Equilibrium retains your hand — Body Slam deals damage equal to current Block. Playing Equilibrium (13 Block) then retaining Body Slam means next turn Body Slam hits for at least 13 more damage."
+      "reason": "평형이 손패를 유지한다. 몸통 박치기는 현재 방어도만큼 피해 — 평형(방어도 13)을 내고 몸통 박치기를 들고 넘어가면 다음 턴 최소 13은 더 세게 때린다."
     },
     {
       "deckCard": "Body Slam",
       "offeredCard": "Equilibrium",
       "bonus": 1.8,
-      "reason": "Body Slam deals damage equal to Block — Equilibrium gives 13 Block AND retains your hand including Body Slam, setting up a massive Body Slam hit next turn."
+      "reason": "몸통 박치기는 방어도만큼 피해를 준다. 평형이 방어도 13을 주면서 몸통 박치기까지 유지해줘 다음 턴 대형 한 방이 세팅된다."
     },
     {
       "deckCard": "Equilibrium",
       "offeredCard": "Calculated Gamble",
       "bonus": 1.5,
-      "reason": "Equilibrium retains your entire hand — Calculated Gamble discards hand and draws same amount. After Equilibrium, you can play Calculated Gamble next turn with a full retained hand for massive Sly triggers."
+      "reason": "평형이 손패 전체를 유지한다. 계산된 도박은 손을 버리고 같은 수를 뽑는다. 평형 다음 턴에 꽉 찬 유지 손패로 계산된 도박을 내면 교활이 대량으로 터진다."
     },
     {
       "deckCard": "Calculated Gamble",
       "offeredCard": "Equilibrium",
       "bonus": 1.5,
-      "reason": "Calculated Gamble discards and redraws — Equilibrium retains the hand first, giving you full control over timing the Sly-trigger explosion that Calculated Gamble enables."
+      "reason": "계산된 도박이 버리고 다시 뽑는다. 평형이 먼저 손을 유지해줘, 계산된 도박의 교활 폭발 타이밍을 온전히 내 마음대로 고를 수 있다."
     },
     {
       "deckCard": "Salvo",
       "offeredCard": "Acrobatics",
       "bonus": 1.5,
-      "reason": "Salvo retains your hand this turn — with Sly cards like Acrobatics retained, next turn you play them naturally then discard triggers all Sly effects for free."
+      "reason": "집중 포화가 이번 턴 손패를 유지한다. 곡예 같은 교활 카드를 들고 넘어가면, 다음 턴 자연스럽게 내고 버리기로 교활 효과가 전부 공짜로 터진다."
     },
     {
       "deckCard": "Acrobatics",
       "offeredCard": "Salvo",
       "bonus": 1.5,
-      "reason": "Acrobatics enables Sly triggers via discard — Salvo retains your entire hand including Sly cards, setting up a perfect next turn where you control exactly which Sly cards trigger."
+      "reason": "곡예가 버리기로 교활을 발동시킨다. 집중 포화가 교활 카드를 포함한 손 전체를 유지해, 어떤 교활을 터뜨릴지 내가 고르는 완벽한 다음 턴이 만들어진다."
     },
     {
       "deckCard": "Eternal Armor",
       "offeredCard": "Necro Mastery",
       "bonus": 1.5,
-      "reason": "Necro Mastery converts Osty HP loss to enemy HP loss — Eternal Armor's Plating reduces damage Osty takes per hit, meaning Osty survives longer and Necro Mastery triggers more consistently each fight."
+      "reason": "강령의 극의가 오스티의 체력 손실을 적의 체력 손실로 바꾼다. 영원의 갑옷의 도금이 오스티가 맞는 피해를 줄여, 오스티가 오래 버티고 강령의 극의도 매 전투 더 꾸준히 발동한다."
     },
     {
       "deckCard": "Necro Mastery",
       "offeredCard": "Eternal Armor",
       "bonus": 1.5,
-      "reason": "Eternal Armor gives 7 Plating (flat damage reduction per hit) — this protects Osty from taking HP damage, allowing Necro Mastery to convert only intended HP losses (Sacrifice, Bone Shards) to AoE."
+      "reason": "영원의 갑옷이 도금 7(타격당 고정 피해 감소)을 준다. 오스티가 얻어맞는 손실을 막아줘, 강령의 극의가 의도한 손실(희생·뼛조각)만 광역으로 바꾸게 된다."
     },
     {
       "deckCard": "Eternal Armor",
       "offeredCard": "Barricade",
       "bonus": 1.5,
-      "reason": "Eternal Armor gives permanent Plating — Barricade retains Block between turns. Both provide durable defense that accumulates; Plating reduces incoming damage so Barricade's Block erodes slower."
+      "reason": "영원의 갑옷이 영구 도금을, 바리케이드가 방어도 유지를 준다. 둘 다 누적형 방어라 도금이 피해를 깎아주는 만큼 바리케이드의 방어도가 훨씬 천천히 닳는다."
     },
     {
       "deckCard": "Barricade",
       "offeredCard": "Eternal Armor",
       "bonus": 1.5,
-      "reason": "Eternal Armor's Plating reduces damage taken per hit — Barricade retains Block each turn. With Plating absorbing part of hits, Barricade's retained Block erodes far more slowly."
+      "reason": "영원의 갑옷의 도금이 타격당 피해를 줄이고, 바리케이드가 방어도를 매 턴 유지한다. 도금이 일부를 흡수해주니 유지 중인 방어도가 훨씬 느리게 줄어든다."
     },
     {
       "deckCard": "Beat Down",
       "offeredCard": "Whirlwind",
       "bonus": 1.8,
-      "reason": "Beat Down plays 3 random Attacks from Discard — if Whirlwind is in Discard, Beat Down can replay it for free, dealing X-cost multi-hit AoE damage without spending any Energy."
+      "reason": "두들겨 패기가 버린 더미의 무작위 공격 3장을 사용한다. 소용돌이가 버린 더미에 있으면 에너지를 안 쓰고 X코스트 다단 광역이 공짜로 나간다."
     },
     {
       "deckCard": "Whirlwind",
       "offeredCard": "Beat Down",
       "bonus": 1.8,
-      "reason": "Beat Down replays Attacks from Discard — Whirlwind in Discard can be replayed by Beat Down for free multi-hit AoE without spending the X Energy cost."
+      "reason": "두들겨 패기가 버린 더미의 공격을 다시 사용한다. 버린 더미의 소용돌이가 X에너지 없이 공짜 다단 광역으로 재생된다."
     },
     {
       "deckCard": "Beat Down",
       "offeredCard": "Seven Stars",
       "bonus": 1.8,
-      "reason": "Beat Down plays 3 random Attacks from Discard — if Seven Stars is in Discard, Beat Down replays it for free, dealing 49 AoE hits without spending 3 Energy."
+      "reason": "두들겨 패기가 버린 더미의 무작위 공격 3장을 사용한다. 일곱 개의 별이 거기 있으면 3에너지 없이 광역 49타가 공짜로 나간다."
     },
     {
       "deckCard": "Alchemize",
       "offeredCard": "Neurosurge",
       "bonus": 1.5,
-      "reason": "Alchemize provides a free potion — energy potions pair with Neurosurge's already massive Energy output, potentially enabling enormous 10+ Energy turns in Necrobinder builds."
+      "reason": "연금이 공짜 포션을 준다. 에너지 포션이라면 정신 폭주의 원래도 큰 에너지 산출과 겹쳐, 네크로바인더 빌드에서 10에너지 이상의 턴도 가능해진다."
     },
     {
       "deckCard": "Production",
       "offeredCard": "Void Form",
       "bonus": 1.8,
-      "reason": "Void Form costs 3 Energy but makes first 2 cards free each turn — Production gives 2 free Energy to help pay for Void Form's setup cost on the turn you install it."
+      "reason": "공허의 형상은 3코스트지만 매 턴 처음 2장을 공짜로 만든다. 생산의 공짜 에너지 2가 설치하는 턴의 부담을 덜어준다."
     },
     {
       "deckCard": "Void Form",
       "offeredCard": "Production",
       "bonus": 1.8,
-      "reason": "Void Form is expensive at 3 Energy — Production provides 2 free Energy to help install it on the same turn you play other cards, removing the tempo loss of playing an expensive Power."
+      "reason": "공허의 형상은 3에너지로 비싸다. 생산이 공짜 에너지 2를 대줘 같은 턴에 다른 카드도 내면서 설치할 수 있어, 비싼 파워 설치의 템포 손해가 사라진다."
     },
     {
       "deckCard": "Scrawl",
       "offeredCard": "Death March",
       "bonus": 2,
-      "reason": "Scrawl draws cards until hand is full (5-7 draws) — Death March deals 3 bonus damage per card drawn this turn. Scrawl alone adds 15-21 damage to Death March for 0 Energy."
+      "reason": "휘갈김이 손이 가득 찰 때까지 뽑는다(5~7장). 죽음의 행진은 이번 턴 드로우당 3피해 — 휘갈김 한 장이 0에너지로 15~21피해를 보탠다."
     },
     {
       "deckCard": "Death March",
       "offeredCard": "Scrawl",
       "bonus": 2,
-      "reason": "Death March scales with cards drawn this turn — Scrawl draws until hand is full for 0 Energy, adding up to 21 bonus damage to Death March in one play."
+      "reason": "죽음의 행진은 이번 턴 드로우 수로 성장한다. 휘갈김이 0에너지로 손이 가득 찰 때까지 뽑아 한 번에 최대 21의 보너스 피해를 더해준다."
     }
   ],
   "dupePenalties": {
@@ -25930,715 +25930,715 @@ const DB = {
       "relic": "Charon's Ashes",
       "card": "Corruption",
       "bonus": 2,
-      "reason": "Corruption Exhausts all Skills — Charon's Ashes deals 3 AoE per Exhaust. Every free Skill play becomes 3 free AoE damage, stacking to 20-30+ AoE per turn."
+      "reason": "타락이 모든 스킬을 소멸시키고, 카론의 유골이 소멸마다 광역 3피해를 준다. 공짜 스킬 하나하나가 공짜 광역 3이 되어 턴당 광역 20~30 이상까지 쌓인다."
     },
     {
       "relic": "Charon's Ashes",
       "card": "Feel No Pain",
       "bonus": 1.8,
-      "reason": "Feel No Pain gains Block from Exhausts — Charon's Ashes deals AoE from the same Exhausts. Every card Exhausted gives both Block AND 3 AoE simultaneously."
+      "reason": "무감각이 소멸에서 방어도를 얻고, 카론의 유골이 같은 소멸에서 광역을 쏜다. 소멸된 카드마다 방어도와 광역 3피해가 동시에 나온다."
     },
     {
       "relic": "Charon's Ashes",
       "card": "Dark Embrace",
       "bonus": 1.8,
-      "reason": "Dark Embrace draws from Exhausts — Charon's Ashes deals 3 AoE per Exhaust. Every Exhaust draws a card AND deals free damage, making the Exhaust engine self-sustaining."
+      "reason": "어둠의 포옹은 소멸할 때마다 카드를 뽑고, 카론의 유골은 소멸마다 광역 3피해를 준다. 소멸 하나가 드로우와 피해를 동시에 만들어 소진 엔진이 스스로 굴러간다."
     },
     {
       "relic": "Charon's Ashes",
       "card": "True Grit",
       "bonus": 1.5,
-      "reason": "True Grit Exhausts a card for free — Charon's Ashes deals 3 AoE per Exhaust. True Grit becomes a free 3 AoE on top of its Block."
+      "reason": "진정한 끈기가 카드 하나를 공짜로 소멸시킨다. 카론의 유골이 소멸마다 광역 3피해를 줘서, 진정한 끈기가 방어도 위에 공짜 광역 3까지 얹는다."
     },
     {
       "relic": "Charon's Ashes",
       "card": "Brand",
       "bonus": 1.5,
-      "reason": "Brand is a 0-cost Exhaust — Charon's Ashes deals 3 AoE whenever you Exhaust. Brand becomes a free 3 AoE damage card in an Exhaust build."
+      "reason": "낙인은 0코스트 소멸 카드다. 카론의 유골이 소멸마다 광역 3피해를 줘서, 소진 빌드에서 낙인이 공짜 광역 3피해 카드가 된다."
     },
     {
       "relic": "Charon's Ashes",
       "card": "Offering",
       "bonus": 1.5,
-      "reason": "Offering Exhausts itself — Charon's Ashes converts that Exhaust into 3 free AoE. The HP cost of Offering becomes even more worth it."
+      "reason": "제물은 스스로 소멸한다. 카론의 유골이 그 소멸을 공짜 광역 3으로 바꿔, 제물의 체력 비용이 더더욱 제값을 하게 된다."
     },
     {
       "relic": "Burning Sticks",
       "card": "Corruption",
       "bonus": 1.8,
-      "reason": "Corruption Exhausts all Skills free — Burning Sticks adds a copy of the first Exhausted Skill to Hand. Corruption feeds Burning Sticks a free extra Skill every combat."
+      "reason": "타락이 모든 스킬을 공짜로 소멸시킨다. 불쏘시개는 처음 소멸된 스킬의 사본을 손에 넣어줘, 타락이 매 전투 공짜 스킬 한 장을 불쏘시개에 먹여준다."
     },
     {
       "relic": "Burning Sticks",
       "card": "Feel No Pain",
       "bonus": 1.5,
-      "reason": "Burning Sticks copies the first Exhausted Skill — Feel No Pain is a Skill that Exhausts itself (via Corruption). Burning Sticks returns a free Feel No Pain every combat."
+      "reason": "불쏘시개가 처음 소멸된 스킬을 복사한다. 무감각은 (타락 아래서) 스스로 소멸하는 스킬이라, 불쏘시개가 매 전투 공짜 무감각을 돌려준다."
     },
     {
       "relic": "Joss Paper",
       "card": "Blade Dance",
       "bonus": 1.5,
-      "reason": "Blade Dance generates 3 Shivs that Exhaust — Joss Paper draws 1 card per 5 Exhausts. Blade Dance quickly stacks Exhausts toward Joss Paper's draw threshold."
+      "reason": "검무가 소멸되는 단도 3장을 만든다. 향지는 소멸 5회마다 1장을 뽑아, 검무가 향지의 드로우 임계를 빠르게 채워준다."
     },
     {
       "relic": "Forgotten Soul",
       "card": "Corruption",
       "bonus": 1.5,
-      "reason": "Corruption Exhausts every Skill — Forgotten Soul deals 1 damage per Exhaust. With Corruption, every Skill play also deals 1 free damage to a random enemy."
+      "reason": "타락이 모든 스킬을 소멸시킨다. 잊힌 영혼은 소멸마다 1피해 — 타락 아래서는 스킬을 낼 때마다 무작위 적에게 공짜 1피해가 나간다."
     },
     {
       "relic": "Cloak Clasp",
       "card": "Juggernaut",
       "bonus": 2,
-      "reason": "Cloak Clasp gains 1 Block per card in Hand at turn end — Juggernaut deals damage whenever you gain Block. Cloak Clasp's end-of-turn Block triggers Juggernaut for free damage every turn."
+      "reason": "망토 걸쇠가 턴 종료에 손패 카드당 방어도 1을 준다. 절대적인 힘은 방어도 획득마다 피해를 줘서, 망토 걸쇠의 턴 종료 방어도가 매 턴 공짜 피해를 발동시킨다."
     },
     {
       "relic": "Cloak Clasp",
       "card": "Body Slam",
       "bonus": 1.8,
-      "reason": "Cloak Clasp gains Block based on hand size at turn end — Body Slam deals damage equal to Block. Cloak Clasp's passive Block directly amplifies Body Slam's damage potential."
+      "reason": "망토 걸쇠가 턴 종료에 손패 크기만큼 방어도를 준다. 몸통 박치기는 방어도만큼 피해 — 걸쇠의 상시 방어도가 몸통 박치기의 화력을 그대로 키운다."
     },
     {
       "relic": "Fresnel Lens",
       "card": "Body Slam",
       "bonus": 1.8,
-      "reason": "Fresnel Lens enchants Block-gaining cards with Nimble 2 — Body Slam deals damage equal to Block. With Nimble 2 accelerating cycling, Body Slam gets played more frequently."
+      "reason": "프레넬 렌즈가 방어도 카드에 Nimble 2 인챈트를 부여한다. 몸통 박치기는 방어도만큼 피해 — 순환이 빨라져 몸통 박치기를 더 자주 낼 수 있다."
     },
     {
       "relic": "Fresnel Lens",
       "card": "Impervious",
       "bonus": 1.5,
-      "reason": "Impervious gives 30 Block — Fresnel Lens enchants it with Nimble 2 for faster cycling. Impervious becomes a recurring 30-Block card instead of a once-per-cycle panic button."
+      "reason": "무적이 방어도 30을 준다. 프레넬 렌즈가 Nimble 2를 붙여 순환이 빨라지면, 무적이 한 순환에 한 번뿐인 비상 버튼이 아니라 반복되는 30 방어도 카드가 된다."
     },
     {
       "relic": "Pael's Legion",
       "card": "Barricade",
       "bonus": 2,
-      "reason": "Pael's Legion doubles Block from a card — Barricade retains that doubled Block. Pael's Legion fires every 3 turns doubling your Block, and Barricade keeps the doubled total permanently."
+      "reason": "파엘의 군체가 카드 하나의 방어도를 두 배로 만들고, 바리케이드가 그 두 배 방어도를 유지한다. 3턴마다 군체가 방어도를 튀기고 바리케이드가 그 총량을 계속 갖고 간다."
     },
     {
       "relic": "Pael's Legion",
       "card": "Impervious",
       "bonus": 1.8,
-      "reason": "Impervious gives 30 Block — Pael's Legion doubles it to 60. One Impervious with Pael's Legion active becomes 60 Block in a single play."
+      "reason": "무적이 방어도 30을 준다. 파엘의 군체가 60으로 두 배한다. 군체가 켜진 무적 한 장이 방어도 60이다."
     },
     {
       "relic": "Vambrace",
       "card": "Impervious",
       "bonus": 2,
-      "reason": "Vambrace doubles the first Block you gain from a card each combat — Impervious gives 30 Block as your first Block card. With Vambrace, Impervious opens every fight with 60 Block."
+      "reason": "완갑이 매 전투 카드로 얻는 첫 방어도를 두 배로 만든다. 무적을 첫 방어 카드로 내면 매 전투를 방어도 60으로 연다."
     },
     {
       "relic": "Vambrace",
       "card": "Entrench",
       "bonus": 1.8,
-      "reason": "Vambrace doubles first Block card — if Entrench is the first Block card, it doubles current Block then Vambrace doubles THAT. Can result in quadrupled Block from one Entrench play."
+      "reason": "완갑이 첫 방어 카드를 두 배로 만든다. 참호가 첫 방어 카드라면 현재 방어도를 두 배로 만든 걸 완갑이 또 두 배 — 참호 한 장에 방어도 4배도 나온다."
     },
     {
       "relic": "Sai",
       "card": "Barricade",
       "bonus": 1.8,
-      "reason": "Sai gives 7 free Block at turn start every turn — Barricade retains Block between turns. With Barricade, Sai's 7 Block stacks each turn without being reset."
+      "reason": "사이가 매 턴 시작에 공짜 방어도 7을 준다. 바리케이드가 방어도를 유지해, 사이의 7이 초기화되지 않고 턴마다 겹겹이 쌓인다."
     },
     {
       "relic": "Sai",
       "card": "Juggernaut",
       "bonus": 1.8,
-      "reason": "Sai gives 7 Block at turn start — Juggernaut deals damage on Block gain. Every turn Sai triggers free Juggernaut damage before you even play a card."
+      "reason": "사이가 턴 시작에 방어도 7을 준다. 절대적인 힘은 방어도 획득마다 피해 — 카드 한 장 내기 전에 매 턴 공짜 피해가 먼저 나간다."
     },
     {
       "relic": "Bronze Scales",
       "card": "Barricade",
       "bonus": 1.5,
-      "reason": "Bronze Scales gives 3 Thorns — Barricade builds massive Block. With high Block from Barricade, you can afford to absorb hits and trigger Thorns repeatedly for passive damage."
+      "reason": "청동 비늘이 가시 3을 준다. 바리케이드가 방어도를 크게 쌓아주니, 안심하고 맞아주며 가시 피해를 반복해서 뽑아낼 수 있다."
     },
     {
       "relic": "Brimstone",
       "card": "Whirlwind",
       "bonus": 2,
-      "reason": "Brimstone gives +2 Strength per turn — Whirlwind hits X times. With Brimstone stacking Strength every turn, each Whirlwind hit deals progressively more damage."
+      "reason": "유황이 턴마다 힘 +2를 준다. 소용돌이는 X번 때리는데, 유황으로 힘이 턴마다 쌓여 소용돌이 한 타 한 타가 점점 아파진다."
     },
     {
       "relic": "Brimstone",
       "card": "Thrash",
       "bonus": 2,
-      "reason": "Brimstone gives +2 Strength per turn — Thrash hits multiple times. Each Thrash benefits from Strength on every hit, and Brimstone passively amplifies this every turn."
+      "reason": "유황이 턴마다 힘 +2를 준다. 난타는 다단 타격이라 타격마다 힘이 실리고, 유황이 그걸 매 턴 알아서 증폭한다."
     },
     {
       "relic": "Brimstone",
       "card": "Twin Strike",
       "bonus": 1.8,
-      "reason": "Brimstone gives +2 Strength per turn — Twin Strike hits twice, applying Strength to both hits. With Brimstone, Twin Strike scales faster than single-hit attacks."
+      "reason": "유황이 턴마다 힘 +2를 준다. 이중 타격은 2연타라 힘이 두 번 실려, 유황 아래서 단타 공격보다 빠르게 성장한다."
     },
     {
       "relic": "Ruined Helmet",
       "card": "Demon Form",
       "bonus": 2,
-      "reason": "Ruined Helmet doubles first Strength gain per combat — Demon Form gives Strength every turn. If Demon Form is the first source, Ruined Helmet doubles the turn 2 Strength gain for a massive early spike."
+      "reason": "파손된 투구가 전투당 첫 힘 획득을 두 배로 만든다. 악마의 형상이 매 턴 힘을 주는데, 그게 첫 힘이라면 2턴째 힘 획득이 두 배가 되어 초반 스파이크가 크다."
     },
     {
       "relic": "Ruined Helmet",
       "card": "Inflame",
       "bonus": 1.8,
-      "reason": "Ruined Helmet doubles first Strength gain — Inflame gives 2 Strength (4 upgraded). As your first Strength source, Inflame with Ruined Helmet gives 4-8 Strength from one card."
+      "reason": "파손된 투구가 첫 힘 획득을 두 배로 만든다. 발화는 힘 2(강화 시 4)를 줘서, 첫 힘 공급원이면 카드 한 장에 힘 4~8이 들어온다."
     },
     {
       "relic": "Paper Phrog",
       "card": "Whirlwind",
       "bonus": 2,
-      "reason": "Paper Phrog makes Vulnerable enemies take 75% more damage (not 50%) — Whirlwind hits X times. Each hit applies the enhanced Vulnerable multiplier, turning Whirlwind into a massive damage spike."
+      "reason": "종이 게구리가 취약 피해 증가를 50%가 아니라 75%로 만든다. 소용돌이는 X번 때리는데 타격마다 강화된 취약 배율이 실려 대형 피해 스파이크가 된다."
     },
     {
       "relic": "Paper Phrog",
       "card": "Uppercut",
       "bonus": 1.8,
-      "reason": "Uppercut applies Weak and Vulnerable — Paper Phrog amplifies Vulnerable to 75% extra damage. Uppercut sets up Vulnerable and Paper Phrog makes all follow-up attacks hit 75% harder."
+      "reason": "어퍼컷이 약화와 취약을 건다. 종이 게구리가 취약을 추가 피해 75%로 증폭해, 어퍼컷이 깔아둔 취약 위로 모든 후속 공격이 75% 더 아프게 박힌다."
     },
     {
       "relic": "Centennial Puzzle",
       "card": "Bloodletting",
       "bonus": 1.8,
-      "reason": "Bloodletting costs 3 HP — Centennial Puzzle draws 3 cards the first time you lose HP per combat. Bloodletting on Turn 1 guarantees 3 free draw cards from Centennial Puzzle."
+      "reason": "사혈이 체력 3을 쓴다. 백년퍼즐은 전투당 처음 체력을 잃을 때 3장을 뽑는다. 1턴 사혈이면 백년퍼즐의 공짜 3드로우가 확정이다."
     },
     {
       "relic": "Centennial Puzzle",
       "card": "Breakthrough",
       "bonus": 1.5,
-      "reason": "Breakthrough costs 1 HP — Centennial Puzzle draws 3 cards first time you lose HP. Breakthrough triggers Centennial Puzzle's draw immediately for a net +2 cards from a 1 HP investment."
+      "reason": "정면 돌파가 체력 1을 쓴다. 백년퍼즐이 첫 체력 손실에 3장을 뽑아줘, 체력 1 투자로 즉시 순증 +2장의 드로우가 나온다."
     },
     {
       "relic": "Demon Tongue",
       "card": "Bloodletting",
       "bonus": 2,
-      "reason": "Bloodletting costs 3 HP — Demon Tongue heals the first HP you lose per turn. Demon Tongue makes Bloodletting effectively free once per turn, removing its HP cost entirely."
+      "reason": "사혈이 체력 3을 쓴다. 악마의 혓바닥이 턴마다 처음 잃는 체력을 회복시켜, 턴당 한 번은 사혈이 사실상 공짜가 된다."
     },
     {
       "relic": "Demon Tongue",
       "card": "Offering",
       "bonus": 1.8,
-      "reason": "Offering costs 6 HP — Demon Tongue heals first HP loss per turn. Offering activates Demon Tongue's heal, recovering some of the HP cost while still gaining 2 Energy and 3 cards."
+      "reason": "제물이 체력 6을 쓴다. 악마의 혓바닥이 턴당 첫 체력 손실을 회복시켜, 에너지 2와 카드 3장을 챙기면서 비용 일부를 돌려받는다."
     },
     {
       "relic": "Self-Forming Clay",
       "card": "Rupture",
       "bonus": 1.8,
-      "reason": "Rupture gains Strength when you lose HP — Self-Forming Clay gains 3 Block when you lose HP. Both trigger simultaneously from self-damage, giving Strength AND Block from the same HP loss."
+      "reason": "파열이 체력을 잃을 때 힘을 얻고, 자가 형성 점토는 같은 순간 방어도 3을 얻는다. 자해 한 번으로 힘과 방어도가 동시에 들어온다."
     },
     {
       "relic": "Self-Forming Clay",
       "card": "Crimson Mantle",
       "bonus": 1.5,
-      "reason": "Crimson Mantle guarantees 1 HP loss per turn — Self-Forming Clay gains 3 Block from that HP loss. Crimson Mantle passively gives 3 Block per turn via Self-Forming Clay."
+      "reason": "핏빛 망토가 턴마다 체력 1 손실을 보장한다. 자가 형성 점토가 그 손실에서 방어도 3을 얻어, 핏빛 망토가 상시로 턴당 방어도 3을 만들어주는 셈이다."
     },
     {
       "relic": "Strike Dummy",
       "card": "Perfected Strike",
       "bonus": 2.5,
-      "reason": "Strike Dummy gives +3 damage to all Strike cards — Perfected Strike gains 3 damage per Strike in deck. Strike Dummy doesn't add a Strike but makes every existing Strike hit for 3 more, amplifying Perfected Strike's payoff."
+      "reason": "타격용 인형이 모든 타격 카드에 +3피해를 준다. 완벽한 타격은 덱의 타격 수만큼 성장하는데, 인형은 타격을 늘리진 않지만 기존 타격 전부를 3씩 세게 만들어 보상을 증폭한다."
     },
     {
       "relic": "Strike Dummy",
       "card": "Twin Strike",
       "bonus": 2,
-      "reason": "Strike Dummy gives +3 to Strike cards — Twin Strike hits twice. Twin Strike gets +6 total from Strike Dummy (3 per hit), making it hit for 16 damage instead of 10."
+      "reason": "타격용 인형이 타격 카드에 +3을 준다. 이중 타격은 2연타라 총 +6 — 10피해가 아니라 16피해로 때리게 된다."
     },
     {
       "relic": "Strike Dummy",
       "card": "Pommel Strike",
       "bonus": 1.8,
-      "reason": "Strike Dummy makes all Strike cards deal +3 — Pommel Strike draws while dealing Strike damage. Every Pommel Strike with Strike Dummy hits for 12 instead of 9 while cycling."
+      "reason": "타격용 인형이 모든 타격 카드에 +3을 준다. 폼멜 타격이 드로우하면서 9가 아니라 12피해로 때리며 순환한다."
     },
     {
       "relic": "Ninja Scroll",
       "card": "Accuracy",
       "bonus": 2.5,
-      "reason": "Ninja Scroll adds 3 free Shivs at combat start — Accuracy gives +4 damage per Shiv (+6 upgraded). Starting every fight with 3 Shivs means Accuracy immediately pays off for 12-18 bonus damage before Turn 1."
+      "reason": "닌자 두루마리가 전투 시작에 공짜 단도 3장을 준다. 정밀은 단도당 +4(강화 +6) — 매 전투 단도 3장으로 시작하니 1턴도 되기 전에 보너스 12~18피해가 확보된다."
     },
     {
       "relic": "Ninja Scroll",
       "card": "Finisher",
       "bonus": 2,
-      "reason": "Ninja Scroll adds 3 free Shivs at combat start — Finisher deals 4 damage per Attack played this turn. Starting with 3 Shivs guarantees Finisher hits for at least 12 bonus damage on Turn 1."
+      "reason": "닌자 두루마리가 전투 시작에 단도 3장을 준다. 마무리는 이번 턴 낸 공격당 4피해 — 시작 단도 3장만으로 1턴 마무리에 보너스 12피해가 보장된다."
     },
     {
       "relic": "Ninja Scroll",
       "card": "Knife Trap",
       "bonus": 2,
-      "reason": "Ninja Scroll gives 3 Shivs to start — Knife Trap then fires 10-20 more Shivs. The 3 starting Shivs don't directly fuel Knife Trap but set up the board for immediate Shiv synergies."
+      "reason": "닌자 두루마리가 시작 단도 3장을 준다. 칼날 함정은 이후 단도 10~20장을 쏟아낸다. 시작 단도가 함정의 직접 연료는 아니지만 단도 시너지 판을 초장부터 깔아준다."
     },
     {
       "relic": "Helical Dart",
       "card": "Knife Trap",
       "bonus": 2,
-      "reason": "Knife Trap fires 10-20 Shivs in one turn — Helical Dart gives +1 Dexterity per Shiv played this turn. During Knife Trap, 15 Shivs give +15 Dexterity this turn, making all Block cards enormous."
+      "reason": "칼날 함정이 한 턴에 단도 10~20장을 쏜다. 나선형 다트는 이번 턴 낸 단도당 민첩 +1 — 단도 15장이면 이번 턴 민첩 +15, 모든 방어 카드가 어마어마해진다."
     },
     {
       "relic": "Helical Dart",
       "card": "Infinite Blades",
       "bonus": 1.8,
-      "reason": "Infinite Blades generates a free Shiv every turn — Helical Dart gives +1 Dexterity per Shiv played. Each free Shiv from Infinite Blades adds +1 Dexterity for the rest of that turn."
+      "reason": "무한의 검날이 매 턴 공짜 단도를 만든다. 나선형 다트가 낸 단도당 민첩 +1을 줘서, 공짜 단도 하나하나가 그 턴의 민첩이 된다."
     },
     {
       "relic": "Helical Dart",
       "card": "Accuracy",
       "bonus": 1.8,
-      "reason": "Accuracy boosts Shiv damage — Helical Dart adds Dexterity per Shiv. With both, each Shiv plays both deals more damage (Accuracy) and generates Block (Dexterity from Helical Dart)."
+      "reason": "정밀이 단도 피해를 키우고, 나선형 다트가 단도당 민첩을 준다. 둘 다 있으면 단도 한 장이 피해(정밀)와 방어(민첩)를 동시에 낸다."
     },
     {
       "relic": "Joss Paper",
       "card": "Shiv",
       "bonus": 1.8,
-      "reason": "Shivs Exhaust when played — Joss Paper draws 1 card per 5 Exhausts. In Shiv-heavy turns with 5-10 Shivs, Joss Paper draws 1-2 extra cards passively."
+      "reason": "단도는 내면 소멸한다. 향지는 소멸 5회마다 1장을 뽑아, 단도 5~10장이 도는 턴이면 향지가 알아서 1~2장을 더 뽑아준다."
     },
     {
       "relic": "Tingsha",
       "card": "Acrobatics",
       "bonus": 1.8,
-      "reason": "Acrobatics draws 3 and discards 1 — Tingsha deals 3 damage per card discarded during your turn. Acrobatics discards 1 card, which triggers Tingsha for 3 free damage every Acrobatics play."
+      "reason": "곡예가 3장 뽑고 1장 버린다. 팅샤는 내 턴에 버린 카드당 3피해 — 곡예를 낼 때마다 공짜 3피해가 따라온다."
     },
     {
       "relic": "Tingsha",
       "card": "Calculated Gamble",
       "bonus": 2,
-      "reason": "Calculated Gamble discards entire hand — Tingsha deals 3 damage per discarded card. Discarding 5 cards with Calculated Gamble triggers 15 damage from Tingsha in one play."
+      "reason": "계산된 도박이 손패 전체를 버린다. 팅샤가 버린 카드당 3피해를 줘서, 5장을 버리면 한 번에 팅샤 15피해가 터진다."
     },
     {
       "relic": "Tingsha",
       "card": "Tools of the Trade",
       "bonus": 1.8,
-      "reason": "Tools of the Trade discards 1 card at start of each turn passively — Tingsha deals 3 damage per discard. Tools gives 3 free Tingsha damage every single turn passively."
+      "reason": "작업 도구가 매 턴 시작에 알아서 1장을 버린다. 팅샤는 버리기당 3피해 — 매 턴 공짜 3피해가 자동으로 나간다."
     },
     {
       "relic": "Tough Bandages",
       "card": "Calculated Gamble",
       "bonus": 2,
-      "reason": "Calculated Gamble discards entire hand — Tough Bandages gives 3 Block per discarded card. Discarding 5 cards gives 15 free Block from one Calculated Gamble."
+      "reason": "계산된 도박이 손패 전체를 버린다. 질긴 붕대가 버린 카드당 방어도 3을 줘서, 5장 버리면 도박 한 장에 공짜 방어도 15다."
     },
     {
       "relic": "Tough Bandages",
       "card": "Tools of the Trade",
       "bonus": 1.8,
-      "reason": "Tools of the Trade discards 1 per turn passively — Tough Bandages gives 3 Block per discard. Tools gives 3 free Block every turn passively, stacking to massive totals."
+      "reason": "작업 도구가 매 턴 알아서 1장을 버린다. 질긴 붕대가 버리기당 방어도 3을 줘서, 매 턴 공짜 방어도 3이 차곡차곡 쌓인다."
     },
     {
       "relic": "Tough Bandages",
       "card": "Acrobatics",
       "bonus": 1.8,
-      "reason": "Acrobatics discards 1 card — Tough Bandages gives 3 Block per discard. Every Acrobatics play generates 3 extra Block on top of its draw."
+      "reason": "곡예가 1장을 버린다. 질긴 붕대가 버리기당 방어도 3을 줘서, 곡예를 낼 때마다 드로우 위에 방어도 3이 얹힌다."
     },
     {
       "relic": "Snecko Skull",
       "card": "Noxious Fumes",
       "bonus": 2,
-      "reason": "Noxious Fumes applies 2 Poison to all enemies each turn — Snecko Skull adds +1 Poison per application. Noxious Fumes now applies 3 Poison per turn to all enemies passively."
+      "reason": "유독 가스가 매 턴 모든 적에게 독 2를 뿌린다. 스네코의 해골이 부여당 +1을 얹어, 유독 가스가 턴마다 독 3을 알아서 뿌리게 된다."
     },
     {
       "relic": "Snecko Skull",
       "card": "Deadly Poison",
       "bonus": 2,
-      "reason": "Deadly Poison applies 5 Poison — Snecko Skull adds +1 per application, so it applies 6 Poison. Every Deadly Poison with Snecko Skull stacks Poison 20% faster."
+      "reason": "맹독이 독 5를 부여한다. 스네코의 해골이 부여당 +1을 얹어 6이 된다. 해골이 있으면 맹독의 독이 20% 더 빨리 쌓인다."
     },
     {
       "relic": "Snecko Skull",
       "card": "Poisoned Stab",
       "bonus": 1.8,
-      "reason": "Poisoned Stab applies 3 Poison — Snecko Skull adds +1, making it 4 Poison per Stab. Poisoned Stab with Snecko Skull hits for 4 damage AND applies 4 Poison."
+      "reason": "독 찌르기가 독 3을 부여한다. 스네코의 해골이 +1을 얹어 4가 된다. 해골이 있는 독 찌르기는 4피해에 독 4까지 준다."
     },
     {
       "relic": "Snecko Skull",
       "card": "Bouncing Flask",
       "bonus": 1.8,
-      "reason": "Bouncing Flask applies 3 Poison 3 times — Snecko Skull adds +1 per application for 4 Poison each bounce. Bouncing Flask with Snecko Skull applies 12 Poison total instead of 9."
+      "reason": "탄성 플라스크가 독 3을 3번 부여한다. 스네코의 해골이 튕김마다 +1을 얹어 각 4씩 — 총 9가 아니라 12의 독이 들어간다."
     },
     {
       "relic": "Twisted Funnel",
       "card": "Bubble Bubble",
       "bonus": 2,
-      "reason": "Twisted Funnel applies 4 Poison to ALL enemies at combat start — Bubble Bubble doubles existing Poison. Starting with 4 Poison from Twisted Funnel means Bubble Bubble immediately doubles to 8 on Turn 1."
+      "reason": "뒤틀린 깔때기가 전투 시작에 모든 적에게 독 4를 깐다. 차오르는 독이 기존 독을 두 배로 만드니, 1턴부터 4가 8로 바로 튀긴다."
     },
     {
       "relic": "Twisted Funnel",
       "card": "Accelerant",
       "bonus": 1.8,
-      "reason": "Twisted Funnel starts each fight with 4 AoE Poison — Accelerant multiplies existing Poison. Turn 2 Accelerant immediately benefits from the Twisted Funnel Poison already stacked."
+      "reason": "뒤틀린 깔때기가 매 전투를 광역 독 4로 시작하게 해준다. 촉진제가 기존 독을 증폭하니, 2턴 촉진제가 이미 쌓인 깔때기의 독에서 즉시 이득을 본다."
     },
     {
       "relic": "Unsettling Lamp",
       "card": "Deadly Poison",
       "bonus": 2,
-      "reason": "Deadly Poison applies 5 Poison — Unsettling Lamp doubles the first debuff effect per combat. The first Deadly Poison applies 10 Poison instead of 5."
+      "reason": "맹독이 독 5를 부여한다. 섬뜩한 램프가 전투당 첫 디버프 효과를 두 배로 만들어, 첫 맹독이 5가 아니라 10의 독을 부여한다."
     },
     {
       "relic": "Unsettling Lamp",
       "card": "Noxious Fumes",
       "bonus": 2,
-      "reason": "Noxious Fumes applies Poison passively — Unsettling Lamp doubles first debuff per combat. First Noxious Fumes activation applies double Poison to all enemies."
+      "reason": "유독 가스가 상시로 독을 뿌린다. 섬뜩한 램프가 전투당 첫 디버프를 두 배로 만들어, 첫 유독 가스 발동이 모든 적에게 두 배의 독을 깐다."
     },
     {
       "relic": "Unsettling Lamp",
       "card": "Deathbringer",
       "bonus": 2,
-      "reason": "Deathbringer applies AoE Doom — Unsettling Lamp doubles first debuff. First Deathbringer applies double Doom to all enemies, reaching the execute threshold much faster."
+      "reason": "죽음 인도자가 광역 종말을 건다. 섬뜩한 램프가 첫 디버프를 두 배로 만들어, 첫 죽음 인도자가 모든 적에게 두 배의 종말을 깔아 처형 임계에 훨씬 빨리 닿는다."
     },
     {
       "relic": "Lunar Pastry",
       "card": "Alignment",
       "bonus": 2,
-      "reason": "Alignment converts Stars into Energy — Lunar Pastry generates 1 Star at end of every turn. With Lunar Pastry passively accumulating Stars, Alignment has consistent Stars to convert into Energy every turn."
+      "reason": "정렬이 별을 에너지로 바꾼다. 달 모양 페스츄리가 매 턴 종료에 별 1개를 만들어, 정렬이 턴마다 바꿀 별을 꾸준히 대준다."
     },
     {
       "relic": "Lunar Pastry",
       "card": "Seven Stars",
       "bonus": 2,
-      "reason": "Lunar Pastry generates Stars every turn — Seven Stars costs 7 Stars and hits 49 times. Lunar Pastry gradually pays toward Seven Stars' Star cost, making it more consistently playable."
+      "reason": "달 모양 페스츄리가 턴마다 별을 만든다. 일곱 개의 별은 별 7개를 쓰고 49번 때린다. 페스츄리가 그 비용을 조금씩 적립해줘서 더 자주 낼 수 있다."
     },
     {
       "relic": "Lunar Pastry",
       "card": "Radiate",
       "bonus": 1.8,
-      "reason": "Lunar Pastry gives 1 Star per turn — Radiate deals 3 AoE per Star gained this turn. Even 1 extra Star from Lunar Pastry adds 3 AoE to every Radiate play."
+      "reason": "달 모양 페스츄리가 턴당 별 1개를 준다. 방출은 이번 턴 얻은 별당 광역 3피해 — 페스츄리의 별 1개만으로도 방출마다 광역 3이 더 붙는다."
     },
     {
       "relic": "Galactic Dust",
       "card": "Royal Gamble",
       "bonus": 1.8,
-      "reason": "Royal Gamble gives 9 Stars in one play — Galactic Dust gives 10 Block per 10 Stars spent. Playing Royal Gamble immediately triggers Galactic Dust for 9 Block (9 Stars × 1 = 9 triggers)."
+      "reason": "성대한 도박이 한 번에 별 9개를 준다. 은하 먼지는 별 소모에 방어도로 보답해, 성대한 도박 한 장이 즉시 은하 먼지의 방어도까지 끌어낸다."
     },
     {
       "relic": "Galactic Dust",
       "card": "Alignment",
       "bonus": 1.8,
-      "reason": "Alignment converts Stars to Energy — Galactic Dust converts Star spending to Block. Both use Stars as a resource, so Star-generating cards fuel both Alignment's Energy AND Galactic Dust's Block simultaneously."
+      "reason": "정렬은 별을 에너지로, 은하 먼지는 별 소모를 방어도로 바꾼다. 둘 다 별을 자원으로 쓰니, 별 생산 카드가 에너지와 방어도 양쪽에 동시에 연료를 댄다."
     },
     {
       "relic": "Mini Regent",
       "card": "Alignment",
       "bonus": 1.8,
-      "reason": "Alignment spends Stars for Energy — Mini Regent gives +1 Strength when Stars are first spent per turn. Every Alignment play also triggers Mini Regent's Strength gain as a free bonus."
+      "reason": "정렬이 별을 소모해 에너지를 얻는다. 미니 리젠트는 턴당 처음 별을 소모할 때 힘 +1 — 정렬을 낼 때마다 힘이 공짜 보너스로 따라온다."
     },
     {
       "relic": "Mini Regent",
       "card": "Seven Stars",
       "bonus": 1.8,
-      "reason": "Seven Stars spends 7 Stars at once — Mini Regent gives 1 Strength first time Stars are spent per turn. Every Seven Stars play gives 1 free Strength via Mini Regent."
+      "reason": "일곱 개의 별이 별 7개를 한 번에 쓴다. 미니 리젠트가 턴당 첫 별 소모에 힘 1을 줘서, 일곱 개의 별을 낼 때마다 공짜 힘 1이 붙는다."
     },
     {
       "relic": "Fencing Manual",
       "card": "Sovereign Blade",
       "bonus": 2.5,
-      "reason": "Fencing Manual starts each combat with Forge 10 — Sovereign Blade deals damage equal to total Forge. Starting with 10 Forge from Fencing Manual means the Blade deals 10 damage before any other Forge is added."
+      "reason": "검술 안내서가 매 전투를 단조 10으로 시작하게 한다. 군주의 칼날은 총 단조만큼 피해 — 시작부터 10의 피해가 깔리고 시작한다."
     },
     {
       "relic": "Fencing Manual",
       "card": "Conqueror",
       "bonus": 2,
-      "reason": "Fencing Manual starts with Forge 10 — Conqueror doubles current Forge. Starting at Forge 10 instead of 0 means Conqueror immediately doubles to 20, shortcutting the Forge buildup phase."
+      "reason": "검술 안내서가 단조 10으로 시작하게 한다. 정복자는 현재 단조를 두 배로 — 0이 아니라 10에서 시작하니 정복자가 즉시 20으로 튀겨 단조 축적 단계를 건너뛴다."
     },
     {
       "relic": "Fencing Manual",
       "card": "Beat into Shape",
       "bonus": 1.8,
-      "reason": "Beat into Shape adds Forge — Fencing Manual starts with Forge 10. Starting at Forge 10 means Beat into Shape's Forge adds to a higher base, making the Blade strong faster."
+      "reason": "재성형이 단조를 더한다. 검술 안내서 덕에 단조 10에서 출발하니 재성형의 단조가 더 높은 기반 위에 쌓여 칼날이 더 빨리 강해진다."
     },
     {
       "relic": "Vitruvian Minion",
       "card": "BEGONE!",
       "bonus": 1.8,
-      "reason": "BEGONE! generates Minion Dive Bomb tokens — Vitruvian Minion doubles Minion card damage. BEGONE! generates Minion Dive Bombs dealing 26 damage instead of 13 with Vitruvian Minion."
+      "reason": "물렀거라!가 하수인 카드(다이브 폭탄)를 생성한다. 비트루비우스적 하수인이 하수인 카드의 피해를 두 배로 만들어 13이 아니라 26피해가 된다."
     },
     {
       "relic": "Vitruvian Minion",
       "card": "GUARDS!!!",
       "bonus": 1.8,
-      "reason": "GUARDS!!! generates Minion Sacrifice tokens — Vitruvian Minion doubles Minion card Block. GUARDS!!! generates Minion Sacrifices giving 18 Block instead of 9 with Vitruvian Minion."
+      "reason": "막아라!!!가 하수인 카드(희생)를 생성한다. 비트루비우스적 하수인이 하수인 카드의 방어도를 두 배로 만들어 9가 아니라 18 방어도가 된다."
     },
     {
       "relic": "Funerary Mask",
       "card": "Haunt",
       "bonus": 2.5,
-      "reason": "Funerary Mask adds 3 Souls to Draw Pile at combat start — Haunt deals 6 AoE per Soul generation. The 3 free Souls from Funerary Mask immediately trigger 18 AoE from Haunt before Turn 1 even starts."
+      "reason": "장례용 가면이 전투 시작에 뽑을 더미에 영혼 3장을 넣는다. 출몰은 영혼 생성마다 광역 6피해 — 1턴이 시작되기도 전에 공짜 영혼 3장이 광역 18을 발동시킨다."
     },
     {
       "relic": "Funerary Mask",
       "card": "Death March",
       "bonus": 2,
-      "reason": "Funerary Mask adds 3 Souls to Draw Pile — Death March scales with cards drawn this turn. Drawing 3 Souls from Funerary Mask adds 9 bonus damage to Death March in the turn you draw them."
+      "reason": "장례용 가면이 뽑을 더미에 영혼 3장을 넣는다. 죽음의 행진은 이번 턴 드로우 수로 성장 — 영혼 3장이 뽑히는 턴엔 보너스 9피해가 붙는다."
     },
     {
       "relic": "Funerary Mask",
       "card": "Oblivion",
       "bonus": 1.8,
-      "reason": "Funerary Mask adds 3 Souls at combat start — Oblivion scales with cheap cards including Souls. Starting with Souls in deck means Oblivion hits for more from turn 1."
+      "reason": "장례용 가면이 전투 시작에 영혼 3장을 넣는다. 망각은 영혼 같은 저비용 카드로 성장하니, 시작부터 덱에 영혼이 있으면 망각이 1턴부터 더 아프다."
     },
     {
       "relic": "Big Hat",
       "card": "Haunt",
       "bonus": 1.8,
-      "reason": "Big Hat adds 2 random Ethereal cards to Hand at combat start — if any are Souls, Haunt fires immediately. Big Hat has a chance to immediately trigger Haunt before Turn 1."
+      "reason": "커다란 모자가 전투 시작에 무작위 영묘 카드 2장을 손에 넣어준다. 그중 영혼이 있으면 출몰이 즉시 발동 — 1턴 전에 출몰이 터질 가능성이 생긴다."
     },
     {
       "relic": "Undying Sigil",
       "card": "End of Days",
       "bonus": 2,
-      "reason": "End of Days executes all enemies at or below Doom count — Undying Sigil makes enemies at Doom threshold deal 50% less damage. As enemies approach the execution threshold, they deal half damage, protecting you until End of Days goes off."
+      "reason": "종말의 날이 종말 수치 이하의 적을 전부 처형한다. 불멸의 인장은 종말 임계에 든 적의 피해를 50% 깎아, 처형이 터지기 전까지 적의 공격이 절반이 된다."
     },
     {
       "relic": "Undying Sigil",
       "card": "No Escape",
       "bonus": 1.8,
-      "reason": "No Escape stacks massive single-target Doom — Undying Sigil protects you while the enemy is in Doom range. Once No Escape pushes an enemy into execute range, Undying Sigil means they deal half damage until killed."
+      "reason": "도망칠 수 없다가 단일 대상에 종말을 대량으로 쌓는다. 불멸의 인장이 종말 범위의 적을 반감시켜, 처형권에 든 적은 죽을 때까지 절반 피해만 넣는다."
     },
     {
       "relic": "Undying Sigil",
       "card": "Deathbringer",
       "bonus": 1.8,
-      "reason": "Deathbringer applies AoE Doom — Undying Sigil makes Doom-threshold enemies deal half damage. Deathbringer's AoE Doom puts multiple enemies into Undying Sigil's protective range simultaneously."
+      "reason": "죽음 인도자가 광역 종말을 뿌린다. 불멸의 인장이 종말 임계의 적을 반감시키니, 광역 종말로 여러 적을 동시에 보호 범위에 넣게 된다."
     },
     {
       "relic": "Book Repair Knife",
       "card": "End of Days",
       "bonus": 1.8,
-      "reason": "End of Days executes all enemies at Doom threshold — Book Repair Knife heals 3 HP per non-Minion Doom kill. End of Days can trigger multiple Doom kills simultaneously, healing 3 HP per enemy killed."
+      "reason": "종말의 날이 종말 임계의 적을 전부 처형한다. 책 수리용 칼은 하수인이 아닌 적의 종말 처치당 3 회복 — 종말의 날이 동시에 여럿을 잡으면 적 수만큼 회복한다."
     },
     {
       "relic": "Book Repair Knife",
       "card": "Deathbringer",
       "bonus": 1.5,
-      "reason": "Deathbringer applies AoE Doom — Book Repair Knife heals 3 HP per Doom kill. More Doom stacks from Deathbringer means more potential Doom kills and more healing from Book Repair Knife."
+      "reason": "죽음 인도자가 광역 종말을 건다. 책 수리용 칼이 종말 처치당 3을 회복시켜, 종말이 넓게 깔릴수록 처치와 회복 기회가 늘어난다."
     },
     {
       "relic": "Pocketwatch",
       "card": "End of Days",
       "bonus": 1.8,
-      "reason": "End of Days is a high-cost slow play — Pocketwatch draws 3 extra cards if you play 3 or fewer cards. In a Doom deck where you sometimes pass turns waiting for Doom, Pocketwatch rewards patience with extra draw."
+      "reason": "종말의 날은 비싸고 느린 카드다. 회중시계는 3장 이하로 낸 턴에 3장을 더 뽑아줘, 종말이 차기를 기다리며 쉬어가는 턴에 드로우로 보상해준다."
     },
     {
       "relic": "Diamond Diadem",
       "card": "Deathbringer",
       "bonus": 1.8,
-      "reason": "Deathbringer is expensive — Diamond Diadem halves damage when you play 2 or fewer cards. A turn where you play just Deathbringer activates Diamond Diadem's protection while setting up Doom kills."
+      "reason": "죽음 인도자는 비싸다. 다이아몬드 왕관은 2장 이하로 낸 턴에 받는 피해를 반감 — 죽음 인도자만 내는 턴이 왕관의 보호를 켜면서 종말 처치를 준비한다."
     },
     {
       "relic": "Bone Flute",
       "card": "Rattle",
       "bonus": 2,
-      "reason": "Rattle hits X times based on Osty attacks used this turn — Bone Flute gains 2 Block per Osty attack. Both scale with Osty attack count, so a Rattle-heavy turn simultaneously scales damage AND generates massive Block from Bone Flute."
+      "reason": "덜그럭대기는 이번 턴 오스티 공격 수만큼 때리고, 뼈 플루트는 오스티 공격당 방어도 2를 얻는다. 둘 다 같은 행동으로 성장해, 덜그럭대기 턴이 피해와 방어도를 동시에 쏟아낸다."
     },
     {
       "relic": "Bone Flute",
       "card": "Sic'Em",
       "bonus": 1.8,
-      "reason": "Sic'Em is an Osty attack with high Summon — Bone Flute gains 2 Block per Osty attack. Every Sic'Em play triggers Bone Flute for 2 Block while growing Osty for future Rattle scaling."
+      "reason": "덮쳐!는 소환이 높은 오스티 공격이다. 뼈 플루트가 오스티 공격당 방어도 2를 얻어, 덮쳐!를 낼 때마다 방어도 2에 향후 덜그럭대기용 오스티 성장까지 챙긴다."
     },
     {
       "relic": "Bone Flute",
       "card": "Flatten",
       "bonus": 1.8,
-      "reason": "Flatten adds flat damage per Osty attack used this turn — Bone Flute gains 2 Block per Osty attack. Both reward the same behavior: using many Osty attacks in one turn."
+      "reason": "땅고르기는 이번 턴 오스티 공격 수만큼 피해가 붙고, 뼈 플루트는 오스티 공격당 방어도 2를 준다. 한 턴에 오스티 공격을 몰아 쓰는 같은 플레이를 둘 다 보상한다."
     },
     {
       "relic": "Bookmark",
       "card": "Rattle",
       "bonus": 1.5,
-      "reason": "Rattle is expensive with high Summon count — Bookmark reduces cost of random Retained cards. If Rattle is Retained, Bookmark reduces its cost making it easier to play on big turns."
+      "reason": "덜그럭대기는 소환이 쌓이면 비싸진다. 책갈피가 유지된 무작위 카드의 비용을 깎아줘, 유지해둔 덜그럭대기를 큰 턴에 더 내기 쉬워진다."
     },
     {
       "relic": "Data Disk",
       "card": "Multi-Cast",
       "bonus": 2.5,
-      "reason": "Multi-Cast evokes the leftmost Orb X times — Data Disk gives +1 Focus, making all Orbs deal more per passive trigger. With Focus, each Multi-Cast evoke does significantly more damage or healing."
+      "reason": "다중 시전이 맨 왼쪽 구체를 X번 발현한다. 데이터 디스크의 집중 +1이 구체의 발동 효과를 키워, 발현 하나하나의 피해·회복이 눈에 띄게 커진다."
     },
     {
       "relic": "Data Disk",
       "card": "Tesla Coil",
       "bonus": 2,
-      "reason": "Tesla Coil scales with Focus — Data Disk gives +1 Focus. Each Focus point from Data Disk directly amplifies Tesla Coil's damage output every time it triggers."
+      "reason": "테슬라 코일은 집중으로 성장한다. 데이터 디스크의 집중 +1이 코일이 발동할 때마다 화력을 그대로 올려준다."
     },
     {
       "relic": "Data Disk",
       "card": "Loop",
       "bonus": 2,
-      "reason": "Loop permanently gives a chosen Orb a free Evoke — Data Disk gives Focus making all Orb passives stronger. The Looped Orb's passive is directly amplified by every Focus point from Data Disk."
+      "reason": "반복이 고른 구체에 공짜 발현을 영구히 붙인다. 데이터 디스크의 집중이 모든 구체의 상시 효과를 키워, 반복이 붙은 구체의 효과가 집중 한 점마다 세진다."
     },
     {
       "relic": "Gold-Plated Cables",
       "card": "Defragment",
       "bonus": 2,
-      "reason": "Defragment gives +1 Focus per play — Gold-Plated Cables makes rightmost Orb trigger passive twice. Each Focus from Defragment amplifies the bonus trigger from Gold-Plated Cables."
+      "reason": "조각모음이 사용당 집중 +1을 준다. 판금 케이블은 맨 오른쪽 구체의 상시 효과를 두 번 발동시켜, 집중이 오를수록 그 보너스 발동도 세진다."
     },
     {
       "relic": "Gold-Plated Cables",
       "card": "Loop",
       "bonus": 2,
-      "reason": "Loop gives a chosen Orb a free Evoke — Gold-Plated Cables also gives rightmost Orb an extra passive trigger. If the Looped Orb is the rightmost, it fires three times instead of once per turn."
+      "reason": "반복이 고른 구체에 공짜 발현을 준다. 판금 케이블도 맨 오른쪽 구체에 추가 상시 발동을 줘서, 반복이 붙은 구체가 맨 오른쪽이면 턴당 한 번이 아니라 세 번 작동한다."
     },
     {
       "relic": "Gold-Plated Cables",
       "card": "Tesla Coil",
       "bonus": 1.8,
-      "reason": "Tesla Coil fires Lightning per Evoke — Gold-Plated Cables gives rightmost Orb an extra passive trigger. If Tesla Coil is rightmost, Gold-Plated Cables fires it twice every turn for double Lightning."
+      "reason": "테슬라 코일이 발현마다 번개를 쏜다. 판금 케이블이 맨 오른쪽 구체에 추가 상시 발동을 줘서, 코일이 맨 오른쪽이면 매 턴 두 번 발사돼 번개가 두 배다."
     },
     {
       "relic": "Runic Capacitor",
       "card": "Capacitor",
       "bonus": 2,
-      "reason": "Capacitor adds 2 extra Orb Slots — Runic Capacitor already gives +3 Orb Slots. Together they give 5 extra Orb Slots for 8 total, enabling enormous Orb queues and massive passive damage/healing."
+      "reason": "축전기가 구체 슬롯 2개를 더한다. 룬 축전기는 이미 +3 — 합쳐서 +5, 총 8슬롯으로 거대한 구체 대기열과 대량의 상시 피해·회복이 가능해진다."
     },
     {
       "relic": "Runic Capacitor",
       "card": "Barrage",
       "bonus": 1.8,
-      "reason": "Barrage deals damage per Orb Slot — Runic Capacitor gives +3 Orb Slots. With 6 Orb Slots from Runic Capacitor, Barrage deals 6× its base damage per hit."
+      "reason": "일제 사격은 구체 슬롯당 피해를 준다. 룬 축전기가 슬롯 +3을 줘서 6슬롯이면 일제 사격이 기본의 6배로 때린다."
     },
     {
       "relic": "Runic Capacitor",
       "card": "Multi-Cast",
       "bonus": 1.8,
-      "reason": "Multi-Cast evokes leftmost Orb X times — Runic Capacitor gives +3 Orb Slots for more Orb variety. More Orb Slots mean more Orbs queued for Multi-Cast to choose from."
+      "reason": "다중 시전이 맨 왼쪽 구체를 X번 발현한다. 룬 축전기의 슬롯 +3으로 대기 중인 구체가 다양해져 다중 시전의 선택지가 넓어진다."
     },
     {
       "relic": "Emotion Chip",
       "card": "Defragment",
       "bonus": 1.8,
-      "reason": "Emotion Chip triggers all Orb passives if you took damage last turn — Defragment gives Focus amplifying all passives. With Defragment stacking Focus, Emotion Chip's bonus trigger becomes enormously powerful."
+      "reason": "감정 칩이 지난 턴 피해를 받았다면 모든 구체의 상시 효과를 발동시킨다. 조각모음의 집중이 그 상시 효과 전부를 키워, 칩의 보너스 발동이 어마어마해진다."
     },
     {
       "relic": "Metronome",
       "card": "Capacitor",
       "bonus": 1.8,
-      "reason": "Capacitor adds Orb Slots enabling more Orbs — Metronome fires 30 AoE once you channel 7 Orbs. More Orb Slots from Capacitor means you fill the 7-Orb threshold faster."
+      "reason": "축전기가 구체 슬롯을 늘려 구체를 더 굴리게 해준다. 메트로놈은 구체 7개 충전 시 광역 30 — 슬롯이 늘수록 7개 임계가 더 빨리 찬다."
     },
     {
       "relic": "Metronome",
       "card": "Defragment",
       "bonus": 1.5,
-      "reason": "Defragment helps channel Orbs efficiently with Focus — Metronome requires channeling 7 Orbs. Defragment's Focus makes each Orb more powerful before Metronome fires."
+      "reason": "조각모음이 집중으로 구체 운용의 효율을 올린다. 메트로놈은 구체 7개 충전이 조건 — 임계를 채우는 동안에도 집중 덕에 구체 하나하나가 강하다."
     },
     {
       "relic": "Symbiotic Virus",
       "card": "Darkness",
       "bonus": 1.8,
-      "reason": "Symbiotic Virus channels 1 Dark at combat start — Darkness also channels Dark. Having a Dark Orb already from Symbiotic Virus lets Darkness immediately double it."
+      "reason": "공생 바이러스가 전투 시작에 어둠 1개를 충전한다. 어둠 카드도 어둠을 충전하니, 이미 깔린 어둠 구체를 어둠이 즉시 두 배로 키운다."
     },
     {
       "relic": "Symbiotic Virus",
       "card": "Multi-Cast",
       "bonus": 1.8,
-      "reason": "Symbiotic Virus starts with 1 Dark Orb — Multi-Cast evokes leftmost Orb. Starting with a Dark Orb means first Multi-Cast immediately benefits from a pre-stacked Dark."
+      "reason": "공생 바이러스가 어둠 구체 1개로 시작하게 해준다. 다중 시전이 맨 왼쪽 구체를 발현하니, 첫 다중 시전부터 미리 쌓인 어둠의 이득을 본다."
     },
     {
       "relic": "Power Cell",
       "card": "Claw",
       "bonus": 2.5,
-      "reason": "Power Cell adds 2 zero-cost Draw Pile cards to Hand at combat start — with multiple Claws in deck, Power Cell consistently puts Claws directly in your opening hand. Starting every fight with 2 Claws in hand is enormous for Claw scaling."
+      "reason": "동력 전지가 전투 시작에 뽑을 더미의 0코스트 2장을 손에 넣어준다. 덱에 후벼 파기가 여럿이면 시작 손에 후벼 파기 2장이 꾸준히 잡힌다. 성장 시작이 어마어마하게 빨라진다."
     },
     {
       "relic": "Power Cell",
       "card": "All for One",
       "bonus": 2,
-      "reason": "Power Cell adds 2 zero-cost cards to opening Hand — All for One retrieves all zero-cost Discard cards. Power Cell guarantees zero-cost cards start in Hand, and All for One later refills them from Discard."
+      "reason": "동력 전지가 시작 손에 0코스트 2장을 넣어준다. 하나를 위한 모두가 나중에 버린 더미의 0코스트를 회수하니, 시작은 전지가, 리필은 하나를 위한 모두가 맡는다."
     },
     {
       "relic": "Power Cell",
       "card": "Scrape",
       "bonus": 1.8,
-      "reason": "Power Cell puts 2 zero-cost cards in opening Hand — Scrape cycles through deck to find zero-cost cards. With zero-cost cards already in Hand from Power Cell, Scrape draws 4 more cards to find additional Claws faster."
+      "reason": "동력 전지가 시작 손에 0코스트 2장을 준다. 긁어내기는 4장을 뽑아 0코스트를 찾는다. 시작 손이 이미 준비된 상태라 긁어내기가 추가 후벼 파기를 더 빨리 찾는다."
     },
     {
       "relic": "Iron Club",
       "card": "Claw",
       "bonus": 2,
-      "reason": "Iron Club draws 1 card every 4 cards played — Claw builds play 10+ cards per turn. With Iron Club, every 4 Claws drawn is also 1 extra draw, fueling further Claw plays."
+      "reason": "쇠몽둥이가 카드 4장을 낼 때마다 1장을 뽑는다. 후벼 파기 빌드는 턴당 10장 이상 — 후벼 파기 4장마다 드로우가 하나씩 나와 플레이가 이어진다."
     },
     {
       "relic": "Iron Club",
       "card": "All for One",
       "bonus": 2,
-      "reason": "Iron Club draws every 4 cards played — All for One retrieves all zero-cost Discard cards. After All for One floods your hand with Claws, Iron Club's draw triggers fire rapidly as you play them all."
+      "reason": "쇠몽둥이가 4장 사용마다 드로우한다. 하나를 위한 모두가 손을 후벼 파기로 채운 뒤엔, 그걸 내는 동안 쇠몽둥이의 드로우가 연달아 터진다."
     },
     {
       "relic": "Nunchaku",
       "card": "Claw",
       "bonus": 2,
-      "reason": "Claw is a zero-cost attack — Nunchaku gains Energy every 10 Attacks. In Claw builds playing 10-15 Claws per turn, Nunchaku fires 1-2 free Energy every turn."
+      "reason": "후벼 파기는 0코스트 공격이다. 쌍절곤은 공격 10회마다 에너지를 줘서, 턴당 후벼 파기 10~15장인 빌드에선 매 턴 공짜 에너지 1~2가 나온다."
     },
     {
       "relic": "Shuriken",
       "card": "Claw",
       "bonus": 2,
-      "reason": "Shuriken gives +1 permanent Strength every 3 Attacks — Claw builds play 10-15 attacks per turn. Claw builds consistently trigger Shuriken 3-5 times per turn for 3-5 permanent Strength."
+      "reason": "표창이 공격 3회마다 영구 힘 +1을 준다. 후벼 파기 빌드는 턴당 공격 10~15회 — 매 턴 표창이 3~5번 발동해 영구 힘이 3~5씩 쌓인다."
     },
     {
       "relic": "Kunai",
       "card": "Claw",
       "bonus": 2,
-      "reason": "Kunai gives +1 Dexterity every 3 Attacks — Claw builds play 10-15 attacks per turn. Claw builds trigger Kunai 3-5 times per turn for 3-5 permanent Dexterity."
+      "reason": "수리검이 공격 3회마다 민첩 +1을 준다. 후벼 파기 빌드는 턴당 공격 10~15회 — 매 턴 수리검이 3~5번 발동해 영구 민첩이 3~5씩 쌓인다."
     },
     {
       "relic": "Pen Nib",
       "card": "Claw",
       "bonus": 1.8,
-      "reason": "Pen Nib doubles every 10th Attack — Claw builds hit the 10-Attack threshold every turn. Pen Nib fires every single turn in Claw builds, doubling one Claw's damage reliably."
+      "reason": "펜 촉이 10번째 공격마다 피해를 두 배로 만든다. 후벼 파기 빌드는 매 턴 공격 10회를 채우니 펜 촉이 턴마다 발동해 후벼 파기 하나가 확실하게 두 배로 박힌다."
     },
     {
       "relic": "History Course",
       "card": "Noxious Fumes",
       "bonus": 2,
-      "reason": "History Course plays a copy of your last Attack or Skill each turn — Noxious Fumes is a Skill applying Poison. If Noxious Fumes was your last Skill, History Course automatically doubles Poison application every turn for free."
+      "reason": "역사 강의서가 매 턴 마지막 공격/스킬의 사본을 사용한다. 유독 가스가 마지막 스킬이었다면, 강의서가 매 턴 독 부여를 공짜로 한 번 더 해준다."
     },
     {
       "relic": "History Course",
       "card": "Deadly Poison",
       "bonus": 1.8,
-      "reason": "History Course replays last Attack or Skill — Deadly Poison applies 5 Poison. If Deadly Poison was last, History Course applies another 5 Poison each turn for free, doubling your Poison stacking rate."
+      "reason": "역사 강의서가 마지막 공격/스킬을 재사용한다. 맹독이 마지막이었다면 매 턴 독 5가 공짜로 더 들어와 독 쌓이는 속도가 두 배가 된다."
     },
     {
       "relic": "History Course",
       "card": "Whirlwind",
       "bonus": 2,
-      "reason": "History Course replays last Attack or Skill — Whirlwind hits X times. If Whirlwind was last, History Course automatically replays an X-cost Whirlwind the next turn for free AoE."
+      "reason": "역사 강의서가 마지막 공격/스킬을 재사용한다. 소용돌이가 마지막이었다면 다음 턴 X코스트 소용돌이가 공짜 광역으로 다시 나간다."
     },
     {
       "relic": "History Course",
       "card": "Shining Strike",
       "bonus": 1.8,
-      "reason": "History Course replays last Attack or Skill — Shining Strike deals damage and gives Stars. If Shining Strike was last, History Course gives free Stars and damage every turn passively."
+      "reason": "역사 강의서가 마지막 공격/스킬을 재사용한다. 빛나는 타격이 마지막이었다면 매 턴 공짜 피해와 별이 알아서 들어온다."
     },
     {
       "relic": "History Course",
       "card": "Rattle",
       "bonus": 1.8,
-      "reason": "History Course replays last Attack or Skill — Rattle is a multi-hit Osty attack. If Rattle was last, History Course plays a free Rattle copy every turn for continuous Osty scaling."
+      "reason": "역사 강의서가 마지막 공격/스킬을 재사용한다. 덜그럭대기가 마지막이었다면 매 턴 공짜 사본이 나가 오스티 성장이 끊기지 않는다."
     },
     {
       "relic": "Ghost Seed",
       "card": "Tactician",
       "bonus": 2,
-      "reason": "Ghost Seed gives Strikes and Defends Ethereal — they auto-discard. If Tactician is in hand alongside Strikes/Defends, the auto-discards trigger Sly. Ghost Seed accelerates Sly triggers by auto-discarding dead cards."
+      "reason": "유령 씨앗이 타격·수비를 영묘하게 만들어 자동으로 버려지게 한다. 손에 전략가가 있으면 그 자동 버리기가 교활을 발동시킨다. 죽은 카드가 알아서 빠지며 교활이 가속된다."
     },
     {
       "relic": "Ghost Seed",
       "card": "Tools of the Trade",
       "bonus": 1.8,
-      "reason": "Ghost Seed makes Strikes/Defends auto-discard — Tools of the Trade already discards 1 per turn. Ghost Seed reduces the number of dead cards in hand by auto-discarding Strikes, making Tools' discard hit more useful Sly cards."
+      "reason": "유령 씨앗이 타격·수비를 자동으로 버려지게 한다. 작업 도구는 원래 턴당 1장을 버리는데, 씨앗이 죽은 카드를 미리 치워줘 도구의 버리기가 더 쓸모 있는 교활 카드에 향한다."
     },
     {
       "relic": "Razor Tooth",
       "card": "Whirlwind",
       "bonus": 2,
-      "reason": "Razor Tooth upgrades every Attack and Skill played this combat — Whirlwind hits X times. Upgraded Whirlwind hits for more per swing. With Razor Tooth, Whirlwind is upgraded the moment it's played."
+      "reason": "날카로운 이빨이 이번 전투에 낸 공격·스킬을 전부 강화한다. 소용돌이는 X번 때리니 강화되면 한 타 한 타가 세진다 — 내는 순간부터 강화판이다."
     },
     {
       "relic": "Razor Tooth",
       "card": "Perfected Strike",
       "bonus": 1.8,
-      "reason": "Razor Tooth upgrades every card when played — Perfected Strike upgraded deals significantly more per Strike. As soon as Perfected Strike is played for the first time, Razor Tooth upgrades it for all future plays."
+      "reason": "날카로운 이빨이 낸 카드를 강화한다. 완벽한 타격은 강화 시 타격당 피해가 크게 뛴다. 처음 한 번만 내면 이후 사용은 전부 강화판이다."
     },
     {
       "relic": "Molten Egg",
       "card": "Whirlwind",
       "bonus": 1.8,
-      "reason": "Molten Egg auto-upgrades every Attack added to deck — Whirlwind upgraded hits more per swing. Every Whirlwind picked up is immediately upgraded, giving more value from the first play."
+      "reason": "녹아내린 알이 덱에 추가되는 모든 공격을 자동 강화한다. 소용돌이는 강화되면 한 타가 더 아프니, 집는 순간부터 강화판의 값을 한다."
     },
     {
       "relic": "Molten Egg",
