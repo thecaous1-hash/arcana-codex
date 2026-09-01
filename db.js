@@ -11673,901 +11673,901 @@ const DB = {
       "deckCard": "Juggernaut",
       "offeredCard": "Stone Armor",
       "bonus": 2,
-      "reason": "Stone Armor grants Plating, creating repeated Block gain that triggers Juggernaut every turn."
+      "reason": "돌 갑옷이 도금을 부여해 매 턴 방어도를 반복해서 얻게 되고, 그때마다 절대적인 힘이 발동한다."
     },
     {
       "deckCard": "Stone Armor",
       "offeredCard": "Body Slam",
       "bonus": 1.5,
-      "reason": "Stone Armor continuously increases block totals which Body Slam converts directly into damage."
+      "reason": "돌 갑옷이 방어도 총량을 계속 키우고, 몸통 박치기가 그 방어도를 그대로 피해로 바꾼다."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Fiend Fire",
       "bonus": 1.8,
-      "reason": "Corruption makes skills free, enabling massive Fiend Fire exhaust turns."
+      "reason": "타락이 스킬을 0코스트로 만들어, 지옥불로 손패를 통째로 소멸시키는 대형 턴을 만들 수 있다."
     },
     {
       "deckCard": "Dark Embrace",
       "offeredCard": "Fiend Fire",
       "bonus": 1.6,
-      "reason": "Fiend Fire exhausts the entire hand, drawing multiple cards through Dark Embrace."
+      "reason": "지옥불이 손패 전체를 소멸시키고, 어둠의 포옹이 그만큼 카드를 여러 장 뽑아준다."
     },
     {
       "deckCard": "Stone Armor",
       "offeredCard": "Juggernaut",
       "bonus": 2,
-      "reason": "Juggernaut converts Stone Armor's repeated Block from Plating into recurring damage."
+      "reason": "절대적인 힘이 돌 갑옷의 도금으로 반복해서 얻는 방어도를 지속 피해로 바꿔준다."
     },
     {
       "deckCard": "Barricade",
       "offeredCard": "Body Slam",
       "bonus": 3,
-      "reason": "Body Slam damage = current block — Barricade stacks block over turns making each Body Slam devastating"
+      "reason": "몸통 박치기의 피해는 현재 방어도와 같다. 바리케이드로 방어도가 턴마다 쌓이면 몸통 박치기 한 방이 파괴적으로 커진다."
     },
     {
       "deckCard": "Barricade",
       "offeredCard": "Entrench",
       "bonus": 2,
-      "reason": "Entrench doubles current block — with Barricade retaining it, you reach absurd defense every 2 turns"
+      "reason": "참호가 현재 방어도를 두 배로 만들고, 바리케이드가 그걸 유지해 두 턴마다 방어가 터무니없이 불어난다."
     },
     {
       "deckCard": "Entrench",
       "offeredCard": "Barricade",
       "bonus": 2,
-      "reason": "Barricade retains the doubled block from Entrench — stacks get massive after a few turns"
+      "reason": "참호로 두 배가 된 방어도를 바리케이드가 그대로 유지한다. 몇 턴만 지나면 어마어마하게 쌓인다."
     },
     {
       "deckCard": "Body Slam",
       "offeredCard": "Barricade",
       "bonus": 1.8,
-      "reason": "Barricade stacks block turn over turn, Body Slam (damage = block) hits harder every turn"
+      "reason": "바리케이드로 방어도가 턴마다 누적되고, 몸통 박치기(피해 = 방어도)가 매 턴 더 세게 때린다."
     },
     {
       "deckCard": "Body Slam",
       "offeredCard": "Entrench",
       "bonus": 1.5,
-      "reason": "Entrench doubles block that Body Slam then converts to damage"
+      "reason": "참호가 방어도를 두 배로 만들고, 몸통 박치기가 그 방어도를 피해로 바꾼다."
     },
     {
       "deckCard": "Juggernaut",
       "offeredCard": "Body Slam",
       "bonus": 1,
-      "reason": "Both reward having high block — natural pairing in block builds"
+      "reason": "둘 다 높은 방어도를 보상하는 카드다. 방어도 빌드의 자연스러운 짝."
     },
     {
       "deckCard": "Demon Form",
       "offeredCard": "Limit Break",
       "bonus": 2,
-      "reason": "Demon Form gives Strength every turn — Limit Break DOUBLES that accumulated Strength. Exponential scaling."
+      "reason": "악마의 형상이 매 턴 힘을 주고, 한계 돌파가 그렇게 쌓인 힘을 두 배로 만든다. 기하급수적 성장."
     },
     {
       "deckCard": "Limit Break",
       "offeredCard": "Demon Form",
       "bonus": 2,
-      "reason": "Limit Break doubles your Strength — Demon Form keeps generating more Strength to double each fight"
+      "reason": "한계 돌파가 힘을 두 배로 만들고, 악마의 형상이 매 전투 두 배로 만들 힘을 계속 공급한다."
     },
     {
       "deckCard": "Inflame",
       "offeredCard": "Limit Break",
       "bonus": 1.5,
-      "reason": "Inflame gives flat Strength — Limit Break doubles it immediately for massive scaling"
+      "reason": "발화가 고정 힘을 주고, 한계 돌파가 그걸 즉시 두 배로 만들어 크게 성장한다."
     },
     {
       "deckCard": "Inflame",
       "offeredCard": "Whirlwind",
       "bonus": 1.2,
-      "reason": "Every Whirlwind hit benefits from Strength — Inflame multiplies across all hits"
+      "reason": "소용돌이의 타격 하나하나가 힘의 혜택을 받아, 발화의 힘이 모든 타격에 곱해진다."
     },
     {
       "deckCard": "Demon Form",
       "offeredCard": "Whirlwind",
       "bonus": 1.5,
-      "reason": "Demon Form Strength compounds every turn — Whirlwind multiplies it across all hits"
+      "reason": "악마의 형상의 힘이 매 턴 누적되고, 소용돌이가 그 힘을 모든 타격에 곱한다."
     },
     {
       "deckCard": "Limit Break",
       "offeredCard": "Heavy Blade",
       "bonus": 1.5,
-      "reason": "Heavy Blade has extra Strength scaling — after Limit Break doubles Strength, damage becomes nuclear"
+      "reason": "대검은 힘 계수가 추가로 붙는다. 한계 돌파로 힘을 두 배로 만든 뒤에는 피해가 핵폭탄급이 된다."
     },
     {
       "deckCard": "Double Tap",
       "offeredCard": "Whirlwind",
       "bonus": 2,
-      "reason": "Double Tap plays next attack twice — Whirlwind twice with high Strength deletes everything"
+      "reason": "두 번 치기가 다음 공격을 두 번 사용한다. 높은 힘으로 소용돌이를 두 번 쓰면 전장이 쓸려나간다."
     },
     {
       "deckCard": "Vicious",
       "offeredCard": "Taunt",
       "bonus": 1.5,
-      "reason": "Taunt applies Vulnerable — Vicious gives 25% amp on Vulnerable targets"
+      "reason": "도발이 취약을 부여하고, 포악함이 취약 상태의 적에게 25% 증폭을 준다."
     },
     {
       "deckCard": "Taunt",
       "offeredCard": "Vicious",
       "bonus": 1.5,
-      "reason": "Vicious amplifies Vulnerable targets — Taunt applies it to set up Vicious procs"
+      "reason": "포악함이 취약 상태의 적에게 피해를 증폭한다. 도발로 취약을 부여해 포악함 발동을 준비한다."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Feel No Pain",
       "bonus": 2,
-      "reason": "Corruption exhausts every skill — Feel No Pain gains block for EACH one. Massive block generation."
+      "reason": "타락이 모든 스킬을 소멸시키고, 무감각이 그때마다 방어도를 얻는다. 어마어마한 방어도 생산."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Dark Embrace",
       "bonus": 2,
-      "reason": "Corruption exhausts every skill — Dark Embrace draws a card for each. Free card draw on every skill."
+      "reason": "타락이 모든 스킬을 소멸시키고, 어둠의 포옹이 그때마다 카드를 뽑는다. 스킬을 쓸 때마다 공짜 드로우."
     },
     {
       "deckCard": "Feel No Pain",
       "offeredCard": "Corruption",
       "bonus": 2,
-      "reason": "Corruption is the engine that makes Feel No Pain trigger constantly — defines exhaust builds"
+      "reason": "타락은 무감각을 쉴 새 없이 발동시키는 엔진이다. 소진 빌드를 정의하는 조합."
     },
     {
       "deckCard": "Dark Embrace",
       "offeredCard": "Corruption",
       "bonus": 2,
-      "reason": "Corruption triggers Dark Embrace on every skill — turns deck into a draw engine"
+      "reason": "타락이 스킬마다 어둠의 포옹을 발동시켜 덱 전체가 드로우 엔진이 된다."
     },
     {
       "deckCard": "Feel No Pain",
       "offeredCard": "Dark Embrace",
       "bonus": 1,
-      "reason": "Both exhaust payoffs — natural pairing in exhaust builds"
+      "reason": "둘 다 소멸 보상 카드다. 소진 빌드의 자연스러운 짝."
     },
     {
       "deckCard": "Dark Embrace",
       "offeredCard": "Feel No Pain",
       "bonus": 1,
-      "reason": "Both exhaust payoffs — natural pairing in exhaust builds"
+      "reason": "둘 다 소멸 보상 카드다. 소진 빌드의 자연스러운 짝."
     },
     {
       "deckCard": "Fiend Fire",
       "offeredCard": "Dark Embrace",
       "bonus": 1.5,
-      "reason": "Fiend Fire exhausts your whole hand — Dark Embrace draws them all back one by one"
+      "reason": "지옥불이 손패 전체를 소멸시키고, 어둠의 포옹이 그만큼 카드를 다시 채워준다."
     },
     {
       "deckCard": "Fiend Fire",
       "offeredCard": "Feel No Pain",
       "bonus": 1.5,
-      "reason": "Fiend Fire exhausting the whole hand triggers massive Feel No Pain block generation"
+      "reason": "지옥불이 손패 전체를 소멸시키면 무감각이 방어도를 대량으로 만들어낸다."
     },
     {
       "deckCard": "Rupture",
       "offeredCard": "Bloodletting",
       "bonus": 2,
-      "reason": "Bloodletting loses HP every play — Rupture gains 1 Strength each time. Free permanent Strength every turn."
+      "reason": "사혈을 쓸 때마다 체력을 잃는데, 파열이 그때마다 힘을 1 얻는다. 매 턴 공짜 영구 힘."
     },
     {
       "deckCard": "Rupture",
       "offeredCard": "Offering",
       "bonus": 1.8,
-      "reason": "Offering loses 6 HP — Rupture gains Strength from it AND draws 3 cards"
+      "reason": "제물이 체력을 6 잃는다. 파열이 거기서 힘을 얻고, 카드도 3장 뽑는다."
     },
     {
       "deckCard": "Rupture",
       "offeredCard": "Hemokinesis",
       "bonus": 1.5,
-      "reason": "Hemokinesis costs HP — Rupture converts that to Strength. High damage + free scaling."
+      "reason": "혈류가 체력을 소모하는데, 파열이 그걸 힘으로 바꾼다. 높은 피해에 공짜 성장까지."
     },
     {
       "deckCard": "Rupture",
       "offeredCard": "Brutality",
       "bonus": 1.5,
-      "reason": "Brutality loses 1 HP per turn passively — Rupture gains Strength automatically every turn"
+      "reason": "잔혹함이 매 턴 자동으로 체력을 1 잃게 하고, 파열이 매 턴 자동으로 힘을 얻는다."
     },
     {
       "deckCard": "Rupture",
       "offeredCard": "Fight Me!",
       "bonus": 1.3,
-      "reason": "Fight Me! increases Strength for both sides and synergizes with Rupture scaling builds."
+      "reason": "덤벼라!가 양측의 힘을 올려 파열 성장 빌드와 시너지를 낸다."
     },
     {
       "deckCard": "Blade Dance",
       "offeredCard": "Finisher",
       "bonus": 1.8,
-      "reason": "Blade Dance generates multiple attacks that dramatically increase Finisher damage."
+      "reason": "검무가 공격 카드를 여러 장 만들어 마무리의 피해를 크게 끌어올린다."
     },
     {
       "deckCard": "Storm Of Steel",
       "offeredCard": "Finisher",
       "bonus": 1.7,
-      "reason": "Storm of Steel produces large numbers of Shivs that massively amplify Finisher."
+      "reason": "강철의 폭풍이 단도를 대량으로 만들어 마무리를 크게 증폭한다."
     },
     {
       "deckCard": "Bloodletting",
       "offeredCard": "Rupture",
       "bonus": 2,
-      "reason": "Rupture is the payoff for Bloodletting — turns energy generation into permanent Strength"
+      "reason": "파열은 사혈의 보상 카드다. 에너지 수급을 영구 힘으로 바꿔준다."
     },
     {
       "deckCard": "Brutality",
       "offeredCard": "Rupture",
       "bonus": 1.5,
-      "reason": "Brutality triggers Rupture passively every turn — free Strength without playing any card"
+      "reason": "잔혹함이 매 턴 파열을 자동 발동시킨다. 카드 한 장 안 쓰고 공짜 힘."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Reflex",
       "bonus": 2,
-      "reason": "Tools of the Trade discards 1 every turn — Reflex plays free when discarded. Free Draw 2 every turn."
+      "reason": "작업 도구가 매 턴 1장을 버리게 하고, 반사신경은 버려지면 공짜로 발동한다. 매 턴 공짜 드로우 2."
     },
     {
       "deckCard": "Prepared",
       "offeredCard": "Reflex",
       "bonus": 1.6,
-      "reason": "Prepared discards Reflex which triggers its Sly effect for free card draw."
+      "reason": "예비가 반사신경을 버려 교활 효과를 발동시켜 공짜 드로우를 얻는다."
     },
     {
       "deckCard": "Prepared",
       "offeredCard": "Tactician",
       "bonus": 1.6,
-      "reason": "Prepared discards Tactician which provides free energy through its Sly effect."
+      "reason": "예비가 전략가를 버리면 교활 효과로 공짜 에너지가 나온다."
     },
     {
       "deckCard": "Radiate",
       "offeredCard": "Genesis",
       "bonus": 1.8,
-      "reason": "Genesis generates Stars every turn which Radiate converts into AoE damage."
+      "reason": "창세가 매 턴 별을 만들고, 방출이 그 별을 광역 피해로 바꾼다."
     },
     {
       "deckCard": "Dirge",
       "offeredCard": "Capture Spirit",
       "bonus": 1.7,
-      "reason": "Both cards generate Souls which feed Haunt and Soul Storm engines."
+      "reason": "두 카드 모두 영혼을 만들어 출몰과 영혼 폭풍 엔진에 연료를 공급한다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Tactician",
       "bonus": 2,
-      "reason": "Tools of the Trade discards 1 every turn — Tactician plays free when discarded. Free energy every turn."
+      "reason": "작업 도구가 매 턴 1장을 버리게 하고, 전략가는 버려지면 공짜로 발동한다. 매 턴 공짜 에너지."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Haze",
       "bonus": 1.8,
-      "reason": "Tools of the Trade discards 1 per turn — Haze applies 4 AoE poison free when discarded"
+      "reason": "작업 도구가 매 턴 1장을 버리게 하고, 아지랑이는 버려지면 공짜로 광역 독 4를 뿌린다."
     },
     {
       "deckCard": "Well-Laid Plans",
       "offeredCard": "Reflex",
       "bonus": 1.5,
-      "reason": "Well-Laid Plans retains Reflex to deliberately discard for free Draw 2 next turn"
+      "reason": "괜찮은 전략으로 반사신경을 보존했다가 다음 턴에 일부러 버려 공짜 드로우 2를 얻는다."
     },
     {
       "deckCard": "Well-Laid Plans",
       "offeredCard": "Tactician",
       "bonus": 1.5,
-      "reason": "Well-Laid Plans retains Tactician to discard for free energy whenever needed"
+      "reason": "괜찮은 전략으로 전략가를 보존해 두고, 필요할 때 버려 공짜 에너지를 얻는다."
     },
     {
       "deckCard": "Calculated Gamble",
       "offeredCard": "Reflex",
       "bonus": 1.5,
-      "reason": "Calculated Gamble discards entire hand — triggers every Sly card including Reflex"
+      "reason": "계산된 도박이 손패 전체를 버려 반사신경을 포함한 모든 교활 카드를 발동시킨다."
     },
     {
       "deckCard": "Calculated Gamble",
       "offeredCard": "Tactician",
       "bonus": 1.5,
-      "reason": "Discarding hand triggers Tactician for free energy"
+      "reason": "손패를 버리면 전략가가 발동해 공짜 에너지가 나온다."
     },
     {
       "deckCard": "Noxious Fumes",
       "offeredCard": "Mirage",
       "bonus": 1.5,
-      "reason": "Mirage gives block = total poison on all enemies — Noxious Fumes keeps growing that number"
+      "reason": "신기루가 모든 적의 독 총합만큼 방어도를 주는데, 유독 가스가 그 숫자를 계속 키운다."
     },
     {
       "deckCard": "Envenom",
       "offeredCard": "Infinite Blades",
       "bonus": 1.5,
-      "reason": "Envenom poisons whenever an Attack deals unblocked damage — Infinite Blades gives a free attack each turn = free poison every turn"
+      "reason": "독 바르기는 공격이 방어도를 뚫고 피해를 줄 때마다 독을 묻힌다. 무한의 검날이 매 턴 공짜 공격을 줘서 매 턴 공짜 독이 된다."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Blade Dance",
       "bonus": 2,
-      "reason": "Accuracy adds damage to every Shiv — Blade Dance creates 3 Shivs at once for immediate burst"
+      "reason": "정밀이 모든 단도의 피해를 올리고, 검무가 단도 3장을 한 번에 만들어 즉시 폭딜이 된다."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Infinite Blades",
       "bonus": 2,
-      "reason": "Accuracy multiplies every Shiv's damage — Infinite Blades guarantees a buffed Shiv every turn"
+      "reason": "정밀이 모든 단도의 피해를 키우고, 무한의 검날이 매 턴 강화된 단도를 보장한다."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Finisher",
       "bonus": 1.8,
-      "reason": "Finisher deals damage per attack — with high-damage Shivs from Accuracy it hits for hundreds"
+      "reason": "마무리는 공격 횟수당 피해를 준다. 정밀로 강해진 단도들과 함께라면 수백 피해가 나온다."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Afterimage",
       "bonus": 1.2,
-      "reason": "After Image blocks per card played — Shiv spam with Accuracy = offense AND defense simultaneously"
+      "reason": "잔상은 카드를 쓸 때마다 방어도를 준다. 정밀 단도 난사는 공격과 방어를 동시에 해결한다."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Storm Of Steel",
       "bonus": 1.5,
-      "reason": "Storm of Steel creates Shivs per hand size — each gets Accuracy's damage bonus"
+      "reason": "강철의 폭풍이 손패 크기만큼 단도를 만들고, 그 전부가 정밀의 피해 보너스를 받는다."
     },
     {
       "deckCard": "Infinite Blades",
       "offeredCard": "Accuracy",
       "bonus": 2,
-      "reason": "Accuracy multiplies the damage of every free Shiv from Infinite Blades — take it immediately"
+      "reason": "무한의 검날이 주는 공짜 단도의 피해를 정밀이 전부 키운다. 즉시 집어라."
     },
     {
       "deckCard": "Infinite Blades",
       "offeredCard": "Afterimage",
       "bonus": 1.5,
-      "reason": "After Image blocks per card played — free Shiv each turn means free block every turn"
+      "reason": "잔상은 카드를 쓸 때마다 방어도를 준다. 매 턴 공짜 단도는 곧 매 턴 공짜 방어도다."
     },
     {
       "deckCard": "Afterimage",
       "offeredCard": "Infinite Blades",
       "bonus": 1.5,
-      "reason": "Infinite Blades gives a free card play per turn — After Image converts that to free block"
+      "reason": "무한의 검날이 매 턴 공짜 카드 사용을 주고, 잔상이 그걸 공짜 방어도로 바꾼다."
     },
     {
       "deckCard": "Claw",
       "offeredCard": "All for One",
       "bonus": 2.5,
-      "reason": "All For One pulls ALL 0-cost cards from discard including all Claws — the entire build's payoff in one card"
+      "reason": "하나를 위한 모두가 버린 카드 더미의 0코스트 카드를 전부 회수한다. 후벼 파기까지 몽땅 — 빌드 전체의 보상이 카드 한 장에 담긴다."
     },
     {
       "deckCard": "All for One",
       "offeredCard": "Claw",
       "bonus": 2.5,
-      "reason": "Each Claw permanently gains damage AND All For One pulls them all back — more Claws = bigger turns"
+      "reason": "후벼 파기는 쓸 때마다 모든 사본의 피해가 영구히 오르고, 하나를 위한 모두가 그걸 전부 되가져온다. 후벼 파기가 많을수록 턴이 커진다."
     },
     {
       "deckCard": "Claw",
       "offeredCard": "Claw",
       "bonus": 2,
-      "reason": "More Claws = each play scales ALL copies faster. Density is the entire point of Claw builds."
+      "reason": "후벼 파기가 많을수록 한 번 쓸 때마다 모든 사본이 더 빨리 성장한다. 밀도가 후벼 파기 빌드의 전부다."
     },
     {
       "deckCard": "Claw",
       "offeredCard": "Feral",
       "bonus": 2,
-      "reason": "Feral is Echo Form for 0-cost cards — doubles every Claw play for the rest of combat"
+      "reason": "야성은 0코스트 카드 전용 메아리의 형상이다. 남은 전투 내내 후벼 파기가 두 번씩 발동한다."
     },
     {
       "deckCard": "All for One",
       "offeredCard": "Feral",
       "bonus": 1.8,
-      "reason": "Feral doubles 0-cost plays — All For One into Feral creates an avalanche of Claw hits"
+      "reason": "야성이 0코스트 카드 사용을 두 배로 만든다. 하나를 위한 모두에서 야성으로 이어지면 후벼 파기 세례가 쏟아진다."
     },
     {
       "deckCard": "Claw",
       "offeredCard": "Scrape",
       "bonus": 1.5,
-      "reason": "Scrape draws and discards non-attacks — cycles to Claws and All For One quickly"
+      "reason": "긁어내기가 뽑고 비공격 카드를 버려서 후벼 파기와 하나를 위한 모두를 빠르게 순환시킨다."
     },
     {
       "deckCard": "Claw",
       "offeredCard": "FTL",
       "bonus": 1.2,
-      "reason": "FTL is 0-cost with draw — cycles the deck and gets recycled by All For One"
+      "reason": "FTL은 드로우가 붙은 0코스트 카드다. 덱을 순환시키고 하나를 위한 모두로 재활용된다."
     },
     {
       "deckCard": "Defragment",
       "offeredCard": "Electrodynamics",
       "bonus": 1.5,
-      "reason": "Electrodynamics makes Lightning hit ALL enemies — Defragment's Focus increases that damage"
+      "reason": "전기역학이 번개를 모든 적에게 적중시키고, 조각모음의 집중이 그 피해를 키운다."
     },
     {
       "deckCard": "Defragment",
       "offeredCard": "Biased Cognition",
       "bonus": 1.5,
-      "reason": "Stack Focus from both sources — every orb becomes dramatically more powerful"
+      "reason": "두 카드로 집중을 겹쳐 쌓으면 모든 구체가 극적으로 강해진다."
     },
     {
       "deckCard": "Defragment",
       "offeredCard": "Barrage",
       "bonus": 1.5,
-      "reason": "Barrage hits once per orb slot — Focus makes each hit harder"
+      "reason": "일제 사격은 구체 슬롯당 한 번씩 때린다. 집중이 그 한 방 한 방을 더 세게 만든다."
     },
     {
       "deckCard": "Capacitor",
       "offeredCard": "Barrage",
       "bonus": 2,
-      "reason": "Barrage hits per orb slot — Capacitor directly adds slots = directly more Barrage damage"
+      "reason": "일제 사격은 구체 슬롯당 때린다. 축전기가 슬롯을 직접 늘려 일제 사격 피해가 그대로 는다."
     },
     {
       "deckCard": "Darkness",
       "offeredCard": "Defragment",
       "bonus": 1.5,
-      "reason": "Dark orbs gain 6+Focus damage per turn — Defragment makes them cook to massive damage"
+      "reason": "어둠 구체는 매 턴 6+집중만큼 피해가 쌓인다. 조각모음이 있으면 어마어마한 피해로 익어간다."
     },
     {
       "deckCard": "Darkness",
       "offeredCard": "Multi-Cast",
       "bonus": 1.5,
-      "reason": "Multicast evokes Dark orbs early while fully charged — massive burst"
+      "reason": "다중 시전이 완전히 충전된 어둠 구체를 일찍 발현시켜 큰 폭딜을 낸다."
     },
     {
       "deckCard": "Electrodynamics",
       "offeredCard": "Defragment",
       "bonus": 1.5,
-      "reason": "More Focus from Defragment = more damage on every Electrodynamics Lightning hit"
+      "reason": "조각모음의 집중이 오를수록 전기역학의 번개 한 발 한 발이 더 아프다."
     },
     {
       "deckCard": "Glow",
       "offeredCard": "Radiate",
       "bonus": 1.5,
-      "reason": "Glow generates Stars that Radiate converts to AoE damage — star generation powers Radiate"
+      "reason": "광채가 별을 만들고 방출이 그 별을 광역 피해로 바꾼다. 별 수급이 방출의 동력이다."
     },
     {
       "deckCard": "Glow",
       "offeredCard": "Child of the Stars",
       "bonus": 1.5,
-      "reason": "Glow generates Stars — Child of Stars gives 2 block per star spent. Consistent free block."
+      "reason": "광채가 별을 만들고, 별의 아이가 별을 소모할 때마다 방어도 2를 준다. 꾸준한 공짜 방어도."
     },
     {
       "deckCard": "Genesis",
       "offeredCard": "Radiate",
       "bonus": 1.8,
-      "reason": "Genesis passively gives 2 Stars per turn — Radiate deals 3 AoE per star = 6 free AoE damage every turn"
+      "reason": "창세가 매 턴 별 2개를 그냥 주고, 방출이 별당 광역 3피해를 준다. 매 턴 공짜 광역 6피해."
     },
     {
       "deckCard": "Genesis",
       "offeredCard": "Child of the Stars",
       "bonus": 1.8,
-      "reason": "Genesis gives 2 Stars per turn — Child of Stars converts each to 2 block. Free passive defense."
+      "reason": "창세가 매 턴 별 2개를 주고, 별의 아이가 별 하나를 방어도 2로 바꾼다. 공짜 상시 방어."
     },
     {
       "deckCard": "Royal Gamble",
       "offeredCard": "Radiate",
       "bonus": 2,
-      "reason": "Royal Gamble dumps 9 Stars — Radiate converts them to 27 AoE damage from one combo"
+      "reason": "성대한 도박이 별 9개를 쏟아내고, 방출이 그걸 한 콤보에 광역 27피해로 바꾼다."
     },
     {
       "deckCard": "Royal Gamble",
       "offeredCard": "Child of the Stars",
       "bonus": 1.5,
-      "reason": "Royal Gamble's 9 Stars = 18 free block from Child of Stars in one play"
+      "reason": "성대한 도박의 별 9개는 별의 아이로 한 번에 공짜 방어도 18이 된다."
     },
     {
       "deckCard": "Decisions, Decisions",
       "offeredCard": "Royal Gamble",
       "bonus": 2.5,
-      "reason": "Decisions Decisions plays a skill 3 times — into Royal Gamble = 27 Stars. The core infinite loop."
+      "reason": "어려운 결정이 스킬을 3번 사용한다. 성대한 도박에 걸면 별 27개 — 핵심 무한 루프다."
     },
     {
       "deckCard": "Royal Gamble",
       "offeredCard": "Decisions, Decisions",
       "bonus": 2.5,
-      "reason": "Decisions Decisions triples Royal Gamble for 27 Stars — the primary infinite combo"
+      "reason": "어려운 결정이 성대한 도박을 세 배로 만들어 별 27개를 낸다. 대표 무한 콤보."
     },
     {
       "deckCard": "Child of the Stars",
       "offeredCard": "Genesis",
       "bonus": 1.8,
-      "reason": "Genesis provides passive Stars every turn — Child of Stars converts them to free block"
+      "reason": "창세가 매 턴 별을 공급하고, 별의 아이가 그걸 공짜 방어도로 바꾼다."
     },
     {
       "deckCard": "Summon Forth",
       "offeredCard": "Beat into Shape",
       "bonus": 1.5,
-      "reason": "Both core Forge cards — more ways to Forge means Sovereign Blade scales faster"
+      "reason": "둘 다 단조의 핵심 카드다. 단조 수단이 많을수록 군주의 칼날이 더 빨리 성장한다."
     },
     {
       "deckCard": "Beat into Shape",
       "offeredCard": "Furnace",
       "bonus": 1.2,
-      "reason": "Furnace passive Forge stacks alongside Beat Into Shape's active Forge"
+      "reason": "용광로의 상시 단조가 재성형의 능동 단조와 나란히 쌓인다."
     },
     {
       "deckCard": "Haunt",
       "offeredCard": "Capture Spirit",
       "bonus": 2,
-      "reason": "Capture Spirit generates 3 Souls — each Soul triggers Haunt for 6 unavoidable damage. Core engine."
+      "reason": "혼령 포획이 영혼 3개를 만들고, 영혼 하나마다 출몰이 회피 불가 6피해를 준다. 핵심 엔진."
     },
     {
       "deckCard": "Haunt",
       "offeredCard": "Reave",
       "bonus": 1.8,
-      "reason": "Reave generates a Soul on play — each Soul feeds Haunt's 6 damage trigger"
+      "reason": "강탈이 사용 시 영혼을 만들고, 그 영혼이 출몰의 6피해 발동에 연료가 된다."
     },
     {
       "deckCard": "Haunt",
       "offeredCard": "Dirge",
       "bonus": 1.8,
-      "reason": "Dirge generates X Souls — each one triggers Haunt's unavoidable damage"
+      "reason": "장송가가 영혼을 X개 만들고, 하나하나가 출몰의 회피 불가 피해를 발동시킨다."
     },
     {
       "deckCard": "Haunt",
       "offeredCard": "Demesne",
       "bonus": 1.5,
-      "reason": "Demesne draws extra cards every turn — find Souls faster for more Haunt triggers"
+      "reason": "권역이 매 턴 카드를 더 뽑아준다. 영혼을 더 빨리 찾아 출몰을 더 자주 발동시킨다."
     },
     {
       "deckCard": "Capture Spirit",
       "offeredCard": "Haunt",
       "bonus": 2,
-      "reason": "Haunt is the win condition for Soul generation — Capture Spirit feeds it consistently"
+      "reason": "출몰은 영혼 수급의 승리 조건이고, 혼령 포획이 그걸 꾸준히 먹여 살린다."
     },
     {
       "deckCard": "Demesne",
       "offeredCard": "Haunt",
       "bonus": 1.5,
-      "reason": "Demesne draws extra cards = more Soul plays per turn = more Haunt damage triggers"
+      "reason": "권역의 추가 드로우로 턴당 영혼 사용이 늘고, 그만큼 출몰 피해 발동도 늘어난다."
     },
     {
       "deckCard": "Soul Storm",
       "offeredCard": "Haunt",
       "bonus": 1.5,
-      "reason": "Both scale off Soul plays — Soul engine deals massive damage two ways simultaneously"
+      "reason": "둘 다 영혼 사용으로 성장한다. 영혼 엔진이 두 갈래로 동시에 큰 피해를 낸다."
     },
     {
       "deckCard": "Soul Storm",
       "offeredCard": "Capture Spirit",
       "bonus": 1.5,
-      "reason": "Capture Spirit generates the Souls that Soul Storm's damage scales with"
+      "reason": "혼령 포획이 영혼 폭풍의 피해 성장에 필요한 영혼을 공급한다."
     },
     {
       "deckCard": "Symbiosis",
       "offeredCard": "Unleash",
       "bonus": 2,
-      "reason": "Unleash deals damage = Osty's Max HP — Symbiosis directly builds that Max HP"
+      "reason": "풀어놓기는 오스티의 최대 체력만큼 피해를 주는데, 공생이 그 최대 체력을 직접 키운다."
     },
     {
       "deckCard": "Bodyguard",
       "offeredCard": "Unleash",
       "bonus": 2,
-      "reason": "Bodyguard raises Osty's Max HP — Unleash converts that HP directly into damage"
+      "reason": "호위가 오스티의 최대 체력을 올리고, 풀어놓기가 그 체력을 그대로 피해로 바꾼다."
     },
     {
       "deckCard": "High Five",
       "offeredCard": "Unleash",
       "bonus": 1.5,
-      "reason": "High Five permanently buffs Osty attack power — Unleash scales with Max HP AND attack power"
+      "reason": "하이파이브가 오스티의 공격력을 영구히 올린다. 풀어놓기는 최대 체력과 공격력 양쪽으로 성장한다."
     },
     {
       "deckCard": "Symbiosis",
       "offeredCard": "Squeeze",
       "bonus": 1.8,
-      "reason": "Squeeze deals 10 + Osty's Max HP — Symbiosis builds that Max HP for a scaling finisher"
+      "reason": "쥐어짜기는 10 + 오스티 최대 체력만큼 피해를 준다. 공생이 그 체력을 키워 성장형 마무리가 된다."
     },
     {
       "deckCard": "Bodyguard",
       "offeredCard": "Squeeze",
       "bonus": 1.8,
-      "reason": "Squeeze scales with Osty Max HP — every Bodyguard makes Squeeze hit harder"
+      "reason": "쥐어짜기는 오스티 최대 체력으로 성장한다. 호위 한 장마다 쥐어짜기가 더 세진다."
     },
     {
       "deckCard": "Dirge",
       "offeredCard": "Devour Life",
       "bonus": 1.5,
-      "reason": "Dirge generates Souls AND raises Osty's HP — Devour Life also raises Osty per Soul. Double Osty growth."
+      "reason": "장송가가 영혼을 만들면서 오스티 체력도 올리고, 생명 삼키기도 영혼당 오스티를 키운다. 이중 오스티 성장."
     },
     {
       "deckCard": "Scourge",
       "offeredCard": "End of Days",
       "bonus": 1.5,
-      "reason": "Scourge stacks Doom exponentially — End of Days executes enemies at the threshold"
+      "reason": "징벌이 종말을 기하급수적으로 쌓고, 종말의 날이 임계치에 도달한 적을 즉시 처형한다."
     },
     {
       "deckCard": "End of Days",
       "offeredCard": "Scourge",
       "bonus": 1.5,
-      "reason": "Scourge is the fastest way to reach the Doom execute threshold that End of Days exploits"
+      "reason": "징벌은 종말의 날이 노리는 종말 처형 임계치에 도달하는 가장 빠른 길이다."
     },
     {
       "deckCard": "Countdown",
       "offeredCard": "End of Days",
       "bonus": 1.2,
-      "reason": "Countdown's passive Doom per turn sets up End of Days execute windows"
+      "reason": "카운트다운의 턴당 종말이 종말의 날 처형 각을 만들어준다."
     },
     {
       "deckCard": "Death's Door",
       "offeredCard": "Scourge",
       "bonus": 1.5,
-      "reason": "Death's Door gives 18 block if you applied Doom this turn — Scourge applies Doom AND draws"
+      "reason": "죽음의 문턱은 이번 턴 종말을 부여했다면 방어도 18을 준다. 징벌이 종말을 부여하면서 드로우까지 한다."
     },
     {
       "deckCard": "Borrowed Time",
       "offeredCard": "End of Days",
       "bonus": 1,
-      "reason": "Borrowed Time provides free energy to afford End of Days' 3-cost more easily"
+      "reason": "연명이 공짜 에너지를 줘서 3코스트인 종말의 날을 더 수월하게 낼 수 있다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Untouchable",
       "bonus": 1.8,
-      "reason": "TotT discards 1/turn — Untouchable plays free for passive block every turn"
+      "reason": "작업 도구가 매 턴 1장을 버리게 하고, 범접 불가가 공짜로 발동해 매 턴 방어도가 저절로 쌓인다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Flick Flack",
       "bonus": 1.8,
-      "reason": "TotT discards 1/turn — Flick Flack plays free for free block and evasion"
+      "reason": "작업 도구가 매 턴 1장을 버리게 하고, 재주넘기가 공짜로 발동해 방어도와 회피를 준다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Acrobatics",
       "bonus": 1.8,
-      "reason": "TotT discards 1/turn — Acrobatics plays free, drawing 3 cards for free every turn"
+      "reason": "작업 도구가 매 턴 1장을 버리게 하고, 곡예가 공짜로 발동해 매 턴 3장을 공짜로 뽑는다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Prepared",
       "bonus": 1.8,
-      "reason": "TotT discards 1/turn — Prepared plays free for passive draw and card selection"
+      "reason": "작업 도구가 매 턴 1장을 버리게 하고, 예비가 공짜로 발동해 드로우와 카드 선별을 준다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Ricochet",
       "bonus": 2,
-      "reason": "TotT discards 1/turn — Ricochet plays free, attaching bonus hits to every attack"
+      "reason": "작업 도구가 매 턴 1장을 버리게 하고, 도탄이 공짜로 발동해 모든 공격에 추가 타격을 붙인다."
     },
     {
       "deckCard": "Calculated Gamble",
       "offeredCard": "Flick Flack",
       "bonus": 1.5,
-      "reason": "Calculated Gamble discards entire hand — triggers Flick Flack Sly for free block"
+      "reason": "계산된 도박이 손패 전체를 버려 재주넘기의 교활 효과가 발동, 공짜 방어도를 얻는다."
     },
     {
       "deckCard": "Acrobatics",
       "offeredCard": "Prepared",
       "bonus": 2,
-      "reason": "Acrobatics + Prepared create infinite discard loop — each triggers the other for endless free draws"
+      "reason": "곡예 + 예비는 서로를 발동시키는 무한 버리기 루프를 만들어 공짜 드로우가 끝없이 이어진다."
     },
     {
       "deckCard": "Genesis",
       "offeredCard": "Void Form",
       "bonus": 2,
-      "reason": "Genesis generates Stars passively — Void Form consumes Stars to grow and weaken enemies"
+      "reason": "창세가 별을 꾸준히 만들고, 공허의 형상이 별을 소모해 성장하며 적을 약화시킨다."
     },
     {
       "deckCard": "Genesis",
       "offeredCard": "Convergence",
       "bonus": 1.8,
-      "reason": "Genesis generates Stars — Convergence converts accumulated Stars into AoE burst damage"
+      "reason": "창세가 별을 만들고, 수렴이 쌓인 별을 광역 폭딜로 바꾼다."
     },
     {
       "deckCard": "Genesis",
       "offeredCard": "Particle Wall",
       "bonus": 1.8,
-      "reason": "Genesis generates Stars — Particle Wall consumes Stars for sustained passive block"
+      "reason": "창세가 별을 만들고, 입자 벽이 별을 소모해 지속적인 방어도를 만든다."
     },
     {
       "deckCard": "The Sealed Throne",
       "offeredCard": "Convergence",
       "bonus": 1.8,
-      "reason": "Sealed Throne generates Stars on attack — Convergence converts them to AoE burst"
+      "reason": "봉인된 왕좌가 공격할 때 별을 만들고, 수렴이 그 별을 광역 폭딜로 바꾼다."
     },
     {
       "deckCard": "The Sealed Throne",
       "offeredCard": "Particle Wall",
       "bonus": 1.8,
-      "reason": "Sealed Throne generates Stars on attack — Particle Wall converts them to block"
+      "reason": "봉인된 왕좌가 공격할 때 별을 만들고, 입자 벽이 그 별을 방어도로 바꾼다."
     },
     {
       "deckCard": "The Sealed Throne",
       "offeredCard": "Radiate",
       "bonus": 1.8,
-      "reason": "Sealed Throne generates Stars on attack — Radiate deals 3 AoE per Star"
+      "reason": "봉인된 왕좌가 공격할 때 별을 만들고, 방출이 별당 광역 3피해를 준다."
     },
     {
       "deckCard": "Void Form",
       "offeredCard": "Genesis",
       "bonus": 2,
-      "reason": "Void Form consumes Stars for massive Weakness — Genesis ensures steady passive supply"
+      "reason": "공허의 형상이 별을 소모해 대량의 약화를 뿌린다. 창세가 별을 꾸준히 공급한다."
     },
     {
       "deckCard": "Void Form",
       "offeredCard": "Radiate",
       "bonus": 2,
-      "reason": "Void Form accumulates Stars — Radiate converts each Star to 3 AoE damage"
+      "reason": "공허의 형상이 별을 쌓고, 방출이 별 하나를 광역 3피해로 바꾼다."
     },
     {
       "deckCard": "End of Days",
       "offeredCard": "Oblivion",
       "bonus": 2,
-      "reason": "End of Days executes Doomed enemies — Oblivion applies Doom to all enemies simultaneously"
+      "reason": "종말의 날이 종말에 걸린 적을 처형한다. 망각이 모든 적에게 동시에 종말을 부여한다."
     },
     {
       "deckCard": "Inflame",
       "offeredCard": "Fight Me!",
       "bonus": 1.2,
-      "reason": "Fight Me! both adds Strength and double-dips on existing Strength through multi-hit damage"
+      "reason": "덤벼라!는 힘을 올리는 동시에, 다단 타격으로 기존 힘의 이득을 두 번 챙긴다."
     },
     {
       "deckCard": "Perfected Strike",
       "offeredCard": "Pommel Strike",
       "bonus": 1.1,
-      "reason": "Pommel Strike supports the Strike package while drawing into Perfected Strike turns"
+      "reason": "폼멜 타격이 타격 패키지를 받쳐주면서 드로우로 완벽한 타격 턴을 찾아준다."
     },
     {
       "deckCard": "Perfected Strike",
       "offeredCard": "Twin Strike",
       "bonus": 1.4,
-      "reason": "Twin Strike is a premium Strike-tag support card that also scales with Strength"
+      "reason": "이중 타격은 타격 태그를 받쳐주는 고급 카드이면서 힘 성장도 같이 받는다."
     },
     {
       "deckCard": "Bash",
       "offeredCard": "Cruelty",
       "bonus": 1.3,
-      "reason": "Cruelty rewards repeated Vulnerable application, and Bash is a reliable way to start that chain"
+      "reason": "악랄함은 취약을 반복해서 부여할수록 보상이 커지고, 강타가 그 사슬을 여는 확실한 시작점이다."
     },
     {
       "deckCard": "Taunt",
       "offeredCard": "Cruelty",
       "bonus": 1.2,
-      "reason": "Taunt supplies Vulnerable while Cruelty amplifies every follow-up hit into those targets"
+      "reason": "도발이 취약을 공급하고, 악랄함이 그 대상에게 들어가는 모든 후속타를 증폭한다."
     },
     {
       "deckCard": "Fight Me!",
       "offeredCard": "Conflagration",
       "bonus": 0.9,
-      "reason": "Fight Me! adds to attack-chain turns while also supplying Strength for later multi-hit and finisher turns"
+      "reason": "덤벼라!는 공격 연계 턴에 힘을 보태고, 이후 다단·마무리 턴에 쓸 힘도 공급한다."
     },
     {
       "deckCard": "Rage",
       "offeredCard": "Conflagration",
       "bonus": 0.9,
-      "reason": "Rage rewards aggressive attack chains, the same turns where Conflagration reaches high damage"
+      "reason": "격노는 공격을 몰아치는 턴에 보상을 주는데, 대화재가 높은 피해에 도달하는 턴과 정확히 겹친다."
     },
     {
       "deckCard": "Refine Blade",
       "offeredCard": "The Sealed Throne",
       "bonus": 1.4,
-      "reason": "Refine Blade accelerates Forge plans and helps large Forge payoff cards come online faster"
+      "reason": "검날 개선이 단조 계획을 가속해 대형 단조 보상 카드가 더 빨리 가동되게 한다."
     },
     {
       "deckCard": "Dark Embrace",
       "offeredCard": "Cinder",
       "bonus": 1.2,
-      "reason": "Cinder exhausts a card every play — Dark Embrace draws a card for each exhaust. Free draw alongside 17 damage."
+      "reason": "잿불은 쓸 때마다 카드를 소멸시키고, 어둠의 포옹이 소멸마다 카드를 뽑는다. 17피해에 공짜 드로우까지."
     },
     {
       "deckCard": "Feel No Pain",
       "offeredCard": "Cinder",
       "bonus": 1.2,
-      "reason": "Cinder exhausts a card every play — Feel No Pain gains block for each exhaust. Free block alongside damage."
+      "reason": "잿불은 쓸 때마다 카드를 소멸시키고, 무감각이 소멸마다 방어도를 얻는다. 피해에 공짜 방어도까지."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Cinder",
       "bonus": 1,
-      "reason": "Corruption makes skills exhaust constantly — Cinder adds another reliable exhaust trigger alongside good damage."
+      "reason": "타락이 스킬을 쉴 새 없이 소멸시키는데, 잿불이 준수한 피해와 함께 확실한 소멸 발동을 하나 더 얹는다."
     },
     {
       "deckCard": "Setup Strike",
       "offeredCard": "Heavy Blade",
       "bonus": 1.5,
-      "reason": "Setup Strike gives +2 Strength this turn — Heavy Blade has 3x Strength scaling, turning that into +6 bonus damage this turn."
+      "reason": "사전 타격이 이번 턴 힘 +2를 준다. 대검은 힘 계수가 3배라 이번 턴 보너스 피해 +6이 된다."
     },
     {
       "deckCard": "Heavy Blade",
       "offeredCard": "Setup Strike",
       "bonus": 1.5,
-      "reason": "Heavy Blade triples Strength — Setup Strike's temporary +2 Strength becomes +6 damage on Heavy Blade when played after."
+      "reason": "대검은 힘을 3배로 계산한다. 사전 타격의 임시 힘 +2가 뒤이어 낸 대검에서 피해 +6이 된다."
     },
     {
       "deckCard": "Setup Strike",
       "offeredCard": "Whirlwind",
       "bonus": 1.2,
-      "reason": "Setup Strike gives +2 Strength this turn — each Whirlwind hit gets +2 damage, multiplied across all hits."
+      "reason": "사전 타격이 이번 턴 힘 +2를 준다. 소용돌이의 타격 하나하나에 +2씩, 전 타격에 곱해진다."
     },
     {
       "deckCard": "Setup Strike",
       "offeredCard": "Juggling",
       "bonus": 1,
-      "reason": "Juggling is multi-hit and scales with Strength — Setup Strike's temporary boost amplifies every hit."
+      "reason": "저글링은 다단 타격에 힘 성장을 받는다. 사전 타격의 임시 강화가 모든 타격을 증폭한다."
     },
     {
       "deckCard": "Setup Strike",
       "offeredCard": "Stomp",
       "bonus": 1,
-      "reason": "Stomp is multi-hit and scales with Strength — Setup Strike's temporary +2 Strength amplifies every hit."
+      "reason": "짓밟기는 다단 타격에 힘 성장을 받는다. 사전 타격의 임시 힘 +2가 모든 타격을 증폭한다."
     },
     {
       "deckCard": "Double Tap",
       "offeredCard": "Setup Strike",
       "bonus": 1.2,
-      "reason": "Double Tap plays next attack twice — play Setup Strike into Double Tap into Heavy Blade for massive burst this turn."
+      "reason": "두 번 치기가 다음 공격을 두 번 사용한다. 사전 타격 → 두 번 치기 → 대검 순서로 이번 턴 대형 폭딜이 나온다."
     },
     {
       "deckCard": "Ashen Strike",
       "offeredCard": "Cinder",
       "bonus": 0.8,
-      "reason": "Every Cinder play exhausts a card, growing your exhaust pile — Ashen Strike deals 3 extra damage per card in exhaust pile, so Cinder directly boosts it each play."
+      "reason": "잿불을 쓸 때마다 카드가 소멸되어 소멸 더미가 커진다. 잿빛 타격은 소멸 더미의 카드당 추가 3피해를 주니, 잿불이 쓸 때마다 직접 강화해 주는 셈이다."
     },
     {
       "deckCard": "Cinder",
       "offeredCard": "Ashen Strike",
       "bonus": 0.8,
-      "reason": "Cinder grows your exhaust pile every play — Ashen Strike deals 3 extra damage per exhausted card, making each Cinder play permanently buff your Ashen Strike."
+      "reason": "잿불이 쓸 때마다 소멸 더미를 키운다. 잿빛 타격은 소멸된 카드당 추가 3피해를 주므로, 잿불 한 번 한 번이 잿빛 타격을 영구히 강화한다."
     },
     {
       "deckCard": "Tremble",
       "offeredCard": "Bully",
       "bonus": 2,
-      "reason": "Tremble applies 2 Vulnerable — Bully deals 4+2 per stack, turning into 8 damage immediately after Tremble. Core Vulnerable combo."
+      "reason": "떨림이 취약 2를 부여한다. 협박은 중첩당 4+2 피해라 떨림 직후 바로 8피해가 된다. 핵심 취약 콤보."
     },
     {
       "deckCard": "Bully",
       "offeredCard": "Tremble",
       "bonus": 2,
-      "reason": "Bully scales with Vulnerable stacks — Tremble is the cheapest 0-cost setup that feeds Bully directly."
+      "reason": "협박은 취약 중첩으로 성장한다. 떨림은 협박에 바로 연료를 대는 가장 싼 0코스트 세팅이다."
     },
     {
       "deckCard": "Tremble",
       "offeredCard": "Dominate",
       "bonus": 1.8,
-      "reason": "Tremble applies 2 Vulnerable — Dominate converts each stack to 1 permanent Strength. Free 2 Strength for 0+1 energy."
+      "reason": "떨림이 취약 2를 부여하고, 제압이 중첩 하나를 영구 힘 1로 바꾼다. 0+1 에너지로 공짜 힘 2."
     },
     {
       "deckCard": "Dominate",
       "offeredCard": "Tremble",
       "bonus": 1.8,
-      "reason": "Dominate needs Vulnerable stacks to convert to Strength — Tremble is the cheapest 0-cost setup."
+      "reason": "제압은 힘으로 바꿀 취약 중첩이 필요하다. 떨림이 가장 싼 0코스트 세팅이다."
     },
     {
       "deckCard": "Tremble",
       "offeredCard": "Vicious",
       "bonus": 1.5,
-      "reason": "Tremble applies Vulnerable which Vicious amplifies by 25% — Tremble sets up Vicious's passive multiplier instantly."
+      "reason": "떨림이 부여한 취약을 포악함이 25% 증폭한다. 떨림 한 장으로 포악함의 상시 배율이 즉시 켜진다."
     },
     {
       "deckCard": "Vicious",
       "offeredCard": "Tremble",
       "bonus": 1.5,
-      "reason": "Vicious gives 25% amp on Vulnerable targets — Tremble is free 0-cost Vulnerable setup for Vicious."
+      "reason": "포악함이 취약 상태의 적에게 25% 증폭을 준다. 떨림은 포악함을 위한 공짜 0코스트 취약 세팅이다."
     },
     {
       "deckCard": "Tremble",
       "offeredCard": "Uppercut",
       "bonus": 1,
-      "reason": "Both apply Vulnerable — Tremble stacks 2, Uppercut stacks 1, chaining them for more Vulnerable to feed Bully/Dominate."
+      "reason": "둘 다 취약을 부여한다. 떨림 2, 어퍼컷 1 — 연달아 쓰면 협박·제압에 먹일 취약이 더 쌓인다."
     },
     {
       "deckCard": "Taunt",
       "offeredCard": "Bully",
       "bonus": 1.5,
-      "reason": "Taunt applies 1 Vulnerable — Bully converts each stack to 2 extra damage. Stack Taunt + Tremble for bigger Bully turns."
+      "reason": "도발이 취약 1을 부여하고, 협박이 중첩당 추가 2피해로 바꾼다. 도발 + 떨림을 겹치면 협박 턴이 더 커진다."
     },
     {
       "deckCard": "Uppercut",
       "offeredCard": "Bully",
       "bonus": 1.2,
-      "reason": "Uppercut applies 1 Vulnerable — Bully scales with it. Both in deck = consistent Vulnerable into Bully turns."
+      "reason": "어퍼컷이 취약 1을 부여하고 협박이 그걸로 성장한다. 둘 다 덱에 있으면 취약 → 협박 턴이 꾸준히 나온다."
     },
     {
       "deckCard": "Evil Eye",
       "offeredCard": "Bully",
       "bonus": 1.2,
-      "reason": "Evil Eye applies Vulnerable — Bully converts Vulnerable stacks to damage. Natural pairing in Vulnerable builds."
+      "reason": "악마의 눈이 취약을 부여하고, 협박이 취약 중첩을 피해로 바꾼다. 취약 빌드의 자연스러운 짝."
     },
     {
       "deckCard": "Taunt",
       "offeredCard": "Dominate",
       "bonus": 1.5,
-      "reason": "Taunt applies Vulnerable — Dominate converts stacks to permanent Strength. Every Taunt makes the next Dominate stronger."
+      "reason": "도발이 취약을 부여하고, 제압이 중첩을 영구 힘으로 바꾼다. 도발 한 번마다 다음 제압이 강해진다."
     },
     {
       "deckCard": "Uppercut",
       "offeredCard": "Dominate",
       "bonus": 1.2,
-      "reason": "Uppercut applies Vulnerable which Dominate converts to Strength — consistent Vulnerable → Strength pipeline."
+      "reason": "어퍼컷이 부여한 취약을 제압이 힘으로 바꾼다. 꾸준한 취약 → 힘 파이프라인."
     },
     {
       "deckCard": "Inflame",
       "offeredCard": "Dominate",
       "bonus": 1,
-      "reason": "Both stack Strength — Inflame provides flat Strength, Dominate provides burst Strength from Vulnerable. Stack sources."
+      "reason": "둘 다 힘을 쌓는다. 발화는 고정 힘, 제압은 취약에서 나오는 순간 힘. 공급원을 겹쳐라."
     },
     {
       "deckCard": "Drum of Battle",
