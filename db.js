@@ -14373,901 +14373,901 @@ const DB = {
       "deckCard": "Arsenal",
       "offeredCard": "Manifest Authority",
       "bonus": 1.5,
-      "reason": "Manifest Authority creates a random Colorless card — Arsenal turns that into permanent Strength plus Block."
+      "reason": "권위 행사가 무작위 무색 카드를 생성하고, 무기고가 그걸 영구 힘으로 바꾼다. 방어도는 덤이다."
     },
     {
       "deckCard": "Manifest Authority",
       "offeredCard": "Arsenal",
       "bonus": 1.5,
-      "reason": "Arsenal gains Strength from Colorless cards — Manifest Authority provides one while also giving Block."
+      "reason": "무기고가 무색 카드에서 힘을 얻는다. 권위 행사가 방어도를 주면서 무색 카드도 한 장 공급한다."
     },
     {
       "deckCard": "Arsenal",
       "offeredCard": "Heirloom Hammer",
       "bonus": 1.5,
-      "reason": "Heirloom Hammer duplicates a Colorless card in hand — Arsenal gains Strength from both the original and copy when played."
+      "reason": "선조의 망치가 손패의 무색 카드를 복제한다. 원본과 사본을 낼 때마다 무기고가 힘을 얻는다."
     },
     {
       "deckCard": "Heirloom Hammer",
       "offeredCard": "Arsenal",
       "bonus": 1.5,
-      "reason": "Arsenal needs Colorless cards to gain Strength — Heirloom Hammer duplicates them, doubling Arsenal triggers."
+      "reason": "무기고는 힘을 얻으려면 무색 카드가 필요하다. 선조의 망치가 복제해줘서 무기고 발동이 두 배가 된다."
     },
     {
       "deckCard": "Spectrum Shift",
       "offeredCard": "Supermassive",
       "bonus": 1.5,
-      "reason": "Spectrum Shift creates a Colorless card every turn — Supermassive scales +3 per card created this combat."
+      "reason": "스펙트럼 이동이 매 턴 무색 카드를 생성하고, 초질량이 이번 전투 카드 생성마다 +3씩 성장한다."
     },
     {
       "deckCard": "Supermassive",
       "offeredCard": "Spectrum Shift",
       "bonus": 1.5,
-      "reason": "Supermassive scales with cards created this combat — Spectrum Shift adds one free creation per turn."
+      "reason": "초질량은 이번 전투에 생성된 카드 수만큼 성장한다. 스펙트럼 이동이 턴마다 공짜 생성을 하나씩 보탠다."
     },
     {
       "deckCard": "Know Thy Place",
       "offeredCard": "Comet",
       "bonus": 2,
-      "reason": "Know Thy Place applies Vulnerable (double damage) then Exhausts — Comet hits for 33 damage, effectively 66 against a Vulnerable enemy."
+      "reason": "네 주제를 알라가 취약을 걸고 소멸한다. 혜성의 33피해가 취약 대상에겐 사실상 66이다."
     },
     {
       "deckCard": "Comet",
       "offeredCard": "Know Thy Place",
       "bonus": 2,
-      "reason": "Comet is a massive 33 damage nuke — Know Thy Place doubles that with Vulnerable and Weak for near-lethal hits."
+      "reason": "혜성은 33피해짜리 대형 폭탄이다. 네 주제를 알라의 취약·약화가 그걸 치명타급으로 배가한다."
     },
     {
       "deckCard": "Know Thy Place",
       "offeredCard": "Gamma Blast",
       "bonus": 1.8,
-      "reason": "Know Thy Place applies Vulnerable — Gamma Blast already applies 2 more for 3 total, and hits for 13 on already-vulnerable target."
+      "reason": "네 주제를 알라가 취약을 건다. 감마 세례가 자체로 2를 더 걸어 총 3중첩, 이미 취약해진 대상에게 13피해가 박힌다."
     },
     {
       "deckCard": "Gamma Blast",
       "offeredCard": "Know Thy Place",
       "bonus": 1.5,
-      "reason": "Gamma Blast applies its own Vulnerable — Know Thy Place stacks additional setup for follow-up nukes."
+      "reason": "감마 세례가 자체 취약을 걸고, 네 주제를 알라가 후속 폭탄을 위한 세팅을 더 쌓는다."
     },
     {
       "deckCard": "Meteor Shower",
       "offeredCard": "Comet",
       "bonus": 2.5,
-      "reason": "Meteor Shower applies 2 Vulnerable to all enemies — Comet then hits for effectively 66 AoE damage against Vulnerable targets."
+      "reason": "유성우가 모든 적에게 취약 2를 건다. 혜성이 취약 대상에게 사실상 66피해로 꽂힌다."
     },
     {
       "deckCard": "Comet",
       "offeredCard": "Meteor Shower",
       "bonus": 2.5,
-      "reason": "Comet is a 33 damage single target nuke — Meteor Shower first applies Vulnerable to all, making Comet land for double."
+      "reason": "혜성은 33피해 단일 폭탄이다. 유성우가 먼저 전체 취약을 깔아 혜성이 두 배로 박히게 한다."
     },
     {
       "deckCard": "Meteor Shower",
       "offeredCard": "Seven Stars",
       "bonus": 2,
-      "reason": "Meteor Shower applies 2 Weak and 2 Vulnerable to all enemies — Seven Stars then deals 7x7=49 AoE hits per enemy at doubled damage."
+      "reason": "유성우가 모든 적에게 약화 2·취약 2를 건다. 일곱 개의 별이 적마다 7×7=49타를 두 배 피해로 퍼붓는다."
     },
     {
       "deckCard": "Seven Stars",
       "offeredCard": "Meteor Shower",
       "bonus": 2,
-      "reason": "Seven Stars deals massive multi-hit AoE — Meteor Shower first debuffs all enemies with Vulnerable and Weak."
+      "reason": "일곱 개의 별이 대량 다단 광역을 퍼붓는다. 유성우가 먼저 모든 적에게 취약과 약화를 깔아준다."
     },
     {
       "deckCard": "Monarch's Gaze",
       "offeredCard": "Celestial Might",
       "bonus": 1.8,
-      "reason": "Monarch's Gaze reduces enemy Strength by 1 per attack — Celestial Might hits 3 times, draining 3 Strength in one card."
+      "reason": "군주의 시선이 공격마다 적의 힘을 1 깎는다. 천상의 권능은 3타라 카드 한 장으로 힘 3을 빼낸다."
     },
     {
       "deckCard": "Celestial Might",
       "offeredCard": "Monarch's Gaze",
       "bonus": 1.8,
-      "reason": "Celestial Might hits 3 times — Monarch's Gaze converts each hit into -1 enemy Strength this turn, compounding damage on multi-hit turns."
+      "reason": "천상의 권능이 3번 때린다. 군주의 시선이 타격마다 이번 턴 적 힘 -1을 얹어 다단 턴의 피해가 눈덩이처럼 는다."
     },
     {
       "deckCard": "Monarch's Gaze",
       "offeredCard": "Seven Stars",
       "bonus": 2,
-      "reason": "Monarch's Gaze reduces Strength per attack — Seven Stars hits 7x7=49 times, draining enormous enemy Strength each turn."
+      "reason": "군주의 시선이 공격마다 힘을 깎는다. 일곱 개의 별은 7×7=49타 — 매 턴 적의 힘을 어마어마하게 빼낸다."
     },
     {
       "deckCard": "Seven Stars",
       "offeredCard": "Monarch's Gaze",
       "bonus": 2,
-      "reason": "Seven Stars is 49 AoE hits — Monarch's Gaze turns each hit into Strength drain, stacking with itself massively."
+      "reason": "일곱 개의 별은 광역 49타다. 군주의 시선이 타격마다 힘을 깎아 스스로와 겹치며 크게 쌓인다."
     },
     {
       "deckCard": "Black Hole",
       "offeredCard": "Genesis",
       "bonus": 1.8,
-      "reason": "Genesis generates 2 Stars per turn passively — Black Hole deals 3 AoE damage per Star gained, converting passive Stars into recurring AoE."
+      "reason": "창세가 매 턴 별 2개를 알아서 만든다. 블랙홀이 별 획득마다 광역 3피해를 줘서 상시 별이 반복 광역이 된다."
     },
     {
       "deckCard": "Genesis",
       "offeredCard": "Black Hole",
       "bonus": 1.8,
-      "reason": "Black Hole deals 3 AoE per Star spent or gained — Genesis provides 2 free Stars per turn to trigger it passively."
+      "reason": "블랙홀이 별을 쓰거나 얻을 때마다 광역 3피해를 준다. 창세가 매 턴 공짜 별 2개로 알아서 발동시켜준다."
     },
     {
       "deckCard": "Black Hole",
       "offeredCard": "Royal Gamble",
       "bonus": 2,
-      "reason": "Royal Gamble dumps 9 Stars — Black Hole deals 3 AoE per Star, converting 9 Stars into 27 AoE damage instantly."
+      "reason": "성대한 도박이 별 9개를 쏟아낸다. 블랙홀이 별당 광역 3피해 — 별 9개가 즉시 광역 27피해가 된다."
     },
     {
       "deckCard": "Royal Gamble",
       "offeredCard": "Black Hole",
       "bonus": 2,
-      "reason": "Black Hole converts Star spending into AoE damage — Royal Gamble dumps 9 Stars for an immediate 27 AoE burst."
+      "reason": "블랙홀이 별 소모를 광역 피해로 바꾼다. 성대한 도박이 별 9개를 쏟아 즉시 광역 27 폭딜."
     },
     {
       "deckCard": "Black Hole",
       "offeredCard": "The Sealed Throne",
       "bonus": 1.8,
-      "reason": "The Sealed Throne generates a Star per card played — Black Hole deals 3 AoE per Star, turning your card plays into passive AoE damage."
+      "reason": "봉인된 왕좌가 카드 사용마다 별을 만든다. 블랙홀이 별당 광역 3피해 — 카드를 낼 때마다 광역 피해가 알아서 나간다."
     },
     {
       "deckCard": "The Sealed Throne",
       "offeredCard": "Black Hole",
       "bonus": 1.8,
-      "reason": "Black Hole deals 3 AoE per Star — The Sealed Throne ensures every card played generates a Star and therefore 3 AoE damage."
+      "reason": "블랙홀이 별당 광역 3피해를 준다. 봉인된 왕좌가 카드 사용마다 별을 보장하니 사용마다 광역 3피해인 셈이다."
     },
     {
       "deckCard": "Alignment",
       "offeredCard": "Royal Gamble",
       "bonus": 1.5,
-      "reason": "Royal Gamble generates 9 Stars — Alignment converts Stars into 2 Energy, giving massive energy for followup plays."
+      "reason": "성대한 도박이 별 9개를 만든다. 정렬이 별을 에너지 2로 바꿔 후속 플레이를 위한 대량 에너지가 나온다."
     },
     {
       "deckCard": "Royal Gamble",
       "offeredCard": "Alignment",
       "bonus": 1.5,
-      "reason": "Alignment trades Stars for 2 Energy — Royal Gamble provides 9 Stars to fuel multiple Alignment activations."
+      "reason": "정렬이 별을 에너지 2로 바꾼다. 성대한 도박의 별 9개가 정렬을 여러 번 돌릴 연료가 된다."
     },
     {
       "deckCard": "Hidden Cache",
       "offeredCard": "Child of the Stars",
       "bonus": 1.8,
-      "reason": "Hidden Cache gives 1+3 Stars over 2 turns — Child of the Stars converts those 4 Stars into 8 Block passively."
+      "reason": "비밀 상자가 두 턴에 걸쳐 별 1+3개를 준다. 별의 아이가 그 별 4개를 방어도 8로 알아서 바꿔준다."
     },
     {
       "deckCard": "Child of the Stars",
       "offeredCard": "Hidden Cache",
       "bonus": 1.8,
-      "reason": "Child of the Stars gains 2 Block per Star spent — Hidden Cache provides a big delayed Star dump for mass Block generation."
+      "reason": "별의 아이가 소모한 별당 방어도 2를 얻는다. 비밀 상자가 지연 별 뭉치를 크게 줘서 방어도가 대량 생산된다."
     },
     {
       "deckCard": "Hidden Cache",
       "offeredCard": "Radiate",
       "bonus": 1.5,
-      "reason": "Hidden Cache provides 4 Stars over 2 turns — Radiate converts each Star gained this turn into 3 AoE damage."
+      "reason": "비밀 상자가 두 턴에 걸쳐 별 4개를 준다. 방출이 이번 턴 얻은 별마다 광역 3피해로 바꾼다."
     },
     {
       "deckCard": "Radiate",
       "offeredCard": "Hidden Cache",
       "bonus": 1.5,
-      "reason": "Radiate deals 3 AoE per Star gained this turn — Hidden Cache provides 1 immediately then 3 next turn for recurring Radiate value."
+      "reason": "방출은 이번 턴 얻은 별당 광역 3피해다. 비밀 상자가 지금 1개, 다음 턴 3개를 줘서 방출 가치가 이어진다."
     },
     {
       "deckCard": "Shining Strike",
       "offeredCard": "Child of the Stars",
       "bonus": 1.5,
-      "reason": "Shining Strike gains 2 Stars on attack — Child of the Stars converts those Stars into 4 Block per Shining Strike played."
+      "reason": "빛나는 타격이 공격 시 별 2개를 얻는다. 별의 아이가 그걸 빛나는 타격 한 번당 방어도 4로 바꾼다."
     },
     {
       "deckCard": "Child of the Stars",
       "offeredCard": "Shining Strike",
       "bonus": 1.5,
-      "reason": "Child of the Stars rewards Star spending with Block — Shining Strike provides Stars reliably on each attack."
+      "reason": "별의 아이가 별 소모에 방어도로 보답한다. 빛나는 타격이 공격마다 별을 확실하게 공급한다."
     },
     {
       "deckCard": "Shining Strike",
       "offeredCard": "Radiate",
       "bonus": 1.5,
-      "reason": "Shining Strike gains 2 Stars on attack — Radiate converts those Stars into 6 AoE damage per Shining Strike."
+      "reason": "빛나는 타격이 공격 시 별 2개를 얻는다. 방출이 그 별을 빛나는 타격 한 번당 광역 6피해로 바꾼다."
     },
     {
       "deckCard": "Radiate",
       "offeredCard": "Shining Strike",
       "bonus": 1.5,
-      "reason": "Radiate deals 3 damage per Star gained this turn — Shining Strike provides 2 Stars on hit for 6 AoE damage per attack."
+      "reason": "방출은 이번 턴 얻은 별당 3피해를 준다. 빛나는 타격이 적중마다 별 2개를 줘서 공격당 광역 6피해가 된다."
     },
     {
       "deckCard": "Convergence",
       "offeredCard": "Radiate",
       "bonus": 1.8,
-      "reason": "Convergence retains hand and grants Stars next turn — those Stars get spent for Radiate AoE on the following turn."
+      "reason": "수렴이 손패를 유지하고 다음 턴에 별을 준다. 그 별이 다음 턴 방출의 광역 피해로 쓰인다."
     },
     {
       "deckCard": "Make It So",
       "offeredCard": "Void Form",
       "bonus": 1.5,
-      "reason": "Make It So returns to hand every 3 Skills — Void Form makes the first 2 cards free, accelerating how often you reach 3 Skills."
+      "reason": "그렇게 하라는 스킬 3장마다 손으로 돌아온다. 공허의 형상이 처음 2장을 공짜로 만들어 스킬 3장에 도달하는 속도를 높인다."
     },
     {
       "deckCard": "Void Form",
       "offeredCard": "Make It So",
       "bonus": 1.5,
-      "reason": "Void Form plays cards free — Make It So triggers off Skills played, returning to hand faster with free card spam."
+      "reason": "공허의 형상이 카드를 공짜로 내게 한다. 그렇게 하라는 스킬 사용으로 발동하니, 공짜 카드 난사로 더 빨리 손에 돌아온다."
     },
     {
       "deckCard": "Pale Blue Dot",
       "offeredCard": "Void Form",
       "bonus": 1.5,
-      "reason": "Pale Blue Dot draws if you play 5+ cards — Void Form makes first 2 free, trivially enabling 5+ card turns."
+      "reason": "창백한 푸른 점은 5장 이상 내면 드로우를 준다. 공허의 형상이 처음 2장을 공짜로 만들어 5장 턴이 거저 나온다."
     },
     {
       "deckCard": "Void Form",
       "offeredCard": "Pale Blue Dot",
       "bonus": 1.5,
-      "reason": "Void Form enables big card count turns easily — Pale Blue Dot gives extra draw next turn when you hit 5+ cards."
+      "reason": "공허의 형상이 다수 카드 턴을 쉽게 만들어준다. 창백한 푸른 점이 5장 이상 내면 다음 턴 추가 드로우를 준다."
     },
     {
       "deckCard": "Terraforming",
       "offeredCard": "Celestial Might",
       "bonus": 1.8,
-      "reason": "Terraforming gives 6 Vigor (temporary Strength) — Celestial Might hits 3 times, applying that Strength 3 times for massive burst damage."
+      "reason": "테라포밍이 활력(임시 힘) 6을 준다. 천상의 권능은 3타라 그 힘이 세 번 실려 대형 폭딜이 된다."
     },
     {
       "deckCard": "Celestial Might",
       "offeredCard": "Terraforming",
       "bonus": 1.8,
-      "reason": "Celestial Might is a 3-hit attack — Terraforming grants 6 temporary Strength, turning each hit into a massive damage spike."
+      "reason": "천상의 권능은 3타 공격이다. 테라포밍의 임시 힘 6이 타격마다 실려 한 방 한 방이 크게 뛴다."
     },
     {
       "deckCard": "Terraforming",
       "offeredCard": "Seven Stars",
       "bonus": 2,
-      "reason": "Terraforming gives 6 Vigor — Seven Stars hits 49 times across all enemies, applying that Strength on every single hit for enormous burst."
+      "reason": "테라포밍이 활력 6을 준다. 일곱 개의 별이 전체 적에게 49타를 퍼부으며 그 힘이 타격마다 실린다. 어마어마한 폭딜."
     },
     {
       "deckCard": "Seven Stars",
       "offeredCard": "Terraforming",
       "bonus": 2,
-      "reason": "Seven Stars is 49 multi-hit AoE — Terraforming grants 6 temporary Strength that multiplies across all those hits."
+      "reason": "일곱 개의 별은 49타짜리 다단 광역이다. 테라포밍의 임시 힘 6이 그 모든 타격에 곱해진다."
     },
     {
       "deckCard": "I Am Invincible",
       "offeredCard": "Cosmic Indifference",
       "bonus": 1.5,
-      "reason": "I Am Invincible replays if on top of draw pile — Cosmic Indifference puts a card on top of draw, useful for positioning."
+      "reason": "나는 무적이다는 뽑을 더미 맨 위에 있으면 다시 발동한다. 우주적 무관심이 카드를 뽑을 더미 맨 위로 올려 위치를 잡아준다."
     },
     {
       "deckCard": "Cosmic Indifference",
       "offeredCard": "I Am Invincible",
       "bonus": 1.5,
-      "reason": "I Am Invincible is a recurring Block engine when on top — Cosmic Indifference helps manage draw pile positioning."
+      "reason": "나는 무적이다는 맨 위에 있으면 반복되는 방어도 엔진이다. 우주적 무관심이 뽑을 더미 위치 관리를 도와준다."
     },
     {
       "deckCard": "Neutron Aegis",
       "offeredCard": "I Am Invincible",
       "bonus": 1.5,
-      "reason": "Both are defensive power cards — Neutron Aegis provides permanent Plating while I Am Invincible provides recurring Block."
+      "reason": "둘 다 방어형 파워다. 중성자 방패는 영구 도금을, 나는 무적이다는 반복 방어도를 준다."
     },
     {
       "deckCard": "I Am Invincible",
       "offeredCard": "Neutron Aegis",
       "bonus": 1.5,
-      "reason": "I Am Invincible provides recurring Block — Neutron Aegis adds 8 permanent Plating on top for layered defense."
+      "reason": "나는 무적이다가 반복 방어도를 주고, 중성자 방패가 영구 도금 8을 얹어 방어가 겹겹이 쌓인다."
     },
     {
       "deckCard": "Capture Spirit",
       "offeredCard": "Death March",
       "bonus": 2,
-      "reason": "Capture Spirit adds 3 Souls to Draw Pile — Death March deals 3 bonus damage per card drawn this turn, turning Soul draws into massive damage."
+      "reason": "혼령 포획이 뽑을 더미에 영혼 3장을 넣는다. 죽음의 행진은 이번 턴 뽑은 카드당 추가 3피해 — 영혼 드로우가 그대로 큰 피해가 된다."
     },
     {
       "deckCard": "Death March",
       "offeredCard": "Capture Spirit",
       "bonus": 2,
-      "reason": "Death March scales with cards drawn — Capture Spirit reliably generates 3 Souls per play, fueling huge Death March turns."
+      "reason": "죽음의 행진은 뽑은 카드 수로 성장한다. 혼령 포획이 쓸 때마다 영혼 3장을 확실히 만들어 큰 죽음의 행진 턴에 연료를 댄다."
     },
     {
       "deckCard": "Seance",
       "offeredCard": "Death March",
       "bonus": 1.8,
-      "reason": "Seance converts dead cards into Souls — Death March scores 3 bonus damage per drawn card, Souls drawn count toward its scaling."
+      "reason": "강령회가 죽은 카드를 영혼으로 바꾼다. 죽음의 행진은 뽑은 카드당 추가 3피해인데, 뽑힌 영혼도 그 계수에 들어간다."
     },
     {
       "deckCard": "Death March",
       "offeredCard": "Seance",
       "bonus": 1.8,
-      "reason": "Death March rewards high draw — Seance thins deck into Souls, making every draw more valuable and triggering Death March's bonus."
+      "reason": "죽음의 행진은 드로우가 많을수록 보상이 크다. 강령회가 덱을 영혼으로 다듬어 드로우 하나하나의 가치를 올리고 보너스를 발동시킨다."
     },
     {
       "deckCard": "Severance",
       "offeredCard": "Haunt",
       "bonus": 1.8,
-      "reason": "Severance adds 3 Souls across deck, hand, and discard simultaneously — Haunt triggers on each Soul played for 18 total HP loss per Severance."
+      "reason": "분리가 덱·손패·버린 더미에 동시에 영혼 3장을 넣는다. 출몰이 영혼 사용마다 발동해 분리 한 장에 총 18의 체력 손실을 입힌다."
     },
     {
       "deckCard": "Haunt",
       "offeredCard": "Severance",
       "bonus": 1.8,
-      "reason": "Haunt deals 6 HP per Soul played — Severance floods all three piles with Souls immediately for huge Haunt value."
+      "reason": "출몰이 영혼 사용마다 6의 체력 피해를 준다. 분리가 즉시 세 더미에 영혼을 뿌려 출몰 가치가 크게 뛴다."
     },
     {
       "deckCard": "Devour Life",
       "offeredCard": "Capture Spirit",
       "bonus": 2,
-      "reason": "Devour Life Summons 1 per Soul played — Capture Spirit generates 3 Souls, giving 3 free Summons plus growing Osty each time."
+      "reason": "생명 삼키기가 영혼 사용마다 소환 1을 한다. 혼령 포획이 영혼 3장을 만들어 공짜 소환 3에 오스티 성장까지 얻는다."
     },
     {
       "deckCard": "Capture Spirit",
       "offeredCard": "Devour Life",
       "bonus": 2,
-      "reason": "Capture Spirit provides reliable Soul income — Devour Life converts every Soul into Osty growth, linking Soul and Osty engines."
+      "reason": "혼령 포획이 안정적인 영혼 수입을 대준다. 생명 삼키기가 영혼 하나하나를 오스티 성장으로 바꿔 영혼과 오스티 엔진을 잇는다."
     },
     {
       "deckCard": "Devour Life",
       "offeredCard": "Severance",
       "bonus": 1.8,
-      "reason": "Devour Life Summons 1 per Soul — Severance adds 3 Souls at once, giving 3 immediate Summons and Osty growth in one card."
+      "reason": "생명 삼키기가 영혼당 소환 1을 한다. 분리가 한 번에 영혼 3장을 넣어 카드 한 장으로 즉시 소환 3회와 오스티 성장을 얻는다."
     },
     {
       "deckCard": "Severance",
       "offeredCard": "Devour Life",
       "bonus": 1.8,
-      "reason": "Severance floods deck with Souls — Devour Life converts each Soul play into Osty Summon, bridging Soul and Osty archetypes."
+      "reason": "분리가 덱을 영혼으로 채우고, 생명 삼키기가 영혼 사용을 오스티 소환으로 바꿔 영혼·오스티 아키타입을 잇는다."
     },
     {
       "deckCard": "Transfigure",
       "offeredCard": "Undeath",
       "bonus": 2.5,
-      "reason": "Transfigure adds Replay to a card — on Undeath, Replay makes it play twice, adding 2 copies to Discard instead of 1. Exponential Block generation."
+      "reason": "변형이 카드에 재사용을 붙인다. 불사에 붙이면 두 번 나가 버린 더미에 사본이 1장이 아니라 2장씩 쌓인다. 기하급수적 방어도 생산."
     },
     {
       "deckCard": "Undeath",
       "offeredCard": "Transfigure",
       "bonus": 2.5,
-      "reason": "Undeath copies itself into Discard each play — Transfigure's Replay doubles this, making 2 copies per play for explosive Block scaling."
+      "reason": "불사가 쓸 때마다 자기 사본을 버린 더미에 넣는다. 변형의 재사용이 이를 두 배로 만들어 사용마다 사본 2장 — 방어도가 폭발적으로 성장한다."
     },
     {
       "deckCard": "Dredge",
       "offeredCard": "Graveblast",
       "bonus": 1.8,
-      "reason": "Both retrieve cards from Discard — combining them creates a near-infinite recursion loop, pulling key cards back every turn."
+      "reason": "둘 다 버린 더미에서 카드를 회수한다. 같이 쓰면 핵심 카드를 매 턴 되가져오는 준무한 재귀 루프가 된다."
     },
     {
       "deckCard": "Graveblast",
       "offeredCard": "Dredge",
       "bonus": 1.8,
-      "reason": "Dredge retrieves 3 Discard cards — Graveblast retrieves 1, together ensuring key cards like Capture Spirit or Undeath are always accessible."
+      "reason": "추출이 버린 더미 카드 3장을, 무덤 폭발이 1장을 회수한다. 함께라면 혼령 포획·불사 같은 핵심 카드가 늘 손에 닿는다."
     },
     {
       "deckCard": "Demesne",
       "offeredCard": "Parse",
       "bonus": 2,
-      "reason": "Demesne gives +1 draw per turn passively — Parse is an Ethereal draw 3, and Demesne already drew 1 extra making Parse effectively draw 4 in context."
+      "reason": "권역이 매 턴 알아서 드로우 +1을 준다. 분석은 영묘한 드로우 3 — 권역이 이미 1장을 더 뽑아준 셈이라 체감상 4드로우다."
     },
     {
       "deckCard": "Parse",
       "offeredCard": "Demesne",
       "bonus": 2,
-      "reason": "Parse is free Ethereal draw 3 — Demesne's passive +1 draw means turning every turn into massive card advantage when Parse cycles through."
+      "reason": "분석은 공짜 영묘 드로우 3이다. 권역의 상시 +1 드로우와 함께 분석이 순환할 때마다 매 턴 큰 카드 이득이 난다."
     },
     {
       "deckCard": "Pagestorm",
       "offeredCard": "Parse",
       "bonus": 2,
-      "reason": "Parse is Ethereal — Pagestorm draws 1 whenever you draw an Ethereal card, making Parse effectively draw 4 total cards for 0 Energy."
+      "reason": "분석은 영묘하다. 서류 폭풍이 영묘한 카드를 뽑을 때마다 1장을 더 뽑아, 분석이 0에너지에 사실상 총 4드로우가 된다."
     },
     {
       "deckCard": "Parse",
       "offeredCard": "Pagestorm",
       "bonus": 2,
-      "reason": "Pagestorm triggers on Ethereal draws — Parse being Ethereal itself draws 3, and Pagestorm adds 1 more for free."
+      "reason": "서류 폭풍이 영묘 드로우에 반응한다. 분석 자체가 영묘라 3장을 뽑고, 서류 폭풍이 공짜로 1장을 더 얹는다."
     },
     {
       "deckCard": "Pagestorm",
       "offeredCard": "Call of the Void",
       "bonus": 1.8,
-      "reason": "Call of the Void adds an Ethereal card to hand each turn — Pagestorm draws 1 whenever you draw Ethereal, giving passive +1 draw every single turn."
+      "reason": "공허의 부름이 매 턴 영묘한 카드를 손에 넣어준다. 서류 폭풍이 영묘 드로우마다 1장을 더 뽑아 매 턴 상시 +1 드로우가 된다."
     },
     {
       "deckCard": "Call of the Void",
       "offeredCard": "Pagestorm",
       "bonus": 1.8,
-      "reason": "Pagestorm triggers on Ethereal card draws — Call of the Void generates a free Ethereal each turn, making Pagestorm draw 1 extra every turn passively."
+      "reason": "서류 폭풍이 영묘 카드 드로우에 발동한다. 공허의 부름이 턴마다 공짜 영묘 카드를 만들어 서류 폭풍이 매 턴 1장을 더 뽑는다."
     },
     {
       "deckCard": "Spirit of Ash",
       "offeredCard": "Parse",
       "bonus": 1.8,
-      "reason": "Parse is Ethereal — Spirit of Ash gains 4 Block per Ethereal played, making Parse a 0-cost draw 3 plus 4 Block simultaneously."
+      "reason": "분석은 영묘하다. 잿빛 혼령이 영묘 사용마다 방어도 4를 얻어, 분석이 0코스트 드로우 3에 방어도 4까지 겸하게 된다."
     },
     {
       "deckCard": "Parse",
       "offeredCard": "Spirit of Ash",
       "bonus": 1.8,
-      "reason": "Spirit of Ash gives 4 Block per Ethereal — Parse is the most efficient Ethereal since it's 0-cost draw 3 for maximum Spirit of Ash value."
+      "reason": "잿빛 혼령이 영묘 사용마다 방어도 4를 준다. 분석은 0코스트 드로우 3이라 가장 효율 좋은 영묘 카드 — 잿빛 혼령 가치를 최대로 뽑는다."
     },
     {
       "deckCard": "Spirit of Ash",
       "offeredCard": "Call of the Void",
       "bonus": 1.5,
-      "reason": "Call of the Void adds an Ethereal card each turn — Spirit of Ash gains 4 Block each time you play it, giving passive 4 Block every turn."
+      "reason": "공허의 부름이 턴마다 영묘한 카드를 넣어준다. 잿빛 혼령이 그걸 낼 때마다 방어도 4를 얻어 매 턴 상시 방어도 4가 된다."
     },
     {
       "deckCard": "Call of the Void",
       "offeredCard": "Spirit of Ash",
       "bonus": 1.5,
-      "reason": "Spirit of Ash rewards Ethereal plays — Call of the Void creates a free Ethereal each turn for consistent 4 Block from Spirit of Ash."
+      "reason": "잿빛 혼령이 영묘 사용에 보답한다. 공허의 부름이 턴마다 공짜 영묘 카드를 만들어 잿빛 혼령의 방어도 4가 꾸준히 나온다."
     },
     {
       "deckCard": "Veilpiercer",
       "offeredCard": "Demesne",
       "bonus": 1.8,
-      "reason": "Veilpiercer makes next Ethereal free — Demesne is Ethereal and costs 0 this way, giving permanent +1 Energy and +1 draw for free."
+      "reason": "장막 관통자가 다음 영묘 카드를 공짜로 만든다. 권역은 영묘라 0코스트가 되어, 영구 에너지 +1과 드로우 +1 엔진이 공짜로 깔린다."
     },
     {
       "deckCard": "Demesne",
       "offeredCard": "Veilpiercer",
       "bonus": 1.8,
-      "reason": "Demesne is Ethereal — Veilpiercer reduces its cost to 0, making the permanent draw and Energy engine completely free to install."
+      "reason": "권역은 영묘하다. 장막 관통자가 비용을 0으로 낮춰 영구 드로우·에너지 엔진을 완전히 공짜로 설치하게 해준다."
     },
     {
       "deckCard": "Pull from Below",
       "offeredCard": "Call of the Void",
       "bonus": 1.5,
-      "reason": "Call of the Void generates Ethereal cards each turn — Pull from Below scales on Ethereal cards played this combat, growing with every free Ethereal."
+      "reason": "공허의 부름이 턴마다 영묘한 카드를 만든다. 끌어내리기는 이번 전투 영묘 사용 수로 성장하니, 공짜 영묘 하나하나가 성장이 된다."
     },
     {
       "deckCard": "Call of the Void",
       "offeredCard": "Pull from Below",
       "bonus": 1.5,
-      "reason": "Pull from Below deals 5 damage per Ethereal played combat-wide — Call of the Void adds a free Ethereal every single turn."
+      "reason": "끌어내리기는 전투 통산 영묘 사용당 5피해를 준다. 공허의 부름이 매 턴 공짜 영묘 카드를 하나씩 보탠다."
     },
     {
       "deckCard": "Debilitate",
       "offeredCard": "Putrefy",
       "bonus": 2,
-      "reason": "Debilitate makes Weak and Vulnerable twice as effective for 3 turns — Putrefy applies 2 of each, effectively making enemy take 4x debuff impact."
+      "reason": "쇠락이 3턴간 약화·취약의 효과를 두 배로 만든다. 부식이 각각 2씩 걸어 사실상 디버프 효과가 4배로 박힌다."
     },
     {
       "deckCard": "Putrefy",
       "offeredCard": "Debilitate",
       "bonus": 2,
-      "reason": "Putrefy applies Weak + Vulnerable — Debilitate then doubles both, making attacks during next 3 turns deal enormous bonus damage."
+      "reason": "부식이 약화 + 취약을 건다. 쇠락이 둘 다 두 배로 만들어 다음 3턴간 공격이 어마어마한 보너스 피해를 낸다."
     },
     {
       "deckCard": "Debilitate",
       "offeredCard": "Deathbringer",
       "bonus": 1.8,
-      "reason": "Deathbringer applies 21 Doom AoE plus Weak — Debilitate doubles Weak effectiveness, making all enemy attacks lighter while Doom counts down."
+      "reason": "죽음 인도자가 광역 종말 21과 약화를 건다. 쇠락이 약화 효과를 두 배로 만들어, 종말이 차오르는 동안 적의 공격이 더 가벼워진다."
     },
     {
       "deckCard": "Deathbringer",
       "offeredCard": "Debilitate",
       "bonus": 1.8,
-      "reason": "Debilitate doubles Weak and Vulnerable — Deathbringer applies 1 Weak AoE, which Debilitate makes 2x effective for 3 turns against all enemies."
+      "reason": "쇠락이 약화·취약을 두 배로 만든다. 죽음 인도자가 광역 약화 1을 걸면, 쇠락이 3턴간 모든 적에게 그 효과를 2배로 키운다."
     },
     {
       "deckCard": "Scourge",
       "offeredCard": "Death's Door",
       "bonus": 1.8,
-      "reason": "Death's Door requires Doom application to gain 18 Block — Scourge applies 13 Doom plus draws a card, enabling Death's Door perfectly."
+      "reason": "죽음의 문턱은 종말을 부여해야 방어도 18을 준다. 징벌이 종말 13을 부여하면서 드로우까지 해 조건을 완벽하게 채운다."
     },
     {
       "deckCard": "Death's Door",
       "offeredCard": "Negative Pulse",
       "bonus": 1.8,
-      "reason": "Negative Pulse applies 7 AoE Doom and gives 5 Block — Death's Door needs any Doom application to gain 18 Block, instantly fulfilled."
+      "reason": "비관적인 맥박이 광역 종말 7과 방어도 5를 준다. 죽음의 문턱은 종말 부여만 있으면 방어도 18 — 조건이 즉시 채워진다."
     },
     {
       "deckCard": "Negative Pulse",
       "offeredCard": "Death's Door",
       "bonus": 1.8,
-      "reason": "Death's Door needs Doom application for 18 Block — Negative Pulse applies 7 AoE Doom simultaneously, always triggering Death's Door."
+      "reason": "죽음의 문턱은 종말 부여 시 방어도 18을 준다. 비관적인 맥박이 광역 종말 7을 동시에 부여해 죽음의 문턱이 항상 발동한다."
     },
     {
       "deckCard": "Shroud",
       "offeredCard": "Scourge",
       "bonus": 1.5,
-      "reason": "Shroud gives 2 Block per Doom application — Scourge applies 13 Doom in one card, giving 2 Block for each stack = 26 Block from one Scourge play."
+      "reason": "수의가 종말 부여마다 방어도 2를 준다. 징벌이 카드 한 장으로 종말 13을 부여 — 징벌 한 번에 방어도 26이다."
     },
     {
       "deckCard": "Scourge",
       "offeredCard": "Shroud",
       "bonus": 1.5,
-      "reason": "Scourge applies 13 Doom — Shroud converts each Doom application into 2 Block. With Shroud active, Scourge gives 26 Block while drawing a card."
+      "reason": "징벌이 종말 13을 부여한다. 수의가 부여 하나를 방어도 2로 바꿔, 수의가 켜진 징벌은 드로우하면서 방어도 26을 준다."
     },
     {
       "deckCard": "Shroud",
       "offeredCard": "Deathbringer",
       "bonus": 1.8,
-      "reason": "Deathbringer applies 21 Doom AoE — with Shroud active, this gives 2 Block per Doom application. One Deathbringer = 42 Block with Shroud."
+      "reason": "죽음 인도자가 모든 적에게 종말 21을 뿌린다. 수의가 켜져 있으면 부여당 방어도 2 — 죽음 인도자 한 장에 방어도 42."
     },
     {
       "deckCard": "Deathbringer",
       "offeredCard": "Shroud",
       "bonus": 1.8,
-      "reason": "Shroud grants 2 Block per Doom applied — Deathbringer hits ALL enemies with 21 Doom each, making Shroud generate massive Block per Deathbringer play."
+      "reason": "수의가 종말 부여당 방어도 2를 준다. 죽음 인도자가 모든 적에게 각각 종말 21을 걸어, 낼 때마다 수의가 방어도를 대량 생산한다."
     },
     {
       "deckCard": "Sleight of Flesh",
       "offeredCard": "Putrefy",
       "bonus": 1.8,
-      "reason": "Sleight of Flesh deals 9 damage per debuff applied — Putrefy applies 2 Weak and 2 Vulnerable (4 debuffs) = 36 bonus damage from one Putrefy."
+      "reason": "살점 재주가 디버프 부여당 9피해를 준다. 부식이 약화 2 + 취약 2(디버프 4개)를 걸어 부식 한 장에 보너스 36피해."
     },
     {
       "deckCard": "Putrefy",
       "offeredCard": "Sleight of Flesh",
       "bonus": 1.8,
-      "reason": "Sleight of Flesh punishes each debuff with 9 damage — Putrefy applies 4 debuffs at once for 36 bonus damage per Putrefy cast."
+      "reason": "살점 재주가 디버프마다 9피해로 응징한다. 부식이 한 번에 디버프 4개를 걸어 시전마다 보너스 36피해가 나온다."
     },
     {
       "deckCard": "Sleight of Flesh",
       "offeredCard": "Deathbringer",
       "bonus": 1.5,
-      "reason": "Deathbringer applies 1 Weak AoE — Sleight of Flesh deals 9 damage per debuff, so Deathbringer triggers 9 damage per enemy hit."
+      "reason": "죽음 인도자가 광역 약화 1을 건다. 살점 재주가 디버프당 9피해를 줘서 적중한 적마다 9피해가 터진다."
     },
     {
       "deckCard": "Sleight of Flesh",
       "offeredCard": "Misery",
       "bonus": 1.8,
-      "reason": "Misery spreads all enemy debuffs to other enemies — each spread debuff triggers Sleight of Flesh's 9 damage, dealing massive multi-target damage."
+      "reason": "비참함이 적의 모든 디버프를 다른 적에게 퍼뜨린다. 퍼진 디버프 하나하나가 살점 재주의 9피해를 발동시켜 다수 대상에 대량 피해를 준다."
     },
     {
       "deckCard": "Misery",
       "offeredCard": "Sleight of Flesh",
       "bonus": 1.8,
-      "reason": "Sleight of Flesh deals 9 damage per debuff — Misery spreads all current debuffs to every enemy, triggering Sleight for each application."
+      "reason": "살점 재주가 디버프당 9피해를 준다. 비참함이 현재 디버프를 모든 적에게 퍼뜨려 부여 하나하나가 살점 재주를 발동시킨다."
     },
     {
       "deckCard": "Misery",
       "offeredCard": "Debilitate",
       "bonus": 1.8,
-      "reason": "Debilitate doubles Weak and Vulnerable effectiveness — Misery spreads these doubled debuffs to all enemies, making every enemy take double debuff effects."
+      "reason": "쇠락이 약화·취약의 효과를 두 배로 만든다. 비참함이 그 두 배 디버프를 모든 적에게 퍼뜨려 전원이 두 배 효과를 받는다."
     },
     {
       "deckCard": "Debilitate",
       "offeredCard": "Misery",
       "bonus": 1.8,
-      "reason": "Misery spreads all debuffs to other enemies — after Debilitate doubles Weak/Vulnerable, Misery applies those doubled debuffs to every enemy."
+      "reason": "비참함이 모든 디버프를 다른 적에게 퍼뜨린다. 쇠락으로 약화·취약을 두 배로 만든 뒤 비참함을 쓰면 그 강화판이 전 적에게 박힌다."
     },
     {
       "deckCard": "Neurosurge",
       "offeredCard": "Borrowed Time",
       "bonus": 2,
-      "reason": "Neurosurge gives 3 Energy and 2 draw — Borrowed Time gains Energy for 3 self-Doom, and Neurosurge's Energy fuels playing both in one explosive turn."
+      "reason": "정신 폭주가 에너지 3과 드로우 2를 준다. 연명이 자기 종말 3을 받고 에너지를 얻는데, 정신 폭주의 에너지가 둘을 한 턴에 내는 폭발 턴을 만든다."
     },
     {
       "deckCard": "Borrowed Time",
       "offeredCard": "Neurosurge",
       "bonus": 2,
-      "reason": "Borrowed Time trades self-Doom for Energy — Neurosurge's 3 Energy and draw enable playing multiple high-cost cards including Borrowed Time itself."
+      "reason": "연명이 자기 종말을 에너지로 바꾼다. 정신 폭주의 에너지 3과 드로우가 연명을 포함한 고코스트 카드를 여러 장 낼 수 있게 해준다."
     },
     {
       "deckCard": "Friendship",
       "offeredCard": "Neurosurge",
       "bonus": 1.8,
-      "reason": "Friendship gives +1 Energy per turn passively — Neurosurge gives another 3 Energy burst plus draw, creating enormous explosive turns."
+      "reason": "우정이 매 턴 알아서 에너지 +1을 준다. 정신 폭주가 에너지 3과 드로우를 순간 폭발로 얹어 거대한 턴이 나온다."
     },
     {
       "deckCard": "Neurosurge",
       "offeredCard": "Friendship",
       "bonus": 1.8,
-      "reason": "Friendship provides sustained Energy each turn — Neurosurge provides a burst of 3 Energy plus draw, together enabling consistently large turns."
+      "reason": "우정이 매 턴 지속 에너지를 공급하고, 정신 폭주가 에너지 3 + 드로우를 순간적으로 보태 꾸준히 큰 턴을 만든다."
     },
     {
       "deckCard": "Rattle",
       "offeredCard": "Fetch",
       "bonus": 2.5,
-      "reason": "Fetch enables the first Osty attack cheaply and draws a card — Rattle then hits again for each previous Osty attack this turn, compounding with Fetch's hit."
+      "reason": "회수가 첫 오스티 공격을 싸게 열면서 드로우도 한다. 덜그럭대기가 이번 턴 오스티 공격 수만큼 더 때려 회수의 한 타가 그대로 배가된다."
     },
     {
       "deckCard": "Fetch",
       "offeredCard": "Rattle",
       "bonus": 2.5,
-      "reason": "Rattle multiplies hits per Osty attack this turn — Fetch provides a cheap first Osty hit that draw a card, setting up Rattle's chain damage."
+      "reason": "덜그럭대기는 이번 턴 오스티 공격 수만큼 타격이 늘어난다. 회수가 드로우까지 되는 저렴한 첫 오스티 공격으로 연쇄 피해를 세팅한다."
     },
     {
       "deckCard": "Sic 'Em",
       "offeredCard": "Rattle",
       "bonus": 2,
-      "reason": "Rattle hits again for each Osty attack this turn — Sic 'Em generates Summon 2 per Osty hit, and each Rattle hit triggers more Summon stacking."
+      "reason": "덜그럭대기가 이번 턴 오스티 공격마다 한 번 더 때린다. 덮쳐!가 오스티 적중마다 소환 2를 만들고, 덜그럭대기의 타격마다 소환이 또 쌓인다."
     },
     {
       "deckCard": "Rattle",
       "offeredCard": "Sic 'Em",
       "bonus": 2,
-      "reason": "Sic 'Em summons 2 per Osty hit this turn — Rattle's multi-hit triggers Sic 'Em repeatedly, generating enormous Summon totals per turn."
+      "reason": "덮쳐!가 이번 턴 오스티 적중마다 소환 2를 한다. 덜그럭대기의 다단 타격이 덮쳐!를 반복 발동시켜 턴당 소환량이 어마어마해진다."
     },
     {
       "deckCard": "Necro Mastery",
       "offeredCard": "Sacrifice",
       "bonus": 2.5,
-      "reason": "Sacrifice kills Osty and gains double his Max HP as Block — Necro Mastery first makes all enemies lose HP equal to damage Osty takes, so Sacrifice triggers massive AoE damage before giving Block."
+      "reason": "희생이 오스티를 죽이고 최대 체력의 두 배를 방어도로 얻는다. 강령의 극의가 먼저 오스티가 받는 피해만큼 모든 적의 체력을 깎게 하니, 희생 전에 대량 광역이 터지고 방어도가 들어온다."
     },
     {
       "deckCard": "Sacrifice",
       "offeredCard": "Necro Mastery",
       "bonus": 2.5,
-      "reason": "Necro Mastery converts Osty HP loss into enemy HP loss — Sacrifice kills Osty for massive Block, but first Necro Mastery turns that death into AoE damage equal to Osty's full HP."
+      "reason": "강령의 극의가 오스티의 체력 손실을 적의 체력 손실로 바꾼다. 희생이 오스티를 죽여 대량 방어도를 얻는데, 그 죽음이 먼저 오스티 체력 전부만큼의 광역 피해가 된다."
     },
     {
       "deckCard": "Necro Mastery",
       "offeredCard": "Bone Shards",
       "bonus": 2,
-      "reason": "Bone Shards deals 9 AoE and gives 9 Block then kills Osty — Necro Mastery makes ALL enemies lose HP equal to Osty's HP when he dies, adding enormous AoE on top."
+      "reason": "뼛조각이 광역 9피해와 방어도 9를 주고 오스티를 죽인다. 강령의 극의가 오스티가 죽을 때 그의 체력만큼 모든 적의 체력을 깎아 거대한 광역이 더해진다."
     },
     {
       "deckCard": "Bone Shards",
       "offeredCard": "Necro Mastery",
       "bonus": 2,
-      "reason": "Necro Mastery converts Osty death into enemy HP loss — Bone Shards kills Osty after dealing 9 AoE, and Necro Mastery adds Osty's full HP as bonus AoE."
+      "reason": "강령의 극의가 오스티의 죽음을 적의 체력 손실로 바꾼다. 뼛조각이 광역 9피해 후 오스티를 죽이면, 오스티 체력 전부가 보너스 광역으로 얹힌다."
     },
     {
       "deckCard": "High Five",
       "offeredCard": "Rattle",
       "bonus": 1.8,
-      "reason": "High Five applies 2 Vulnerable to all enemies via Osty — Rattle then hits the Vulnerable enemy multiple times, each hit dealing 50% more damage."
+      "reason": "하이파이브가 오스티를 통해 모든 적에게 취약 2를 건다. 덜그럭대기의 다단 타격이 취약 대상에게 한 방 한 방 50% 더 아프게 박힌다."
     },
     {
       "deckCard": "Rattle",
       "offeredCard": "High Five",
       "bonus": 1.8,
-      "reason": "Rattle multi-hits deal exponential damage against Vulnerable targets — High Five first applies 2 Vulnerable AoE via Osty to maximize Rattle's damage."
+      "reason": "덜그럭대기의 다단 타격은 취약 대상에게 피해가 기하급수적으로 커진다. 하이파이브가 먼저 오스티로 광역 취약 2를 깔아 덜그럭대기를 극대화한다."
     },
     {
       "deckCard": "Protector",
       "offeredCard": "Reanimate",
       "bonus": 2,
-      "reason": "Reanimate gives Osty +20 Max HP — Protector deals 10 damage plus Osty's Max HP, making Protector hit for 30+ damage with Reanimate's boost."
+      "reason": "소생이 오스티의 최대 체력을 20 올린다. 파수꾼은 10 + 오스티 최대 체력만큼 피해를 줘서, 소생 후엔 30 이상으로 때린다."
     },
     {
       "deckCard": "Reanimate",
       "offeredCard": "Protector",
       "bonus": 2,
-      "reason": "Protector deals damage equal to Osty's Max HP — Reanimate adds 20 Max HP to Osty, directly increasing Protector's damage by 20."
+      "reason": "파수꾼이 오스티의 최대 체력만큼 피해를 준다. 소생이 최대 체력 20을 더해 파수꾼의 피해가 그대로 20 오른다."
     },
     {
       "deckCard": "Protector",
       "offeredCard": "Spur",
       "bonus": 1.5,
-      "reason": "Spur Summons 3 and heals Osty — every Summon adds to Osty's Max HP, increasing Protector's bonus damage with each Spur play."
+      "reason": "격려가 소환 3을 하며 오스티를 회복시킨다. 소환마다 오스티 최대 체력이 올라, 격려를 낼 때마다 파수꾼의 보너스 피해가 커진다."
     },
     {
       "deckCard": "Spur",
       "offeredCard": "Protector",
       "bonus": 1.5,
-      "reason": "Protector scales with Osty's Max HP — Spur grows Osty's Max HP via Summon, each Spur play making the next Protector hit harder."
+      "reason": "파수꾼은 오스티 최대 체력으로 성장한다. 격려가 소환으로 오스티를 키워, 격려 한 장마다 다음 파수꾼이 더 세진다."
     },
     {
       "deckCard": "Calcify",
       "offeredCard": "Rattle",
       "bonus": 1.5,
-      "reason": "Calcify adds flat +4 damage to all Osty attacks — Rattle hits multiple times scaling with prior Osty attacks, making Calcify's bonus multiply across all hits."
+      "reason": "석회화가 모든 오스티 공격에 고정 +4피해를 붙인다. 덜그럭대기는 앞선 오스티 공격 수만큼 다단으로 때려, 석회화 보너스가 타격마다 곱해진다."
     },
     {
       "deckCard": "Rattle",
       "offeredCard": "Calcify",
       "bonus": 1.5,
-      "reason": "Rattle's multi-hit multiplies Calcify's +4 bonus — with Fetch and Poke setting up, Rattle can hit 4-6 times, making Calcify add 16-24 damage."
+      "reason": "덜그럭대기의 다단이 석회화의 +4를 배가한다. 회수·쑤시기로 세팅하면 덜그럭대기가 4~6타가 되어 석회화만으로 16~24피해가 얹힌다."
     },
     {
       "deckCard": "Flatten",
       "offeredCard": "Fetch",
       "bonus": 1.8,
-      "reason": "Fetch enables a free first Osty attack this turn — Flatten costs 0 if Osty attacked this turn, making both cards chain for free Osty damage."
+      "reason": "회수가 이번 턴 첫 오스티 공격을 공짜로 열어준다. 땅고르기는 이번 턴 오스티가 공격했다면 0코스트 — 두 카드가 공짜 오스티 피해로 이어진다."
     },
     {
       "deckCard": "Fetch",
       "offeredCard": "Flatten",
       "bonus": 1.8,
-      "reason": "Flatten costs 0 if Osty attacked this turn — Fetch is that free Osty attack, enabling Flatten for 0 Energy total and chaining attacks."
+      "reason": "땅고르기는 이번 턴 오스티가 공격했다면 0코스트다. 회수가 그 공짜 오스티 공격이 되어 총 0에너지로 땅고르기까지 잇는다."
     },
     {
       "deckCard": "Flatten",
       "offeredCard": "Poke",
       "bonus": 1.5,
-      "reason": "Poke is a cheap Osty attack — Flatten becomes 0-cost if Osty attacked this turn, making Poke into Flatten a 1-Energy chain of Osty damage."
+      "reason": "쑤시기는 저렴한 오스티 공격이다. 오스티가 공격한 턴엔 땅고르기가 0코스트가 되어, 쑤시기 → 땅고르기가 1에너지짜리 오스티 연쇄가 된다."
     },
     {
       "deckCard": "Poke",
       "offeredCard": "Flatten",
       "bonus": 1.5,
-      "reason": "Flatten costs 0 when Osty attacks — Poke cheaply enables this, making Poke into Flatten an efficient 2-card Osty combo."
+      "reason": "오스티가 공격하면 땅고르기가 0코스트가 된다. 쑤시기가 그걸 싸게 열어줘 쑤시기 → 땅고르기가 효율적인 2카드 오스티 콤보가 된다."
     },
     {
       "deckCard": "Cleanse",
       "offeredCard": "Devour Life",
       "bonus": 1.8,
-      "reason": "Cleanse Summons 3 and thins deck — Devour Life Summons 1 per Soul played, and Cleanse can transform drawn cards into Souls via Seance before Cleaning."
+      "reason": "정화가 소환 3을 하면서 덱을 다듬는다. 생명 삼키기는 영혼 사용마다 소환 1 — 강령회로 뽑힌 카드를 영혼으로 바꿔두면 정화와 함께 양쪽이 굴러간다."
     },
     {
       "deckCard": "Devour Life",
       "offeredCard": "Cleanse",
       "bonus": 1.8,
-      "reason": "Devour Life bridges Soul and Osty archetypes — Cleanse grows Osty via Summon while also thinning the deck, feeding both mechanics."
+      "reason": "생명 삼키기가 영혼과 오스티 아키타입을 잇는다. 정화가 소환으로 오스티를 키우면서 덱도 다듬어 두 메커니즘 모두에 연료를 댄다."
     },
     {
       "deckCard": "Forbidden Grimoire",
       "offeredCard": "Cleanse",
       "bonus": 1.5,
-      "reason": "Forbidden Grimoire removes a card after each fight passively — Cleanse also thins deck by exhausting a Draw Pile card, stacking deck quality improvements."
+      "reason": "금지된 마도서가 전투가 끝날 때마다 카드를 하나씩 제거해준다. 정화도 뽑을 더미의 카드를 소멸시켜 덱 다듬기가 겹겹이 쌓인다."
     },
     {
       "deckCard": "Lethality",
       "offeredCard": "Debilitate",
       "bonus": 1.8,
-      "reason": "Lethality makes first Attack deal 50% more damage — Debilitate doubles Vulnerable effectiveness, making the Lethality-buffed attack land for massive damage."
+      "reason": "치사성이 첫 공격의 피해를 50% 키운다. 쇠락이 취약 효과를 두 배로 만들어, 치사성이 실린 공격이 어마어마하게 박힌다."
     },
     {
       "deckCard": "Debilitate",
       "offeredCard": "Lethality",
       "bonus": 1.8,
-      "reason": "Lethality amplifies first Attack by 50% — Debilitate pre-doubles Vulnerable so the Lethality attack lands against a doubly vulnerable target."
+      "reason": "치사성이 첫 공격을 50% 증폭한다. 쇠락이 먼저 취약을 두 배로 만들어 두 배로 취약해진 대상에게 꽂히게 한다."
     },
     {
       "deckCard": "Lethality",
       "offeredCard": "Rattle",
       "bonus": 1.8,
-      "reason": "Lethality makes first Attack 50% stronger — if Rattle is that first attack with multiple prior Osty attacks set up, the base hit plus all chain hits are amplified."
+      "reason": "치사성이 첫 공격을 50% 강화한다. 앞선 오스티 공격을 쌓아둔 덜그럭대기가 그 첫 공격이라면, 기본 타격과 연쇄 타격 전부가 증폭된다."
     },
     {
       "deckCard": "Rattle",
       "offeredCard": "Lethality",
       "bonus": 1.8,
-      "reason": "Rattle is the strongest single Attack in Osty builds — Lethality makes the first attack each turn deal 50% more, and Rattle's multi-hit makes that 50% enormous."
+      "reason": "덜그럭대기는 오스티 빌드에서 가장 강한 단일 공격이다. 치사성이 매 턴 첫 공격을 50% 키우는데, 덜그럭대기의 다단이 그 50%를 어마어마하게 만든다."
     },
     {
       "deckCard": "Friendship",
       "offeredCard": "Borrowed Time",
       "bonus": 1.8,
-      "reason": "Friendship gives +1 Energy each turn passively — Borrowed Time converts self-Doom into Energy, together giving massive Energy every turn for big plays."
+      "reason": "우정이 매 턴 알아서 에너지 +1을 준다. 연명이 자기 종말로 에너지를 더 바꿔, 함께라면 매 턴 큰 플레이를 할 에너지가 넘친다."
     },
     {
       "deckCard": "Borrowed Time",
       "offeredCard": "Friendship",
       "bonus": 1.8,
-      "reason": "Friendship gives passive Energy each turn — Borrowed Time adds more Energy via self-Doom, enabling consistently large multi-card turns."
+      "reason": "우정이 턴마다 상시 에너지를 준다. 연명이 자기 종말로 에너지를 더 얹어 다수 카드 턴이 꾸준히 나온다."
     },
     {
       "deckCard": "Neurosurge",
       "offeredCard": "Death March",
       "bonus": 1.8,
-      "reason": "Neurosurge draws 2 cards — Death March deals 3 bonus damage per card drawn this turn, making Neurosurge's draw directly add 6+ damage to Death March."
+      "reason": "정신 폭주가 2장을 뽑는다. 죽음의 행진은 이번 턴 뽑은 카드당 추가 3피해 — 정신 폭주의 드로우만으로 6 이상이 바로 붙는다."
     },
     {
       "deckCard": "Death March",
       "offeredCard": "Neurosurge",
       "bonus": 1.8,
-      "reason": "Death March scales with cards drawn this turn — Neurosurge draws 2 cards directly, adding 6 damage to Death March and enabling more card plays with its 3 Energy."
+      "reason": "죽음의 행진은 이번 턴 드로우 수로 성장한다. 정신 폭주가 직접 2장을 뽑아 6피해를 더하고, 에너지 3으로 카드도 더 낼 수 있게 한다."
     },
     {
       "deckCard": "Graveblast",
       "offeredCard": "Undeath",
       "bonus": 1.5,
-      "reason": "Undeath copies itself to Discard — Graveblast retrieves a Discard card on demand, making it easy to pull Undeath back for another Block generation cycle."
+      "reason": "불사가 자기 사본을 버린 더미에 넣는다. 무덤 폭발이 원할 때 버린 더미에서 회수해줘, 불사를 되가져와 방어도 순환을 또 돌리기 쉽다."
     },
     {
       "deckCard": "Undeath",
       "offeredCard": "Graveblast",
       "bonus": 1.5,
-      "reason": "Graveblast retrieves Discard cards — Undeath generates copies in Discard, giving Graveblast a reliable target to pull back for continuous Block."
+      "reason": "무덤 폭발이 버린 더미에서 카드를 회수한다. 불사가 버린 더미에 사본을 계속 만들어 무덤 폭발의 회수 대상이 늘 준비돼 있다."
     },
     {
       "deckCard": "Echo Form",
       "offeredCard": "Defragment",
       "bonus": 2.5,
-      "reason": "Echo Form doubles the first card played — Defragment doubled = 2 Focus per play instead of 1. Fastest way to reach high Focus."
+      "reason": "메아리의 형상이 첫 카드를 두 번 사용한다. 조각모음이 두 번 나가면 사용당 집중 1이 아니라 2. 높은 집중에 도달하는 가장 빠른 길."
     },
     {
       "deckCard": "Defragment",
       "offeredCard": "Echo Form",
       "bonus": 2.5,
-      "reason": "Defragment gives 1 Focus — Echo Form doubles it to 2 Focus per Defragment play, accelerating Orb scaling massively."
+      "reason": "조각모음이 집중 1을 준다. 메아리의 형상이 두 배로 만들어 조각모음당 집중 2 — 구체 성장이 대폭 가속된다."
     },
     {
       "deckCard": "Echo Form",
       "offeredCard": "Signal Boost",
       "bonus": 2,
-      "reason": "Signal Boost makes next Power play twice — Echo Form doubles Signal Boost itself, making the next Power play 3 times total."
+      "reason": "신호 증폭이 다음 파워를 두 번 사용하게 한다. 메아리의 형상이 신호 증폭 자체를 두 배로 만들어, 다음 파워가 총 3번 나간다."
     },
     {
       "deckCard": "Signal Boost",
       "offeredCard": "Echo Form",
       "bonus": 2,
-      "reason": "Echo Form doubles the first card each turn — Signal Boost doubled means the next Power plays 3 times total."
+      "reason": "메아리의 형상이 매 턴 첫 카드를 두 배로 만든다. 신호 증폭이 두 배가 되면 다음 파워가 총 3번 나간다."
     },
     {
       "deckCard": "Echo Form",
       "offeredCard": "Machine Learning",
       "bonus": 2,
-      "reason": "Echo Form doubles Machine Learning — instead of +1 draw per turn, you get +2 draw per turn permanently."
+      "reason": "메아리의 형상이 기계학습을 두 배로 만든다. 턴당 드로우 +1이 아니라 +2가 영구히 붙는다."
     },
     {
       "deckCard": "Machine Learning",
       "offeredCard": "Echo Form",
       "bonus": 2,
-      "reason": "Machine Learning gives +1 draw per turn — Echo Form doubles it to +2 draw, making every turn draw 7 cards."
+      "reason": "기계학습이 턴당 드로우 +1을 준다. 메아리의 형상이 +2로 두 배해 매 턴 7장을 뽑게 된다."
     },
     {
       "deckCard": "Echo Form",
       "offeredCard": "Coolant",
       "bonus": 1.8,
-      "reason": "Echo Form doubles Coolant — instead of 2 Block per unique Orb, you get 4 Block per unique Orb every turn."
+      "reason": "메아리의 형상이 냉각재를 두 배로 만든다. 고유 구체당 방어도 2가 아니라 4를 매 턴 얻는다."
     },
     {
       "deckCard": "Coolant",
       "offeredCard": "Echo Form",
       "bonus": 1.8,
-      "reason": "Coolant gives Block per unique Orb each turn — Echo Form doubles this passive Block generation."
+      "reason": "냉각재가 매 턴 고유 구체당 방어도를 준다. 메아리의 형상이 그 상시 방어도 생산을 두 배로 만든다."
     },
     {
       "deckCard": "Signal Boost",
       "offeredCard": "Defragment",
       "bonus": 2.5,
-      "reason": "Signal Boost makes next Power play twice — Defragment doubled gives 2 Focus in one play, the fastest Focus acceleration available."
+      "reason": "신호 증폭이 다음 파워를 두 번 사용하게 한다. 조각모음이 두 배가 되면 한 번에 집중 2 — 가장 빠른 집중 가속이다."
     },
     {
       "deckCard": "Defragment",
       "offeredCard": "Signal Boost",
       "bonus": 2.5,
-      "reason": "Defragment is the best Signal Boost target — doubled Defragment gives 2 Focus per card instead of 1."
+      "reason": "조각모음은 신호 증폭의 최적 대상이다. 두 배가 된 조각모음은 카드당 집중 1이 아니라 2를 준다."
     },
     {
       "deckCard": "Signal Boost",
       "offeredCard": "Coolant",
       "bonus": 2,
-      "reason": "Coolant doubled via Signal Boost gives 4 Block per unique Orb per turn — with 4 orbs, 16 free Block every turn."
+      "reason": "신호 증폭으로 두 배가 된 냉각재는 매 턴 고유 구체당 방어도 4를 준다. 구체 4개면 매 턴 공짜 방어도 16."
     },
     {
       "deckCard": "Coolant",
       "offeredCard": "Signal Boost",
       "bonus": 2,
-      "reason": "Signal Boost doubles the next Power — Coolant doubled means twice the Block per unique Orb passively every turn."
+      "reason": "신호 증폭이 다음 파워를 두 배로 만든다. 냉각재가 두 배가 되면 고유 구체당 방어도가 매 턴 두 배로 들어온다."
     },
     {
       "deckCard": "Signal Boost",
       "offeredCard": "Machine Learning",
       "bonus": 1.8,
-      "reason": "Signal Boost into Machine Learning plays it twice — gaining +2 extra card draws per turn instead of +1."
+      "reason": "신호 증폭에 기계학습을 걸면 두 번 나가서, 턴당 추가 드로우가 +1이 아니라 +2가 된다."
     },
     {
       "deckCard": "Machine Learning",
       "offeredCard": "Signal Boost",
       "bonus": 1.8,
-      "reason": "Machine Learning doubled via Signal Boost gives +2 draw per turn permanently."
+      "reason": "신호 증폭으로 두 배가 된 기계학습은 턴당 드로우 +2를 영구히 준다."
     },
     {
       "deckCard": "Spinner",
       "offeredCard": "Shatter",
       "bonus": 2,
-      "reason": "Spinner generates Glass orbs every turn — Shatter Evokes all Orbs for massive AoE, with Glass Orbs each dealing 8 AoE on Evoke."
+      "reason": "스피너가 매 턴 유리 구체를 만든다. 산산조각이 모든 구체를 발현시켜 대량 광역을 내는데, 유리 구체는 발현마다 광역 8피해다."
     },
     {
       "deckCard": "Shatter",
       "offeredCard": "Spinner",
       "bonus": 2,
-      "reason": "Shatter Evokes all Orbs — Spinner ensures there's always at least 1 Glass Orb active for Shatter to Evoke for 8 AoE."
+      "reason": "산산조각이 모든 구체를 발현시킨다. 스피너가 늘 유리 구체 하나는 깔아둬서 산산조각의 광역 8피해 발현이 보장된다."
     },
     {
       "deckCard": "Spinner",
       "offeredCard": "Coolant",
       "bonus": 1.8,
-      "reason": "Spinner adds Glass as a unique Orb every turn — Coolant gives 2 Block per unique Orb, making Spinner directly add 2 Block per turn to Coolant's output."
+      "reason": "스피너가 매 턴 고유 구체인 유리를 추가한다. 냉각재는 고유 구체당 방어도 2 — 스피너가 냉각재 산출에 턴당 방어도 2를 직접 보탠다."
     },
     {
       "deckCard": "Coolant",
       "offeredCard": "Spinner",
       "bonus": 1.8,
-      "reason": "Coolant scales with unique Orb types — Spinner provides a constant Glass Orb, adding 2 Block per turn to Coolant's passive generation."
+      "reason": "냉각재는 고유 구체 종류 수로 성장한다. 스피너가 유리 구체를 꾸준히 공급해 냉각재의 상시 생산에 턴당 방어도 2를 더한다."
     },
     {
       "deckCard": "Spinner",
       "offeredCard": "Compile Driver",
       "bonus": 1.5,
-      "reason": "Spinner adds Glass as a unique Orb — Compile Driver draws 1 card per unique Orb, gaining +1 draw from Spinner's Glass."
+      "reason": "스피너가 고유 구체인 유리를 추가한다. 컴파일 드라이버는 고유 구체당 1장을 뽑아, 스피너의 유리에서 드로우 +1을 얻는다."
     },
     {
       "deckCard": "Compile Driver",
       "offeredCard": "Spinner",
       "bonus": 1.5,
-      "reason": "Compile Driver draws per unique Orb — Spinner's passive Glass Orb ensures Compile Driver always draws at least 1 extra card."
+      "reason": "컴파일 드라이버가 고유 구체당 드로우한다. 스피너의 상시 유리 구체 덕에 컴파일 드라이버가 늘 1장은 더 뽑는다."
     },
     {
       "deckCard": "Defragment",
