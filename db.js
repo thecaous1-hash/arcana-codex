@@ -13473,901 +13473,901 @@ const DB = {
       "deckCard": "Anticipate",
       "offeredCard": "Footwork",
       "bonus": 1.8,
-      "reason": "Anticipate's 3 temporary Dex stacks on top of Footwork's permanent Dex — every block card this turn gets boosted by both, potentially 15+ extra block in one turn."
+      "reason": "예측의 임시 민첩 3이 발놀림의 영구 민첩 위에 얹힌다. 이번 턴 모든 방어 카드가 둘 다의 혜택을 받아 한 턴에 추가 방어도 15 이상도 나온다."
     },
     {
       "deckCard": "Footwork",
       "offeredCard": "Anticipate",
       "bonus": 1.8,
-      "reason": "Footwork's permanent Dex multiplies Anticipate's burst — combined Dex of 4+ on a turn with multiple block cards is massive."
+      "reason": "발놀림의 영구 민첩이 예측의 순간 폭발을 배가한다. 민첩 합계 4 이상으로 방어 카드를 여러 장 내는 턴은 어마어마하다."
     },
     {
       "deckCard": "Anticipate",
       "offeredCard": "Dodge And Roll",
       "bonus": 1.2,
-      "reason": "Both Dodge and Roll block instances (now and next turn) benefit from Anticipate's Dex this turn."
+      "reason": "구르기의 방어도 두 번(이번 턴과 다음 턴) 모두 이번 턴 예측의 민첩 혜택을 받는다."
     },
     {
       "deckCard": "Backflip",
       "offeredCard": "Footwork",
       "bonus": 1.3,
-      "reason": "Footwork's Dex boosts Backflip's block — with 2 Footwork stacks, Backflip becomes 7 Block plus 2 draws."
+      "reason": "발놀림의 민첩이 공중제비의 방어도를 키운다. 발놀림 2중첩이면 공중제비가 방어도 7에 드로우 2가 된다."
     },
     {
       "deckCard": "Backflip",
       "offeredCard": "Acrobatics",
       "bonus": 1.2,
-      "reason": "Both cycle cards — combined they let you see most of your deck each turn to find Sly payoffs."
+      "reason": "둘 다 카드를 순환시킨다. 같이 쓰면 매 턴 덱 대부분을 훑어 교활 보상 카드를 찾을 수 있다."
     },
     {
       "deckCard": "Backflip",
       "offeredCard": "Noxious Fumes",
       "bonus": 1.2,
-      "reason": "Poison build needs early survival — Backflip provides 5 Block plus 2 draws to find more Poison stackers."
+      "reason": "독 빌드는 초반 생존이 관건이다. 공중제비가 방어도 5와 드로우 2를 줘서 독 쌓을 카드를 더 빨리 찾는다."
     },
     {
       "deckCard": "Dagger Spray",
       "offeredCard": "Envenom",
       "bonus": 2,
-      "reason": "Envenom applies Poison whenever an Attack deals unblocked damage — Dagger Spray hits ALL enemies twice. Each hit per enemy applies Poison = 2 Poison stacks per enemy per cast. Silent's best AoE Poison spreader."
+      "reason": "독 바르기는 공격이 방어도를 뚫을 때마다 독을 부여한다. 단검 분사는 모든 적을 두 번씩 때려 시전마다 적당 독 2중첩. 사일런트 최고의 광역 독 살포기."
     },
     {
       "deckCard": "Envenom",
       "offeredCard": "Dagger Spray",
       "bonus": 2,
-      "reason": "Dagger Spray hits all enemies twice — with Envenom that's 2 Poison stacks per enemy in one card. Best AoE Poison application available."
+      "reason": "단검 분사가 모든 적을 두 번씩 때린다. 독 바르기와 함께면 카드 한 장으로 적마다 독 2중첩. 최고의 광역 독 부여 수단."
     },
     {
       "deckCard": "Dodge And Roll",
       "offeredCard": "Footwork",
       "bonus": 1.8,
-      "reason": "Footwork's Dex boosts BOTH of Dodge and Roll's block instances — the now and next-turn block both get Dex bonus. Multiple sources call this the top Footwork combo."
+      "reason": "발놀림의 민첩이 구르기의 방어도 두 번(이번 턴·다음 턴) 모두를 키운다. 여러 공략이 꼽는 발놀림 최고의 짝."
     },
     {
       "deckCard": "Footwork",
       "offeredCard": "Dodge And Roll",
       "bonus": 1.8,
-      "reason": "Dodge and Roll gives 8 total block across 2 turns — both procs benefit from Footwork's permanent Dex. Extremely efficient with Footwork active."
+      "reason": "구르기가 두 턴에 걸쳐 총 방어도 8을 주는데, 두 번 모두 발놀림의 영구 민첩 혜택을 받는다. 발놀림이 켜져 있으면 극도로 효율적."
     },
     {
       "deckCard": "Dodge And Roll",
       "offeredCard": "Blur",
       "bonus": 1.5,
-      "reason": "Blur retains block — next-turn Dodge and Roll block stacks with Blur's retained block for massive accumulated defense."
+      "reason": "흐릿함이 방어도를 유지한다. 다음 턴의 구르기 방어도가 흐릿함의 유지 방어도와 겹쳐 누적 방어가 크게 쌓인다."
     },
     {
       "deckCard": "Dodge And Roll",
       "offeredCard": "Afterimage",
       "bonus": 1.2,
-      "reason": "Playing Dodge and Roll triggers After Image once, then the delayed next-turn block triggers again passively — 2 After Image procs plus 8 block from 1 card."
+      "reason": "구르기를 낼 때 잔상이 한 번 발동하고, 다음 턴의 지연 방어도에서 또 한 번 발동한다. 카드 한 장으로 잔상 2회에 방어도 8."
     },
     {
       "deckCard": "Leading Strike",
       "offeredCard": "Accuracy",
       "bonus": 2,
-      "reason": "Leading Strike generates a Shiv — that Shiv immediately benefits from Accuracy's +4 damage. With 2 Accuracy copies the generated Shiv hits for 12 damage."
+      "reason": "선제 타격이 단도를 만들고, 그 단도가 즉시 정밀의 피해 +4를 받는다. 정밀 2장이면 만들어진 단도가 12피해로 때린다."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Leading Strike",
       "bonus": 2,
-      "reason": "Leading Strike generates a Shiv that gets full Accuracy bonus — consistent Accuracy-boosted Shiv generation every turn."
+      "reason": "선제 타격이 만드는 단도가 정밀 보너스를 온전히 받는다. 매 턴 꾸준한 정밀 강화 단도 수급."
     },
     {
       "deckCard": "Leading Strike",
       "offeredCard": "Finisher",
       "bonus": 1.8,
-      "reason": "Leading Strike + the generated Shiv + Finisher = 3 attacks this turn. Finisher hits for 3x its base damage in sequence."
+      "reason": "선제 타격 + 만들어진 단도 + 마무리 = 이번 턴 공격 3회. 마무리가 기본 피해의 3배로 이어서 때린다."
     },
     {
       "deckCard": "Leading Strike",
       "offeredCard": "Afterimage",
       "bonus": 1.5,
-      "reason": "Leading Strike then playing the generated Shiv = 2 cards played = 2 After Image block procs for free."
+      "reason": "선제 타격을 내고 만들어진 단도까지 내면 카드 2장 사용 — 잔상의 방어도가 공짜로 2번 발동한다."
     },
     {
       "deckCard": "Leading Strike",
       "offeredCard": "Envenom",
       "bonus": 1.5,
-      "reason": "Leading Strike is an attack — Envenom poisons on it. The generated Shiv also triggers Envenom when played. 2 Poison stacks from one card."
+      "reason": "선제 타격은 공격이라 독 바르기가 독을 묻힌다. 만들어진 단도도 낼 때 독 바르기를 발동시킨다. 카드 한 장에서 독 2중첩."
     },
     {
       "deckCard": "Escape Plan",
       "offeredCard": "Well-Laid Plans",
       "bonus": 1.5,
-      "reason": "Well-Laid Plans retains cards — hold Escape Plan for turns when you need both block and draw, then play for guaranteed block since retained card is likely a Skill."
+      "reason": "괜찮은 전략이 카드를 보존한다. 탈출구를 방어도와 드로우가 둘 다 필요한 턴까지 들고 있다가 내면, 보존된 카드가 스킬일 확률이 높아 방어도가 사실상 보장된다."
     },
     {
       "deckCard": "Escape Plan",
       "offeredCard": "Master Planner",
       "bonus": 1.8,
-      "reason": "Master Planner makes all Skills Sly — Escape Plan draws a Skill that with Master Planner active also has Sly. Block plus a free Sly trigger from one card."
+      "reason": "설계의 대가가 모든 스킬에 교활을 부여한다. 탈출구가 뽑은 스킬에도 교활이 붙어 있다. 카드 한 장으로 방어도와 공짜 교활 발동."
     },
     {
       "deckCard": "Escape Plan",
       "offeredCard": "Expertise",
       "bonus": 1.5,
-      "reason": "Expertise fills hand with cards — with more Skills in deck, Escape Plan reliably draws a Skill for the block bonus."
+      "reason": "전문성이 손패를 채워준다. 덱에 스킬이 많을수록 탈출구가 스킬을 뽑아 방어도 보너스를 확실히 챙긴다."
     },
     {
       "deckCard": "Expose",
       "offeredCard": "Finisher",
       "bonus": 2,
-      "reason": "Expose applies 2 Vulnerable then Exhaust — follow with Finisher for 50%+ more damage per hit multiplied by attacks played. Strips Artifact first so Vulnerable actually applies."
+      "reason": "들춰내기가 취약 2를 부여하고 소멸한다. 이어서 마무리를 내면 공격 수만큼 곱해지는 피해가 타격당 50% 이상 커진다. 인공물을 먼저 벗겨내 취약이 실제로 박히게도 해준다."
     },
     {
       "deckCard": "Expose",
       "offeredCard": "Dagger Throw",
       "bonus": 1.5,
-      "reason": "Expose Vulnerables the enemy — Dagger Throw hits a Vulnerable target for 50% more damage. Natural 2-card combo."
+      "reason": "들춰내기가 적에게 취약을 건다. 단검 투척이 취약 대상에게 50% 더 아프게 박힌다. 자연스러운 2카드 콤보."
     },
     {
       "deckCard": "Flechettes",
       "offeredCard": "Well-Laid Plans",
       "bonus": 1.5,
-      "reason": "Well-Laid Plans retains Skills between turns — carry Skills over from last turn so you start the next with more Skills in hand for a bigger Flechettes hit."
+      "reason": "괜찮은 전략이 스킬을 다음 턴으로 보존한다. 지난 턴 스킬을 들고 시작하면 손패 스킬 수가 늘어 프레췌 한 방이 커진다."
     },
     {
       "deckCard": "Flechettes",
       "offeredCard": "Expertise",
       "bonus": 1.8,
-      "reason": "Expertise fills your hand with cards drawn until 6 — with a Skill-heavy deck that's 4-5 Skills in hand for 20-25 Flechettes damage immediately after."
+      "reason": "전문성이 손패가 6장이 될 때까지 뽑는다. 스킬 위주 덱이면 손에 스킬 4~5장 — 직후 프레췌가 20~25피해를 낸다."
     },
     {
       "deckCard": "Flechettes",
       "offeredCard": "Burst",
       "bonus": 1.8,
-      "reason": "Burst makes next Skill play twice — Flechettes is a Skill. Play Burst then Flechettes for double Flechettes damage in one turn."
+      "reason": "폭주가 다음 스킬을 두 번 사용하게 한다. 프레췌는 스킬이다. 폭주 후 프레췌로 한 턴에 프레췌 피해 두 배."
     },
     {
       "deckCard": "Sucker Punch",
       "offeredCard": "Malaise",
       "bonus": 1.3,
-      "reason": "Both apply Weak — stacking Weak sources reduces enemy damage consistently. Sucker Punch on top of Malaise Weak application deepens the debuff package."
+      "reason": "둘 다 약화를 부여한다. 약화 공급원을 겹치면 적의 피해가 꾸준히 줄어든다. 불쾌 위에 불의의 일격을 얹어 디버프를 깊게 쌓는다."
     },
     {
       "deckCard": "Sucker Punch",
       "offeredCard": "Leg Sweep",
       "bonus": 1.2,
-      "reason": "Both apply Weak — Sucker Punch on attack and Leg Sweep on block means every turn adds Weak stacks while also progressing offense and defense."
+      "reason": "둘 다 약화를 부여한다. 불의의 일격은 공격하며, 다리 걸기는 막으며 — 공수 진행과 함께 매 턴 약화가 쌓인다."
     },
     {
       "deckCard": "Escape Plan",
       "offeredCard": "Tools Of The Trade",
       "bonus": 1.5,
-      "reason": "Tools of the Trade cycles each turn drawing cards — in a skill-heavy deck Escape Plan's conditional block triggers consistently. Both feed the cycling engine."
+      "reason": "작업 도구가 매 턴 순환시키며 카드를 뽑는다. 스킬 위주 덱에서 탈출구의 조건부 방어도가 꾸준히 터진다. 둘 다 순환 엔진에 연료를 댄다."
     },
     {
       "deckCard": "Escape Plan",
       "offeredCard": "Acrobatics",
       "bonus": 1.2,
-      "reason": "Both cycle cards — Escape Plan draws 1 conditional, Acrobatics draws 3. Together they let you see most of your deck each turn finding Sly payoffs."
+      "reason": "둘 다 카드를 순환시킨다. 탈출구는 조건부 1장, 곡예는 3장. 같이 쓰면 매 턴 덱 대부분을 훑어 교활 보상을 찾는다."
     },
     {
       "deckCard": "Expose",
       "offeredCard": "Noxious Fumes",
       "bonus": 1.8,
-      "reason": "Artifact blocks all Poison application — Expose removes Artifact enabling Noxious Fumes to stack freely. Critical combo against Artifact enemies."
+      "reason": "인공물은 독 부여를 전부 막는다. 들춰내기가 인공물을 제거해 유독 가스가 자유롭게 쌓이게 한다. 인공물 적 상대의 핵심 콤보."
     },
     {
       "deckCard": "Expose",
       "offeredCard": "Envenom",
       "bonus": 1.8,
-      "reason": "Envenom applies Poison on attacks but Artifact blocks it — Expose removes Artifact then every subsequent attack freely applies Poison."
+      "reason": "독 바르기의 공격 시 독 부여를 인공물이 막는다. 들춰내기로 인공물을 제거하면 이후 모든 공격이 자유롭게 독을 묻힌다."
     },
     {
       "deckCard": "Well-Laid Plans",
       "offeredCard": "Flechettes",
       "bonus": 2,
-      "reason": "Retaining Skills inflates hand Skill count — Flechettes deals 5 damage per Skill in hand. Retain 3 Skills and Flechettes deals 15+ bonus damage before the hand you play this turn."
+      "reason": "스킬을 보존하면 손패 스킬 수가 불어난다. 프레췌는 손패 스킬당 5피해 — 3장을 보존하면 이번 턴 내는 손패에 더해 15 이상의 보너스 피해가 붙는다."
     },
     {
       "deckCard": "Flechettes",
       "offeredCard": "Acrobatics",
       "bonus": 1.5,
-      "reason": "Acrobatics draws 3 cards — more draws means more Skills in hand when Flechettes fires. Play Acrobatics to load up then Flechettes to cash out."
+      "reason": "곡예가 3장을 뽑는다. 드로우가 많을수록 프레췌가 터질 때 손패 스킬이 많다. 곡예로 채우고 프레췌로 현금화한다."
     },
     {
       "deckCard": "Dodge And Roll",
       "offeredCard": "Well-Laid Plans",
       "bonus": 1.3,
-      "reason": "Well-Laid Plans can retain Dodge and Roll — play it when it will hit both blocks across optimal turns."
+      "reason": "괜찮은 전략이 구르기를 보존할 수 있다. 두 번의 방어도가 모두 알맞은 턴에 들어가도록 골라서 낸다."
     },
     {
       "deckCard": "Anticipate",
       "offeredCard": "Afterimage",
       "bonus": 1.2,
-      "reason": "After Image gives 1 Block per card played — with Anticipate's 3 Dex active each After Image proc gives +3 block. Spam cheap cards for stacked block generation."
+      "reason": "잔상은 카드 사용마다 방어도 1을 준다. 예측의 민첩 3이 켜져 있으면 잔상 발동마다 +3 방어도. 싼 카드를 난사해 방어도를 쌓는다."
     },
     {
       "deckCard": "Slice",
       "offeredCard": "Afterimage",
       "bonus": 1.2,
-      "reason": "Slice costs 0 — plays for free triggering After Image's 1 Block per card. In Sly builds Slice can fire multiple times for free."
+      "reason": "칼질은 0코스트라 공짜로 나가며 잔상의 카드당 방어도 1을 발동시킨다. 교활 빌드에서는 칼질이 공짜로 여러 번 나갈 수 있다."
     },
     {
       "deckCard": "Sucker Punch",
       "offeredCard": "Finisher",
       "bonus": 1.2,
-      "reason": "Sucker Punch applies Weak reducing enemy damage, then Finisher's damage is boosted by the attack count including Sucker Punch."
+      "reason": "불의의 일격이 약화를 걸어 적의 피해를 줄이고, 마무리의 피해는 불의의 일격을 포함한 공격 수만큼 커진다."
     },
     {
       "deckCard": "Abrasive",
       "offeredCard": "Tools Of The Trade",
       "bonus": 2,
-      "reason": "Tools of the Trade discards 1 each turn — if Abrasive is discarded via Sly, gain +1 permanent Dex and +4 Thorns every single turn passively. Infinite scaling."
+      "reason": "작업 도구가 매 턴 1장을 버린다. 연마가 교활로 버려지면 매 턴 알아서 영구 민첩 +1과 가시 +4 — 무한히 성장한다."
     },
     {
       "deckCard": "Abrasive",
       "offeredCard": "Calculated Gamble",
       "bonus": 1.5,
-      "reason": "Calculated Gamble discards entire hand — if Abrasive is there, it fires for free. Multiple Abrasive copies in hand = multiple permanent Dex stacks in one turn."
+      "reason": "계산된 도박이 손패 전체를 버린다. 연마가 있으면 공짜로 발동한다. 손에 연마가 여러 장이면 한 턴에 영구 민첩이 여러 중첩 쌓인다."
     },
     {
       "deckCard": "Afterimage",
       "offeredCard": "Blade Dance",
       "bonus": 2,
-      "reason": "Blade Dance generates 3 Shivs — play Blade Dance (1 proc) then 3 Shivs (3 procs) = 4 Afterimage block from one card sequence."
+      "reason": "검무가 단도 3장을 만든다. 검무(1회) + 단도 3장(3회) = 카드 한 장의 연쇄로 잔상 방어도 4."
     },
     {
       "deckCard": "Afterimage",
       "offeredCard": "Storm Of Steel",
       "bonus": 2,
-      "reason": "Storm of Steel discards hand generating Shivs equal to hand size — each Sly trigger and each Shiv played procs Afterimage. Massive block generation."
+      "reason": "강철의 폭풍이 손패를 버리고 손패 크기만큼 단도를 만든다. 교활 발동 하나하나와 단도 사용 하나하나가 잔상을 발동시킨다. 어마어마한 방어도 생산."
     },
     {
       "deckCard": "Afterimage",
       "offeredCard": "Master Planner",
       "bonus": 1.8,
-      "reason": "Master Planner enables playing many cards via Sly — each card played procs Afterimage. A full Sly turn with 8 cards = 8 free Block."
+      "reason": "설계의 대가가 교활로 많은 카드를 내게 해주고, 카드 사용마다 잔상이 발동한다. 8장짜리 풀 교활 턴이면 공짜 방어도 8."
     },
     {
       "deckCard": "Bullet Time",
       "offeredCard": "Well-Laid Plans",
       "bonus": 2,
-      "reason": "Well-Laid Plans retains cards between turns — build up a big hand of Sly cards then play Bullet Time to play everything for free. Pre-loads the hand for maximum Bullet Time value."
+      "reason": "괜찮은 전략이 카드를 다음 턴으로 보존한다. 교활 카드를 잔뜩 모아둔 뒤 불릿 타임으로 전부 공짜로 낸다. 불릿 타임의 가치를 최대로 미리 채워두는 셈."
     },
     {
       "deckCard": "Bullet Time",
       "offeredCard": "Finisher",
       "bonus": 1.8,
-      "reason": "Bullet Time makes all cards free — spam attacks then Finisher for massive per-attack damage. The more free attacks played the bigger Finisher hits."
+      "reason": "불릿 타임이 모든 카드를 공짜로 만든다. 공격을 난사한 뒤 마무리를 내면 공격당 피해가 어마어마하다. 공짜 공격이 많을수록 마무리가 커진다."
     },
     {
       "deckCard": "Bullet Time",
       "offeredCard": "Flechettes",
       "bonus": 1.8,
-      "reason": "Bullet Time makes all Skills free — hold a hand full of Skills, play Bullet Time, then Flechettes for huge damage equal to 5x all Skills in hand."
+      "reason": "불릿 타임이 모든 스킬을 공짜로 만든다. 스킬 가득한 손패를 들고 불릿 타임, 그리고 프레췌 — 손패 스킬 수 × 5의 대형 피해."
     },
     {
       "deckCard": "Corrosive Wave",
       "offeredCard": "Acrobatics",
       "bonus": 2,
-      "reason": "Acrobatics draws 3 cards — with Corrosive Wave active that's 9 Poison to ALL enemies from one card. Stack both for instant massive Poison application."
+      "reason": "곡예가 3장을 뽑는다. 부식성 파도가 켜져 있으면 카드 한 장으로 모든 적에게 독 9. 둘을 겹치면 즉석에서 대량 독 부여."
     },
     {
       "deckCard": "Corrosive Wave",
       "offeredCard": "Expertise",
       "bonus": 2,
-      "reason": "Expertise draws until hand has 6 — if you had 2 cards, 4 draws = 12 Poison to all enemies just from playing Expertise with Corrosive Wave active."
+      "reason": "전문성이 손패 6장까지 뽑는다. 2장에서 시작하면 4장 드로우 — 부식성 파도가 켜진 상태에서 전문성 한 장으로 모든 적에게 독 12."
     },
     {
       "deckCard": "Corrosive Wave",
       "offeredCard": "Calculated Gamble",
       "bonus": 1.8,
-      "reason": "Calculated Gamble draws equal to discarded — with Corrosive Wave each draw applies 3 AoE Poison. Discard 5, draw 5 = 15 Poison to all enemies."
+      "reason": "계산된 도박이 버린 만큼 뽑는다. 부식성 파도가 있으면 드로우마다 광역 독 3 — 5장 버리고 5장 뽑으면 모든 적에게 독 15."
     },
     {
       "deckCard": "Corrosive Wave",
       "offeredCard": "Noxious Fumes",
       "bonus": 1.5,
-      "reason": "Both apply AoE Poison — Corrosive Wave on draws, Noxious Fumes passively each turn. Together they stack Poison on all enemies extremely fast."
+      "reason": "둘 다 광역 독을 뿌린다. 부식성 파도는 드로우마다, 유독 가스는 턴마다. 같이 쓰면 모든 적에게 독이 매우 빠르게 쌓인다."
     },
     {
       "deckCard": "Malaise",
       "offeredCard": "Tracking",
       "bonus": 2.5,
-      "reason": "Malaise applies Weak — Tracking makes Weak enemies take double damage from all attacks. Malaise + Tracking = every attack does 2x damage for the rest of combat."
+      "reason": "불쾌가 약화를 부여하고, 추적이 약화 상태의 적이 받는 공격 피해를 두 배로 만든다. 불쾌 + 추적 = 남은 전투 내내 모든 공격이 2배."
     },
     {
       "deckCard": "Tracking",
       "offeredCard": "Malaise",
       "bonus": 2.5,
-      "reason": "Tracking doubles damage on Weak enemies — Malaise applies X Weak AND removes X Strength. Maximum debuff setup for Tracking's double damage payoff."
+      "reason": "추적이 약화 상태의 적에게 피해를 두 배로 만든다. 불쾌는 약화 X를 부여하면서 힘도 X 깎는다. 추적의 2배 보상을 위한 최상급 디버프 세팅."
     },
     {
       "deckCard": "Malaise",
       "offeredCard": "Finisher",
       "bonus": 1.8,
-      "reason": "Malaise weakens enemy — Finisher hits a Weakened target for 50% more damage per attack. The more attacks played, the bigger the Malaise+Finisher combo."
+      "reason": "불쾌가 적을 약화시키고, 마무리가 약화된 대상에게 공격당 50% 더 아프게 박힌다. 공격을 많이 낼수록 불쾌+마무리 콤보가 커진다."
     },
     {
       "deckCard": "Malaise",
       "offeredCard": "Piercing Wail",
       "bonus": 1.5,
-      "reason": "Both reduce Strength to all enemies — Malaise single target deep Weak, Piercing Wail AoE Strength reduction. Stack both for maximum damage amplification."
+      "reason": "둘 다 적의 힘을 깎는다. 불쾌는 단일 대상 깊은 약화, 귀를 찢는 비명은 광역 힘 감소. 겹치면 피해 증폭이 최대가 된다."
     },
     {
       "deckCard": "Murder",
       "offeredCard": "Acrobatics",
       "bonus": 1.8,
-      "reason": "Acrobatics draws 3 every play — more draws means more Murder stacks. By mid-fight Murder hits for 30+ damage with consistent drawing."
+      "reason": "곡예가 쓸 때마다 3장을 뽑는다. 드로우가 많을수록 살해가 쌓인다. 전투 중반이면 꾸준한 드로우로 살해가 30 이상 피해를 낸다."
     },
     {
       "deckCard": "Murder",
       "offeredCard": "Tools Of The Trade",
       "bonus": 1.5,
-      "reason": "Tools of the Trade draws 1 every turn — constant draw stacking Murder's per-draw damage throughout the run."
+      "reason": "작업 도구가 매 턴 1장을 뽑는다. 끊임없는 드로우가 살해의 드로우당 피해를 전투 내내 쌓아 올린다."
     },
     {
       "deckCard": "Murder",
       "offeredCard": "Expertise",
       "bonus": 1.8,
-      "reason": "Expertise draws up to 6 — each Expertise play adds multiple draws to Murder's damage counter. Late game Murder + Expertise is devastating."
+      "reason": "전문성이 6장까지 뽑는다. 전문성 한 번에 살해의 피해 계수가 여러 번 쌓인다. 후반의 살해 + 전문성은 파괴적이다."
     },
     {
       "deckCard": "Serpent Form",
       "offeredCard": "Blade Dance",
       "bonus": 1.5,
-      "reason": "Blade Dance generates 3 Shivs — play Blade Dance (1 proc) then 3 Shivs (3 procs) = 4 Serpent Form pings of 4 damage each = 16 passive damage."
+      "reason": "검무가 단도 3장을 만든다. 검무(1회) + 단도 3장(3회) = 구렁이의 형상이 4피해씩 4번, 총 16의 공짜 피해."
     },
     {
       "deckCard": "Serpent Form",
       "offeredCard": "Master Planner",
       "bonus": 1.8,
-      "reason": "Master Planner enables playing many cards via Sly — each card played pings for 4 damage from Serpent Form. A full 8-card Sly turn = 32 passive damage."
+      "reason": "설계의 대가가 교활로 많은 카드를 내게 해주고, 카드 사용마다 구렁이의 형상이 4피해를 쏜다. 8장짜리 풀 교활 턴이면 공짜 32피해."
     },
     {
       "deckCard": "Serpent Form",
       "offeredCard": "Afterimage",
       "bonus": 1.5,
-      "reason": "Both trigger per card played — Serpent Form deals 4 damage and Afterimage gives 1 Block per play. Stack both for simultaneous offense and defense scaling."
+      "reason": "둘 다 카드 사용마다 발동한다. 구렁이의 형상은 4피해, 잔상은 방어도 1. 겹치면 공수가 동시에 성장한다."
     },
     {
       "deckCard": "Shadow Step",
       "offeredCard": "Reflex",
       "bonus": 1.8,
-      "reason": "Shadow Step discards hand — if Reflex is in hand it fires for free drawing 2 cards. Triggers Sly chains AND sets up double damage attacks next turn."
+      "reason": "그림자 걸음이 손패를 버린다. 손에 반사신경이 있으면 공짜로 발동해 2장을 뽑는다. 교활 연쇄를 터뜨리면서 다음 턴 공격 2배 세팅까지."
     },
     {
       "deckCard": "Shadow Step",
       "offeredCard": "Tactician",
       "bonus": 1.8,
-      "reason": "Shadow Step discards hand — Tactician fires for free giving 1 energy. Sly energy gain plus double attack damage next turn setup."
+      "reason": "그림자 걸음이 손패를 버려 전략가가 공짜로 발동, 에너지 1을 준다. 교활 에너지 수급에 다음 턴 공격 2배 세팅까지."
     },
     {
       "deckCard": "Shadow Step",
       "offeredCard": "Finisher",
       "bonus": 2,
-      "reason": "Shadow Step doubles attacks next turn — Finisher hits for per-attack damage. With double damage active Finisher's damage is doubled on top of its scaling."
+      "reason": "그림자 걸음이 다음 턴 공격을 2배로 만든다. 마무리는 공격 수당 피해를 주는데, 2배가 켜진 상태면 성장분 위에 피해가 또 2배로 얹힌다."
     },
     {
       "deckCard": "Storm Of Steel",
       "offeredCard": "Accuracy",
       "bonus": 2.5,
-      "reason": "Storm of Steel generates Shivs equal to hand size — with Accuracy every Shiv hits for 8+ damage. A 6-card hand = 6 boosted Shivs in one play."
+      "reason": "강철의 폭풍이 손패 크기만큼 단도를 만든다. 정밀이 있으면 단도 하나하나가 8 이상 피해. 6장 손패면 한 번에 강화 단도 6장."
     },
     {
       "deckCard": "Storm Of Steel",
       "offeredCard": "Reflex",
       "bonus": 1.8,
-      "reason": "Storm of Steel discards hand — Reflex fires for free drawing 2 cards. Replenish hand after dumping it, then play the generated Shivs."
+      "reason": "강철의 폭풍이 손패를 버려 반사신경이 공짜로 발동, 2장을 뽑는다. 손패를 쏟은 뒤 다시 채워서 만들어진 단도들을 낸다."
     },
     {
       "deckCard": "Tracking",
       "offeredCard": "Leg Sweep",
       "bonus": 1.8,
-      "reason": "Leg Sweep applies Weak while blocking — with Tracking active it also doubles all attack damage going forward. Defensive play with offensive multiplier payoff."
+      "reason": "다리 걸기가 막으면서 약화를 건다. 추적이 켜져 있으면 이후 모든 공격 피해가 2배가 된다. 수비 플레이에 공격 배율 보상이 붙는다."
     },
     {
       "deckCard": "Tracking",
       "offeredCard": "Suppress",
       "bonus": 2,
-      "reason": "Suppress is Innate applying 3 Weak turn 1 — Tracking is already active turn 1 making Suppress's 3 Weak immediately enable double damage from the opening hand."
+      "reason": "진압은 선천성이라 1턴에 약화 3을 건다. 추적이 1턴부터 이미 작동해, 시작 손패부터 즉시 2배 피해가 켜진다."
     },
     {
       "deckCard": "Suppress",
       "offeredCard": "Tracking",
       "bonus": 2,
-      "reason": "Suppress applies 3 Weak on turn 1 (Innate) — with Tracking in play that immediately means double damage from all attacks for the whole fight from the start."
+      "reason": "진압이 1턴에(선천성) 약화 3을 건다. 추적이 깔려 있으면 전투 시작부터 끝까지 모든 공격이 즉시 2배가 된다."
     },
     {
       "deckCard": "Suppress",
       "offeredCard": "Finisher",
       "bonus": 1.5,
-      "reason": "Suppress applies 3 Weak — Finisher on a Weakened enemy deals 50% more damage per attack. Innate Weak setup into Finisher payoff."
+      "reason": "진압이 약화 3을 건다. 마무리가 약화된 적에게 공격당 50% 더 아프게 박힌다. 선천성 약화 세팅에서 마무리 보상으로."
     },
     {
       "deckCard": "Wraith Form",
       "offeredCard": "Nightmare",
       "bonus": 2,
-      "reason": "Nightmare creates 3 copies of a card — triple Wraith Form means 6 turns of Intangible back to back. Near-infinite immunity window while Dex loss is manageable."
+      "reason": "악몽이 카드 사본 3장을 만든다. 유령의 형상 세 장이면 무형이 연속 6턴. 민첩 손실을 감당할 만한 수준에서 거의 무한 면역 구간이 열린다."
     },
     {
       "deckCard": "Wraith Form",
       "offeredCard": "Footwork",
       "bonus": 1.5,
-      "reason": "Wraith Form loses 1 Dex per turn start — Footwork's permanent Dex gain partially offsets the loss, extending the window before block degrades significantly."
+      "reason": "유령의 형상이 턴 시작마다 민첩을 1 잃게 한다. 발놀림의 영구 민첩이 손실을 일부 상쇄해 방어도가 무너지기까지의 시간을 늘려준다."
     },
     {
       "deckCard": "Piercing Wail",
       "offeredCard": "Noxious Fumes",
       "bonus": 1.5,
-      "reason": "Piercing Wail removes 6 Strength from all enemies this turn — while Noxious Fumes stacks Poison. Reduces incoming damage while Poison slowly kills. Strong defensive + offensive combo."
+      "reason": "귀를 찢는 비명이 이번 턴 모든 적의 힘을 6 깎고, 그동안 유독 가스가 독을 쌓는다. 받는 피해를 줄이면서 독이 서서히 잡는다. 공수 겸장 콤보."
     },
     {
       "deckCard": "Piercing Wail",
       "offeredCard": "Blur",
       "bonus": 1.3,
-      "reason": "Piercing Wail cuts enemy damage by 6 this turn — combine with Blur's block for a near-zero damage turn against most enemies."
+      "reason": "귀를 찢는 비명이 이번 턴 적의 피해를 6 줄인다. 흐릿함의 방어도와 합치면 대부분의 적에게 피해를 거의 0으로 만드는 턴이 나온다."
     },
     {
       "deckCard": "Follow Through",
       "offeredCard": "Tracking",
       "bonus": 2,
-      "reason": "Follow Through applies 1 Weak to ALL enemies if last card was a Skill — Tracking makes Weak enemies take double damage. Natural combo: play a Skill, Follow Through for AoE Weak, all future attacks deal double."
+      "reason": "끝까지 밀어붙이기는 직전 카드가 스킬이면 모든 적에게 약화 1을 건다. 추적이 약화 상태의 적 피해를 2배로 만든다. 스킬 → 끝까지 밀어붙이기로 광역 약화, 이후 모든 공격이 2배."
     },
     {
       "deckCard": "Tracking",
       "offeredCard": "Follow Through",
       "bonus": 2,
-      "reason": "Tracking doubles damage on Weak enemies — Follow Through applies AoE Weak if preceded by a Skill. Consistent AoE Weak application feeding Tracking's double damage multiplier."
+      "reason": "추적이 약화 상태의 적에게 2배 피해를 준다. 끝까지 밀어붙이기가 스킬 뒤에 내면 광역 약화를 건다. 추적의 2배 배율에 꾸준히 광역 약화를 공급한다."
     },
     {
       "deckCard": "Assassinate",
       "offeredCard": "Finisher",
       "bonus": 1.8,
-      "reason": "Assassinate is Innate — turn 1 it applies Vulnerable before Finisher. Every attack in the Finisher chain hits the Vulnerabled target for 50% more damage from the very first turn."
+      "reason": "암살은 선천성이라 1턴부터 마무리 전에 취약을 걸어준다. 첫 턴부터 마무리 연계의 모든 공격이 취약 대상에게 50% 더 아프게 박힌다."
     },
     {
       "deckCard": "Assassinate",
       "offeredCard": "Pinpoint",
       "bonus": 1.5,
-      "reason": "Assassinate applies Vulnerable early — Pinpoint's 17 damage on a Vulnerable target deals 25+ damage. Both exhaust so no deck clutter."
+      "reason": "암살이 초반에 취약을 건다. 정밀 사격의 17피해가 취약 대상에겐 25 이상이 된다. 둘 다 소멸이라 덱도 안 무거워진다."
     },
     {
       "deckCard": "Shadowmeld",
       "offeredCard": "Footwork",
       "bonus": 2,
-      "reason": "Shadowmeld doubles all Block gained this turn — Footwork's Dex makes every block card give more block. With 3 Dex and Shadowmeld, each block card's value is dramatically multiplied."
+      "reason": "그림자 은신이 이번 턴 얻는 모든 방어도를 2배로 만든다. 발놀림의 민첩이 방어 카드마다 방어도를 더 얹는다. 민첩 3에 그림자 은신이면 방어 카드 가치가 극적으로 배가된다."
     },
     {
       "deckCard": "Shadowmeld",
       "offeredCard": "Dodge And Roll",
       "bonus": 1.8,
-      "reason": "Shadowmeld doubles Block gain this turn — Dodge and Roll normally gives 4 Block, with Shadowmeld that's 8 Block now plus another doubled 8 Block next turn."
+      "reason": "그림자 은신이 이번 턴 방어도 획득을 2배로 만든다. 구르기는 원래 방어도 4인데 8이 되고, 다음 턴에도 2배가 된 8이 또 들어온다."
     },
     {
       "deckCard": "Shadowmeld",
       "offeredCard": "Blur",
       "bonus": 1.5,
-      "reason": "Shadowmeld doubles Blur's retained block — instead of 5 retained block, you retain 10. Carry doubled block into next turn."
+      "reason": "그림자 은신이 흐릿함의 유지 방어도를 2배로 만든다. 5가 아니라 10을 유지해 다음 턴으로 넘긴다."
     },
     {
       "deckCard": "The Hunt",
       "offeredCard": "Finisher",
       "bonus": 1.5,
-      "reason": "The Hunt kills a weak enemy granting extra card reward — then Finisher cleans up the rest with damage per attack already played this turn."
+      "reason": "사냥이 약한 적을 처치해 추가 카드 보상을 얻고, 마무리가 이번 턴 이미 낸 공격 수만큼의 피해로 나머지를 정리한다."
     },
     {
       "deckCard": "The Hunt",
       "offeredCard": "Blade Dance",
       "bonus": 1.3,
-      "reason": "The Hunt kills a target then Exhausts — Blade Dance generates Shivs to finish remaining enemies with the bonus card reward lined up."
+      "reason": "사냥이 하나를 잡고 소멸한다. 검무가 단도를 만들어 남은 적을 정리하고, 보너스 카드 보상이 기다린다."
     },
     {
       "deckCard": "Dagger Throw",
       "offeredCard": "Reflex",
       "bonus": 1.8,
-      "reason": "Dagger Throw draws 1 then discards 1 — if Reflex is discarded it fires for free drawing 2 more cards. Damage + net card draw + Sly chain in one play."
+      "reason": "단검 투척이 1장 뽑고 1장 버린다. 반사신경이 버려지면 공짜로 발동해 2장을 더 뽑는다. 피해 + 순드로우 + 교활 연쇄를 한 번에."
     },
     {
       "deckCard": "Dagger Throw",
       "offeredCard": "Tactician",
       "bonus": 1.8,
-      "reason": "Dagger Throw's discard triggers Tactician for free — 9 damage plus draw plus free 1 energy. Efficient Sly enabler attack."
+      "reason": "단검 투척의 버리기가 전략가를 공짜로 발동시킨다. 9피해에 드로우, 공짜 에너지 1까지. 효율 좋은 교활 시동 공격."
     },
     {
       "deckCard": "Pounce",
       "offeredCard": "Noxious Fumes",
       "bonus": 1.8,
-      "reason": "Pounce makes next Skill cost 0 — Noxious Fumes costs 2. Pounce + free Noxious Fumes = 3-cost Poison engine setup for 1 energy total."
+      "reason": "덮치기가 다음 스킬을 0코스트로 만든다. 유독 가스는 2코스트 — 덮치기 + 공짜 유독 가스로 총 1에너지에 3코스트어치 독 엔진이 깔린다."
     },
     {
       "deckCard": "Pounce",
       "offeredCard": "Burst",
       "bonus": 2,
-      "reason": "Pounce makes next Skill free — Burst is 1 cost. Pounce + free Burst = your next Skill plays twice for 0 energy. Game-changing combo enabler."
+      "reason": "덮치기가 다음 스킬을 공짜로 만든다. 폭주는 1코스트 — 덮치기 + 공짜 폭주면 0에너지로 다음 스킬이 두 번 나간다. 판을 바꾸는 콤보 시동기."
     },
     {
       "deckCard": "Memento Mori",
       "offeredCard": "Calculated Gamble",
       "bonus": 2,
-      "reason": "Calculated Gamble discards entire hand — play Memento Mori after for 8 + 4 per card discarded. With 6 discards that's 32 damage for 1 energy."
+      "reason": "계산된 도박이 손패 전체를 버린다. 직후 메멘토 모리를 내면 8 + 버린 카드당 4. 6장을 버렸다면 1에너지에 32피해."
     },
     {
       "deckCard": "Outbreak",
       "offeredCard": "Noxious Fumes",
       "bonus": 2,
-      "reason": "Noxious Fumes applies 2 Poison to ALL enemies each turn — Outbreak fires 11 AoE every 3 Poison applications. Noxious Fumes alone triggers Outbreak consistently across multi-enemy rooms."
+      "reason": "유독 가스가 매 턴 모든 적에게 독 2를 뿌린다. 발병은 독 부여 3회마다 광역 11피해를 쏜다. 다수전에서는 유독 가스만으로도 발병이 꾸준히 터진다."
     },
     {
       "deckCard": "Outbreak",
       "offeredCard": "Envenom",
       "bonus": 1.8,
-      "reason": "Envenom applies Poison whenever an Attack deals unblocked damage — with multiple attacks per turn Outbreak's 3-stack threshold fires rapidly for repeated 11 AoE damage."
+      "reason": "독 바르기가 공격이 방어도를 뚫을 때마다 독을 부여한다. 턴당 공격이 많으면 발병의 3중첩 임계가 빠르게 차서 광역 11피해가 반복해서 터진다."
     },
     {
       "deckCard": "Hidden Daggers",
       "offeredCard": "Accuracy",
       "bonus": 2,
-      "reason": "Hidden Daggers generates 2 Shivs AND discards 2 triggering Sly effects. Both generated Shivs get Accuracy's full damage bonus immediately."
+      "reason": "숨겨진 단검이 단도 2장을 만들면서 2장을 버려 교활 효과까지 발동시킨다. 만들어진 단도 둘 다 즉시 정밀 보너스를 온전히 받는다."
     },
     {
       "deckCard": "Hidden Daggers",
       "offeredCard": "Reflex",
       "bonus": 1.8,
-      "reason": "Hidden Daggers discards 2 — if Reflex is discarded it fires for free drawing 2 cards. Sly chain + Shiv generation from one card."
+      "reason": "숨겨진 단검이 2장을 버린다. 반사신경이 버려지면 공짜로 발동해 2장을 뽑는다. 카드 한 장으로 교활 연쇄 + 단도 수급."
     },
     {
       "deckCard": "Precise Cut",
       "offeredCard": "Calculated Gamble",
       "bonus": 2,
-      "reason": "Calculated Gamble discards entire hand — immediately after, Precise Cut hits for full 13 damage with 0 cards in hand. Natural sequence."
+      "reason": "계산된 도박이 손패 전체를 버린다. 직후 손패가 0장인 상태의 정밀한 베기가 13피해를 온전히 낸다. 자연스러운 순서."
     },
     {
       "deckCard": "Strangle",
       "offeredCard": "Master Planner",
       "bonus": 2,
-      "reason": "Master Planner makes every Skill gain Sly when played — each Skill played counts toward Strangle's 2 HP drain per card. Full Sly chain = 16+ HP bypass plus Strangle's 8 base damage."
+      "reason": "설계의 대가가 낸 스킬마다 교활을 부여한다. 스킬 사용 하나하나가 목 조르기의 카드당 체력 흡수 2에 집계된다. 풀 교활 연쇄면 기본 8피해에 체력 16 이상을 방어 무시로 뽑아낸다."
     },
     {
       "deckCard": "Speedster",
       "offeredCard": "Acrobatics",
       "bonus": 2,
-      "reason": "Acrobatics draws 3 — with Speedster each draw pings for 2 AoE = 6 free AoE from one card. Stack multiple Acrobatics for rapid AoE accumulation."
+      "reason": "곡예가 3장을 뽑는다. 스피드스터가 있으면 드로우마다 광역 2피해 — 카드 한 장으로 공짜 광역 6. 곡예를 여러 장 쌓으면 광역이 빠르게 누적된다."
     },
     {
       "deckCard": "Speedster",
       "offeredCard": "Expertise",
       "bonus": 1.8,
-      "reason": "Expertise draws until hand has 6 — if you had 2 cards, 4 draws = 8 AoE damage just from playing Expertise with Speedster active."
+      "reason": "전문성이 손패 6장까지 뽑는다. 2장에서 시작하면 4장 드로우 — 스피드스터가 켜진 상태에서 전문성 한 장으로 광역 8피해."
     },
     {
       "deckCard": "Up My Sleeve",
       "offeredCard": "Accuracy",
       "bonus": 2,
-      "reason": "Up My Sleeve generates 3 Shivs that get cheaper each cast — all 3 get Accuracy's full damage bonus. Eventually free repeatable Shiv supply."
+      "reason": "비책이 낼 때마다 싸지는 단도 3장을 만든다. 셋 다 정밀 보너스를 온전히 받는다. 종국에는 공짜로 반복되는 단도 공급처."
     },
     {
       "deckCard": "Up My Sleeve",
       "offeredCard": "Finisher",
       "bonus": 1.8,
-      "reason": "Up My Sleeve generates 3 Shivs — play them then Finisher for 4 attacks worth of damage. Reusable unlike Blade Dance for consistent Finisher setup."
+      "reason": "비책이 단도 3장을 만든다. 그걸 내고 마무리를 하면 공격 4회분의 피해다. 검무와 달리 재사용이 가능해 마무리 세팅이 꾸준하다."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Deadly Poison",
       "bonus": 1.8,
-      "reason": "Deadly Poison is a Skill — Burst doubles it, applying 10 Poison for 1 energy. Strong early Poison ramp."
+      "reason": "맹독은 스킬이다. 폭주가 두 배로 만들어 1에너지에 독 10을 부여한다. 강한 초반 독 가속."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Haze",
       "bonus": 1.8,
-      "reason": "Haze is a Sly Skill that applies 4 AoE Poison — Burst doubles it for 8 AoE Poison. Both are Skills, valid Burst target."
+      "reason": "아지랑이는 광역 독 4를 뿌리는 교활 스킬이다. 폭주가 두 배로 만들어 광역 독 8. 스킬이라 폭주 대상으로 유효하다."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Acrobatics",
       "bonus": 1.5,
-      "reason": "Acrobatics is a Skill — Burst doubles it for Draw 6, Discard 2. Massive cycle turn triggering 2 Sly discards."
+      "reason": "곡예는 스킬이다. 폭주가 두 배로 만들어 드로우 6, 버리기 2. 교활 버리기 2회까지 터지는 대형 순환 턴."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Mirage",
       "bonus": 1.5,
-      "reason": "Mirage is a Skill — Burst doubles it, gaining block equal to Poison on ALL enemies twice. Emergency double block in Poison builds."
+      "reason": "신기루는 스킬이다. 폭주가 두 배로 만들어, 모든 적의 독 총합만큼의 방어도를 두 번 얻는다. 독 빌드의 비상용 이중 방어."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Piercing Wail",
       "bonus": 1.8,
-      "reason": "Piercing Wail is a Skill — Burst doubles it, removing 12 Strength from ALL enemies this turn instead of 6. Massive damage reduction on heavy-hitting turns."
+      "reason": "귀를 찢는 비명은 스킬이다. 폭주가 두 배로 만들어 이번 턴 모든 적의 힘을 6이 아니라 12 깎는다. 강타 턴에 대한 대규모 피해 감소."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Expertise",
       "bonus": 1.5,
-      "reason": "Expertise is a Skill — Burst makes it play twice, filling your hand twice up to 6 cards each time. Massive card draw setup."
+      "reason": "전문성은 스킬이다. 폭주로 두 번 나가면 손패를 6장까지 두 번 채운다. 대량 드로우 세팅."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Shadowmeld",
       "bonus": 1.8,
-      "reason": "Shadowmeld is a Skill that doubles Block gain — Burst plays it twice. First doubles your block, second doubles it again. Potentially 4x block from all sources this turn."
+      "reason": "그림자 은신은 방어도 획득을 2배로 만드는 스킬이다. 폭주로 두 번 내면 첫 번째가 2배, 두 번째가 또 2배 — 이번 턴 모든 방어도가 최대 4배가 된다."
     },
     {
       "deckCard": "Outbreak",
       "offeredCard": "Bouncing Flask",
       "bonus": 1.8,
-      "reason": "Bouncing Flask applies 3 Poison 3 times (9 total), making it easy to trigger Outbreak's 3-Poison-application threshold for 11 AoE damage."
+      "reason": "탄성 플라스크가 독 3을 3번(총 9) 부여해, 발병의 독 부여 3회 임계를 손쉽게 채워 광역 11피해를 터뜨린다."
     },
     {
       "deckCard": "Bouncing Flask",
       "offeredCard": "Outbreak",
       "bonus": 1.8,
-      "reason": "Bouncing Flask hits 3 enemies with Poison — Outbreak fires 11 AoE every 3 Poison applications. Bouncing Flask alone can trigger Outbreak in one play."
+      "reason": "탄성 플라스크가 세 번에 걸쳐 독을 뿌린다. 발병은 독 부여 3회마다 광역 11피해 — 탄성 플라스크 한 장만으로 발병이 터질 수 있다."
     },
     {
       "deckCard": "Hidden Daggers",
       "offeredCard": "Untouchable",
       "bonus": 1.8,
-      "reason": "Hidden Daggers discards 2 cards — Untouchable has Sly (9 Block when discarded for free). Discard Untouchable via Hidden Daggers for 9 free Block plus 2 Shivs."
+      "reason": "숨겨진 단검이 2장을 버린다. 범접 불가는 교활(버려지면 공짜로 방어도 9)이다. 숨겨진 단검으로 버리면 공짜 방어도 9에 단도 2장까지."
     },
     {
       "deckCard": "Hidden Daggers",
       "offeredCard": "Abrasive",
       "bonus": 1.8,
-      "reason": "Hidden Daggers discards 2 cards — Abrasive has Sly (1 Dex + 4 Thorns when discarded free). Discard Abrasive via Hidden Daggers for permanent Dex + Thorns plus 2 Shivs."
+      "reason": "숨겨진 단검이 2장을 버린다. 연마는 교활(버려지면 공짜로 민첩 1 + 가시 4)이다. 숨겨진 단검으로 버리면 영구 민첩과 가시에 단도 2장까지."
     },
     {
       "deckCard": "Knife Trap",
       "offeredCard": "Serpent Form",
       "bonus": 2,
-      "reason": "Knife Trap plays every Shiv in exhaust pile — Serpent Form deals 4 damage per card played. Playing 15-20 Shivs via Knife Trap = 60-80 passive damage from Serpent Form simultaneously."
+      "reason": "칼날 함정이 소멸 더미의 단도를 전부 사용한다. 구렁이의 형상은 카드 사용마다 4피해 — 칼날 함정으로 단도 15~20장을 내면 동시에 구렁이의 형상에서 60~80피해가 나온다."
     },
     {
       "deckCard": "Serpent Form",
       "offeredCard": "Knife Trap",
       "bonus": 2,
-      "reason": "Knife Trap fires all exhaust Shivs — each Shiv played procs Serpent Form's 4 damage. 15 Shivs = 60 extra damage from Serpent Form on top of Shiv damage."
+      "reason": "칼날 함정이 소멸 더미의 단도를 전부 발사한다. 단도 하나하나가 구렁이의 형상의 4피해를 발동시킨다. 단도 15장이면 단도 피해에 더해 추가 60피해."
     },
     {
       "deckCard": "Well-Laid Plans",
       "offeredCard": "Burst",
       "bonus": 1.8,
-      "reason": "Well-Laid Plans retains a card between turns — hold Burst until you have a key Skill in hand, then Burst+Skill for double effect. Reliable setup for Burst combos."
+      "reason": "괜찮은 전략이 카드를 다음 턴으로 보존한다. 핵심 스킬이 손에 잡힐 때까지 폭주를 들고 있다가 폭주+스킬로 두 배 효과를 낸다. 폭주 콤보의 확실한 세팅."
     },
     {
       "deckCard": "Hand Trick",
       "offeredCard": "Burst",
       "bonus": 2,
-      "reason": "PCGamesN guide: Hand Trick adds Sly to a Skill in hand — if you land Sly on Burst, discarding it plays Burst for free. Free next-Skill-plays-twice is explosive value."
+      "reason": "PCGamesN 공략: 손기술이 손패의 스킬에 교활을 부여한다. 폭주에 교활이 붙으면 버리는 것만으로 폭주가 공짜 발동한다. 공짜 '다음 스킬 두 번'은 폭발적인 가치다."
     },
     {
       "deckCard": "Hand Trick",
       "offeredCard": "Adrenaline",
       "bonus": 1.8,
-      "reason": "PCGamesN guide: Hand Trick adds Sly to a Skill — if Adrenaline gets Sly, discarding plays it free for energy + 2 cards at no cost. Free Adrenaline is among the best Sly hits possible."
+      "reason": "PCGamesN 공략: 손기술이 스킬에 교활을 부여한다. 아드레날린에 교활이 붙으면 버릴 때 공짜로 발동해 에너지와 2장 드로우가 공짜다. 공짜 아드레날린은 최상급 교활 당첨이다."
     },
     {
       "deckCard": "Haze",
       "offeredCard": "Tools Of The Trade",
       "bonus": 2,
-      "reason": "Haze is Sly — Tools of the Trade's passive discard triggers Haze for free every turn applying 4 AoE Poison. Core Sly+Poison overlap combo."
+      "reason": "아지랑이는 교활이다. 작업 도구의 상시 버리기가 매 턴 아지랑이를 공짜로 발동시켜 광역 독 4를 뿌린다. 교활+독 교집합의 핵심 콤보."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Accuracy",
       "bonus": 2.5,
-      "reason": "Each Accuracy adds 4 damage to every Shiv. Two copies = +8 per Shiv, three = +12. get as many as you can. Stacking Accuracy is the core Shiv scaling strategy."
+      "reason": "정밀 한 장마다 모든 단도의 피해가 4씩 는다. 두 장이면 단도당 +8, 세 장이면 +12. 최대한 모아라. 정밀 중첩이 단도 성장의 핵심 전략이다."
     },
     {
       "deckCard": "Nightmare",
       "offeredCard": "Wraith Form",
       "bonus": 2,
-      "reason": "Nightmare creates 3 copies of Wraith Form — play all three for 6 turns of Intangible. Near-invincible for multiple turns. Dualshockers guide calls this game-winning."
+      "reason": "악몽이 유령의 형상 사본 3장을 만든다. 셋 다 내면 무형 6턴. 여러 턴 동안 거의 무적이다. Dualshockers 공략은 이걸 승리 확정 콤보로 꼽는다."
     },
     {
       "deckCard": "Envenom",
       "offeredCard": "Blade Dance",
       "bonus": 1.8,
-      "reason": "Envenom applies Poison on unblocked attack damage — Blade Dance generates 3 Shivs. Each Shiv that deals unblocked damage applies 1 Poison. Shiv+Poison hybrid core combo."
+      "reason": "독 바르기가 방어도를 뚫은 공격마다 독을 부여한다. 검무가 단도 3장을 만들고, 방어도를 뚫은 단도마다 독 1이 박힌다. 단도+독 하이브리드의 핵심 콤보."
     },
     {
       "deckCard": "Blade Dance",
       "offeredCard": "Envenom",
       "bonus": 1.8,
-      "reason": "Blade Dance generates 3 Shivs — with Envenom active each unblocked Shiv applies Poison. Natural bridge between Shiv and Poison builds."
+      "reason": "검무가 단도 3장을 만든다. 독 바르기가 켜져 있으면 방어도를 뚫은 단도마다 독이 박힌다. 단도 빌드와 독 빌드를 잇는 자연스러운 다리."
     },
     {
       "deckCard": "The Smith",
       "offeredCard": "Conqueror",
       "bonus": 2.5,
-      "reason": "The Smith forges 30 in one play — Conqueror then doubles that Sovereign Blade damage for a one-shot."
+      "reason": "위대한 재련이 한 번에 단조 30을 쌓고, 정복자가 그 군주의 칼날 피해를 두 배로 만들어 한 방을 노린다."
     },
     {
       "deckCard": "Conqueror",
       "offeredCard": "The Smith",
       "bonus": 2.5,
-      "reason": "The Smith provides massive Forge for Conqueror to double — one of the cleanest Forge win conditions."
+      "reason": "위대한 재련이 정복자가 두 배로 튀길 대량의 단조를 공급한다. 가장 깔끔한 단조 승리 공식 중 하나."
     },
     {
       "deckCard": "The Smith",
       "offeredCard": "Sword Sage",
       "bonus": 2,
-      "reason": "The Smith maxes Forge — Sword Sage adds an extra hit at that damage, often doubling total output."
+      "reason": "위대한 재련이 단조를 최대로 끌어올리고, 검성이 그 피해로 한 타를 더 얹어 총 출력이 두 배 가까이 된다."
     },
     {
       "deckCard": "Sword Sage",
       "offeredCard": "The Smith",
       "bonus": 2,
-      "reason": "Sword Sage adds extra Sovereign Blade hit — The Smith makes that hit enormous."
+      "reason": "검성이 군주의 칼날에 추가 타격을 더한다. 위대한 재련이 그 한 타를 어마어마하게 만든다."
     },
     {
       "deckCard": "The Smith",
       "offeredCard": "Seeking Edge",
       "bonus": 2,
-      "reason": "The Smith builds massive Sovereign Blade damage — Seeking Edge makes it hit all enemies simultaneously."
+      "reason": "위대한 재련이 군주의 칼날 피해를 크게 쌓고, 날 세우기가 그걸 모든 적에게 동시에 적중시킨다."
     },
     {
       "deckCard": "Seeking Edge",
       "offeredCard": "The Smith",
       "bonus": 2,
-      "reason": "Seeking Edge enables AoE Sovereign Blade — The Smith makes that AoE lethal."
+      "reason": "날 세우기가 군주의 칼날을 광역으로 만들고, 위대한 재련이 그 광역을 치명적으로 만든다."
     },
     {
       "deckCard": "Decisions, Decisions",
       "offeredCard": "The Smith",
       "bonus": 2.5,
-      "reason": "Decisions Decisions plays The Smith 3 times — Forge 90 total. Instant Forge win condition."
+      "reason": "어려운 결정이 위대한 재련을 3번 사용한다. 총 단조 90. 즉석 단조 승리 조건."
     },
     {
       "deckCard": "The Smith",
       "offeredCard": "Decisions, Decisions",
       "bonus": 2.5,
-      "reason": "The Smith is the ideal Skill target for Decisions Decisions — 3x Forge 30 = Forge 90."
+      "reason": "위대한 재련은 어려운 결정의 이상적인 스킬 대상이다. 단조 30 × 3 = 단조 90."
     },
     {
       "deckCard": "Decisions, Decisions",
       "offeredCard": "Reflect",
       "bonus": 2,
-      "reason": "Decisions Decisions triples Reflect — 3x17=51 Block in one play."
+      "reason": "어려운 결정이 반사를 3번 사용한다. 17 × 3 = 한 번에 방어도 51."
     },
     {
       "deckCard": "Reflect",
       "offeredCard": "Decisions, Decisions",
       "bonus": 2,
-      "reason": "Reflect triples for 51 Block — Decisions Decisions is the ultimate Reflect multiplier."
+      "reason": "반사가 세 번 나가면 방어도 51. 어려운 결정은 반사의 궁극의 배율기다."
     },
     {
       "deckCard": "Decisions, Decisions",
       "offeredCard": "Know Thy Place",
       "bonus": 1.8,
-      "reason": "Decisions Decisions triples Know Thy Place — 3 Weak and 3 Vulnerable on all enemies for free."
+      "reason": "어려운 결정이 네 주제를 알라를 3번 사용한다. 모든 적에게 약화 3과 취약 3을 공짜로."
     },
     {
       "deckCard": "Know Thy Place",
       "offeredCard": "Decisions, Decisions",
       "bonus": 1.8,
-      "reason": "Know Thy Place tripled means 3 stacks of Weak and Vulnerable — full setup for a massive nuke turn."
+      "reason": "네 주제를 알라가 세 번 나가면 약화·취약이 3중첩씩 — 대형 폭딜 턴을 위한 완벽한 세팅이다."
     },
     {
       "deckCard": "Furnace",
       "offeredCard": "Sword Sage",
       "bonus": 1.5,
-      "reason": "Furnace passively Forges each turn — Sword Sage converts that accumulated Forge into extra Sovereign Blade hits."
+      "reason": "용광로가 매 턴 알아서 단조를 쌓고, 검성이 그 누적 단조를 군주의 칼날 추가 타격으로 바꾼다."
     },
     {
       "deckCard": "Sword Sage",
       "offeredCard": "Furnace",
       "bonus": 1.5,
-      "reason": "Sword Sage adds extra blade hits — Furnace ensures the blade value grows every turn passively."
+      "reason": "검성이 칼날 타격을 추가하고, 용광로가 칼날의 가치를 매 턴 알아서 키워준다."
     },
     {
       "deckCard": "Seeking Edge",
       "offeredCard": "Conqueror",
       "bonus": 1.8,
-      "reason": "Seeking Edge makes Sovereign Blade hit all enemies — Conqueror then doubles that AoE damage."
+      "reason": "날 세우기가 군주의 칼날을 모든 적에게 적중시키고, 정복자가 그 광역 피해를 두 배로 만든다."
     },
     {
       "deckCard": "Conqueror",
       "offeredCard": "Seeking Edge",
       "bonus": 1.8,
-      "reason": "Conqueror doubles blade damage — Seeking Edge spreads that doubled damage to all enemies."
+      "reason": "정복자가 칼날 피해를 두 배로 만들고, 날 세우기가 그 두 배 피해를 모든 적에게 퍼뜨린다."
     },
     {
       "deckCard": "Refine Blade",
       "offeredCard": "Sword Sage",
       "bonus": 1.5,
-      "reason": "Refine Blade provides Forge and Energy — Sword Sage converts Forge into extra blade hits."
+      "reason": "검날 개선이 단조와 에너지를 공급하고, 검성이 단조를 추가 칼날 타격으로 바꾼다."
     },
     {
       "deckCard": "Sword Sage",
       "offeredCard": "Refine Blade",
       "bonus": 1.5,
-      "reason": "Sword Sage adds extra Sovereign Blade hits — Refine Blade fuels the Forge needed to make those hits devastating."
+      "reason": "검성이 군주의 칼날 타격을 추가하고, 검날 개선이 그 타격을 파괴적으로 만들 단조를 공급한다."
     },
     {
       "deckCard": "Bulwark",
       "offeredCard": "Seeking Edge",
       "bonus": 1.5,
-      "reason": "Bulwark provides Block and Forge — Seeking Edge turns the Sovereign Blade that Forge powers into AoE."
+      "reason": "보루가 방어도와 단조를 함께 주고, 날 세우기가 그 단조로 큰 군주의 칼날을 광역으로 바꾼다."
     },
     {
       "deckCard": "Seeking Edge",
       "offeredCard": "Bulwark",
       "bonus": 1.5,
-      "reason": "Seeking Edge enables AoE blade — Bulwark adds both defense and Forge to grow that AoE damage."
+      "reason": "날 세우기가 칼날을 광역으로 만들고, 보루가 방어와 단조를 동시에 보태 그 광역 피해를 키운다."
     },
     {
       "deckCard": "The Sealed Throne",
       "offeredCard": "Void Form",
       "bonus": 2,
-      "reason": "The Sealed Throne gives Star per card played — Void Form makes first 2 cards free, generating Stars at no cost."
+      "reason": "봉인된 왕좌가 카드 사용마다 별을 준다. 공허의 형상이 처음 2장을 공짜로 만들어 비용 없이 별이 쌓인다."
     },
     {
       "deckCard": "Void Form",
       "offeredCard": "The Sealed Throne",
       "bonus": 2,
-      "reason": "Void Form plays cards for free — The Sealed Throne converts every free play into a Star passively."
+      "reason": "공허의 형상이 카드를 공짜로 내게 하고, 봉인된 왕좌가 그 공짜 사용 하나하나를 별로 바꾼다."
     },
     {
       "deckCard": "Radiate",
       "offeredCard": "The Sealed Throne",
       "bonus": 1.8,
-      "reason": "Radiate deals 3 AoE per Star gained this turn — The Sealed Throne generates a Star on every card played."
+      "reason": "방출은 이번 턴 얻은 별당 광역 3피해를 준다. 봉인된 왕좌가 카드 사용마다 별을 만든다."
     },
     {
       "deckCard": "The Sealed Throne",
       "offeredCard": "Child of the Stars",
       "bonus": 1.8,
-      "reason": "The Sealed Throne generates Stars constantly — Child of the Stars converts each Star spent into 2 Block."
+      "reason": "봉인된 왕좌가 별을 끊임없이 만들고, 별의 아이가 소모한 별 하나를 방어도 2로 바꾼다."
     },
     {
       "deckCard": "Child of the Stars",
       "offeredCard": "The Sealed Throne",
       "bonus": 1.8,
-      "reason": "Child of the Stars needs Star income — The Sealed Throne provides a Star every card played."
+      "reason": "별의 아이는 별 수입이 필요하다. 봉인된 왕좌가 카드 사용마다 별을 공급한다."
     },
     {
       "deckCard": "Spectrum Shift",
       "offeredCard": "Arsenal",
       "bonus": 2,
-      "reason": "Spectrum Shift creates a free Colorless card each turn — Arsenal converts each Colorless played into permanent Strength."
+      "reason": "스펙트럼 이동이 매 턴 무색 카드를 공짜로 만들어주고, 무기고가 무색 카드 사용 하나하나를 영구 힘으로 바꾼다."
     },
     {
       "deckCard": "Arsenal",
       "offeredCard": "Spectrum Shift",
       "bonus": 2,
-      "reason": "Arsenal gains Strength per Colorless card played — Spectrum Shift provides a free Colorless every single turn."
+      "reason": "무기고가 무색 카드를 낼 때마다 힘을 얻는다. 스펙트럼 이동이 매 턴 무색 카드를 공짜로 공급한다."
     },
     {
       "deckCard": "Pillar of Creation",
       "offeredCard": "Spectrum Shift",
       "bonus": 1.8,
-      "reason": "Spectrum Shift creates a Colorless card at turn start — Pillar of Creation gives 3 Block per creation, every turn for free."
+      "reason": "스펙트럼 이동이 턴 시작에 무색 카드를 생성한다. 창조의 기둥이 생성마다 방어도 3을 줘서 매 턴 공짜다."
     },
     {
       "deckCard": "Spectrum Shift",
       "offeredCard": "Pillar of Creation",
       "bonus": 1.8,
-      "reason": "Pillar of Creation rewards card creation with Block — Spectrum Shift triggers it every turn automatically."
+      "reason": "창조의 기둥이 카드 생성에 방어도로 보답한다. 스펙트럼 이동이 매 턴 자동으로 그걸 발동시킨다."
     },
     {
       "deckCard": "Pillar of Creation",
       "offeredCard": "Quasar",
       "bonus": 1.5,
-      "reason": "Quasar creates a Colorless card — Pillar of Creation gives 3 Block each time, stacking fast in Colorless-heavy builds."
+      "reason": "준항성이 무색 카드를 생성한다. 창조의 기둥이 그때마다 방어도 3을 줘서 무색 위주 빌드에서 빠르게 쌓인다."
     },
     {
       "deckCard": "Quasar",
       "offeredCard": "Pillar of Creation",
       "bonus": 1.5,
-      "reason": "Pillar of Creation gives 3 Block per card created — Quasar creates a Colorless on demand."
+      "reason": "창조의 기둥이 카드 생성마다 방어도 3을 준다. 준항성이 원할 때 무색 카드를 생성해준다."
     },
     {
       "deckCard": "Arsenal",
       "offeredCard": "Quasar",
       "bonus": 1.5,
-      "reason": "Quasar creates Colorless cards — Arsenal converts each one played into permanent Strength."
+      "reason": "준항성이 무색 카드를 생성하고, 무기고가 그걸 낼 때마다 영구 힘으로 바꾼다."
     },
     {
       "deckCard": "Quasar",
       "offeredCard": "Arsenal",
       "bonus": 1.5,
-      "reason": "Arsenal gains Strength from Colorless cards played — Quasar provides them on demand."
+      "reason": "무기고가 무색 카드 사용에서 힘을 얻는다. 준항성이 필요할 때 무색 카드를 공급한다."
     },
     {
       "deckCard": "Arsenal",
