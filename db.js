@@ -26644,157 +26644,157 @@ const DB = {
       "relic": "Molten Egg",
       "card": "Thrash",
       "bonus": 1.8,
-      "reason": "Molten Egg auto-upgrades every Attack — Thrash upgraded hits significantly harder. In a Strength build where Thrash multi-hits are key, Molten Egg ensures every Thrash is fully upgraded immediately."
+      "reason": "녹아내린 알이 모든 공격을 자동 강화한다. 난타는 강화되면 눈에 띄게 세지는데, 난타의 다단이 핵심인 힘 빌드에서 모든 난타가 즉시 완전 강화판이 된다."
     },
     {
       "relic": "Frozen Egg",
       "card": "Defragment",
       "bonus": 2,
-      "reason": "Frozen Egg auto-upgrades every Power added to deck — Defragment upgraded gives 2 Focus instead of 1. Every Defragment picked up is immediately upgraded, halving the setup time for maximum Focus."
+      "reason": "얼어붙은 알이 덱에 추가되는 모든 파워를 자동 강화한다. 조각모음+는 집중 1이 아니라 2 — 집는 즉시 강화판이라 최대 집중까지의 세팅 시간이 절반이 된다."
     },
     {
       "relic": "Frozen Egg",
       "card": "Corruption",
       "bonus": 2,
-      "reason": "Frozen Egg auto-upgrades every Power — Corruption upgraded makes Skills cost 0 instead of just reducing cost. Every Corruption picked up is immediately upgraded to its full power."
+      "reason": "얼어붙은 알이 모든 파워를 자동 강화한다. 타락+는 스킬 비용 감소가 아니라 전부 0코스트 — 집는 순간부터 타락이 최대 성능으로 들어온다."
     },
     {
       "relic": "Frozen Egg",
       "card": "Genesis",
       "bonus": 1.8,
-      "reason": "Frozen Egg auto-upgrades every Power — Genesis upgraded gives 3 Stars at start of each turn instead of 2. Every Genesis is immediately upgraded, massively accelerating the Star engine."
+      "reason": "얼어붙은 알이 모든 파워를 자동 강화한다. 창세+는 턴 시작 별이 2가 아니라 3 — 집는 즉시 강화판이라 별 엔진이 크게 가속된다."
     },
     {
       "relic": "Toxic Egg",
       "card": "Corruption",
       "bonus": 2,
-      "reason": "Toxic Egg auto-upgrades every Skill added — Corruption is a Skill. With Toxic Egg, every Corruption picked up is immediately Upgraded to give 0-cost Skills instead of reduced-cost."
+      "reason": "유독성 알이 덱에 추가되는 모든 스킬을 자동 강화한다. 타락은 스킬이라, 집는 즉시 강화되어 비용 감소가 아니라 스킬 0코스트가 된다."
     },
     {
       "relic": "Toxic Egg",
       "card": "Feel No Pain",
       "bonus": 1.8,
-      "reason": "Toxic Egg auto-upgrades every Skill — Feel No Pain upgraded gives 5 Block per Exhaust instead of 3. Every Feel No Pain is immediately more powerful, making the Exhaust engine generate more Block per cycle."
+      "reason": "유독성 알이 모든 스킬을 자동 강화한다. 무감각+는 소멸당 방어도 3이 아니라 5 — 무감각이 처음부터 강화판이라 소진 엔진의 방어도 산출이 커진다."
     },
     {
       "relic": "Unsettling Lamp",
       "card": "Putrefy",
       "bonus": 2,
-      "reason": "Putrefy applies 2 Weak and 2 Vulnerable — Unsettling Lamp doubles the first debuff per combat. The first Putrefy applies 4 Weak and 4 Vulnerable instead of 2 each, setting up a massive damage amplification turn."
+      "reason": "부식이 약화 2와 취약 2를 건다. 섬뜩한 램프가 전투당 첫 디버프를 두 배로 만들어, 첫 부식이 각각 2가 아니라 4씩 걸리며 대형 증폭 턴을 세팅한다."
     },
     {
       "relic": "Unsettling Lamp",
       "card": "Shockwave",
       "bonus": 2,
-      "reason": "Shockwave applies 3 Weak and 3 Vulnerable to ALL enemies — Unsettling Lamp doubles first debuff. First Shockwave applies 6 Weak and 6 Vulnerable AoE instead of 3 each."
+      "reason": "충격파가 모든 적에게 약화 3과 취약 3을 건다. 섬뜩한 램프가 첫 디버프를 두 배로 만들어, 첫 충격파가 광역으로 각각 6씩 건다."
     },
     {
       "relic": "Bag of Marbles",
       "card": "Whirlwind",
       "bonus": 1.8,
-      "reason": "Bag of Marbles applies 1 Vulnerable to all enemies at combat start — Whirlwind hits X times. Starting every fight with enemies Vulnerable means every Whirlwind hit deals 50% more damage from Turn 1."
+      "reason": "구슬 주머니가 전투 시작에 모든 적에게 취약 1을 건다. 소용돌이는 X번 때리니, 1턴부터 모든 타격이 50% 더 아프게 박힌다."
     },
     {
       "relic": "Bag of Marbles",
       "card": "Radiate",
       "bonus": 1.8,
-      "reason": "Bag of Marbles Vulnerables all enemies at combat start — Radiate deals AoE per Star gained this turn. Starting with enemies Vulnerable means Radiate's AoE hits 50% harder from Turn 1."
+      "reason": "구슬 주머니가 전투 시작에 전체 취약을 건다. 방출은 이번 턴 얻은 별당 광역 피해 — 시작부터 적이 취약이라 방출의 광역이 1턴부터 50% 더 아프다."
     },
     {
       "relic": "Red Mask",
       "card": "Accelerant",
       "bonus": 1.8,
-      "reason": "Red Mask Weakens all enemies at combat start — Accelerant multiplies all Poison. Starting with enemies Weakened means they deal 25% less damage while Accelerant is ramping Poison."
+      "reason": "붉은 가면이 전투 시작에 모든 적을 약화시킨다. 촉진제가 독을 증폭하는 동안, 약화된 적의 피해가 25% 줄어 독이 차오를 시간을 벌어준다."
     },
     {
       "relic": "Ice Cream",
       "card": "Seven Stars",
       "bonus": 2,
-      "reason": "Seven Stars costs 7 Stars — Ice Cream conserves unused Energy between turns. With Ice Cream, unused Energy from turns 1-2 carries over to enable playing Seven Stars alongside other cards on the same turn."
+      "reason": "일곱 개의 별은 별 7개가 든다. 아이스크림이 남은 에너지를 다음 턴으로 넘겨줘, 1~2턴의 잉여 에너지로 일곱 개의 별을 다른 카드와 같은 턴에 낼 수 있다."
     },
     {
       "relic": "Ice Cream",
       "card": "Multi-Cast",
       "bonus": 2,
-      "reason": "Multi-Cast costs X Energy — Ice Cream conserves unused Energy between turns. Carrying over 1-2 Energy from previous turns enables a much larger Multi-Cast X value on the key turn."
+      "reason": "다중 시전은 X에너지 카드다. 아이스크림이 남은 에너지를 이월시켜, 앞 턴의 1~2에너지가 결정적인 턴의 다중 시전 X값을 훨씬 키워준다."
     },
     {
       "relic": "Chandelier",
       "card": "Seven Stars",
       "bonus": 1.8,
-      "reason": "Chandelier gives 3 Energy at start of Turn 3 — Seven Stars costs 7 Stars. The 3 extra Energy on Turn 3 can help pay for Seven Stars' Energy cost allowing it to be played earlier."
+      "reason": "샹들리에가 3턴 시작에 에너지 3을 준다. 일곱 개의 별은 별 7개짜리 비싼 카드 — 3턴의 추가 에너지가 비용을 대줘 더 일찍 낼 수 있다."
     },
     {
       "relic": "Very Hot Cocoa",
       "card": "Seven Stars",
       "bonus": 2,
-      "reason": "Very Hot Cocoa gives +4 Energy per combat start — Seven Stars costs 7 Stars and is expensive. Starting every combat with 7 Energy means Seven Stars can be played immediately on Turn 1."
+      "reason": "엄청 뜨거운 코코아가 매 전투 시작에 에너지 +4를 준다. 일곱 개의 별은 비싼 카드지만, 7에너지로 시작하면 1턴부터 바로 낼 수 있다."
     },
     {
       "relic": "Pael's Flesh",
       "card": "Multi-Cast",
       "bonus": 1.8,
-      "reason": "Pael's Flesh gives extra Energy from Turn 3 onwards — Multi-Cast uses Energy to Evoke X times. Extra Energy from Pael's Flesh each turn directly enables larger Multi-Cast X values every turn."
+      "reason": "파엘의 살점이 3턴부터 추가 에너지를 준다. 다중 시전은 에너지만큼 X번 발현하니, 턴마다 들어오는 추가 에너지가 그대로 더 큰 X값이 된다."
     },
     {
       "relic": "Lost Wisp",
       "card": "Defragment",
       "bonus": 2,
-      "reason": "Defragment is a Power that gives +1 Focus — Lost Wisp deals 8 AoE every time you play a Power. Each Defragment play triggers Lost Wisp for 8 free AoE on top of its Focus gain."
+      "reason": "조각모음은 집중 +1을 주는 파워다. 길 잃은 위습이 파워를 낼 때마다 광역 8피해를 줘서, 조각모음마다 집중 위에 공짜 광역 8이 얹힌다."
     },
     {
       "relic": "Burning Sticks",
       "card": "Dark Embrace",
       "bonus": 1.8,
-      "reason": "Dark Embrace draws a card whenever you Exhaust — Burning Sticks adds a copy of the first Exhausted Skill back to Hand. Together they create a loop: Exhaust a Skill → Burning Sticks returns it → Dark Embrace draws another card."
+      "reason": "어둠의 포옹이 소멸마다 카드를 뽑고, 불쏘시개가 처음 소멸된 스킬의 사본을 손에 되돌린다. 스킬 소멸 → 불쏘시개가 반환 → 어둠의 포옹이 또 드로우 — 루프가 돈다."
     },
     {
       "relic": "Stone Calendar",
       "card": "Deathbringer",
       "bonus": 1.8,
-      "reason": "Stone Calendar deals 52 AoE at Turn 7 — Deathbringer applies AoE Doom. In Doom builds that survive to Turn 7, Stone Calendar fires as a backup win condition while Doom counts down."
+      "reason": "석재 달력이 7턴에 광역 52피해를 쏜다. 죽음 인도자가 광역 종말을 거는 종말 빌드는 7턴까지 버티는 일이 많아, 종말이 차는 동안 달력이 예비 승리 수단이 된다."
     },
     {
       "relic": "Pocketwatch",
       "card": "Time's Up",
       "bonus": 1.8,
-      "reason": "Time's Up is a high-cost finisher Doom builds play on crucial turns — Pocketwatch draws 3 extra cards if you play 3 or fewer cards in a turn. A turn where you play just Time's Up triggers Pocketwatch's draw for next turn."
+      "reason": "때가 되었다는 결정적인 턴에 내는 비싼 마무리 카드다. 회중시계는 3장 이하로 낸 턴에 3장을 더 뽑아줘, 때가 되었다만 내는 턴이 다음 턴의 드로우로 이어진다."
     },
     {
       "relic": "Diamond Diadem",
       "card": "End of Days",
       "bonus": 1.8,
-      "reason": "End of Days is an expensive single-card execute — Diamond Diadem halves damage when you play 2 or fewer cards per turn. Playing just End of Days activates Diamond Diadem's protection while executing all Doomed enemies."
+      "reason": "종말의 날은 카드 한 장짜리 비싼 처형기다. 다이아몬드 왕관은 2장 이하로 낸 턴에 피해를 반감 — 종말의 날만 내는 턴에 왕관의 보호를 켠 채로 종말 걸린 적을 쓸어담는다."
     },
     {
       "relic": "Art of War",
       "card": "Noxious Fumes",
       "bonus": 1.8,
-      "reason": "Noxious Fumes is a Power that passively applies Poison each turn — Art of War gives +1 Energy next turn if you play no Attacks this turn. A turn spent only playing Noxious Fumes and Skills gives free Energy next turn while Poison stacks."
+      "reason": "유독 가스는 턴마다 알아서 독을 뿌리는 파워다. 병법서는 공격을 안 낸 턴에 다음 턴 에너지 +1 — 유독 가스와 스킬만 내는 턴이 독을 쌓으면서 공짜 에너지도 번다."
     },
     {
       "relic": "Ripple Basin",
       "card": "Noxious Fumes",
       "bonus": 1.5,
-      "reason": "Noxious Fumes lets you skip Attack plays while Poison does damage — Ripple Basin gives 4 Block if you play no Attacks this turn. A turn with only Noxious Fumes gives both passive Poison AND 4 free Block from Ripple Basin."
+      "reason": "유독 가스 덕에 공격을 쉬어도 독이 일한다. 찰랑이는 대야는 공격을 안 낸 턴에 방어도 4 — 유독 가스만 내는 턴이 상시 독에 공짜 방어도 4까지 챙긴다."
     },
     {
       "relic": "Runic Pyramid",
       "card": "Convergence",
       "bonus": 1.8,
-      "reason": "Convergence retains your Hand — Runic Pyramid means you already don't discard EOT. Together they ensure perfect hands are retained indefinitely for maximum Star setup turns."
+      "reason": "수렴이 손패를 유지한다. 룬 피라미드는 애초에 턴 종료에 손을 버리지 않는다. 함께라면 완성된 손패를 무기한 들고 별 세팅 턴을 극대화할 수 있다."
     },
     {
       "relic": "Runic Pyramid",
       "card": "Equilibrium",
       "bonus": 1.8,
-      "reason": "Equilibrium retains your Hand this turn — Runic Pyramid means your Hand never discards anyway. With both, you can build up the perfect hand across multiple turns freely."
+      "reason": "평형이 이번 턴 손패를 유지한다. 룬 피라미드는 어차피 손을 버리지 않으니, 둘이 함께면 여러 턴에 걸쳐 완벽한 손패를 마음껏 빚을 수 있다."
     },
     {
       "relic": "Ringing Triangle",
       "card": "Seven Stars",
       "bonus": 1.8,
-      "reason": "Seven Stars costs 7 Stars — Ringing Triangle retains your entire Hand on Turn 1. Retaining a hand containing Stars-generators means Turn 1 can safely accumulate Stars for a Turn 2 Seven Stars play."
+      "reason": "일곱 개의 별은 별 7개가 든다. 공명하는 트라이앵글이 1턴의 손패 전체를 유지해줘, 별 생성 카드를 쥔 채 1턴에 별을 모으고 2턴에 일곱 개의 별을 안전하게 낼 수 있다."
     }
   ]
 };
