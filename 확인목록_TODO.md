@@ -526,6 +526,12 @@ notes에는 "in Claw or Sly builds playing 10+ cards per turn"이라고
     ※ 위에 기록된 "291쌍 / 165장"은 **집계 기준이 달랐음** —
     291쌍은 카드-아키타입 쌍 전수 시뮬 기준이고, 오늘 실측 24/289장은
     "실전 덱 채점에서 실제로 두 문구가 동시 출력된 카드 수" 기준.
+  · ⚠️ 기록 정정 (2026-09-02): 이 작업은 "모순 24장을 해소"한 것이 아니라
+    **모순처럼 읽히던 어휘를 효과 층위와 소속 층위로 분리**한 것이다.
+    두 사유가 함께 표시되는 카드 20장(아클 기준)은 의도된 동작으로
+    그대로 유지된다 — 둘 다 사실인 신호이기 때문. 점수 로직은 변경되지
+    않았다. (verify_display_quality의 "모순 0건"은 옛 어휘 조합
+    `빌드에 적합`+`빌드와 안 맞음`이 재등장하지 않는다는 뜻이다.)
   · 검증: tools/verify_display_quality.js 신설.
     점수 무변경(사혈 3.72/흘려보내기 3.97/악랄함 5.12, PR #73 확정값 유지),
     3캐릭 × 2막 25층 실전덱 모순 0건, 새 문구 등장 확인.
@@ -547,20 +553,35 @@ notes에는 "in Claw or Sly builds playing 10+ cards per turn"이라고
   · 검증: verify_display_quality.js ④에 포함 — 길이 298, 문자열 0건,
     relicSource 방식 필터(ironclad)에서 5종 모두 조회됨.
 
-**콤보 사유 926건 전면 영문 — ⏳ 신규 등록 (2026-09-01, 다음 PR에서 처리)**
+**콤보 사유 926건 전면 영문 — ✅ 완료 (2026-09-02, PR #76)**
   · 규모: DB.combos 781건 + DB.relicCombos 145건 = **926건 전부 영문 reason**
-    (약 126,000자). 한글 앱 화면에 그대로 노출됨.
-  · 실측: 2막 아이언클래드 실전덱에서 105장 중 18장이 영문 사유 표시.
-  · 처리 원칙 (착수 시 필수):
-    - 카드·유물 이름은 data/api_data.js의 **공식 한글명** 사용
-      (예: Juggernaut → 절대적인 힘, Stone Armor → 돌 갑옷).
-      combos 등장 카드 312종 중 301종, 유물 67종 전부 공식 한글명 보유.
-      나머지 11종(Limit Break, Heavy Blade, Double Tap, Brutality,
-      Electrodynamics, Symbiosis, Combust, Reaper 등)은 공식명이 없어 별도 판단.
-    - 분량이 크므로 200건 단위 배치 커밋 + 배치마다 푸시.
-    - 검증: 항목 수 불변(781/145), deckCard·offeredCard·relic·card·bonus
-      필드 바이트 단위 동일(번역이 데이터를 훼손하지 않았음 증명),
-      모든 reason에 한글 포함, 긴 영문 연속 문자열 잔존 0건.
+    (약 126,000자)이었음. 실측: 2막 아클 실전덱에서 105장 중 18장이 영문 표시.
+  · 처리 방식 — 이름 사전 우선:
+    - tools/build_ko_glossary.js → tools/ko_glossary.json (커밋 07de5c3).
+      카드 323·유물 67, 누락 0. 우선순위: api_data.js 공식 한글명 →
+      i18n.js koName 폴백 8종 → 고정값 3종(전기역학/공생/힘).
+      Sic'Em은 정규화 시 밑줄 소실(SICEM vs SIC_EM)로 1차 조회에 실패해
+      밑줄 무시 2차 대조를 추가 — 공식명 "덮쳐!"로 해결.
+    - 150건 단위 배치 7회, 배치마다 커밋 직후 푸시 + 구조 지문 검증
+      (fe8a50b, 5627713, 37ca4d8, 218e792, cf8bd9c, a9923bf, 36ab54f).
+    - 번역은 간결한 평서문, 수치 원문 유지, 이름은 사전 값 그대로.
+  · 검증: tools/verify_combo_ko.js (커밋 fd95d66) —
+    ① 구조 지문 SHA-256이 번역 전 main(e8dd001) 기준값과 일치
+      (인덱스·deckCard·offeredCard·relic·card·bonus 전부 불변 증명)
+    ② 건수 781/145 ③ 926건 전건 한글 포함 ④ 영어 3단어 연속 잔존 0건
+    ⑤ vm 로드 정상. 기존 검증 4종도 전부 통과(점수 무변경).
+
+**콤보 데이터의 유령 카드 11종 — ⏳ 신규 등록 (2026-09-02, 별도 조사 대상)**
+  · 콤보가 참조하는 카드 중 **11종이 api_data.js에 없음** (관련 콤보 38건):
+    Limit Break, Heavy Blade, Double Tap, Brutality, Electrodynamics,
+    Symbiosis, Combust, Reaper, Dropkick, Follow Through, Strength.
+  · 그중 Strength(힘)는 카드가 아니라 **상태**라, 이를 deckCard로 참조하는
+    콤보 1건(C700: Thrumming Hatchet↔Strength)은 덱에 존재할 수 없는
+    카드를 기다리는 **발동 불가능한 죽은 항목**이다.
+  · Electrodynamics·Symbiosis는 **db.js 카드 목록에도 없음** — API 커버리지
+    공백일 가능성 (8/19 종결한 ABUNDANCE/DOWSING 누락 건과 유사 유형).
+  · 이번 PR #76 범위 밖 — 콤보 삭제 없이 등록만. 처리는 별도 작업으로:
+    죽은 항목 정리 여부, 나머지 10종의 정체(구버전 카드? 미수집?) 조사 필요.
 
 **3단계 — any 구분안 + 데이터 예외 (2026-08-30)**
 브랜치 claude/stage3-any-onlyfix (claude/stage2-logic에서 분기)
