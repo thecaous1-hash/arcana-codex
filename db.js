@@ -12573,901 +12573,901 @@ const DB = {
       "deckCard": "Drum of Battle",
       "offeredCard": "Dark Embrace",
       "bonus": 1.5,
-      "reason": "Drum of Battle passively exhausts 1 card each turn start — Dark Embrace draws a card for each exhaust. Free draw every turn."
+      "reason": "전투의 북소리가 매 턴 시작마다 카드 1장을 알아서 소멸시키고, 어둠의 포옹이 소멸마다 카드를 뽑는다. 매 턴 공짜 드로우."
     },
     {
       "deckCard": "Drum of Battle",
       "offeredCard": "Feel No Pain",
       "bonus": 1.5,
-      "reason": "Drum passively exhausts 1 each turn — Feel No Pain gains block per exhaust. Free block every turn automatically."
+      "reason": "전투의 북소리가 매 턴 1장을 알아서 소멸시키고, 무감각이 소멸마다 방어도를 얻는다. 매 턴 자동으로 공짜 방어도."
     },
     {
       "deckCard": "Drum of Battle",
       "offeredCard": "Forgotten Ritual",
       "bonus": 2,
-      "reason": "Drum exhausts at turn START — Forgotten Ritual fires for +3 energy every turn automatically. Free energy engine."
+      "reason": "전투의 북소리가 턴 시작에 소멸을 일으켜, 잊힌 의식이 매 턴 자동으로 에너지 +3을 낸다. 공짜 에너지 엔진."
     },
     {
       "deckCard": "Forgotten Ritual",
       "offeredCard": "Drum of Battle",
       "bonus": 2,
-      "reason": "Drum of Battle guarantees an exhaust at turn start — Forgotten Ritual triggers for +3 energy every turn without playing extra cards."
+      "reason": "전투의 북소리가 턴 시작 소멸을 보장해, 카드를 더 쓰지 않아도 잊힌 의식이 매 턴 에너지 +3을 발동한다."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Forgotten Ritual",
       "bonus": 2,
-      "reason": "Corruption makes every skill exhaust — Forgotten Ritual fires for +3 energy almost every turn. Near-infinite energy loop in exhaust builds."
+      "reason": "타락이 모든 스킬을 소멸시켜 잊힌 의식이 거의 매 턴 에너지 +3을 낸다. 소진 빌드의 준무한 에너지 루프."
     },
     {
       "deckCard": "Forgotten Ritual",
       "offeredCard": "Corruption",
       "bonus": 2,
-      "reason": "Forgotten Ritual needs an exhaust trigger — Corruption makes every skill exhaust, firing Ritual nearly every turn."
+      "reason": "잊힌 의식은 소멸 트리거가 필요하다. 타락이 모든 스킬을 소멸시켜 거의 매 턴 의식을 발동시킨다."
     },
     {
       "deckCard": "True Grit",
       "offeredCard": "Forgotten Ritual",
       "bonus": 1.5,
-      "reason": "True Grit exhausts a card while gaining block — directly triggers Forgotten Ritual for +3 energy. Block + energy in one card."
+      "reason": "진정한 끈기가 방어도를 얻으면서 카드를 소멸시켜 잊힌 의식의 에너지 +3을 바로 발동시킨다. 한 장으로 방어도 + 에너지."
     },
     {
       "deckCard": "Burning Pact",
       "offeredCard": "Forgotten Ritual",
       "bonus": 1.5,
-      "reason": "Burning Pact exhausts a card to draw — also triggers Forgotten Ritual for +3 energy. Draw AND energy from one exhaust."
+      "reason": "불타는 조약이 카드를 소멸시켜 드로우하면서 잊힌 의식의 에너지 +3도 발동시킨다. 소멸 한 번으로 드로우와 에너지 둘 다."
     },
     {
       "deckCard": "Second Wind",
       "offeredCard": "Forgotten Ritual",
       "bonus": 1.5,
-      "reason": "Second Wind exhausts non-attacks for block — triggers Forgotten Ritual for +3 energy. Block + energy each Second Wind."
+      "reason": "기사회생이 비공격 카드를 소멸시켜 방어도를 얻고, 잊힌 의식의 에너지 +3도 발동시킨다. 쓸 때마다 방어도 + 에너지."
     },
     {
       "deckCard": "Cinder",
       "offeredCard": "Forgotten Ritual",
       "bonus": 1.2,
-      "reason": "Cinder exhausts a card on play — triggers Forgotten Ritual for +3 energy. Good value on both cards in the same turn."
+      "reason": "잿불이 사용 시 카드를 소멸시켜 잊힌 의식의 에너지 +3을 발동시킨다. 같은 턴에 두 카드 모두 값어치를 한다."
     },
     {
       "deckCard": "Forgotten Ritual",
       "offeredCard": "Howl from Beyond",
       "bonus": 2,
-      "reason": "Howl from Beyond exhausts at turn start each turn — Forgotten Ritual fires for +3 free energy every turn. Completely passive energy engine."
+      "reason": "저편의 울음소리가 매 턴 시작에 소멸을 일으켜, 잊힌 의식이 매 턴 공짜 에너지 +3을 낸다. 완전 자동 에너지 엔진."
     },
     {
       "deckCard": "Howl from Beyond",
       "offeredCard": "Forgotten Ritual",
       "bonus": 2,
-      "reason": "Forgotten Ritual needs a turn-start exhaust — Howl from Beyond provides exactly that every single turn. Permanent +2 energy per turn."
+      "reason": "잊힌 의식은 턴 시작 소멸이 필요한데, 저편의 울음소리가 바로 그걸 매 턴 제공한다. 턴마다 영구적인 에너지 이득."
     },
     {
       "deckCard": "Dark Embrace",
       "offeredCard": "Howl from Beyond",
       "bonus": 1.5,
-      "reason": "Howl from Beyond exhausts and re-enters exhaust each turn — Dark Embrace draws a card from each exhaust. Free card draw every turn."
+      "reason": "저편의 울음소리가 매 턴 소멸됐다 돌아오기를 반복하고, 어둠의 포옹이 소멸마다 카드를 뽑는다. 매 턴 공짜 드로우."
     },
     {
       "deckCard": "Feel No Pain",
       "offeredCard": "Howl from Beyond",
       "bonus": 1.5,
-      "reason": "Howl cycles through exhaust each turn, triggering Feel No Pain for free block every turn on top of the 16 free AoE."
+      "reason": "저편의 울음소리가 매 턴 소멸을 순환시켜 무감각의 공짜 방어도가 매 턴 발동한다. 공짜 광역 16피해에 얹어서."
     },
     {
       "deckCard": "One-Two Punch",
       "offeredCard": "Howl from Beyond",
       "bonus": 1.5,
-      "reason": "One-Two Punch doubles next Attack — Howl from Beyond plays twice = 32 AoE at once on top of its normal passive cycling."
+      "reason": "원투 펀치가 다음 공격을 두 번 사용한다. 저편의 울음소리를 두 번 쓰면 평소의 자동 순환에 더해 한 번에 광역 32피해."
     },
     {
       "deckCard": "Inferno",
       "offeredCard": "Brutality",
       "bonus": 2,
-      "reason": "Brutality loses 1 HP at turn start passively — Inferno fires 6 AoE automatically every single turn from Brutality alone."
+      "reason": "잔혹함이 턴 시작마다 알아서 체력을 1 잃게 한다. 잔혹함 하나만으로 불바다의 광역 6피해가 매 턴 자동 발사된다."
     },
     {
       "deckCard": "Brutality",
       "offeredCard": "Inferno",
       "bonus": 2,
-      "reason": "Inferno deals 6 AoE whenever you lose HP — Brutality's passive turn-start HP loss triggers Inferno every turn for free AoE."
+      "reason": "불바다는 체력을 잃을 때마다 광역 6피해를 준다. 잔혹함의 턴 시작 체력 손실이 매 턴 불바다를 공짜로 발동시킨다."
     },
     {
       "deckCard": "Inferno",
       "offeredCard": "Bloodletting",
       "bonus": 1.8,
-      "reason": "Bloodletting loses HP on play — Inferno fires 6 AoE each time. Every Bloodletting becomes 6 free AoE on top of the energy."
+      "reason": "사혈이 사용 시 체력을 잃고, 불바다가 그때마다 광역 6피해를 쏜다. 사혈 한 장이 에너지에 더해 공짜 광역 6피해가 된다."
     },
     {
       "deckCard": "Bloodletting",
       "offeredCard": "Inferno",
       "bonus": 1.8,
-      "reason": "Inferno converts HP loss to 6 AoE — Bloodletting's HP cost triggers Inferno every play, turning energy generation into AoE."
+      "reason": "불바다가 체력 손실을 광역 6피해로 바꾼다. 사혈의 체력 비용이 쓸 때마다 불바다를 발동시켜 에너지 수급이 광역 피해로 이어진다."
     },
     {
       "deckCard": "Inferno",
       "offeredCard": "Offering",
       "bonus": 1.5,
-      "reason": "Offering loses 6 HP — triggers Inferno for 6 AoE alongside the 3 cards and energy. One card does everything."
+      "reason": "제물이 체력을 6 잃으면서 불바다의 광역 6피해까지 발동시킨다. 카드 3장과 에너지에 광역 피해까지, 한 장이 다 한다."
     },
     {
       "deckCard": "Inferno",
       "offeredCard": "Rupture",
       "bonus": 1.5,
-      "reason": "Both benefit from HP loss — Inferno deals AoE, Rupture gains Strength. Every HP loss event powers up both simultaneously."
+      "reason": "둘 다 체력 손실로 이득을 본다. 불바다는 광역 피해, 파열은 힘. 체력을 잃을 때마다 둘이 동시에 강해진다."
     },
     {
       "deckCard": "Rupture",
       "offeredCard": "Inferno",
       "bonus": 1.5,
-      "reason": "Inferno and Rupture both trigger on HP loss — stack them together so every Bloodletting/Brutality/Offering gives Strength AND AoE."
+      "reason": "불바다와 파열 모두 체력 손실로 발동한다. 같이 쌓으면 사혈·잔혹함·제물 하나하나가 힘과 광역 피해를 동시에 준다."
     },
     {
       "deckCard": "Inferno",
       "offeredCard": "Hemokinesis",
       "bonus": 1.2,
-      "reason": "Hemokinesis costs 2 HP — Inferno fires 6 AoE alongside the damage. Good value per play in self-damage builds."
+      "reason": "혈류가 체력 2를 소모하고, 불바다가 그 피해에 광역 6피해를 얹는다. 자해 빌드에서 쓸 때마다 값어치가 좋다."
     },
     {
       "deckCard": "Inferno",
       "offeredCard": "Combust",
       "bonus": 1.5,
-      "reason": "Both deal AoE from HP loss — Combust loses HP and deals AoE, Inferno also fires from that HP loss. Double AoE per turn."
+      "reason": "둘 다 체력 손실에서 광역 피해를 낸다. 발화가 체력을 잃으며 광역 피해를 주고, 그 손실로 불바다도 발사된다. 턴당 광역 두 배."
     },
     {
       "deckCard": "Stampede",
       "offeredCard": "Perfected Strike",
       "bonus": 1.5,
-      "reason": "Stampede fires a random attack from hand each turn — with Perfected Strike in deck (and other Strikes) it frequently auto-plays for solid damage."
+      "reason": "쇄도가 매 턴 손패의 무작위 공격을 발사한다. 덱에 완벽한 타격(및 다른 타격들)이 있으면 준수한 피해로 자주 자동 발동된다."
     },
     {
       "deckCard": "Hellraiser",
       "offeredCard": "Stampede",
       "bonus": 1,
-      "reason": "Both auto-fire attacks passively — Hellraiser on draw, Stampede at turn end. Strike-heavy decks benefit from both passive damage sources."
+      "reason": "둘 다 공격을 자동 발사한다. 지옥검무는 뽑을 때, 쇄도는 턴 종료에. 타격 위주 덱은 두 상시 화력원을 모두 누린다."
     },
     {
       "deckCard": "Unrelenting",
       "offeredCard": "Whirlwind",
       "bonus": 2,
-      "reason": "Unrelenting makes next attack 0 cost — Whirlwind (normally X-cost) becomes free, letting you dump all remaining energy into it."
+      "reason": "무자비가 다음 공격을 0코스트로 만든다. 원래 X코스트인 소용돌이가 공짜가 되어 남은 에너지를 전부 퍼부을 수 있다."
     },
     {
       "deckCard": "Whirlwind",
       "offeredCard": "Unrelenting",
       "bonus": 2,
-      "reason": "Whirlwind is most powerful with more energy — Unrelenting makes it free, so all energy goes into Whirlwind hits instead of paying its cost."
+      "reason": "소용돌이는 에너지가 많을수록 강하다. 무자비로 공짜가 되면 비용 대신 에너지 전부가 소용돌이 타격 수로 들어간다."
     },
     {
       "deckCard": "Unrelenting",
       "offeredCard": "Bludgeon",
       "bonus": 1.8,
-      "reason": "Bludgeon costs 3 energy — Unrelenting makes it free. 12 damage into 32 free damage for just the 2-cost Unrelenting."
+      "reason": "몽둥이질은 3코스트인데 무자비가 공짜로 만든다. 2코스트 무자비 하나로 32피해가 공짜가 된다."
     },
     {
       "deckCard": "Unrelenting",
       "offeredCard": "Heavy Blade",
       "bonus": 1.5,
-      "reason": "Heavy Blade has high Strength scaling but costs 2 — Unrelenting makes it free, getting the full Strength payoff for just 2 energy total."
+      "reason": "대검은 힘 계수가 높지만 2코스트다. 무자비로 공짜가 되면 힘 보상 전부를 총 2에너지에 챙긴다."
     },
     {
       "deckCard": "Unrelenting",
       "offeredCard": "Double Tap",
       "bonus": 1.2,
-      "reason": "Chain Unrelenting (free next attack) into Double Tap (attack plays twice) — one 2-cost card into one 1-cost card for a completely free doubled attack."
+      "reason": "무자비(다음 공격 공짜)에서 두 번 치기(공격 두 번 사용)로 연계 — 2코스트 한 장과 1코스트 한 장으로 완전 공짜 2연타가 나온다."
     },
     {
       "deckCard": "Double Tap",
       "offeredCard": "Unrelenting",
       "bonus": 1.2,
-      "reason": "Unrelenting frees the next attack — combine with Double Tap to get a free AND doubled attack in the same turn for massive burst."
+      "reason": "무자비가 다음 공격을 공짜로 만든다. 두 번 치기와 조합하면 같은 턴에 공짜이면서 두 번 나가는 공격으로 대형 폭딜."
     },
     {
       "deckCard": "Hellraiser",
       "offeredCard": "Perfected Strike",
       "bonus": 2,
-      "reason": "Hellraiser auto-plays Strikes when drawn — more Strikes in deck = more Hellraiser triggers AND higher Perfected Strike base damage. Core synergy."
+      "reason": "지옥검무가 타격을 뽑을 때마다 자동 발사한다. 덱에 타격이 많을수록 지옥검무 발동도 늘고 완벽한 타격의 기본 피해도 커진다. 핵심 시너지."
     },
     {
       "deckCard": "Perfected Strike",
       "offeredCard": "Hellraiser",
       "bonus": 2,
-      "reason": "Perfected Strike scales with every Strike card in deck — Hellraiser rewards keeping Strikes by auto-firing them on draw."
+      "reason": "완벽한 타격은 덱의 타격 카드 수만큼 강해진다. 지옥검무는 타격을 뽑는 즉시 자동 발사해 타격을 유지할 이유를 만들어준다."
     },
     {
       "deckCard": "One-Two Punch",
       "offeredCard": "Whirlwind",
       "bonus": 2,
-      "reason": "One-Two Punch doubles next Attack — Whirlwind plays twice for double energy-scaling AoE. Nuclear with Strength."
+      "reason": "원투 펀치가 다음 공격을 두 번 사용한다. 소용돌이가 두 번 나가면 에너지 계수 광역이 두 배가 된다. 힘까지 있으면 핵폭탄."
     },
     {
       "deckCard": "One-Two Punch",
       "offeredCard": "Reaper",
       "bonus": 2,
-      "reason": "One-Two Punch doubles Reaper — double AoE damage AND double HP healing. One of the strongest plays in the game."
+      "reason": "원투 펀치가 사신을 두 번 사용한다. 광역 피해도 두 배, 체력 회복도 두 배. 게임에서 손꼽히게 강한 플레이."
     },
     {
       "deckCard": "Reaper",
       "offeredCard": "One-Two Punch",
       "bonus": 2,
-      "reason": "Reaper played twice = double AoE damage + double HP healing — One-Two Punch is the best enabler for this."
+      "reason": "사신을 두 번 쓰면 광역 피해와 체력 회복이 모두 두 배가 된다. 원투 펀치가 그 최고의 조력자다."
     },
     {
       "deckCard": "One-Two Punch",
       "offeredCard": "Bludgeon",
       "bonus": 1.5,
-      "reason": "One-Two Punch doubles Bludgeon — 32 damage plays twice for 64 total damage at 3+1 energy cost."
+      "reason": "원투 펀치가 몽둥이질을 두 배로 만든다. 32피해가 두 번 나가 3+1 에너지에 총 64피해."
     },
     {
       "deckCard": "Double Tap",
       "offeredCard": "One-Two Punch",
       "bonus": 1.2,
-      "reason": "Both double your next attack — stack them in a turn for a theoretically tripled attack (though only 1 stacks at a time)."
+      "reason": "둘 다 다음 공격을 두 배로 만든다. 한 턴에 겹치면 이론상 세 배 공격(단, 한 번에 하나만 중첩)."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Pact's End",
       "bonus": 1.5,
-      "reason": "Corruption rapidly exhausts every skill — Pact's End condition (3+ exhausted) is met almost immediately with Corruption online."
+      "reason": "타락이 모든 스킬을 빠르게 소멸시켜, 조약의 끝의 조건(소멸 3장 이상)이 타락만 켜지면 거의 즉시 충족된다."
     },
     {
       "deckCard": "Pact's End",
       "offeredCard": "Corruption",
       "bonus": 1.5,
-      "reason": "Pact's End needs 3 exhausted cards — Corruption exhausts all skills making the condition trivial every fight."
+      "reason": "조약의 끝은 소멸된 카드 3장이 필요하다. 타락이 모든 스킬을 소멸시켜 매 전투 조건이 거저 채워진다."
     },
     {
       "deckCard": "Dark Embrace",
       "offeredCard": "Pact's End",
       "bonus": 1,
-      "reason": "In exhaust builds where Pact's End is live, Dark Embrace is also drawing cards from the same exhaust triggers — natural co-inhabitants."
+      "reason": "조약의 끝이 살아있는 소진 빌드라면, 같은 소멸 트리거에서 어둠의 포옹도 카드를 뽑고 있다. 자연스럽게 공존하는 짝."
     },
     {
       "deckCard": "True Grit",
       "offeredCard": "Pact's End",
       "bonus": 1,
-      "reason": "True Grit contributes to exhaust count — helps qualify Pact's End earlier in the fight."
+      "reason": "진정한 끈기가 소멸 수를 보태 조약의 끝 조건을 전투 초반에 더 빨리 채워준다."
     },
     {
       "deckCard": "Hellraiser",
       "offeredCard": "Pommel Strike",
       "bonus": 2,
-      "reason": "Pommel Strike contains 'Strike' — Hellraiser fires it for free when drawn. Pommel Strike also draws a card which may draw another Strike, potentially chaining infinitely."
+      "reason": "폼멜 타격은 이름에 '타격'이 들어가 지옥검무가 뽑는 즉시 공짜로 발사한다. 폼멜 타격의 드로우가 또 타격을 뽑으면 연쇄가 무한히 이어질 수도 있다."
     },
     {
       "deckCard": "Pommel Strike",
       "offeredCard": "Hellraiser",
       "bonus": 2,
-      "reason": "Hellraiser auto-plays Pommel Strike when drawn — Pommel Strike draws a card which can chain into more Strike triggers. The core of Hellraiser infinite."
+      "reason": "지옥검무가 폼멜 타격을 뽑는 즉시 자동 발사한다. 폼멜 타격의 드로우가 다시 타격 발동으로 이어질 수 있다. 지옥검무 무한의 핵심."
     },
     {
       "deckCard": "Hellraiser",
       "offeredCard": "Battle Trance",
       "bonus": 1.8,
-      "reason": "Battle Trance draws 3 cards — every Strike drawn fires for free. Draw 3 = up to 3 free Strikes in one card play."
+      "reason": "전투 최면이 카드 3장을 뽑고, 뽑힌 타격은 전부 공짜로 발사된다. 카드 한 장으로 최대 3발의 공짜 타격."
     },
     {
       "deckCard": "Battle Trance",
       "offeredCard": "Hellraiser",
       "bonus": 1.8,
-      "reason": "Hellraiser fires every Strike drawn — Battle Trance draws 3 cards for free, potentially firing 3 Strikes instantly."
+      "reason": "지옥검무가 뽑힌 타격을 전부 발사한다. 전투 최면이 공짜로 3장을 뽑아 즉석에서 타격 3발이 나갈 수 있다."
     },
     {
       "deckCard": "Hellraiser",
       "offeredCard": "Twin Strike",
       "bonus": 1.5,
-      "reason": "Twin Strike contains 'Strike' — Hellraiser fires it for free when drawn. Each Twin Strike fires twice = 2 free hits automatically."
+      "reason": "이중 타격은 이름에 '타격'이 들어가 지옥검무가 뽑는 즉시 공짜로 발사한다. 매번 2연타라 자동으로 공짜 2타."
     },
     {
       "deckCard": "Twin Strike",
       "offeredCard": "Hellraiser",
       "bonus": 1.5,
-      "reason": "Hellraiser auto-plays Twin Strike when drawn — free 2-hit attack every time Twin Strike is drawn, without spending energy."
+      "reason": "지옥검무가 이중 타격을 뽑는 즉시 자동 발사한다. 에너지를 안 쓰고 뽑을 때마다 공짜 2연타 공격."
     },
     {
       "deckCard": "Hellraiser",
       "offeredCard": "Setup Strike",
       "bonus": 1.2,
-      "reason": "Setup Strike contains 'Strike' — Hellraiser fires it for free when drawn, giving +2 Strength that turn for all subsequent auto-fired Strikes."
+      "reason": "사전 타격은 이름에 '타격'이 들어가 지옥검무가 뽑는 즉시 공짜로 발사한다. 그 턴 힘 +2가 이후 자동 발사되는 모든 타격에 실린다."
     },
     {
       "deckCard": "Setup Strike",
       "offeredCard": "Hellraiser",
       "bonus": 1.2,
-      "reason": "Hellraiser auto-plays Setup Strike when drawn — free +2 Strength each time Setup Strike is drawn, buffing all other Hellraiser auto-attacks that turn."
+      "reason": "지옥검무가 사전 타격을 뽑는 즉시 자동 발사한다. 뽑을 때마다 공짜 힘 +2가 그 턴의 다른 지옥검무 자동 공격을 전부 강화한다."
     },
     {
       "deckCard": "Stampede",
       "offeredCard": "Whirlwind",
       "bonus": 1.5,
-      "reason": "Stampede fires a random Attack from hand at end of turn — Whirlwind fired this way deals damage based on remaining energy. Free AoE at turn end."
+      "reason": "쇄도가 턴 종료에 손패의 무작위 공격을 발사한다. 이렇게 나간 소용돌이는 남은 에너지만큼 피해를 준다. 턴 종료 공짜 광역."
     },
     {
       "deckCard": "Whirlwind",
       "offeredCard": "Stampede",
       "bonus": 1.5,
-      "reason": "Stampede fires Whirlwind from hand for free at end of turn — free multi-hit AoE damage each turn if Whirlwind stays in hand."
+      "reason": "쇄도가 턴 종료에 손패의 소용돌이를 공짜로 발사한다. 소용돌이를 손에 들고 있으면 매 턴 공짜 다단 광역 피해."
     },
     {
       "deckCard": "Stampede",
       "offeredCard": "Reaper",
       "bonus": 1.2,
-      "reason": "Stampede can fire Reaper for free at end of turn — free AoE damage + free HP healing every turn if Reaper is in hand."
+      "reason": "쇄도가 턴 종료에 사신을 공짜로 발사할 수 있다. 사신을 손에 들고 있으면 매 턴 공짜 광역 피해에 공짜 회복까지."
     },
     {
       "deckCard": "Stampede",
       "offeredCard": "Anger",
       "bonus": 1.5,
-      "reason": "Stampede fires Anger for free at end of turn — Anger copies itself to discard, meaning more Anger in deck for future Stampede triggers. Self-sustaining loop."
+      "reason": "쇄도가 턴 종료에 분노를 공짜로 발사한다. 분노는 자기 사본을 버린 카드 더미에 추가하므로 이후 쇄도가 쏠 분노가 계속 늘어난다. 자가 증식 루프."
     },
     {
       "deckCard": "Anger",
       "offeredCard": "Stampede",
       "bonus": 1.5,
-      "reason": "Anger self-replicates — Stampede fires an Anger copy for free each turn, adding another Anger to discard. Snowballing free attacks."
+      "reason": "분노는 스스로 증식한다. 쇄도가 매 턴 분노 사본을 공짜로 발사하며 버린 더미에 또 한 장을 추가한다. 눈덩이처럼 불어나는 공짜 공격."
     },
     {
       "deckCard": "Dominate",
       "offeredCard": "Evil Eye",
       "bonus": 1.2,
-      "reason": "Evil Eye applies Vulnerable — Dominate converts each Vulnerable stack to permanent Strength. Apply Vulnerable with Evil Eye then cash out with Dominate."
+      "reason": "악마의 눈이 취약을 부여하고, 제압이 취약 중첩 하나를 영구 힘 1로 바꾼다. 악마의 눈으로 쌓고 제압으로 현금화한다."
     },
     {
       "deckCard": "Evil Eye",
       "offeredCard": "Dominate",
       "bonus": 1.2,
-      "reason": "Dominate converts Vulnerable stacks to Strength — Evil Eye provides Vulnerable for Dominate to convert."
+      "reason": "제압이 취약 중첩을 힘으로 바꾼다. 악마의 눈이 제압이 바꿀 취약을 공급한다."
     },
     {
       "deckCard": "Dominate",
       "offeredCard": "Thunderclap",
       "bonus": 1.2,
-      "reason": "Thunderclap applies Vulnerable to ALL enemies — after clearing groups, use Dominate to convert those stacks to permanent Strength for boss fights."
+      "reason": "천둥이 모든 적에게 취약을 부여한다. 잡몹을 정리한 뒤 제압으로 그 중첩을 영구 힘으로 바꿔 보스전을 대비한다."
     },
     {
       "deckCard": "Tremble",
       "offeredCard": "Colossus",
       "bonus": 1.2,
-      "reason": "Tremble applies Vulnerable to enemy (they take 50% more damage) — Colossus then makes you take 50% less damage FROM that Vulnerable enemy. Offense AND defense together."
+      "reason": "떨림이 적에게 취약을 부여해 받는 피해가 50% 늘고, 거상이 그 취약 상태의 적에게서 받는 피해를 50% 줄여준다. 공수 동시 해결."
     },
     {
       "deckCard": "Colossus",
       "offeredCard": "Tremble",
       "bonus": 1.2,
-      "reason": "Colossus halves damage from Vulnerable enemies — Tremble applies Vulnerable, setting up Colossus's defensive bonus while also amplifying your damage output."
+      "reason": "거상이 취약 상태의 적에게서 받는 피해를 반으로 줄인다. 떨림이 취약을 부여해 거상의 방어 보너스를 켜면서 내 피해도 증폭한다."
     },
     {
       "deckCard": "Drum of Battle",
       "offeredCard": "Pact's End",
       "bonus": 1.5,
-      "reason": "Drum of Battle exhausts 1 card every turn start — passively builds toward Pact's End's 3-exhaust condition and keeps it satisfied throughout a long fight."
+      "reason": "전투의 북소리가 매 턴 시작 1장을 소멸시켜 조약의 끝의 소멸 3장 조건을 알아서 쌓고, 긴 전투 내내 유지해준다."
     },
     {
       "deckCard": "Pact's End",
       "offeredCard": "Drum of Battle",
       "bonus": 1.5,
-      "reason": "Pact's End needs 3+ exhausted cards — Drum of Battle passively exhausts 1 per turn, reliably meeting and maintaining the condition."
+      "reason": "조약의 끝은 소멸 3장 이상이 필요하다. 전투의 북소리가 턴마다 1장씩 알아서 소멸시켜 조건을 확실하게 채우고 유지한다."
     },
     {
       "deckCard": "Drum of Battle",
       "offeredCard": "Ashen Strike",
       "bonus": 1,
-      "reason": "Drum of Battle exhausts 1 card every turn, growing the exhaust pile — Ashen Strike deals 3 extra damage per card in exhaust pile, scaling through the whole fight."
+      "reason": "전투의 북소리가 매 턴 1장을 소멸시켜 소멸 더미를 키운다. 잿빛 타격은 소멸 더미 카드당 추가 3피해라 전투 내내 성장한다."
     },
     {
       "deckCard": "One-Two Punch",
       "offeredCard": "Sword Boomerang",
       "bonus": 1.2,
-      "reason": "One-Two Punch plays next attack twice — Sword Boomerang played twice = 6 random hits instead of 3. Each hit benefits from Strength."
+      "reason": "원투 펀치가 다음 공격을 두 번 사용한다. 부메랑 칼날이 두 번 나가면 3타가 아니라 무작위 6타 — 전부 힘의 혜택을 받는다."
     },
     {
       "deckCard": "Sword Boomerang",
       "offeredCard": "One-Two Punch",
       "bonus": 1.2,
-      "reason": "One-Two Punch doubles Sword Boomerang — 6 random hits that all benefit from Strength scaling."
+      "reason": "원투 펀치가 부메랑 칼날을 두 배로 만든다. 무작위 6타 전부가 힘 성장의 혜택을 받는다."
     },
     {
       "deckCard": "Pact's End",
       "offeredCard": "Second Wind",
       "bonus": 1,
-      "reason": "Second Wind exhausts all non-attacks — quickly satisfies and re-satisfies Pact's End's condition while gaining block."
+      "reason": "기사회생이 모든 비공격 카드를 소멸시켜 방어도를 얻으면서, 조약의 끝 조건을 빠르게 채우고 다시 채운다."
     },
     {
       "deckCard": "Second Wind",
       "offeredCard": "Pact's End",
       "bonus": 1,
-      "reason": "Second Wind contributes multiple exhausted cards at once — helps qualify and maintain Pact's End's 3-exhaust condition."
+      "reason": "기사회생이 한 번에 여러 장을 소멸시켜 조약의 끝의 소멸 3장 조건을 채우고 유지하는 데 보탬이 된다."
     },
     {
       "deckCard": "Howl from Beyond",
       "offeredCard": "Ashen Strike",
       "bonus": 1,
-      "reason": "Howl from Beyond exhausts at start of every turn — each cycle grows the exhaust pile, directly increasing Ashen Strike's bonus damage throughout the fight."
+      "reason": "저편의 울음소리가 매 턴 시작마다 소멸된다. 순환할 때마다 소멸 더미가 커져 잿빛 타격의 추가 피해가 전투 내내 늘어난다."
     },
     {
       "deckCard": "Ashen Strike",
       "offeredCard": "Howl from Beyond",
       "bonus": 1,
-      "reason": "Howl from Beyond passively exhausts every turn — consistently grows the exhaust pile that Ashen Strike scales with."
+      "reason": "저편의 울음소리가 매 턴 알아서 소멸되어, 잿빛 타격이 성장할 소멸 더미를 꾸준히 키운다."
     },
     {
       "deckCard": "Rupture",
       "offeredCard": "Tear Asunder",
       "bonus": 2,
-      "reason": "Tear Asunder hits more times per HP lost this combat — Rupture gives Strength each HP loss, so every stack that empowers Tear Asunder also gave you Strength. Both scale off the same resource."
+      "reason": "갈가리 찢기는 이번 전투에 체력을 잃은 만큼 타격 수가 늘어난다. 파열도 같은 체력 손실에서 힘을 얻으니, 갈가리 찢기를 키운 중첩 하나하나가 힘도 준 셈이다. 같은 자원으로 둘 다 성장."
     },
     {
       "deckCard": "Tear Asunder",
       "offeredCard": "Rupture",
       "bonus": 2,
-      "reason": "Rupture gains Strength from HP loss — every event that adds a Tear Asunder hit also gave Rupture Strength. Stack both for exponential scaling."
+      "reason": "파열이 체력 손실에서 힘을 얻는다. 갈가리 찢기에 타격을 더한 사건 하나하나가 파열에도 힘을 줬다. 둘을 겹치면 기하급수적 성장."
     },
     {
       "deckCard": "Bloodletting",
       "offeredCard": "Tear Asunder",
       "bonus": 1.8,
-      "reason": "Bloodletting loses HP every play — each use adds a hit to Tear Asunder permanently this combat. More Bloodlettings = more Tear Asunder hits."
+      "reason": "사혈이 쓸 때마다 체력을 잃고, 그때마다 이번 전투 동안 갈가리 찢기의 타격이 영구히 1회 늘어난다. 사혈을 많이 쓸수록 갈가리 찢기 타격 수가 는다."
     },
     {
       "deckCard": "Brutality",
       "offeredCard": "Tear Asunder",
       "bonus": 1.8,
-      "reason": "Brutality passively loses 1 HP each turn — each turn adds another hit to Tear Asunder without spending cards. Compounds over long fights."
+      "reason": "잔혹함이 매 턴 알아서 체력을 1 잃게 한다. 카드를 안 쓰고도 턴마다 갈가리 찢기 타격이 1회씩 늘어난다. 긴 전투일수록 누적된다."
     },
     {
       "deckCard": "Offering",
       "offeredCard": "Tear Asunder",
       "bonus": 1.5,
-      "reason": "Offering loses 6 HP in one play — immediately adds 6 hits to Tear Asunder for the rest of the combat. Explosive scaling."
+      "reason": "제물이 한 번에 체력을 6 잃는다. 즉시 남은 전투 동안 갈가리 찢기에 타격 6회가 더해진다. 폭발적 성장."
     },
     {
       "deckCard": "Inferno",
       "offeredCard": "Tear Asunder",
       "bonus": 1.5,
-      "reason": "Inferno triggers on HP loss — every HP loss event adds both an Inferno AoE proc AND a Tear Asunder hit. Double scaling from same source."
+      "reason": "불바다가 체력 손실마다 발동한다. 체력을 잃는 사건마다 불바다 광역 발사와 갈가리 찢기 타격 추가가 동시에 일어난다. 같은 원천에서 이중 성장."
     },
     {
       "deckCard": "Tear Asunder",
       "offeredCard": "Inferno",
       "bonus": 1.5,
-      "reason": "Both scale off HP loss frequency — Inferno deals AoE while Tear Asunder hits multiply. Stack self-damage for both to compound simultaneously."
+      "reason": "둘 다 체력 손실 빈도로 성장한다. 불바다는 광역 피해, 갈가리 찢기는 타격 수 증가. 자해를 쌓으면 둘이 동시에 눈덩이가 된다."
     },
     {
       "deckCard": "Tear Asunder",
       "offeredCard": "Bloodletting",
       "bonus": 1.8,
-      "reason": "Each Bloodletting play permanently adds hits to Tear Asunder this combat — more plays = more hits per Tear Asunder cast."
+      "reason": "사혈을 쓸 때마다 이번 전투 동안 갈가리 찢기의 타격 수가 영구히 늘어난다. 많이 쓸수록 갈가리 찢기 한 번의 타격이 많아진다."
     },
     {
       "deckCard": "Tear Asunder",
       "offeredCard": "Brutality",
       "bonus": 1.8,
-      "reason": "Brutality's passive HP loss adds one Tear Asunder hit per turn for free — by turn 5 that's 5 extra hits on every Tear Asunder."
+      "reason": "잔혹함의 상시 체력 손실이 매 턴 갈가리 찢기 타격을 공짜로 1회씩 늘린다. 5턴이면 갈가리 찢기마다 추가 5타다."
     },
     {
       "deckCard": "Double Tap",
       "offeredCard": "Tear Asunder",
       "bonus": 1.5,
-      "reason": "Double Tap plays Tear Asunder twice — if you have 5 HP-loss events this combat, that's 2x (5+1 hits) = 12 hits total for 3 energy."
+      "reason": "두 번 치기가 갈가리 찢기를 두 번 사용한다. 이번 전투 체력 손실이 5회면 2×(5+1타) = 3에너지로 총 12타."
     },
     {
       "deckCard": "One-Two Punch",
       "offeredCard": "Tear Asunder",
       "bonus": 1.5,
-      "reason": "One-Two Punch doubles Tear Asunder — with accumulated HP losses the doubled hit count becomes massive burst."
+      "reason": "원투 펀치가 갈가리 찢기를 두 배로 만든다. 체력 손실이 누적된 상태라면 두 배가 된 타격 수가 대형 폭딜이 된다."
     },
     {
       "deckCard": "Anger",
       "offeredCard": "Headbutt",
       "bonus": 2,
-      "reason": "Anger puts a copy into discard — Headbutt retrieves cards from discard to top of draw pile. Chain Headbutt → draw Anger → play Anger → new copy in discard → repeat for near-infinite free attacks."
+      "reason": "분노가 사본을 버린 더미에 넣고, 박치기가 버린 더미의 카드를 뽑을 더미 맨 위로 올린다. 박치기 → 분노 뽑기 → 분노 사용 → 새 사본 — 반복하면 공짜 공격이 거의 무한이다."
     },
     {
       "deckCard": "Headbutt",
       "offeredCard": "Anger",
       "bonus": 2,
-      "reason": "Headbutt puts discard cards on top of draw — with Anger copies in discard, you can chain free 0-cost attacks repeatedly each turn."
+      "reason": "박치기가 버린 더미의 카드를 뽑을 더미 맨 위로 올린다. 버린 더미에 분노 사본이 있으면 0코스트 공짜 공격을 턴마다 반복해서 연계할 수 있다."
     },
     {
       "deckCard": "Rupture",
       "offeredCard": "Limit Break",
       "bonus": 2,
-      "reason": "Rupture builds Strength from HP loss — Limit Break doubles whatever Rupture has accumulated. Stack HP-loss events then double the resulting Strength for exponential scaling."
+      "reason": "파열이 체력 손실에서 힘을 쌓고, 한계 돌파가 그 힘을 통째로 두 배로 만든다. 자해를 쌓은 뒤 두 배로 튀기면 기하급수적 성장."
     },
     {
       "deckCard": "Limit Break",
       "offeredCard": "Rupture",
       "bonus": 2,
-      "reason": "Limit Break doubles your Strength — Rupture is the fastest way to generate Strength through self-damage, making Limit Break's doubling more powerful."
+      "reason": "한계 돌파가 힘을 두 배로 만든다. 파열은 자해로 힘을 만드는 가장 빠른 길이라 한계 돌파의 배율이 더 강해진다."
     },
     {
       "deckCard": "Feed",
       "offeredCard": "Reaper",
       "bonus": 1.5,
-      "reason": "Feed raises max HP — Reaper heals for unblocked damage dealt. Higher max HP means you have more room to recover, and Feed synergizes by keeping your HP pool healthy for Reaper to exploit."
+      "reason": "포식이 최대 체력을 올리고, 사신이 방어도를 뚫은 피해만큼 회복한다. 최대 체력이 높을수록 회복할 여유가 커져 사신이 활용할 체력 풀을 포식이 계속 채워준다."
     },
     {
       "deckCard": "Reaper",
       "offeredCard": "Feed",
       "bonus": 1.5,
-      "reason": "Reaper heals for unblocked damage — Feed raises max HP so there's more HP to recover, making Reaper's healing more impactful in the self-damage build."
+      "reason": "사신이 방어도를 뚫은 피해만큼 회복한다. 포식이 최대 체력을 올려 회복할 폭이 넓어지니, 자해 빌드에서 사신의 회복이 더 크게 작용한다."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Brand",
       "bonus": 1.5,
-      "reason": "Corruption makes Brand cost 0 and auto-exhaust — Brand already exhausts a card AND gives Strength, so with Corruption it's a free Strength generator that also triggers Dark Embrace/FNP."
+      "reason": "타락이 낙인을 0코스트에 자동 소멸로 만든다. 낙인은 원래도 카드를 소멸시키면서 힘을 주니, 타락 아래서는 어둠의 포옹·무감각까지 발동시키는 공짜 힘 생성기가 된다."
     },
     {
       "deckCard": "Brand",
       "offeredCard": "Corruption",
       "bonus": 1.5,
-      "reason": "Brand exhausts a card when played — Corruption makes it cost 0, turning Brand into a free exhaust trigger for Dark Embrace/FNP every time. Also gives 1 Strength per cast."
+      "reason": "낙인이 사용 시 카드를 소멸시킨다. 타락이 그걸 0코스트로 만들어, 낼 때마다 어둠의 포옹·무감각용 공짜 소멸 트리거가 된다. 시전마다 힘 1도 준다."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Thrash",
       "bonus": 1.2,
-      "reason": "Corruption makes Thrash cost 0 and auto-exhaust — Thrash deals scaling damage while exhausting, triggering Dark Embrace/FNP on top of strong damage."
+      "reason": "타락이 난타를 0코스트에 자동 소멸로 만든다. 난타는 카드를 소멸시키며 성장 피해를 주니, 강한 피해 위에 어둠의 포옹·무감각 발동까지 얹는다."
     },
     {
       "deckCard": "Thrash",
       "offeredCard": "Corruption",
       "bonus": 1.2,
-      "reason": "Thrash exhausts a card when played — Corruption makes it free while preserving the exhaust trigger for payoffs like Dark Embrace and Feel No Pain."
+      "reason": "난타가 사용 시 카드를 소멸시킨다. 타락이 그걸 공짜로 만들면서 어둠의 포옹·무감각 같은 보상용 소멸 트리거는 그대로 남는다."
     },
     {
       "deckCard": "Second Wind",
       "offeredCard": "Body Slam",
       "bonus": 1.5,
-      "reason": "Second Wind exhausts non-attacks for block — that block directly fuels Body Slam's damage. More non-attacks exhausted = more block = bigger Body Slam."
+      "reason": "기사회생이 비공격 카드를 소멸시켜 방어도를 얻고, 그 방어도가 그대로 몸통 박치기의 피해가 된다. 많이 소멸시킬수록 방어도가 늘고 몸통 박치기가 커진다."
     },
     {
       "deckCard": "Body Slam",
       "offeredCard": "Second Wind",
       "bonus": 1.5,
-      "reason": "Body Slam damage = block — Second Wind generates large amounts of block by exhausting skills, making each Body Slam hit harder."
+      "reason": "몸통 박치기의 피해는 방어도와 같다. 기사회생이 스킬을 소멸시켜 방어도를 대량으로 만들어 몸통 박치기가 더 세게 때린다."
     },
     {
       "deckCard": "Taunt",
       "offeredCard": "Colossus",
       "bonus": 1.5,
-      "reason": "Taunt applies Vulnerable to enemies — Colossus reduces damage taken from Vulnerable enemies by 50% this turn. Combine for block + virtually halved incoming damage on the same turn."
+      "reason": "도발이 적에게 취약을 부여하고, 거상이 이번 턴 취약 상태의 적에게서 받는 피해를 50% 줄인다. 같은 턴에 방어도에 사실상 반감까지 얹는다."
     },
     {
       "deckCard": "Colossus",
       "offeredCard": "Taunt",
       "bonus": 1.5,
-      "reason": "Colossus cuts damage from Vulnerable enemies by 50% this turn — Taunt applies Vulnerable while giving block, setting up Colossus's damage reduction."
+      "reason": "거상이 이번 턴 취약 상태의 적에게서 받는 피해를 50% 줄인다. 도발이 방어도를 얻으면서 취약을 부여해 거상의 반감을 준비해준다."
     },
     {
       "deckCard": "Inferno",
       "offeredCard": "Crimson Mantle",
       "bonus": 1.5,
-      "reason": "Crimson Mantle passively loses 1 HP each turn — Inferno fires 6 AoE from that HP loss automatically. Two passives together = guaranteed free AoE every single turn."
+      "reason": "핏빛 망토가 매 턴 알아서 체력을 1 잃게 하고, 불바다가 그 손실에서 광역 6피해를 자동 발사한다. 상시 효과 둘이 만나 매 턴 공짜 광역이 보장된다."
     },
     {
       "deckCard": "Crimson Mantle",
       "offeredCard": "Inferno",
       "bonus": 1.5,
-      "reason": "Inferno deals 6 AoE whenever you lose HP — Crimson Mantle's guaranteed -1 HP per turn triggers Inferno passively every turn for free."
+      "reason": "불바다는 체력을 잃을 때마다 광역 6피해를 준다. 핏빛 망토의 확정 턴당 -1 체력이 매 턴 불바다를 공짜로 발동시킨다."
     },
     {
       "deckCard": "Fiend Fire",
       "offeredCard": "Ashen Strike",
       "bonus": 1.8,
-      "reason": "Fiend Fire exhausts your entire hand — Ashen Strike deals 3 extra damage per card in exhaust pile. Play Fiend Fire first to massively grow the exhaust pile, then Ashen Strike hits for huge damage."
+      "reason": "지옥불이 손패 전체를 소멸시키고, 잿빛 타격은 소멸 더미 카드당 추가 3피해를 준다. 지옥불로 소멸 더미를 왕창 키운 뒤 잿빛 타격을 내면 어마어마한 피해가 나온다."
     },
     {
       "deckCard": "Ashen Strike",
       "offeredCard": "Fiend Fire",
       "bonus": 1.8,
-      "reason": "Ashen Strike scales with exhaust pile size — Fiend Fire exhausts the whole hand at once, giving Ashen Strike a massive damage boost immediately after."
+      "reason": "잿빛 타격은 소멸 더미 크기로 성장한다. 지옥불이 손패를 통째로 소멸시켜 직후의 잿빛 타격이 대폭 강해진다."
     },
     {
       "deckCard": "Dark Embrace",
       "offeredCard": "Pyre",
       "bonus": 1.5,
-      "reason": "Pyre exhausts your entire hand for damage — Dark Embrace draws a card for each exhaust. Pyre hits hard AND refills your hand via Dark Embrace simultaneously."
+      "reason": "불의 심장이 손패 전체를 소멸시켜 피해를 주고, 어둠의 포옹이 소멸마다 카드를 뽑는다. 세게 때리는 동시에 어둠의 포옹으로 손패가 다시 채워진다."
     },
     {
       "deckCard": "Pyre",
       "offeredCard": "Dark Embrace",
       "bonus": 1.5,
-      "reason": "Dark Embrace draws on exhaust — Pyre exhausts the whole hand, triggering Dark Embrace for each card. After Pyre, Dark Embrace draws back multiple cards."
+      "reason": "어둠의 포옹이 소멸마다 드로우한다. 불의 심장이 손패 전체를 소멸시켜 카드마다 어둠의 포옹을 발동 — 불의 심장 이후 여러 장이 되돌아온다."
     },
     {
       "deckCard": "Expect A Fight",
       "offeredCard": "Battle Trance",
       "bonus": 1.5,
-      "reason": "Expect A Fight gives 1 energy per Attack in hand at start of combat — Battle Trance draws 3, often attacks, maximizing the energy payout from Expect A Fight."
+      "reason": "싸움 준비가 전투 시작 시 손패의 공격 카드당 에너지 1을 준다. 전투 최면이 3장을 뽑으면 공격이 늘어나기 쉬워 싸움 준비의 에너지 수익이 극대화된다."
     },
     {
       "deckCard": "Battle Trance",
       "offeredCard": "Expect A Fight",
       "bonus": 1.5,
-      "reason": "Battle Trance draws 3 cards — with a full attack-heavy hand, Expect A Fight converts those attacks into massive energy at start of fight."
+      "reason": "전투 최면이 카드 3장을 뽑는다. 공격 위주 손패가 꽉 차 있으면 싸움 준비가 전투 시작에 그 공격들을 대량 에너지로 바꿔준다."
     },
     {
       "deckCard": "Taunt",
       "offeredCard": "Dropkick",
       "bonus": 1.5,
-      "reason": "Dropkick refunds energy if target is Vulnerable — Taunt applies Vulnerable first, making Dropkick a 0-net-cost attack every time."
+      "reason": "드롭킥은 대상이 취약이면 에너지를 돌려받는다. 도발로 먼저 취약을 걸면 드롭킥이 매번 실질 0코스트 공격이 된다."
     },
     {
       "deckCard": "Tremble",
       "offeredCard": "Dropkick",
       "bonus": 1.5,
-      "reason": "Tremble applies 2 Vulnerable for free — Dropkick then refunds its energy cost since target is Vulnerable. 0-cost attack chain."
+      "reason": "떨림이 공짜로 취약 2를 부여한다. 대상이 취약이라 드롭킥이 에너지를 돌려받는다. 0코스트 공격 연계."
     },
     {
       "deckCard": "Bash",
       "offeredCard": "Dropkick",
       "bonus": 1.2,
-      "reason": "Bash applies Vulnerable — Dropkick gets its energy refunded since target is Vulnerable, chaining into a near-free attack."
+      "reason": "강타가 취약을 부여한다. 대상이 취약이라 드롭킥이 에너지를 돌려받아 사실상 공짜 공격으로 이어진다."
     },
     {
       "deckCard": "Uppercut",
       "offeredCard": "Dropkick",
       "bonus": 1.2,
-      "reason": "Uppercut applies Vulnerable — Dropkick chains after for a refunded energy cost on the same turn."
+      "reason": "어퍼컷이 취약을 부여하고, 같은 턴에 드롭킥을 이어 내면 에너지를 돌려받는다."
     },
     {
       "deckCard": "Headbutt",
       "offeredCard": "Offering",
       "bonus": 1.5,
-      "reason": "Headbutt puts a discard pile card on top of draw — use it to retrieve Offering from discard so you can play Offering again next turn for another explosive draw+energy+self-damage turn."
+      "reason": "박치기가 버린 더미의 카드를 뽑을 더미 맨 위로 올린다. 버린 더미의 제물을 회수해 다음 턴에 다시 내면 폭발적인 드로우+에너지+자해 턴을 반복할 수 있다."
     },
     {
       "deckCard": "Offering",
       "offeredCard": "Headbutt",
       "bonus": 1.5,
-      "reason": "Offering is a once-per-cycle explosive card — Headbutt retrieves it from discard to replay next turn, giving you repeated Offering turns."
+      "reason": "제물은 한 순환에 한 번뿐인 폭발 카드다. 박치기가 버린 더미에서 회수해 다음 턴에 다시 내게 해줘 제물 턴이 반복된다."
     },
     {
       "deckCard": "Corruption",
       "offeredCard": "Battle Trance",
       "bonus": 1.5,
-      "reason": "Corruption makes skills cost 0 — Battle Trance draws 3, potentially all skills that now play for free. Explosive energy-free turn when you have skill-heavy hand."
+      "reason": "타락이 스킬을 0코스트로 만든다. 전투 최면이 뽑은 3장이 전부 스킬이면 전부 공짜다. 스킬 위주 손패에서 에너지를 안 쓰는 폭발 턴이 나온다."
     },
     {
       "deckCard": "Battle Trance",
       "offeredCard": "Corruption",
       "bonus": 1.5,
-      "reason": "Battle Trance draws 3 cards — with Corruption active, any skills drawn are free, turning Battle Trance's draw into free plays."
+      "reason": "전투 최면이 카드 3장을 뽑는다. 타락이 켜져 있으면 뽑힌 스킬이 전부 공짜라, 전투 최면의 드로우가 곧 공짜 플레이가 된다."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Calculated Gamble",
       "bonus": 2,
-      "reason": "Burst makes next skill play twice — Calculated Gamble plays twice, discarding hand TWICE, triggering every Sly card in hand twice in one turn."
+      "reason": "폭주가 다음 스킬을 두 번 사용하게 한다. 계산된 도박이 두 번 나가 손패를 두 번 버리고, 손패의 모든 교활 카드가 한 턴에 두 번 발동한다."
     },
     {
       "deckCard": "Calculated Gamble",
       "offeredCard": "Burst",
       "bonus": 2,
-      "reason": "Calculated Gamble plays twice with Burst — double discard = every Sly card fires twice. Explosive turn."
+      "reason": "폭주로 계산된 도박이 두 번 나간다. 두 번 버리니 모든 교활 카드가 두 번 발동한다. 폭발적인 턴."
     },
     {
       "deckCard": "Burst",
       "offeredCard": "Blade Dance",
       "bonus": 1.5,
-      "reason": "Burst doubles Blade Dance — 6 Shivs instead of 3 in one turn. Massive Shiv burst with Accuracy online."
+      "reason": "폭주가 검무를 두 배로 만든다. 한 턴에 단도 3장이 아니라 6장. 정밀까지 켜져 있으면 어마어마한 단도 폭딜."
     },
     {
       "deckCard": "Master Planner",
       "offeredCard": "Calculated Gamble",
       "bonus": 2.5,
-      "reason": "Master Planner gives all Skills Sly — Calculated Gamble discards your entire hand, playing every Sly-tagged card for free. Entire hand plays itself."
+      "reason": "설계의 대가가 모든 스킬에 교활을 부여한다. 계산된 도박이 손패 전체를 버리면 교활이 붙은 카드가 전부 공짜로 발동한다. 손패가 알아서 플레이된다."
     },
     {
       "deckCard": "Calculated Gamble",
       "offeredCard": "Master Planner",
       "bonus": 2.5,
-      "reason": "With Master Planner active, Calculated Gamble discards entire hand triggering all skills as Sly for free. The modern Sly win condition."
+      "reason": "설계의 대가가 켜진 상태에서 계산된 도박이 손패 전체를 버리면 모든 스킬이 교활로 공짜 발동한다. 현대 교활 빌드의 승리 공식."
     },
     {
       "deckCard": "Master Planner",
       "offeredCard": "Tools Of The Trade",
       "bonus": 2,
-      "reason": "Tools of the Trade discards each turn — with Master Planner giving all Skills Sly, every skill in hand fires for free each turn passively."
+      "reason": "작업 도구가 매 턴 버리기를 일으키고, 설계의 대가가 모든 스킬에 교활을 부여한다. 손패의 스킬이 매 턴 알아서 공짜로 발동한다."
     },
     {
       "deckCard": "Master Planner",
       "offeredCard": "Noxious Fumes",
       "bonus": 1.8,
-      "reason": "Master Planner gives Noxious Fumes Sly — discard it for free Poison stacking every turn without spending energy."
+      "reason": "설계의 대가가 유독 가스에 교활을 부여한다. 버리기만 해도 에너지 없이 매 턴 독이 공짜로 쌓인다."
     },
     {
       "deckCard": "Footwork",
       "offeredCard": "Blur",
       "bonus": 1.5,
-      "reason": "Footwork gives permanent Dex — Blur's retained block gets +1 from Dex, stacking over multiple turns with Footwork active."
+      "reason": "발놀림이 영구 민첩을 준다. 흐릿함으로 유지되는 방어도가 민첩만큼 늘어나, 발놀림이 켜진 여러 턴에 걸쳐 누적된다."
     },
     {
       "deckCard": "Footwork",
       "offeredCard": "Shadowmeld",
       "bonus": 1.5,
-      "reason": "Footwork's permanent Dex boosts Shadowmeld's retained block — better defense each turn Footwork is active."
+      "reason": "발놀림의 영구 민첩이 그림자 은신의 유지 방어도를 키운다. 발놀림이 켜진 매 턴 방어가 좋아진다."
     },
     {
       "deckCard": "Footwork",
       "offeredCard": "Afterimage",
       "bonus": 1.5,
-      "reason": "Footwork gives Dex — After Image's block per card played is boosted by Dexterity. More cards played = more Dex-boosted block."
+      "reason": "발놀림이 민첩을 준다. 잔상의 카드당 방어도가 민첩의 혜택을 받아, 카드를 많이 낼수록 민첩 강화 방어도가 쌓인다."
     },
     {
       "deckCard": "Footwork",
       "offeredCard": "Backflip",
       "bonus": 1.2,
-      "reason": "Backflip gains block that benefits from Footwork's Dexterity — every block card in deck gets better."
+      "reason": "공중제비의 방어도가 발놀림의 민첩 혜택을 받는다. 덱의 모든 방어 카드가 좋아진다."
     },
     {
       "deckCard": "Nightmare",
       "offeredCard": "Reflex",
       "bonus": 2,
-      "reason": "Nightmare creates 3 Reflex — discard all three for Draw 6 total for free. Entire deck cycle in one turn."
+      "reason": "악몽이 반사신경 3장을 만든다. 셋 다 버리면 공짜로 총 드로우 6. 한 턴에 덱을 한 바퀴 돌린다."
     },
     {
       "deckCard": "Nightmare",
       "offeredCard": "Tactician",
       "bonus": 2,
-      "reason": "Nightmare creates 3 Tactician — discard all three for 3 free energy. Effectively unlimited energy next turn."
+      "reason": "악몽이 전략가 3장을 만든다. 셋 다 버리면 공짜 에너지 3. 다음 턴 에너지가 사실상 무제한이 된다."
     },
     {
       "deckCard": "Nightmare",
       "offeredCard": "Burst",
       "bonus": 1.8,
-      "reason": "Nightmare creates 3 Burst — triple the next-skill-plays-twice effect. Each Burst chains into another for absurd multiplication."
+      "reason": "악몽이 폭주 3장을 만든다. '다음 스킬 두 번 사용'이 세 겹이 되고, 폭주가 폭주를 연쇄시켜 터무니없는 배율이 나온다."
     },
     {
       "deckCard": "Speedster",
       "offeredCard": "Calculated Gamble",
       "bonus": 2,
-      "reason": "Speedster makes hand free — Calculated Gamble plus all Sly cards in hand play for 0 energy. Entire combo turn costs nothing."
+      "reason": "스피드스터가 손패를 공짜로 만든다. 계산된 도박과 손패의 모든 교활 카드가 0에너지로 나간다. 콤보 턴 전체가 공짜다."
     },
     {
       "deckCard": "Speedster",
       "offeredCard": "Master Planner",
       "bonus": 2,
-      "reason": "Speedster + Master Planner = all skills cost 0 AND have Sly. Play the free skills, discard the Sly ones for more free triggers. Infinite loop potential."
+      "reason": "스피드스터 + 설계의 대가 = 모든 스킬이 0코스트에 교활까지. 공짜 스킬을 내고 교활 스킬은 버려서 또 공짜 발동 — 무한 루프 가능성."
     },
     {
       "deckCard": "Speedster",
       "offeredCard": "Finisher",
       "bonus": 1.8,
-      "reason": "Speedster lets you play every attack for free — Finisher's damage per attack played this turn becomes enormous with a free full hand."
+      "reason": "스피드스터로 모든 공격을 공짜로 낼 수 있다. 손패를 통째로 공짜로 쏟으면 이번 턴 공격 수당 피해를 주는 마무리가 어마어마해진다."
     },
     {
       "deckCard": "Abrasive",
       "offeredCard": "Footwork",
       "bonus": 1.8,
-      "reason": "Both give permanent Dexterity — Abrasive gives +1 Dex when discarded for free, Footwork gives +1 on play. Stack both for massive sustained Dex."
+      "reason": "둘 다 영구 민첩을 준다. 연마는 버려질 때 공짜로 +1, 발놀림은 사용 시 +1. 겹치면 민첩이 크게 쌓인다."
     },
     {
       "deckCard": "Footwork",
       "offeredCard": "Abrasive",
       "bonus": 1.8,
-      "reason": "Abrasive gives permanent Dex when discarded via Sly — stacks with Footwork for rapidly scaling block values."
+      "reason": "연마가 교활로 버려질 때 영구 민첩을 준다. 발놀림과 겹치면 방어도 수치가 빠르게 성장한다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Abrasive",
       "bonus": 2,
-      "reason": "Tools of the Trade discards 1 each turn — if Abrasive is discarded, gain +1 permanent Dex every single turn passively. Scales infinitely."
+      "reason": "작업 도구가 매 턴 1장을 버린다. 연마가 버려지면 매 턴 알아서 영구 민첩 +1 — 무한히 성장한다."
     },
     {
       "deckCard": "Bullet Time",
       "offeredCard": "Blade Dance",
       "bonus": 2,
-      "reason": "Bullet Time doubles next Skill — Blade Dance plays twice = 6 Shivs in one turn. Enormous Shiv burst."
+      "reason": "불릿 타임이 다음 스킬을 두 배로 만든다. 검무가 두 번 나가 한 턴에 단도 6장. 거대한 단도 폭딜."
     },
     {
       "deckCard": "Bullet Time",
       "offeredCard": "Calculated Gamble",
       "bonus": 1.8,
-      "reason": "Bullet Time doubles Calculated Gamble — discard hand twice triggering double Sly effects."
+      "reason": "불릿 타임이 계산된 도박을 두 배로 만든다. 손패를 두 번 버려 교활 효과가 두 번씩 발동한다."
     },
     {
       "deckCard": "Bullet Time",
       "offeredCard": "Noxious Fumes",
       "bonus": 1.5,
-      "reason": "Bullet Time doubles Noxious Fumes — two stacks of passive poison per turn instead of one."
+      "reason": "불릿 타임이 유독 가스를 두 배로 만든다. 턴당 상시 독이 한 겹이 아니라 두 겹씩 쌓인다."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Up My Sleeve",
       "bonus": 1.5,
-      "reason": "Accuracy boosts every Shiv's damage — Up My Sleeve generates Shivs every turn without exhausting, giving consistent Accuracy-boosted hits."
+      "reason": "정밀이 모든 단도의 피해를 키운다. 비책이 소멸 없이 매 턴 단도를 만들어 정밀 강화 타격이 꾸준히 나온다."
     },
     {
       "deckCard": "Accuracy",
       "offeredCard": "Hidden Daggers",
       "bonus": 1.8,
-      "reason": "Hidden Daggers generates 2 Shivs when discarded for free — each gets Accuracy's full damage bonus immediately."
+      "reason": "숨겨진 단검이 버려질 때 공짜로 단도 2장을 만든다. 즉시 정밀의 피해 보너스를 온전히 받는다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Corrosive Wave",
       "bonus": 2,
-      "reason": "Tools of the Trade discards 1 each turn — Corrosive Wave applies 4 AoE Poison for free when discarded. Free AoE Poison every turn passively."
+      "reason": "작업 도구가 매 턴 1장을 버린다. 부식성 파도가 버려지면 공짜로 광역 독 4를 뿌린다. 매 턴 알아서 공짜 광역 독."
     },
     {
       "deckCard": "Noxious Fumes",
       "offeredCard": "Corrosive Wave",
       "bonus": 1.5,
-      "reason": "Both apply passive Poison — Noxious Fumes per turn + free Corrosive Wave when discarded stacks Poison rapidly on all enemies."
+      "reason": "둘 다 상시로 독을 쌓는다. 유독 가스의 턴당 독에 버려질 때 공짜인 부식성 파도가 더해져 전체 적에게 독이 빠르게 쌓인다."
     },
     {
       "deckCard": "Noxious Fumes",
       "offeredCard": "Memento Mori",
       "bonus": 1.5,
-      "reason": "Noxious Fumes stacks Poison over turns — Memento Mori checks if Poison is present and applies 9 stacks. Guaranteed 9 Poison per cast after Fumes fires."
+      "reason": "유독 가스가 턴마다 독을 쌓는다. 메멘토 모리는 독이 걸린 적에게 9중첩을 얹는다. 가스가 돈 뒤엔 시전마다 독 9가 보장된다."
     },
     {
       "deckCard": "Deadly Poison",
       "offeredCard": "Memento Mori",
       "bonus": 1.2,
-      "reason": "Deadly Poison applies initial stacks — Memento Mori then dumps 9 more on already-Poisoned enemies."
+      "reason": "맹독이 초기 중첩을 깔고, 메멘토 모리가 이미 독에 걸린 적에게 9중첩을 더 붓는다."
     },
     {
       "deckCard": "Tools Of The Trade",
       "offeredCard": "Shadow Step",
       "bonus": 1.5,
-      "reason": "Tools discards 1 each turn — Shadow Step applies 5 retained Block for free when discarded. Passive free block every turn."
+      "reason": "작업 도구가 매 턴 1장을 버린다. 그림자 걸음이 버려지면 공짜로 유지되는 방어도 5를 준다. 매 턴 알아서 공짜 방어도."
     },
     {
       "deckCard": "Flechettes",
       "offeredCard": "Master Planner",
       "bonus": 1.5,
-      "reason": "Master Planner gives all Skills Sly — discarding skills counts toward Flechettes' per-skill damage. Free skills + Flechettes damage simultaneously."
+      "reason": "설계의 대가가 모든 스킬에 교활을 부여한다. 스킬을 버리는 것도 프레췌의 스킬당 피해에 집계된다. 공짜 스킬 발동과 프레췌 피해가 동시에 굴러간다."
     },
     {
       "deckCard": "Calculated Gamble",
       "offeredCard": "Flechettes",
       "bonus": 1.5,
-      "reason": "Calculated Gamble discards entire hand — each Sly-tagged skill that fires also counts toward Flechettes' damage this turn."
+      "reason": "계산된 도박이 손패 전체를 버린다. 교활로 발동한 스킬 하나하나가 이번 턴 프레췌의 피해에도 집계된다."
     },
     {
       "deckCard": "Noxious Fumes",
       "offeredCard": "Nightmare",
       "bonus": 1.5,
-      "reason": "Nightmare creates 3 Noxious Fumes — play all three for 3 passive Poison stacks per turn. Accelerates Poison engine massively."
+      "reason": "악몽이 유독 가스 3장을 만든다. 셋 다 내면 턴당 상시 독이 3중첩씩 쌓인다. 독 엔진이 대폭 가속된다."
     },
     {
       "deckCard": "Accelerant",
       "offeredCard": "Nightmare",
       "bonus": 1.8,
-      "reason": "Nightmare creates 3 Accelerant — play all three for triple Poison amplification. With stacked Poison this is a guaranteed win condition."
+      "reason": "악몽이 촉진제 3장을 만든다. 셋 다 내면 독 증폭이 세 겹. 독이 쌓여 있다면 사실상 확정 승리 수단이다."
     },
     {
       "deckCard": "Accelerant",
       "offeredCard": "Noxious Fumes",
       "bonus": 2,
-      "reason": "Noxious Fumes stacks poison every turn — Accelerant makes it trigger twice per turn. Every Noxious Fumes stack deals double damage with Accelerant active."
+      "reason": "유독 가스가 턴마다 독을 쌓고, 촉진제가 독을 턴당 두 번 발동시킨다. 촉진제가 켜지면 유독 가스의 중첩 하나하나가 두 배로 아프다."
     },
     {
       "deckCard": "Noxious Fumes",
       "offeredCard": "Accelerant",
       "bonus": 2,
-      "reason": "Accelerant doubles poison tick rate — Noxious Fumes' passive stacks become twice as deadly. Core Poison scaling engine."
+      "reason": "촉진제가 독 발동 속도를 두 배로 만든다. 유독 가스의 상시 중첩이 두 배로 치명적이 된다. 핵심 독 성장 엔진."
     },
     {
       "deckCard": "Accelerant",
       "offeredCard": "Deadly Poison",
       "bonus": 1.5,
-      "reason": "Deadly Poison stacks 5+ poison — Accelerant makes those stacks deal damage twice per turn."
+      "reason": "맹독이 독을 5 이상 쌓고, 촉진제가 그 중첩을 턴당 두 번 발동시킨다."
     },
     {
       "deckCard": "Accelerant",
       "offeredCard": "Bubble Bubble",
       "bonus": 1.5,
-      "reason": "Bubble Bubble amplifies existing poison — Accelerant then makes those amplified stacks trigger twice per turn."
+      "reason": "차오르는 독이 기존 독을 증폭하고, 촉진제가 그 증폭된 중첩을 턴당 두 번 발동시킨다."
     },
     {
       "deckCard": "Nightmare",
       "offeredCard": "Accelerant",
       "bonus": 2,
-      "reason": "Nightmare creates 3 copies of Accelerant — play all three next turn for poison triggering 4 times per turn. Unstoppable poison scaling."
+      "reason": "악몽이 촉진제 사본 3장을 만든다. 다음 턴 셋 다 내면 독이 턴당 4번 발동한다. 막을 수 없는 독 성장."
     },
     {
       "deckCard": "Anticipate",
