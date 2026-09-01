@@ -213,7 +213,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
     const boost = (0.3 + strength * 0.5) * DIMN[matchCount] * satMult;
     score += boost;
     const satNote = satMult < 1 ? ` (포화)` : '';
-    synR.push(`+${boost.toFixed(1)} ${koArch(arch.name)} 빌드에 적합${satNote}`);
+    synR.push(`+${boost.toFixed(1)} ${koArch(arch.name)} 덱에서 효과가 잘 맞음${satNote}`);
     matchCount++;
   }
 
@@ -333,7 +333,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
       if (!fitsAnyDetected && specificBuilds.length > 0) {
         const pen = -(0.4 + topArch.strength * 0.5);
         score += pen;
-        antiR.push(`${pen.toFixed(1)} ${koBuild(specificBuilds[0])} 카드라 ${koArch(topArch.arch.name)} 빌드와 안 맞음`);
+        antiR.push(`${pen.toFixed(1)} 원래 ${koBuild(specificBuilds[0])} 빌드용 카드 (현재 덱은 ${koArch(topArch.arch.name)})`);
       }
     }
   }
@@ -871,7 +871,7 @@ function scoreRemoval(cardName, char, da, deckCards, equippedRelics) {
       // Off-archetype — strong removal candidate
       const offPen = archStrength * 2.5;
       score += offPen;
-      reasons.push(`빌드 밖 카드 — ${cardBuilds.map(koBuild).join('/')}용이라 ${koArch(topArch.arch.name)} 빌드와 안 맞음`);
+      reasons.push(`빌드 밖 카드 — 원래 ${cardBuilds.map(koBuild).join('/')} 빌드용 (현재 덱은 ${koArch(topArch.arch.name)})`);
     }
   }
 

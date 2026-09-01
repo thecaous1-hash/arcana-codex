@@ -25884,11 +25884,26 @@ const DB = {
       "n": "Circlet",
       "c": "any"
     },
-    "Hefty Tablet",
-    "Neow's Talisman",
-    "Neow's Bones",
-    "Phial Holster",
-    "Winged Boots",
+    {
+      "n": "Hefty Tablet",
+      "c": "any"
+    },
+    {
+      "n": "Neow's Talisman",
+      "c": "any"
+    },
+    {
+      "n": "Neow's Bones",
+      "c": "any"
+    },
+    {
+      "n": "Phial Holster",
+      "c": "any"
+    },
+    {
+      "n": "Winged Boots",
+      "c": "any"
+    },
     {
       "n": "Fishing Rod",
       "c": "any"
