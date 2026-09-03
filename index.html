@@ -268,6 +268,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 
 /* 카드 선택 슬롯 (설계 §1) */
 .slot-hint{font-size:.74rem;color:var(--text3);line-height:1.5}
+.demo-banner{font-size:.76rem;line-height:1.5;color:var(--gold3);background:rgba(240,168,60,.12);border:1px solid var(--gold);border-radius:8px;padding:8px 10px;margin-bottom:8px} /* 예시 데이터 경고 (런 복기) */
 .hint-path{word-break:break-all}                                  /* 긴 경로가 패널 밖으로 넘치지 않게 */
 .hint-more>summary{cursor:pointer;color:var(--text2);list-style:none}
 .hint-more>summary::-webkit-details-marker{display:none}
@@ -448,7 +449,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
     <div class="panel retro-side">
       <div class="panel-h"><h2>📂 런 기록</h2><span class="count" id="run-count"></span></div>
       <div class="panel-b">
-        <p class="slot-hint">저장된 런 기록이 <b>자동으로</b> 로드됩니다. 최근에 플레이한 런까지 반영하려면 아래로 <b>최신 기록을 다시 불러오세요</b> (선택).<br>
+        <p class="slot-hint"><b>내 런 기록을 불러오면</b> 분석해 드립니다. 아래 버튼으로 <b>history 폴더</b>(또는 .run 파일)를 선택하세요.<br>
           위치: <b class="hint-path">%APPDATA%\SlayTheSpire2\steam\(숫자 폴더)\profile1\(게임 내 프로필명)\saves\history</b></p>
         <details class="slot-hint hint-more">
           <summary>폴더를 못 찾겠어요</summary>
@@ -462,10 +463,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
         <div class="row-btns">
           <label class="btn" style="cursor:pointer">🔄 최신 폴더 갱신<input type="file" id="run-folder" webkitdirectory directory multiple hidden></label>
           <label class="btn" style="cursor:pointer">📄 파일 선택<input type="file" id="run-files" multiple accept=".run" hidden></label>
+          <button class="btn" id="run-demo" style="display:none">👀 예시로 둘러보기</button>
         </div>
         <div class="retro-filter" id="retro-filter" style="display:none">
           <label style="font-size:.74rem;color:var(--text3);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="retro-loss-only"> 패배한 런만</label>
         </div>
+        <div class="demo-banner" id="demo-banner" style="display:none">⚠️ <b>예시 데이터입니다</b> — 제작자의 런 기록이며 회원님의 기록이 아닙니다.<br>위 버튼으로 내 기록을 불러오세요.</div>
         <div class="run-list" id="run-list"></div>
       </div>
     </div>
@@ -1392,6 +1395,7 @@ document.addEventListener('keydown',e=>{
 
 // ══════ 런 복기 / 실패 분석 (설계 §6) ══════
 let RUNS=[], curRunIdx=-1;
+let DEMO_MODE=false; // true = 예시(제작자) 런을 보는 중. 사용자가 직접 파일을 불러오면 false로 복귀
 function charColor(ch){ const c=CHARS.find(x=>x.id===ch); return c?c.color:'var(--text3)'; }
 function charKoName(ch){ const c=CHARS.find(x=>x.id===ch); return c?c.ko:ch; }
 // 메뉴 전환
@@ -1407,6 +1411,7 @@ document.querySelectorAll('.menu-tab').forEach(t=>t.addEventListener('click',()=
 function loadRunFiles(fileList){
   const files=[...fileList].filter(f=>/\.run$/i.test(f.name)&&!/\.backup$/i.test(f.name));
   if(!files.length){ alert('.run 파일을 찾지 못했습니다.\n\n아래 경로의 history 폴더(또는 .run 파일)를 선택하세요.\n%APPDATA%\\SlayTheSpire2\\steam\\(숫자 폴더)\\profile1\\(게임 내 프로필명)\\saves\\history\n\n폴더가 안 보이면: 윈도우키+R → %APPDATA%\\SlayTheSpire2 입력 → 엔터\nAppData는 윈도우 숨김 폴더라 탐색기에서 눌러 들어가면 보이지 않습니다.'); return; }
+  DEMO_MODE=false; // 사용자 본인 기록 로드 → 예시 모드 해제
   let pending=files.length; const loaded=[];
   files.forEach(f=>{ const rd=new FileReader();
     rd.onload=()=>{ try{ const r=JSON.parse(rd.result); r.__name=f.name; loaded.push(r); }catch(e){} if(--pending===0)onRunsLoaded(loaded); };
@@ -1415,10 +1420,14 @@ function loadRunFiles(fileList){
 }
 function onRunsLoaded(loaded){ loaded.sort((a,b)=>(b.start_time||0)-(a.start_time||0)); RUNS=loaded; curRunIdx=-1;
   $('retro-filter').style.display=RUNS.length?'block':'none'; renderRunList();
-  $('retro-analysis').innerHTML=`<div class="empty">${RUNS.length}개 런을 불러왔어요.<br>왼쪽에서 분석할 런을 선택하세요.</div>`;
+  $('demo-banner').style.display=(DEMO_MODE&&RUNS.length)?'':'none';
+  $('retro-analysis').innerHTML=DEMO_MODE
+    ?`<div class="empty">⚠️ 예시 데이터 ${RUNS.length}개 런을 불러왔어요 (제작자의 기록, 회원님의 기록이 아닙니다).<br>왼쪽에서 런을 골라 분석 화면을 둘러보세요.</div>`
+    :`<div class="empty">${RUNS.length}개 런을 불러왔어요.<br>왼쪽에서 분석할 런을 선택하세요.</div>`;
 }
 $('run-folder').addEventListener('change',e=>loadRunFiles(e.target.files));
 $('run-files').addEventListener('change',e=>loadRunFiles(e.target.files));
+$('run-demo').addEventListener('click',()=>{ DEMO_MODE=true; onRunsLoaded(RUN_HISTORY); });
 $('retro-loss-only').addEventListener('change',renderRunList);
 // 런 목록
 function runChar(r){ return ((r.players&&r.players[0]&&r.players[0].character)||'').replace('CHARACTER.','').toLowerCase(); }
@@ -1604,8 +1613,9 @@ document.querySelectorAll('.subtab').forEach(t=>t.classList.toggle('on',t.datase
   if(!d||!el||!d.generatedAt) return; const day=String(d.generatedAt).slice(0,10); /* UTC 기준 — tools/build_from_api.js와 동일 */
   el.textContent=d.version ? ' · 데이터 '+d.version+' ('+day+')' : ' · 데이터 갱신 '+day; })();
 renderAll();
-// 런 기록 스냅샷 자동 로드 (data/runs.js)
-if(typeof RUN_HISTORY!=='undefined' && RUN_HISTORY && RUN_HISTORY.length){ onRunsLoaded(RUN_HISTORY); }
+// 런 복기: 첫 진입은 빈 상태. 예시 데이터(data/runs.js, 제작자 런)는 자동 로드하지 않고 버튼 표시 여부만 결정한다.
+$('run-demo').style.display=(typeof RUN_HISTORY!=='undefined' && RUN_HISTORY && RUN_HISTORY.length)?'':'none';
+renderRunList(); // 빈 상태 문구("불러온 런이 없습니다.") 표시
 </script>
 </body>
 </html>
