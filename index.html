@@ -269,6 +269,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 /* 카드 선택 슬롯 (설계 §1) */
 .slot-hint{font-size:.74rem;color:var(--text3);line-height:1.5}
 .demo-banner{font-size:.76rem;line-height:1.5;color:var(--gold3);background:rgba(240,168,60,.12);border:1px solid var(--gold);border-radius:8px;padding:8px 10px;margin-bottom:8px} /* 예시 데이터 경고 (런 복기) */
+.demo-banner .demo-x{float:right;cursor:pointer;background:none;border:none;color:var(--gold3);font-size:.85rem;line-height:1;padding:0 0 0 6px}
+.demo-banner .demo-x:hover{color:var(--gold)}
+#demo-banner-mini{cursor:pointer}
 .hint-path{word-break:break-all}                                  /* 긴 경로가 패널 밖으로 넘치지 않게 */
 .hint-more>summary{cursor:pointer;color:var(--text2);list-style:none}
 .hint-more>summary::-webkit-details-marker{display:none}
@@ -468,7 +471,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
         <div class="retro-filter" id="retro-filter" style="display:none">
           <label style="font-size:.74rem;color:var(--text3);display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" id="retro-loss-only"> 패배한 런만</label>
         </div>
-        <div class="demo-banner" id="demo-banner" style="display:none">⚠️ <b>예시 데이터입니다</b> — 제작자의 런 기록이며 회원님의 기록이 아닙니다.<br>위 버튼으로 내 기록을 불러오세요.</div>
+        <div class="demo-banner" id="demo-banner" style="display:none"><button class="demo-x" id="demo-banner-x" title="접기" aria-label="예시 안내 접기">✕</button><span id="demo-banner-full">⚠️ <b>예시 데이터입니다</b> — 제작자의 런 기록이며 회원님의 기록이 아닙니다.<br>위 버튼으로 내 기록을 불러오세요.</span><span id="demo-banner-mini" style="display:none">⚠️ 예시 데이터 보는 중 <span style="opacity:.65">(눌러서 펼치기)</span></span></div>
         <div class="run-list" id="run-list"></div>
       </div>
     </div>
@@ -1415,6 +1418,14 @@ function loadDemoRuns(){
   RUN_HISTORY_LOADING.catch(()=>{ RUN_HISTORY_LOADING=null; }); // 실패 시 재시도 가능하게 초기화
   return RUN_HISTORY_LOADING;
 }
+// 예시 배너 접기 상태. 저장하지 않음 — 예시를 새로 불러오면 다시 펼쳐진다.
+let demoBannerCollapsed=false;
+function renderDemoBanner(){
+  $('demo-banner').style.display=(DEMO_MODE&&RUNS.length)?'':'none';
+  $('demo-banner-full').style.display=demoBannerCollapsed?'none':'';
+  $('demo-banner-mini').style.display=demoBannerCollapsed?'':'none';
+  $('demo-banner-x').style.display=demoBannerCollapsed?'none':'';
+}
 function charColor(ch){ const c=CHARS.find(x=>x.id===ch); return c?c.color:'var(--text3)'; }
 function charKoName(ch){ const c=CHARS.find(x=>x.id===ch); return c?c.ko:ch; }
 // 메뉴 전환
@@ -1439,7 +1450,7 @@ function loadRunFiles(fileList){
 }
 function onRunsLoaded(loaded){ loaded.sort((a,b)=>(b.start_time||0)-(a.start_time||0)); RUNS=loaded; curRunIdx=-1;
   $('retro-filter').style.display=RUNS.length?'block':'none'; renderRunList();
-  $('demo-banner').style.display=(DEMO_MODE&&RUNS.length)?'':'none';
+  demoBannerCollapsed=false; renderDemoBanner(); // 새로 불러올 때는 항상 펼친 상태로 시작
   $('retro-analysis').innerHTML=DEMO_MODE
     ?`<div class="empty">⚠️ 예시 데이터 ${RUNS.length}개 런을 불러왔어요 (제작자의 기록, 회원님의 기록이 아닙니다).<br>왼쪽에서 런을 골라 분석 화면을 둘러보세요.</div>`
     :`<div class="empty">${RUNS.length}개 런을 불러왔어요.<br>왼쪽에서 분석할 런을 선택하세요.</div>`;
@@ -1454,6 +1465,8 @@ $('run-demo').addEventListener('click',()=>{
     .catch(()=>{ alert('예시 데이터를 불러오지 못했습니다.\n인터넷 연결을 확인한 뒤 다시 시도해 주세요.'); })
     .then(()=>{ btn.disabled=false; btn.textContent=label; });
 });
+$('demo-banner-x').addEventListener('click',e=>{ e.stopPropagation(); demoBannerCollapsed=true; renderDemoBanner(); });
+$('demo-banner').addEventListener('click',()=>{ if(demoBannerCollapsed){ demoBannerCollapsed=false; renderDemoBanner(); } });
 $('retro-loss-only').addEventListener('change',renderRunList);
 // 런 목록
 function runChar(r){ return ((r.players&&r.players[0]&&r.players[0].character)||'').replace('CHARACTER.','').toLowerCase(); }
