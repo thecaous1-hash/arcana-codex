@@ -1418,6 +1418,10 @@ function loadDemoRuns(){
   RUN_HISTORY_LOADING.catch(()=>{ RUN_HISTORY_LOADING=null; }); // 실패 시 재시도 가능하게 초기화
   return RUN_HISTORY_LOADING;
 }
+// 로드 요청 번호표. 예시 로딩(네트워크)과 내 기록 로딩(FileReader)이 둘 다 비동기라
+// 늦게 끝난 쪽이 먼저 끝난 쪽을 덮어쓰는 경합이 생긴다. 요청마다 번호를 올리고,
+// 결과 반영 직전에 자기 번호가 아직 최신인지 확인해 낡은 결과는 버린다.
+let runLoadSeq=0;
 // 예시 배너 접기 상태. 저장하지 않음 — 예시를 새로 불러오면 다시 펼쳐진다.
 let demoBannerCollapsed=false;
 function renderDemoBanner(){
@@ -1441,11 +1445,14 @@ document.querySelectorAll('.menu-tab').forEach(t=>t.addEventListener('click',()=
 function loadRunFiles(fileList){
   const files=[...fileList].filter(f=>/\.run$/i.test(f.name)&&!/\.backup$/i.test(f.name));
   if(!files.length){ alert('.run 파일을 찾지 못했습니다.\n\n아래 경로의 history 폴더(또는 .run 파일)를 선택하세요.\n%APPDATA%\\SlayTheSpire2\\steam\\(숫자 폴더)\\profile1\\(게임 내 프로필명)\\saves\\history\n\n폴더가 안 보이면: 윈도우키+R → %APPDATA%\\SlayTheSpire2 입력 → 엔터\nAppData는 윈도우 숨김 폴더라 탐색기에서 눌러 들어가면 보이지 않습니다.'); return; }
+  const mySeq=++runLoadSeq; // 이 로드가 최신 요청임을 선언
   DEMO_MODE=false; // 사용자 본인 기록 로드 → 예시 모드 해제
   let pending=files.length; const loaded=[];
+  // --pending은 항상 실행되어야 하므로 반드시 && 왼쪽에 둔다.
+  const done=()=>{ if(--pending===0 && mySeq===runLoadSeq) onRunsLoaded(loaded); };
   files.forEach(f=>{ const rd=new FileReader();
-    rd.onload=()=>{ try{ const r=JSON.parse(rd.result); r.__name=f.name; loaded.push(r); }catch(e){} if(--pending===0)onRunsLoaded(loaded); };
-    rd.onerror=()=>{ if(--pending===0)onRunsLoaded(loaded); };
+    rd.onload=()=>{ try{ const r=JSON.parse(rd.result); r.__name=f.name; loaded.push(r); }catch(e){} done(); };
+    rd.onerror=done;
     rd.readAsText(f); });
 }
 function onRunsLoaded(loaded){ loaded.sort((a,b)=>(b.start_time||0)-(a.start_time||0)); RUNS=loaded; curRunIdx=-1;
@@ -1459,10 +1466,14 @@ $('run-folder').addEventListener('change',e=>loadRunFiles(e.target.files));
 $('run-files').addEventListener('change',e=>loadRunFiles(e.target.files));
 $('run-demo').addEventListener('click',()=>{
   const btn=$('run-demo'), label=btn.textContent;
+  const mySeq=++runLoadSeq; // 이 클릭이 최신 요청임을 선언
   btn.disabled=true; btn.textContent='⏳ 예시 불러오는 중…';
   loadDemoRuns()
-    .then(rh=>{ DEMO_MODE=true; onRunsLoaded(rh); })
-    .catch(()=>{ alert('예시 데이터를 불러오지 못했습니다.\n인터넷 연결을 확인한 뒤 다시 시도해 주세요.'); })
+    // 다운로드 중에 사용자가 자기 기록을 불러왔다면 늦게 도착한 예시로 덮어쓰지 않는다.
+    .then(rh=>{ if(mySeq!==runLoadSeq) return; DEMO_MODE=true; onRunsLoaded(rh); })
+    // 이미 다른 로드로 넘어간 뒤라면 실패 안내도 띄우지 않는다(사용자는 그 요청을 잊었다).
+    .catch(()=>{ if(mySeq!==runLoadSeq) return; alert('예시 데이터를 불러오지 못했습니다.\n인터넷 연결을 확인한 뒤 다시 시도해 주세요.'); })
+    // 버튼 복구는 경합 여부와 무관하게 항상 수행한다.
     .then(()=>{ btn.disabled=false; btn.textContent=label; });
 });
 $('demo-banner-x').addEventListener('click',e=>{ e.stopPropagation(); demoBannerCollapsed=true; renderDemoBanner(); });
