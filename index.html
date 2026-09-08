@@ -551,7 +551,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(12,11,9,.96);backdrop-fi
 <script src="data/basic_art.js"></script>
 <script src="data/extra_cards.js"></script>
 <script src="data/api_data.js"></script>
-<script src="data/runs.js"></script>
 <script src="i18n.js"></script>
 <script src="logic.js"></script>
 <script>
@@ -1396,6 +1395,26 @@ document.addEventListener('keydown',e=>{
 // ══════ 런 복기 / 실패 분석 (설계 §6) ══════
 let RUNS=[], curRunIdx=-1;
 let DEMO_MODE=false; // true = 예시(제작자) 런을 보는 중. 사용자가 직접 파일을 불러오면 false로 복귀
+// 예시 런 데이터(data/runs.js, 약 2.5MB)는 버튼을 누른 순간에만 내려받는다.
+// fetch가 아니라 <script> 태그를 쓰는 이유: file://로 연 페이지에서도 동작해야 하기 때문.
+let RUN_HISTORY_LOADING=null;
+function loadDemoRuns(){
+  if(typeof window.RUN_HISTORY!=='undefined' && window.RUN_HISTORY && window.RUN_HISTORY.length)
+    return Promise.resolve(window.RUN_HISTORY);
+  if(RUN_HISTORY_LOADING) return RUN_HISTORY_LOADING;
+  RUN_HISTORY_LOADING=new Promise((resolve,reject)=>{
+    const s=document.createElement('script');
+    s.src='data/runs.js';
+    s.onload=()=>{
+      if(window.RUN_HISTORY && window.RUN_HISTORY.length) resolve(window.RUN_HISTORY);
+      else reject(new Error('RUN_HISTORY empty'));
+    };
+    s.onerror=()=>reject(new Error('script load failed'));
+    document.head.appendChild(s);
+  });
+  RUN_HISTORY_LOADING.catch(()=>{ RUN_HISTORY_LOADING=null; }); // 실패 시 재시도 가능하게 초기화
+  return RUN_HISTORY_LOADING;
+}
 function charColor(ch){ const c=CHARS.find(x=>x.id===ch); return c?c.color:'var(--text3)'; }
 function charKoName(ch){ const c=CHARS.find(x=>x.id===ch); return c?c.ko:ch; }
 // 메뉴 전환
@@ -1427,7 +1446,14 @@ function onRunsLoaded(loaded){ loaded.sort((a,b)=>(b.start_time||0)-(a.start_tim
 }
 $('run-folder').addEventListener('change',e=>loadRunFiles(e.target.files));
 $('run-files').addEventListener('change',e=>loadRunFiles(e.target.files));
-$('run-demo').addEventListener('click',()=>{ DEMO_MODE=true; onRunsLoaded(RUN_HISTORY); });
+$('run-demo').addEventListener('click',()=>{
+  const btn=$('run-demo'), label=btn.textContent;
+  btn.disabled=true; btn.textContent='⏳ 예시 불러오는 중…';
+  loadDemoRuns()
+    .then(rh=>{ DEMO_MODE=true; onRunsLoaded(rh); })
+    .catch(()=>{ alert('예시 데이터를 불러오지 못했습니다.\n인터넷 연결을 확인한 뒤 다시 시도해 주세요.'); })
+    .then(()=>{ btn.disabled=false; btn.textContent=label; });
+});
 $('retro-loss-only').addEventListener('change',renderRunList);
 // 런 목록
 function runChar(r){ return ((r.players&&r.players[0]&&r.players[0].character)||'').replace('CHARACTER.','').toLowerCase(); }
@@ -1613,8 +1639,10 @@ document.querySelectorAll('.subtab').forEach(t=>t.classList.toggle('on',t.datase
   if(!d||!el||!d.generatedAt) return; const day=String(d.generatedAt).slice(0,10); /* UTC 기준 — tools/build_from_api.js와 동일 */
   el.textContent=d.version ? ' · 데이터 '+d.version+' ('+day+')' : ' · 데이터 갱신 '+day; })();
 renderAll();
-// 런 복기: 첫 진입은 빈 상태. 예시 데이터(data/runs.js, 제작자 런)는 자동 로드하지 않고 버튼 표시 여부만 결정한다.
-$('run-demo').style.display=(typeof RUN_HISTORY!=='undefined' && RUN_HISTORY && RUN_HISTORY.length)?'':'none';
+// 런 복기: 첫 진입은 빈 상태. 예시 데이터(data/runs.js)는 버튼을 누를 때 비로소 내려받는다(지연 로딩).
+// 로드 전에는 RUN_HISTORY가 존재하지 않으므로, 예전처럼 길이로 표시 여부를 판단할 수 없다.
+// data/runs.js는 저장소에 항상 포함되는 자산이므로 버튼은 항상 노출하고, 실패는 클릭 시점에 안내한다.
+$('run-demo').style.display='';
 renderRunList(); // 빈 상태 문구("불러온 런이 없습니다.") 표시
 </script>
 </body>
