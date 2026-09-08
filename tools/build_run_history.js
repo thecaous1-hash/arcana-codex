@@ -2,7 +2,7 @@
 //  [역할: 런 복기 전용] 데이터 소스(1차/백업)와 무관한 별개 기능 도구. (tools/README.md 참고)
 //  ------------------------------------------------------------
 //  build_run_history.js — 게임 런 기록(.run)을 슬림하게 추출해
-//  data/runs.js (window.RUN_HISTORY) 생성. 앱이 열자마자 자동 로드용.
+//  data/runs.js (window.RUN_HISTORY) 생성. "예시로 둘러보기" 클릭 시 지연 로드된다.
 //  분석에 필요한 필드만 남겨 용량 최소화.
 //  용법: node tools/build_run_history.js [historyDir]
 //   기본: SlayTheSpire2\steam\*\profile1\saves\history 자동 탐색.
