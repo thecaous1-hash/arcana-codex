@@ -592,14 +592,27 @@ notes에는 "in Claw or Sly builds playing 10+ cards per turn"이라고
    근거: docs/수정_1단계_데이터정리.md 14행
    "S티어 빌드 부적합 anti 추가 … 10장. 제외 4장: 사혈·거상·곡예·어려운 결정"
    S 14장 정산 (10 + 4 = 14, 빠짐없이 설명됨):
-   · anti 추가 후 유지 9장 — 빙하·개조·방적기·초임계·위풍당당·훑기·포식·정화·강령회
+   · anti 추가 후 유지 9장 (게임 공식 한글명 / 데이터 id):
+     빙하(Glacier) · 모드 적용(Modded) · 스피너(Spinner) · 임계 초과(Supercritical) ·
+     위풍당당(Panache) · 걷어내기(Skim) · 포식(Feed) · 정화(Cleanse) · 강령회(Seance)
      (현재 anti 2~14개. 위풍당당만 14개: claw·sly 제외 전 아키타입 id)
    · anti 추가 후 되돌림 1장 — 제물(Offering)
      1단계에서 anti [strength, block, strike]를 달았으나, 3단계 구분안의
      "부당 지목 9장"에 포함돼 전부 삭제하고 4.80(S)로 복귀. 사혈·거상과 동일 처리
-   · 사용자 판정 제외 4장 — 사혈·거상·곡예·어려운 결정
+   · 사용자 판정 제외 4장 — 사혈(Bloodletting) · 거상(Colossus) ·
+     곡예(Acrobatics) · 어려운 결정(Decisions, Decisions)
      "빌드 무관 범용 유틸" 성격이라 감점이 부당하다는 판정. 처음부터 대상 아님
-   ⚠️ 되돌리기 금지: 지금 anti가 빈 S티어 5장(사혈·거상·곡예·어려운 결정·제물)에
+   ※ 카드명 표기 원칙 (2026-09-08 정정): 이 문서의 카드명은 **게임 공식 한글명**
+     (data/loc_ko.js의 KO_OFF)을 쓰고 괄호에 데이터 id(db.js의 카드 `id` 값)를 병기한다.
+     최초 기록 시 i18n.js 계열 명칭과 임의 번역이 섞여 4장이 틀렸다:
+       개조 → 모드 적용(Modded) · 방적기 → 스피너(Spinner)
+       초임계 → 임계 초과(Supercritical) · 훑기 → 걷어내기(Skim)
+     이 중 3장은 위 F항목 "범위 확대(8/29)"에 이미 불일치 사례로 적혀 있었는데도
+     그 반대편(i18n.js) 이름을 가져다 쓴 것이다. "방적기"는 어느 데이터에도 없는
+     임의 번역이었다. 앞으로 카드명을 적을 때는 반드시 KO_OFF에서 확인하고
+     id를 병기할 것. 확인 명령은 아래 B-2 참조.
+   ⚠️ 되돌리기 금지: 지금 anti가 빈 S티어 5장 — 사혈(Bloodletting) · 거상(Colossus) ·
+   곡예(Acrobatics) · 어려운 결정(Decisions, Decisions) · 제물(Offering) — 에
    anti를 다는 것은 누락 보완이 아니라 **위 판정을 뒤집는 일**이다.
    다시 손대려면 반드시 사용자 재판정을 먼저 받을 것.
    확인법:
