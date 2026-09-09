@@ -223,7 +223,7 @@ function scoreCard(cardName, char, da, floor, act, deckCards, encounter, equippe
   for (const {arch, strength} of da.detected) {
     const tag = pickArchTags(data, arch, synAntiDup).antiTag;
     if (tag === null) continue;
-    const pen = -(0.2 + strength * 0.25);
+    const pen = -(0.25 + strength * 0.30);
     score += pen; antiDelta += pen;
     antiR.push(`${pen.toFixed(1)} ${koArch(arch.name)} 빌드와 충돌 (${koTag(tag)})`);
   }
