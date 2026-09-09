@@ -3109,7 +3109,7 @@ const DB = {
       },
       "TOOLS_OF_THE_TRADE": {
         "id": "Tools Of The Trade",
-        "tier": "S",
+        "tier": "A",
         "builds": [
           "sly"
         ],
@@ -3709,7 +3709,7 @@ const DB = {
       },
       "WRAITH_FORM": {
         "id": "Wraith Form",
-        "tier": "S",
+        "tier": "A",
         "builds": [
           "any"
         ],
